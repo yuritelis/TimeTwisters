@@ -1,4 +1,15 @@
 # Milestone 01
+## Informações Gerais
+Entrega: 19/09/2025
+Status: concluído
+Integrantes:
+- Daniel Barroquelo
+- Gabriel Mezet
+- Giovana Couto
+- Júlia Velozo
+- Pedro Terezzino
+- Yuri Telis <br>
+
 ## Proposta
 - Descrição da mecânica temporal e universo narrativo. <br>
 
