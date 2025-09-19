@@ -1,0 +1,83 @@
+<svg width="1350" height="848" viewBox="0 0 1350 848" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Panel_Preview">
+<g id="ColumnGroup">
+<g id="Title">
+<rect x="50" y="50" width="82" height="24" rx="4" fill="#FED70A"/>
+<text id="MessageText" fill="#212121" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="14" letter-spacing="0em"><tspan x="58" y="66.8535">Panel/Title</tspan></text>
+</g>
+<g id="Panel/Title/Dummy">
+<g id="Background">
+<mask id="path-5-inside-1_6_662" fill="white">
+<path d="M50 99C50 96.2386 52.2386 94 55 94H645C647.761 94 650 96.2386 650 99V174H50V99Z"/>
+</mask>
+<path d="M50 99C50 96.2386 52.2386 94 55 94H645C647.761 94 650 96.2386 650 99V174H50V99Z" fill="#029AE0"/>
+<path d="M49 99C49 95.6863 51.6863 93 55 93H645C648.314 93 651 95.6863 651 99H649C649 96.7909 647.209 95 645 95H55C52.7909 95 51 96.7909 51 99H49ZM651 175H49L51 173H649L651 175ZM49 175V99C49 95.6863 51.6863 93 55 93V95C52.7909 95 51 96.7909 51 99V173L49 175ZM645 93C648.314 93 651 95.6863 651 99V175L649 173V99C649 96.7909 647.209 95 645 95V93Z" fill="#01699C" mask="url(#path-5-inside-1_6_662)"/>
+</g>
+</g>
+<g id="Title_2">
+<rect x="50" y="194" width="126" height="24" rx="4" fill="#FED70A"/>
+<text id="MessageText_2" fill="#212121" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="14" letter-spacing="0em"><tspan x="58" y="210.854">Panel/Body/Titled</tspan></text>
+</g>
+<g id="Panel/Body/Titled">
+<path id="WindowContent" d="M50 238H650V392C650 396.418 646.418 400 642 400H58C53.5817 400 50 396.418 50 392V238Z" fill="#01699C"/>
+<path id="WindowContent_2" d="M50.5 238.5H649.5V390C649.5 394.142 646.142 397.5 642 397.5H58C53.8579 397.5 50.5 394.142 50.5 390V238.5Z" fill="#79CDE8" stroke="#01699C"/>
+</g>
+<g id="Title_3">
+<rect x="50" y="420" width="149" height="24" rx="4" fill="#FED70A"/>
+<text id="MessageText_3" fill="#212121" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="14" letter-spacing="0em"><tspan x="58" y="436.854">Panel/Body/Rounded</tspan></text>
+</g>
+<g id="Panel/Body/Rounded">
+<g id="Panel/Background">
+<path d="M50 475C50 472.239 52.2386 470 55 470H645C647.761 470 650 472.239 650 475V658C650 660.761 647.761 663 645 663H55C52.2386 663 50 660.761 50 658V475Z" fill="#01699C"/>
+<path d="M50 470H650H50ZM650 658C650 662.694 646.194 666.5 641.5 666.5H58.5C53.8056 666.5 50 662.694 50 658C50 658.828 52.2386 659.5 55 659.5H645C647.761 659.5 650 658.828 650 658ZM50 663V470V663ZM650 470V663V470Z" fill="#01699C"/>
+</g>
+<rect id="Panel/Background_2" x="50.5" y="464.5" width="599" height="199" rx="7.5" fill="#79CDE8" stroke="#01699C"/>
+</g>
+</g>
+<g id="ColumnGroup_2">
+<g id="Title_4">
+<rect x="700" y="50" width="160" height="24" rx="4" fill="#FED70A"/>
+<text id="MessageText_4" fill="#212121" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="14" letter-spacing="0em"><tspan x="708" y="66.8535">Panel/Window/Medium</tspan></text>
+</g>
+<g id="Panel/Window/Medium">
+<g id="Panel/Body/Titled_2">
+<path id="WindowContent_3" d="M700 174H1300V328C1300 332.418 1296.42 336 1292 336H708C703.582 336 700 332.418 700 328V174Z" fill="#01699C"/>
+<path id="WindowContent_4" d="M700.5 174.5H1299.5V326C1299.5 330.142 1296.14 333.5 1292 333.5H708C703.858 333.5 700.5 330.142 700.5 326V174.5Z" fill="#79CDE8" stroke="#01699C"/>
+</g>
+<g id="Panel/Title/Example">
+<g id="Panel/Title/Dummy_2">
+<g id="Background_2">
+<mask id="path-22-inside-2_6_662" fill="white">
+<path d="M700 99C700 96.2386 702.239 94 705 94H1295C1297.76 94 1300 96.2386 1300 99V174H700V99Z"/>
+</mask>
+<path d="M700 99C700 96.2386 702.239 94 705 94H1295C1297.76 94 1300 96.2386 1300 99V174H700V99Z" fill="#029AE0"/>
+<path d="M699 99C699 95.6863 701.686 93 705 93H1295C1298.31 93 1301 95.6863 1301 99H1299C1299 96.7909 1297.21 95 1295 95H705C702.791 95 701 96.7909 701 99H699ZM1301 175H699L701 173H1299L1301 175ZM699 175V99C699 95.6863 701.686 93 705 93V95C702.791 95 701 96.7909 701 99V173L699 175ZM1295 93C1298.31 93 1301 95.6863 1301 99V175L1299 173V99C1299 96.7909 1297.21 95 1295 95V93Z" fill="#01699C" mask="url(#path-22-inside-2_6_662)"/>
+</g>
+</g>
+</g>
+</g>
+<g id="Title_5">
+<rect x="700" y="354" width="146" height="24" rx="4" fill="#FED70A"/>
+<text id="MessageText_5" fill="#212121" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="14" letter-spacing="0em"><tspan x="708" y="370.854">Panel/Window/Large</tspan></text>
+</g>
+<g id="Panel/Window/Large">
+<g id="Panel/Body/Titled_3">
+<path id="WindowContent_5" d="M700 636H1300V790C1300 794.418 1296.42 798 1292 798H708C703.582 798 700 794.418 700 790V636Z" fill="#01699C"/>
+<path id="WindowContent_6" d="M700.5 478.5H1299.5V786.049C1299.5 790.191 1296.14 793.549 1292 793.549H708C703.858 793.549 700.5 790.191 700.5 786.049V478.5Z" fill="#79CDE8" stroke="#01699C"/>
+</g>
+<g id="Panel/Title/Example_2">
+<g id="Panel/Title/Dummy_3">
+<g id="Background_3">
+<mask id="path-30-inside-3_6_662" fill="white">
+<path d="M700 403C700 400.239 702.239 398 705 398H1295C1297.76 398 1300 400.239 1300 403V478H700V403Z"/>
+</mask>
+<path d="M700 403C700 400.239 702.239 398 705 398H1295C1297.76 398 1300 400.239 1300 403V478H700V403Z" fill="#029AE0"/>
+<path d="M699 403C699 399.686 701.686 397 705 397H1295C1298.31 397 1301 399.686 1301 403H1299C1299 400.791 1297.21 399 1295 399H705C702.791 399 701 400.791 701 403H699ZM1301 479H699L701 477H1299L1301 479ZM699 479V403C699 399.686 701.686 397 705 397V399C702.791 399 701 400.791 701 403V477L699 479ZM1295 397C1298.31 397 1301 399.686 1301 403V479L1299 477V403C1299 400.791 1297.21 399 1295 399V397Z" fill="#01699C" mask="url(#path-30-inside-3_6_662)"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<rect x="0.5" y="0.5" width="1349" height="847" stroke="white"/>
+</g>
+</svg>

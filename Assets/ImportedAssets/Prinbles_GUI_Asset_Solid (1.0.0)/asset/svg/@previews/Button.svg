@@ -1,0 +1,61 @@
+<svg width="433" height="371" viewBox="0 0 433 371" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Button_Preview">
+<g id="ColumnGroup">
+<g id="Title">
+<rect x="50" y="50" width="143" height="24" rx="4" fill="#FED70A"/>
+<text id="MessageText" fill="#212121" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="14" letter-spacing="0em"><tspan x="58" y="66.8535">Button/Rect/Medium</tspan></text>
+</g>
+<g id="Frame">
+<g id="Button/Rect-Medium/Default">
+<rect id="Background" x="50" y="99" width="154" height="74" rx="5" fill="#01699C"/>
+<rect id="Background_2" x="50.5" y="99.5" width="153" height="68" rx="4.5" fill="#029AE0" stroke="#01699C"/>
+</g>
+<g id="Button/Rect-Medium/Hover">
+<g id="Background_3" filter="url(#filter0_d_6_464)">
+<rect x="229" y="99" width="154" height="74" rx="4" fill="#01699C"/>
+</g>
+<rect id="Background_4" x="229.5" y="99.5" width="153" height="68" rx="4.5" fill="#029AE0" stroke="#01699C"/>
+</g>
+</g>
+<g id="Title_2">
+<rect x="50" y="198" width="160" height="24" rx="4" fill="#FED70A"/>
+<text id="MessageText_2" fill="#212121" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="14" letter-spacing="0em"><tspan x="58" y="214.854">Button/Square/Medium</tspan></text>
+</g>
+<g id="Frame_2">
+<g id="Button/Square-Medium/Default">
+<rect id="Background_5" x="50" y="248" width="86" height="74" rx="4" fill="#01699C"/>
+<rect id="Background_6" x="50.5" y="247.5" width="85" height="69" rx="4.5" fill="#029AE0" stroke="#01699C"/>
+</g>
+<g id="Button/Square-Medium/Hover">
+<g id="Background_7" filter="url(#filter1_d_6_464)">
+<rect x="161" y="248" width="86" height="74" rx="4" fill="#01699C"/>
+</g>
+<rect id="Background_8" x="161.5" y="247.5" width="85" height="69" rx="4.5" fill="#029AE0" stroke="#01699C"/>
+</g>
+</g>
+</g>
+<rect x="0.5" y="0.5" width="432" height="370" stroke="white"/>
+</g>
+<defs>
+<filter id="filter0_d_6_464" x="226" y="96" width="160" height="80" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="3" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_6_464"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6_464"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6_464" result="shape"/>
+</filter>
+<filter id="filter1_d_6_464" x="158" y="245" width="92" height="80" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="3" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_6_464"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6_464"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6_464" result="shape"/>
+</filter>
+</defs>
+</svg>

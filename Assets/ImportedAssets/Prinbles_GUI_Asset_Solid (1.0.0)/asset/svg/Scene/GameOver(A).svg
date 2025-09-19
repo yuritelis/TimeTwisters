@@ -1,0 +1,62 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Scene/GameOver(A)">
+<g id="Backgrounds/ShadowOverlay">
+<g id="Backgrounds" clip-path="url(#clip0_6_90)">
+<rect id="Background" width="1280" height="720" fill="url(#paint0_linear_6_90)" fill-opacity="0.95"/>
+</g>
+<rect id="ShadowOverlay" width="1280" height="720" fill="#001722" fill-opacity="0.4"/>
+</g>
+<g id="GameOverWindow">
+<g id="Panel/Body/Titled">
+<path id="WindowContent" d="M340 320H940V474C940 478.418 936.418 482 932 482H348C343.582 482 340 478.418 340 474V320Z" fill="#01699C"/>
+<path id="WindowContent_2" d="M340.5 320.5H939.5V472C939.5 476.142 936.142 479.5 932 479.5H348C343.858 479.5 340.5 476.142 340.5 472V320.5Z" fill="#79CDE8" stroke="#01699C"/>
+</g>
+<g id="ButtonsGroup">
+<g id="Buttons/Square-Medium/Repeat/Default">
+<g id="Button/Square-Medium">
+<rect id="Background_2" x="534" y="360" width="86" height="74" rx="4" fill="#01699C"/>
+<rect id="Background_3" x="534.5" y="359.5" width="85" height="69" rx="4.5" fill="#029AE0" stroke="#01699C"/>
+</g>
+<g id="Icons/Replay">
+<path id="Fill" fill-rule="evenodd" clip-rule="evenodd" d="M588.604 394.625C588.604 394.625 585.819 394.313 585.311 396.67C584.838 401.192 581.239 404.709 576.868 404.709C572.176 404.709 568.372 400.655 568.372 395.654C568.372 391.482 571.759 388.761 575.608 387.974C576.261 387.84 576.868 388.375 576.868 389.084V391.219C576.868 392.133 577.835 392.669 578.537 392.145L587.036 385.805C587.32 385.592 587.489 385.248 587.489 384.878C587.489 384.536 587.343 384.21 587.091 383.996L578.592 376.749C577.897 376.157 576.868 376.684 576.868 377.632V379.949C576.868 380.523 576.465 381.009 575.929 381.072C568.507 381.949 562 387.619 562 395.654C562 404.405 568.657 411.501 576.868 411.501C584.696 411.501 591.111 405.053 591.694 396.87C591.694 395.563 590.46 394.625 588.604 394.625Z" fill="#F5FCFD"/>
+</g>
+</g>
+<g id="Buttons/Square-Medium/Levels/Default">
+<g id="Button/Square-Medium_2">
+<rect id="Background_4" x="660" y="360" width="86" height="74" rx="4" fill="#01699C"/>
+<rect id="Background_5" x="660.5" y="359.5" width="85" height="69" rx="4.5" fill="#029AE0" stroke="#01699C"/>
+</g>
+<g id="Icons/Levels">
+<path id="Rectangle" d="M698.906 376.5H687.094C686.49 376.5 686 376.99 686 377.594V384.156C686 384.76 686.49 385.25 687.094 385.25H698.906C699.51 385.25 700 384.76 700 384.156V377.594C700 376.99 699.51 376.5 698.906 376.5Z" fill="#F5FCFD"/>
+<path id="Rectangle_2" d="M698.906 389.625H687.094C686.49 389.625 686 390.115 686 390.719V397.281C686 397.885 686.49 398.375 687.094 398.375H698.906C699.51 398.375 700 397.885 700 397.281V390.719C700 390.115 699.51 389.625 698.906 389.625Z" fill="#F5FCFD"/>
+<path id="Rectangle_3" d="M698.906 402.75H687.094C686.49 402.75 686 403.24 686 403.844V410.406C686 411.01 686.49 411.5 687.094 411.5H698.906C699.51 411.5 700 411.01 700 410.406V403.844C700 403.24 699.51 402.75 698.906 402.75Z" fill="#F5FCFD"/>
+<path id="Rectangle_4" d="M719.906 376.5H708.094C707.49 376.5 707 376.99 707 377.594V384.156C707 384.76 707.49 385.25 708.094 385.25H719.906C720.51 385.25 721 384.76 721 384.156V377.594C721 376.99 720.51 376.5 719.906 376.5Z" fill="#F5FCFD"/>
+<path id="Rectangle_5" d="M719.906 389.625H708.094C707.49 389.625 707 390.115 707 390.719V397.281C707 397.885 707.49 398.375 708.094 398.375H719.906C720.51 398.375 721 397.885 721 397.281V390.719C721 390.115 720.51 389.625 719.906 389.625Z" fill="#F5FCFD"/>
+<path id="Rectangle_6" d="M719.906 402.75H708.094C707.49 402.75 707 403.24 707 403.844V410.406C707 411.01 707.49 411.5 708.094 411.5H719.906C720.51 411.5 721 411.01 721 410.406V403.844C721 403.24 720.51 402.75 719.906 402.75Z" fill="#F5FCFD"/>
+</g>
+</g>
+</g>
+<g id="Panel/Title/Example">
+<g id="Panel/Title/Dummy">
+<g id="Background_6">
+<mask id="path-18-inside-1_6_90" fill="white">
+<path d="M340 245C340 242.239 342.239 240 345 240H935C937.761 240 940 242.239 940 245V320H340V245Z"/>
+</mask>
+<path d="M340 245C340 242.239 342.239 240 345 240H935C937.761 240 940 242.239 940 245V320H340V245Z" fill="#029AE0"/>
+<path d="M339 245C339 241.686 341.686 239 345 239H935C938.314 239 941 241.686 941 245H939C939 242.791 937.209 241 935 241H345C342.791 241 341 242.791 341 245H339ZM941 321H339L341 319H939L941 321ZM339 321V245C339 241.686 341.686 239 345 239V241C342.791 241 341 242.791 341 245V319L339 321ZM935 239C938.314 239 941 241.686 941 245V321L939 319V245C939 242.791 937.209 241 935 241V239Z" fill="#01699C" mask="url(#path-18-inside-1_6_90)"/>
+</g>
+</g>
+<text id="TitleText" fill="#F5FCFD" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="40" font-weight="bold" letter-spacing="0em"><tspan x="523.75" y="293.7">GAME OVER</tspan></text>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_6_90" x1="150.9" y1="360" x2="150.9" y2="910.237" gradientUnits="userSpaceOnUse">
+<stop stop-color="#ADE9F3"/>
+<stop offset="1" stop-color="#82CEE0"/>
+</linearGradient>
+<clipPath id="clip0_6_90">
+<rect width="1280" height="720" fill="white"/>
+</clipPath>
+</defs>
+</svg>
