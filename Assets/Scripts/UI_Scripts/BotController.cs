@@ -1,34 +1,30 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BotController : MonoBehaviour
 {
-    void Start()
+    public void BotPlay()
     {
-        
+        SceneManager.LoadScene("Teste01");
     }
 
-    void Update()
+    public void BotOptions()
     {
-        
+        SceneManager.LoadScene("OptionsScreen");
     }
 
-    void BotPlay()
+    public void BotCredits()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("CreditsScreen");
     }
 
-    void BotOptions()
+    public void BotMenu()
     {
-        SceneManager.LoadScene("MenuOptions");
+        SceneManager.LoadScene("TitleScreen");
     }
 
-    void BotCredits()
-    {
-        SceneManager.LoadScene("MenuCredits");
-    }
-
-    void BotSair()
+    public void BotSair()
     {
         Application.Quit();
     }
