@@ -1,0 +1,1092 @@
+fileFormatVersion: 2
+guid: faebe3a41183e6d47a7fd1701ff8678e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1248904367041259338
+    second: animated-tiles_0
+  - first:
+      213: 7467183010074082891
+    second: animated-tiles_1
+  - first:
+      213: 999578812777947858
+    second: animated-tiles_2
+  - first:
+      213: 4405943478799695401
+    second: animated-tiles_3
+  - first:
+      213: 8855636840920763836
+    second: animated-tiles_4
+  - first:
+      213: -1355188110398124474
+    second: animated-tiles_5
+  - first:
+      213: -5519983311655423818
+    second: animated-tiles_6
+  - first:
+      213: 1279378368186839760
+    second: animated-tiles_7
+  - first:
+      213: 608655420098007906
+    second: animated-tiles_8
+  - first:
+      213: 1073705134348853544
+    second: animated-tiles_9
+  - first:
+      213: -1306822321138035705
+    second: animated-tiles_10
+  - first:
+      213: 4463407188052180364
+    second: animated-tiles_11
+  - first:
+      213: 5722573295963358721
+    second: animated-tiles_12
+  - first:
+      213: -5224086435462206578
+    second: animated-tiles_13
+  - first:
+      213: 2489091328459762753
+    second: animated-tiles_14
+  - first:
+      213: 6963941616572742015
+    second: animated-tiles_15
+  - first:
+      213: 4838559821932360899
+    second: animated-tiles_16
+  - first:
+      213: 8522913149641415315
+    second: animated-tiles_17
+  - first:
+      213: -3535949300033588332
+    second: animated-tiles_18
+  - first:
+      213: -3736852490660826426
+    second: animated-tiles_19
+  - first:
+      213: 982417568549858740
+    second: animated-tiles_20
+  - first:
+      213: -239383153323639986
+    second: animated-tiles_21
+  - first:
+      213: 4386083574608722760
+    second: animated-tiles_22
+  - first:
+      213: 4279189300715010344
+    second: animated-tiles_23
+  - first:
+      213: -4531291334675362144
+    second: animated-tiles_24
+  - first:
+      213: -2795883876502463270
+    second: animated-tiles_25
+  - first:
+      213: 762155173038662451
+    second: animated-tiles_26
+  - first:
+      213: -7550107150770447006
+    second: animated-tiles_27
+  - first:
+      213: -7770366489558580432
+    second: animated-tiles_28
+  - first:
+      213: -1423798057662055056
+    second: animated-tiles_29
+  - first:
+      213: -4050748648963886417
+    second: animated-tiles_30
+  - first:
+      213: -292997882617790873
+    second: animated-tiles_31
+  - first:
+      213: -8324529699630571127
+    second: animated-tiles_32
+  - first:
+      213: 6348640238366761036
+    second: animated-tiles_33
+  - first:
+      213: 7681981265236725465
+    second: animated-tiles_34
+  - first:
+      213: 3896112132483513566
+    second: animated-tiles_35
+  - first:
+      213: -8756296765216041865
+    second: animated-tiles_36
+  - first:
+      213: 1762411287851888977
+    second: animated-tiles_37
+  - first:
+      213: 7370318629355994056
+    second: animated-tiles_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: animated-tiles_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 357
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47ade3a7eff45110800000000000000
+      internalID: 1248904367041259338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 325
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e3c448263c0a760800000000000000
+      internalID: 7467183010074082891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 325
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2e2ac52a73fdd00800000000000000
+      internalID: 999578812777947858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 325
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92efd42104e052d30800000000000000
+      internalID: 4405943478799695401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_4
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 325
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdc1f2a9ca85ea70800000000000000
+      internalID: 8855636840920763836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 325
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e03ebf797613de0800000000000000
+      internalID: -1355188110398124474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_6
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 325
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b0b1b69c641563b0800000000000000
+      internalID: -5519983311655423818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_7
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 296
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d27811f8d341c110800000000000000
+      internalID: 1279378368186839760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 264
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 263de8931e0627800800000000000000
+      internalID: 608655420098007906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_9
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 264
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8216066812196ee00800000000000000
+      internalID: 1073705134348853544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_10
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 264
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7041404d50c3ddde0800000000000000
+      internalID: -1306822321138035705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 264
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d76cb703531fd30800000000000000
+      internalID: 4463407188052180364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_12
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 264
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 106480bd71aaa6f40800000000000000
+      internalID: 5722573295963358721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_13
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 264
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ba65ab0115087b0800000000000000
+      internalID: -5224086435462206578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_14
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 231
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14c695e10670b8220800000000000000
+      internalID: 2489091328459762753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_15
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 195
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79b064f004e4a060800000000000000
+      internalID: 6963941616572742015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_16
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 195
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c471c2b584062340800000000000000
+      internalID: 4838559821932360899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_17
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 195
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ad1ef6a58774670800000000000000
+      internalID: 8522913149641415315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_18
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 195
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493f4bb88d8cdeec0800000000000000
+      internalID: -3535949300033588332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_19
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 195
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2b02c5578042cc0800000000000000
+      internalID: -3736852490660826426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_20
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 195
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd6482d29f32ad00800000000000000
+      internalID: 982417568549858740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_21
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 164
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b7ee45a4a8dacf0800000000000000
+      internalID: -239383153323639986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_22
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 132
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b7abbc5cf7edc30800000000000000
+      internalID: 4386083574608722760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_23
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 132
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82935c33ffbb26b30800000000000000
+      internalID: 4279189300715010344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_24
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 132
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae8ed6f98e9d11c0800000000000000
+      internalID: -4531291334675362144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_25
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 132
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc14d37d660339d0800000000000000
+      internalID: -2795883876502463270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_26
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 102
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33322b08718b39a00800000000000000
+      internalID: 762155173038662451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_27
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 102
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26dd03e6c81a83790800000000000000
+      internalID: -7550107150770447006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_28
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 102
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 033034fc8dc1a2490800000000000000
+      internalID: -7770366489558580432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_29
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 102
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d792dc537ad3ce0800000000000000
+      internalID: -1423798057662055056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_30
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 102
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa23d18c099d8c7c0800000000000000
+      internalID: -4050748648963886417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_31
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 102
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76eff966aff0febf0800000000000000
+      internalID: -292997882617790873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_32
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 74
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981a45be754597c80800000000000000
+      internalID: -8324529699630571127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_33
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 74
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c402a9609a6ea1850800000000000000
+      internalID: 6348640238366761036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_34
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 74
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de04a58241eb9a60800000000000000
+      internalID: 7681981265236725465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_35
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 74
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edcf4cd8755c11630800000000000000
+      internalID: 3896112132483513566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_36
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 74
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77455612c726b7680800000000000000
+      internalID: -8756296765216041865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_37
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 74
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151fc888ab7557810800000000000000
+      internalID: 1762411287851888977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated-tiles_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 352
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb35386eb1a84660800000000000000
+      internalID: 7370318629355994056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
