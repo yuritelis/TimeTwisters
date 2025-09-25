@@ -2,6 +2,7 @@
 Este projeto é parte essencial da conclusão do módulo de Projeto 2D (segundo semestre do ano de 2025) do curso de Bacharelado em Jogos Digitais da PUC-SP.
 
 ## Ideia geral
+Time Twisters é um jogo 2D TopDown de puzzle e investigação com viagem no tempo no qual a protagonista, Julie Caulfield, herda uma casa de um parente distante e conforme explora a mansão, ela descobre segredos sobre seus antepassados.
 
 ## Integrantes
 A equipe responsável pela idealização e produção do jogo foi:
@@ -17,3 +18,4 @@ A equipe responsável pela idealização e produção do jogo foi:
 </div>
 
 ## Sumário do Projeto
+- Milestone 01: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone01_mecanicaeuniverso.md"> Mecânica Temporal e Universo Narrativo </a>
