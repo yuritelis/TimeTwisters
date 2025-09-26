@@ -1,7 +1,7 @@
 # Milestone 01
 ## Informações Gerais
 Entrega: 26/09/2025
-Status: Em progresso
+Status: Concluído
 Integrantes:
 - Daniel Barroquelo
 - Gabriel Mezet
