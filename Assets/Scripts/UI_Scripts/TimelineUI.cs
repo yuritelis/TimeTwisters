@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class TimelineUI : MonoBehaviour
@@ -12,6 +13,10 @@ public class TimelineUI : MonoBehaviour
 
     private Color normalColor = Color.white;
     private Color disabledColor = Color.gray;
+    public PlayerController playerController;
+    public static bool isPaused = false;
+    public PlayerInput playerInput;
+
 
     void Start()
     {
@@ -27,6 +32,10 @@ public class TimelineUI : MonoBehaviour
         currentTimeObject = timeObject;
         panel.SetActive(true);
         UpdateButtonStates(); // atualiza os botões quando abre
+        Time.timeScale = 0f;
+        TimelineUI.isPaused = true;
+        playerInput.enabled = false;
+        isPaused = true;
     }
 
     private void ChooseTimeline(Timeline timeline)
@@ -36,6 +45,10 @@ public class TimelineUI : MonoBehaviour
             currentTimeObject.SetTimeline(timeline);
         }
         panel.SetActive(false);
+        Time.timeScale = 1f;
+        TimelineUI.isPaused = false;
+        playerInput.enabled = true;
+        isPaused = false;
     }
 
     private void UpdateButtonStates()

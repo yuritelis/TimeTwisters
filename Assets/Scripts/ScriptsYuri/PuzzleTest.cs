@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class Puzzle : MonoBehaviour
 {
-    [SerializeField] GameObject instrucaoUI;
-    [SerializeField] GameObject contGarrafasUI;
-    [SerializeField] GameObject garrafasObject;
-    [SerializeField] GameObject[] garrafas;
-    [SerializeField] GameObject papel;
-    [SerializeField] GameObject papelUI;
-    [SerializeField] TextMeshPro contGarrafaTxt;
+    [SerializeField] public GameObject instrucaoUI;
+    [SerializeField] public GameObject contGarrafasUI;
+    [SerializeField] public GameObject garrafasObject;
+    [SerializeField] public GameObject papel;
+    [SerializeField] public GameObject livro;
+    [SerializeField] public GameObject papelUI;
+    [SerializeField] public TextMeshProUGUI contGarrafaTxt;
 
     int contGarrafas;
+
+    public KeyCode interactKey = KeyCode.E;
 
     void Start()
     {
@@ -34,13 +36,14 @@ public class Puzzle : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("livro") && Input.GetKey(KeyCode.E))
+        if (collision.CompareTag("livro") && Input.GetKey(KeyCode.E))
         {
             instrucaoUI.SetActive(true);
             garrafasObject.SetActive(true);
             contGarrafasUI.SetActive(true);
+            Destroy(livro);
         }
 
         if (collision.gameObject.CompareTag("garrafa") && Input.GetKey(KeyCode.E))
@@ -49,9 +52,10 @@ public class Puzzle : MonoBehaviour
             PegaGarrafas();
         }
 
-        if (collision.gameObject.CompareTag("papel") && Input.GetKey(KeyCode.E))
+        if (collision.CompareTag("papel") && Input.GetKey(KeyCode.E))
         {
             papelUI.SetActive(true);
+            Destroy(papel);
         }
     }
 
