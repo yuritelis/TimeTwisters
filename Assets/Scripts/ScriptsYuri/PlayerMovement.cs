@@ -19,23 +19,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (TimelineUI.isPaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
         rb.linearVelocity = input * moveSpeed;
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        anim.SetBool("isWalking", true);
+        if (TimelineUI.isPaused)
+        {
+            anim.SetBool("isWalking", false);
+            return;
+        }
+
+        anim.SetBool("isWalking", !context.canceled);
 
         if (context.canceled)
         {
-            anim.SetBool("isWalking", false);
             anim.SetFloat("LastInputX", input.x);
-            anim.SetFloat("LastInputY", input.x);
+            anim.SetFloat("LastInputY", input.y);
+            input = Vector2.zero;
         }
-        input = context.ReadValue<Vector2>();
+        else
+        {
+            input = context.ReadValue<Vector2>();
+        }
+
         anim.SetFloat("InputX", input.x);
         anim.SetFloat("InputY", input.y);
     }
+
 
     /*public void Sprint(InputAction.CallbackContext context)
     {
