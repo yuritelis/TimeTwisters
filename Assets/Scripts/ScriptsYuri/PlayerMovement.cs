@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    float horizontalInput;
-    float verticalInput;
-    float moveSpeed = 1f;
-
-    bool isFacingRight = true;
-
-    Rigidbody2D rb;
-    Animator anim;
+    [SerializeField] float moveSpeed = 5f;
+    private Rigidbody2D rb;
+    private Vector2 input;
+    private Animator anim;
 
     void Start()
     {
@@ -21,29 +19,36 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-
-        if (isFacingRight)
-        {
-
-        }
-
-        FlipSprite();
+        rb.linearVelocity = input * moveSpeed;
     }
 
-    private void FixedUpdate()
+    public void Move(InputAction.CallbackContext context)
     {
-        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
-        anim.SetFloat("xVelocity", Mathf.Abs(rb.linearVelocity.x));
-        anim.SetFloat("yVelocity", rb.linearVelocity.y);
+        anim.SetBool("isWalking", true);
+
+        if (context.canceled)
+        {
+            anim.SetBool("isWalking", false);
+            anim.SetFloat("LastInputX", input.x);
+            anim.SetFloat("LastInputY", input.x);
+        }
+        input = context.ReadValue<Vector2>();
+        anim.SetFloat("InputX", input.x);
+        anim.SetFloat("InputY", input.y);
     }
 
-    void FlipSprite()
+    /*public void Sprint(InputAction.CallbackContext context)
     {
-        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
+        anim.SetBool("isRunning", true);
+
+        if (context.canceled)
         {
-            isFacingRight = !isFacingRight;
+            anim.SetBool("isRunning", false);
+            anim.SetFloat("LastInputX", input.x);
+            anim.SetFloat("LastInputY", input.x);
         }
-    }
+        input = context.ReadValue<Vector2>();
+        anim.SetFloat("InputX", input.x * 2);
+        anim.SetFloat("InputY", input.y * 2);
+    }*/
 }

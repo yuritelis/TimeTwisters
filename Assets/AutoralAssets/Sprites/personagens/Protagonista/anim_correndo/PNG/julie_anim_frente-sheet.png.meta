@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 320
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -144,10 +144,10 @@ TextureImporter:
       name: julie_anim_frente-sheet_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 0
         y: 0
-        width: 182
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: julie_anim_frente-sheet_1
       rect:
         serializedVersion: 2
-        x: 389
-        y: 9
-        width: 182
-        height: 311
+        x: 320
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: julie_anim_frente-sheet_2
       rect:
         serializedVersion: 2
-        x: 709
+        x: 640
         y: 0
-        width: 172
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: julie_anim_frente-sheet_3
       rect:
         serializedVersion: 2
-        x: 1029
+        x: 960
         y: 0
-        width: 182
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: julie_anim_frente-sheet_4
       rect:
         serializedVersion: 2
-        x: 1349
-        y: 9
-        width: 182
-        height: 311
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,19 +254,19 @@ TextureImporter:
       name: julie_anim_frente-sheet_5
       rect:
         serializedVersion: 2
-        x: 1669
+        x: 1600
         y: 0
-        width: 172
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 94cf9708d66d6f670800000000000000
+      spriteID: ccebea4a696cda24a8c3bebe68ae0d03
       internalID: 8572274706541575241
       vertices: []
       indices: 
@@ -276,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0ff58fa558d791e41bbdcfe7ad73ad2a
     internalID: 0
     vertices: []
     indices: 
