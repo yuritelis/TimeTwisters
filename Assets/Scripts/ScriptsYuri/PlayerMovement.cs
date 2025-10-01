@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 input;
     private Animator anim;
+    public Player_Combat player_Combat;
 
     void Start()
     {
@@ -25,6 +26,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
         rb.linearVelocity = input * moveSpeed;
+
+        if (Input.GetButtonDown("Slash"))
+        {
+            player_Combat.Attack();
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
