@@ -4,17 +4,18 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
-    [SerializeField] GameObject gObject;
+    [SerializeField] GameObject optionsScreen;
     private bool isPaused = false;
 
     private void Awake()
     {
-        Object.DontDestroyOnLoad(gObject);
+        Object.DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
         pauseScreen.SetActive(false);
+        optionsScreen.SetActive(false);
     }
 
     private void Update()
@@ -44,6 +45,7 @@ public class PauseGame : MonoBehaviour
     private void Resume()
     {
         pauseScreen.SetActive(false);
+        optionsScreen.SetActive(false);
     }
 
     public void BotMenu()
@@ -54,5 +56,12 @@ public class PauseGame : MonoBehaviour
     public void BotResume()
     {
         pauseScreen.SetActive(false);
+        optionsScreen.SetActive(false);
+    }
+
+    public void BotOpcoes()
+    {
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(true);
     }
 }

@@ -9,6 +9,13 @@ public class BotController : MonoBehaviour
     [SerializeField] GameObject creditsScreen;
     [SerializeField] GameObject gObject;
 
+    AudioManager aManager;
+
+    private void Awake()
+    {
+        aManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
+    }
+
     private void Start()
     {
         Object.DontDestroyOnLoad(gObject);
@@ -20,23 +27,27 @@ public class BotController : MonoBehaviour
 
     public void BotPlay()
     {
+        aManager.PlaySFX(aManager.botClick);
         SceneManager.LoadScene("Prototipo");
     }
 
     public void BotOptions()
     {
+        aManager.PlaySFX(aManager.botClick);
         titleScreen.SetActive(false);
         optionsScreen.SetActive(true);
     }
 
     public void BotCredits()
     {
+        aManager.PlaySFX(aManager.botClick);
         titleScreen.SetActive(false);
         creditsScreen.SetActive(true);
     }
 
     public void BotMenu()
     {
+        aManager.PlaySFX(aManager.botClick);
         optionsScreen.SetActive(false);
         creditsScreen.SetActive(false);
         titleScreen.SetActive(true);
@@ -44,6 +55,7 @@ public class BotController : MonoBehaviour
 
     public void BotSair()
     {
+        aManager.PlaySFX(aManager.botClick);
         Application.Quit();
     }
 }
