@@ -39,11 +39,13 @@ A viagem no tempo afeta os puzzles e a progressão narrativa/_gameplay_ de forma
 A protagonista viaja por essas temporalidades para descobrir mais sobre o passado da mansão e daqueles que um dia a habitaram, interagindo com puzzles e personagens que dão suporte à sua investigação.
 
 ### Implementação
+Abaixo, estão a implementação em nível atual do que vai se tornar o cenário do jogo. No momento, os _tiles_ do presente estão mais avançados na produção e os que pertencem às outras temporalidades, ainda estão no início do processo. Além disso, a cena utilizada para tal, é um teste para verificação do que está pronto e o que ainda precisa ser feito ou alterado. Desta forma, as imagens abaixo ainda não são as versões finais do mapa do jogo, apenas uma concept do cenário.
+
 #### Passado
-img
+<img width="340" height="350" alt="Implementação inicial das salas no passado" src="https://github.com/user-attachments/assets/ae09c7cb-46db-46af-9a0b-0eec6bc2bf88" />
 
 #### Presente
-img
+<img width="338" height="552" alt="Implementação inicial das salas no presente" src="https://github.com/user-attachments/assets/00535383-b0e7-4a2b-b357-9d93e81af2cc" />
 
 #### Futuro
-img
+<img width="337" height="351" alt="Implementação inicial das salas no futuro" src="https://github.com/user-attachments/assets/eea82e8d-b90e-4354-bb9d-7b166f521c06" />
