@@ -3,8 +3,22 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     public int damage = 1;
-    private void OnCollisionEnter2D(Collision2D collision)
+    public Transform attackPoint;
+    public float attackRange;
+    public float knockbackForce;
+    public float stunTime;
+    public LayerMask playerLayer;
+
+    public void Attack()
     {
-        collision.gameObject.GetComponent<PlayerHealth>().ChangeHealth(-damage);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+
+        // Se tiver mais de 1 elemento no array, significa que o jogador está dentro do attackPoint (ou seja, no alcance do ataque).
+        if (hits.Length > 0)
+        {
+            hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
+            hits[0].GetComponent<PlayerController>().Knockback(transform, knockbackForce, stunTime);
+            Debug.Log("Player levou dano");
+        }
     }
 }   

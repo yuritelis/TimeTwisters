@@ -23,7 +23,6 @@ public class Enemy_Health : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     void Update()
