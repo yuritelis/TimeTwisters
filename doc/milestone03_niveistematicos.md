@@ -1,7 +1,7 @@
 # Milestone 03
 ## Informações Gerais
 Entrega: 08/10/2025 <br>
-Status: Em andamento <br>
+Status: Concluído <br>
 Integrantes:
 - Daniel Barroquelo
 - Gabriel Mezet
