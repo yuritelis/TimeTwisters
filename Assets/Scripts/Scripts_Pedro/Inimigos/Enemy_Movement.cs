@@ -1,25 +1,31 @@
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class Enemy_Movement : MonoBehaviour
 {
-    public float speed;
-    public float attackRange = 2;
-    public float attackCooldown = 2;
-    private float attackCooldownTimer;
-    public Transform attackPoint;
+    [Header("Movimento e Ataque")]
+    public float speed = 2f;
+    public float attackRange = 1.5f;
+    public float playerDetectRange = 5f;
+    public float attackCooldown = 2f;
 
-    public float playerDetectRange = 5;
+    [Header("Trava de Ataque")]
+    [Tooltip("Tempo durante o qual o inimigo não pode cancelar o ataque, mesmo que o jogador saia do alcance.")]
+    public float attackLockTime = 0.4f;
+    private float attackLockTimer = 0f;
+
+    [Header("Referências")]
+    public Transform attackPoint;
     public Transform detectionPoint;
     public LayerMask playerLayer;
 
-    private int facingDirection = -1;
-    private EnemyState enemyState, newState;
-
+    private float attackCooldownTimer = 0f;
     private Rigidbody2D rb;
-    private Transform player;
     private Animator anim;
+    private Transform player;
+
+    private EnemyState enemyState;
+    private bool canAttack = true;
+    private int facingDirection = -1;
 
     private void Start()
     {
@@ -28,46 +34,58 @@ public class Enemy_Movement : MonoBehaviour
         ChangeState(EnemyState.Idle);
     }
 
-    void Update()
+    private void Update()
     {
-        CheckForPlayer();
+        // 🔁 Atualiza cooldown de ataque
         if (attackCooldownTimer > 0)
         {
             attackCooldownTimer -= Time.deltaTime;
+            if (attackCooldownTimer <= 0)
+                canAttack = true;
         }
-        if (enemyState == EnemyState.Chasing)
+
+        // ⏳ Atualiza o timer da trava de ataque
+        if (attackLockTimer > 0)
         {
-            Chase();
+            attackLockTimer -= Time.deltaTime;
         }
-        else if (enemyState == EnemyState.Attacking)
+
+        // 👀 Verifica se o jogador está dentro da área de detecção
+        CheckForPlayer();
+
+        // ⚙️ Comportamento baseado no estado atual
+        switch (enemyState)
         {
-            float distanceToPlayer = Vector2.Distance(attackPoint.position, player.position);
-            if (distanceToPlayer > attackRange)
-            {
-                ChangeState(EnemyState.Chasing);
-            }
-            else
-            {
+            case EnemyState.Chasing:
+                if (player != null)
+                {
+                    float distanceToPlayer = Vector2.Distance(attackPoint.position, player.position);
+                    if (distanceToPlayer > attackRange)
+                        Chase();
+                    else
+                        rb.linearVelocity = Vector2.zero; // se estiver perto demais, para
+                }
+                break;
+
+            case EnemyState.Attacking:
                 rb.linearVelocity = Vector2.zero;
-            }
-        }
-    }
 
-    void Chase()
-    {
-        if (player.position.x > transform.position.x && facingDirection == -1 || // or
-            player.position.x < transform.position.x && facingDirection == 1)
-        {
-            Flip();
-        }
-        Vector2 direction = (player.position - transform.position).normalized;
-        rb.linearVelocity = direction * speed;
-    }
+                if (player != null)
+                {
+                    float distanceToPlayer = Vector2.Distance(attackPoint.position, player.position);
 
-    void Flip()
-    {
-        facingDirection *= -1;
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                    // ⚔️ Só pode sair do ataque depois que o tempo de lock acabar
+                    if (distanceToPlayer > attackRange && attackLockTimer <= 0)
+                    {
+                        ChangeState(EnemyState.Chasing);
+                    }
+                }
+                break;
+
+            case EnemyState.Idle:
+                rb.linearVelocity = Vector2.zero;
+                break;
+        }
     }
 
     private void CheckForPlayer()
@@ -79,72 +97,119 @@ public class Enemy_Movement : MonoBehaviour
             player = hits[0].transform;
             float distanceToPlayer = Vector2.Distance(attackPoint.position, player.position);
 
+            // 👊 Se o jogador está no alcance de ataque
             if (distanceToPlayer <= attackRange)
             {
-                if (attackCooldownTimer <= 0)
+                if (canAttack && enemyState != EnemyState.Attacking)
                 {
-                    attackCooldownTimer = attackCooldown;
                     ChangeState(EnemyState.Attacking);
-                }
-                else
-                {
-                    // Se estiver dentro do alcance mas em cooldown, continua parado
-                    rb.linearVelocity = Vector2.zero;
+                    anim.SetTrigger("Attack");
+                    canAttack = false;
+                    attackCooldownTimer = attackCooldown;
+                    attackLockTimer = attackLockTime; // trava o cancelamento do ataque por um tempo
                 }
             }
-            else
+            // 🚶‍♂️ Se está fora do alcance de ataque, mas dentro do alcance de detecção
+            else if (enemyState != EnemyState.Chasing)
             {
                 ChangeState(EnemyState.Chasing);
             }
         }
-        else
+        else if (enemyState != EnemyState.Idle)
         {
-            rb.linearVelocity = Vector2.zero;
+            // 💤 Jogador fora de alcance
             ChangeState(EnemyState.Idle);
+            player = null;
         }
     }
 
-
-
-    private void FixedUpdate()
+    private void Chase()
     {
-        if (enemyState == EnemyState.Chasing && player != null)
+        if (player == null) return;
+
+        // 🔄 Vira na direção do jogador
+        if ((player.position.x > transform.position.x && facingDirection == -1) ||
+            (player.position.x < transform.position.x && facingDirection == 1))
         {
-            Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
-            rb.linearVelocity = direction * speed;
+            Flip();
         }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
-        }
+
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.linearVelocity = direction * speed;
     }
 
-    void ChangeState(EnemyState newState)
+    private void Flip()
     {
-        // Sai da anima��o atual.
-        if (enemyState == EnemyState.Idle)
-            anim.SetBool("isIdle", false);
-        else if (enemyState == EnemyState.Chasing)
-            anim.SetBool("isChasing", false);
-        else if (enemyState == EnemyState.Attacking)
-            anim.SetBool("isAttacking", false);
+        facingDirection *= -1;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
 
-        // Atualiza o estado atual.
+    // 🎯 Chamado pelo evento de animação durante o ataque
+    public void Attack()
+    {
+        GetComponent<EnemyCombat>()?.Attack();
+    }
+
+    // 🔚 Chamado pelo último evento da animação de ataque
+    public void EndAttack()
+    {
+        // Reinicia cooldown
+        attackCooldownTimer = attackCooldown;
+        canAttack = false;
+
+        // Se o jogador ainda estiver perto, fica parado (Idle)
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(attackPoint.position, player.position);
+            if (distanceToPlayer <= attackRange)
+            {
+                ChangeState(EnemyState.Idle);
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
+        }
+
+        // Se o jogador estiver longe, volta a perseguir
+        ChangeState(EnemyState.Chasing);
+    }
+
+    private void ChangeState(EnemyState newState)
+    {
+        // Desliga estados antigos
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isChasing", false);
+        anim.SetBool("isAttacking", false);
+
         enemyState = newState;
 
-        // Entra na nova anima��o.
-        if (enemyState == EnemyState.Idle)
-            anim.SetBool("isIdle", true);
-        else if (enemyState == EnemyState.Chasing)
-            anim.SetBool("isChasing", true);
-        else if (enemyState == EnemyState.Attacking)
-            anim.SetBool("isAttacking", true);
+        // Liga o novo estado
+        switch (enemyState)
+        {
+            case EnemyState.Idle:
+                anim.SetBool("isIdle", true);
+                break;
+            case EnemyState.Chasing:
+                anim.SetBool("isChasing", true);
+                break;
+            case EnemyState.Attacking:
+                anim.SetBool("isAttacking", true);
+                break;
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
+        if (detectionPoint == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
+
+        if (attackPoint != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
     }
 }
 

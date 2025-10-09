@@ -8917,10 +8917,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  attackRange: 0.6
-  attackCooldown: 2
-  attackPoint: {fileID: 2007574683}
+  attackRange: 0.7
   playerDetectRange: 4
+  attackCooldown: 2
+  attackLockTime: 0.4
+  attackPoint: {fileID: 2007574683}
   detectionPoint: {fileID: 1233460628}
   playerLayer:
     serializedVersion: 2
@@ -9740,7 +9741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1889242518}
   weaponRange: 0.65
-  knockbackForce: 50
+  knockbackForce: 0.8
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -9760,6 +9761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 5
   maxHealth: 5
+  invincibilityDuration: 1
 --- !u!1 &1835058437
 GameObject:
   m_ObjectHideFlags: 0
@@ -10036,7 +10038,7 @@ Transform:
   m_GameObject: {fileID: 2007574682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.19, z: 0}
+  m_LocalPosition: {x: -0.027, y: 0.443, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
