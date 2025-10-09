@@ -28,7 +28,7 @@ public class BotController : MonoBehaviour
     public void BotPlay()
     {
         aManager.PlaySFX(aManager.botClick);
-        SceneManager.LoadScene("Prototipo");
+        SceneManager.LoadScene("Alpha");
     }
 
     public void BotOptions()
