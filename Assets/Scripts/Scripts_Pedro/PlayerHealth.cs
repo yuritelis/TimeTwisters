@@ -3,10 +3,26 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Vida")]
     public int currentHealth;
     public int maxHealth;
-    private bool isInvincible = false;
+
+    [Header("Invencibilidade")]
+    public bool isInvincible = false;
     public float invincibilityDuration = 1f;
+    public float flashInterval = 0.1f;
+
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+            originalColor = spriteRenderer.color;
+    }
 
     public void ChangeHealth(int amount)
     {
@@ -21,14 +37,34 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            if (gameObject.CompareTag("Player"))
+                Destroy(gameObject);
         }
     }
 
     private IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
-        yield return new WaitForSeconds(invincibilityDuration);
+        float elapsed = 0f;
+
+        while (elapsed < invincibilityDuration)
+        {
+            if (spriteRenderer != null)
+            {
+                // Pisca usando alpha
+                spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+                yield return new WaitForSeconds(flashInterval);
+                spriteRenderer.color = originalColor;
+                yield return new WaitForSeconds(flashInterval);
+            }
+
+            elapsed += flashInterval * 2;
+        }
+
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor;
+
         isInvincible = false;
     }
+
 }

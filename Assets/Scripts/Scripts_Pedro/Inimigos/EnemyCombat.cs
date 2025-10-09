@@ -5,8 +5,6 @@ public class EnemyCombat : MonoBehaviour
     public int damage = 1;
     public Transform attackPoint;
     public float attackRange;
-    public float knockbackForce;
-    public float stunTime;
     public LayerMask playerLayer;
 
     private bool isAttacking = false;
@@ -20,14 +18,8 @@ public class EnemyCombat : MonoBehaviour
         if (hits.Length > 0)
         {
             hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
-            hits[0].GetComponent<PlayerController>().Knockback(transform, knockbackForce, stunTime);
             Debug.Log("Player levou dano");
         }
-    }
-
-    private void StopAttacking()
-    {
-        isAttacking = false;
     }
 
     private void OnDrawGizmos()
@@ -37,5 +29,5 @@ public class EnemyCombat : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-        }
     }
+}

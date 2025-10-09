@@ -103,7 +103,6 @@ public class Enemy_Movement : MonoBehaviour
                 if (canAttack && enemyState != EnemyState.Attacking)
                 {
                     ChangeState(EnemyState.Attacking);
-                    anim.SetTrigger("Attack");
                     canAttack = false;
                     attackCooldownTimer = attackCooldown;
                     attackLockTimer = attackLockTime; // trava o cancelamento do ataque por um tempo
@@ -173,6 +172,11 @@ public class Enemy_Movement : MonoBehaviour
 
         // Se o jogador estiver longe, volta a perseguir
         ChangeState(EnemyState.Chasing);
+    }
+
+    public void LockAttack()
+    {
+        attackLockTimer = attackLockTime;
     }
 
     private void ChangeState(EnemyState newState)
