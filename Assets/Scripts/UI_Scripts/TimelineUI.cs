@@ -21,6 +21,19 @@ public class TimelineUI : MonoBehaviour
     void Start()
     {
         panel.SetActive(false); // garante que comece desativado
+        Presente.gameObject.SetActive(false);
+        Passado.gameObject.SetActive(false);
+        Futuro.gameObject.SetActive(false);
+
+        if (playerInput == null)
+        {
+            playerInput = FindFirstObjectByType<PlayerInput>();
+        }
+
+        if (playerController == null)
+        {
+            playerController = FindFirstObjectByType<PlayerController>();
+        }
 
         Presente.onClick.AddListener(() => ChooseTimeline(Timeline.Presente));
         Passado.onClick.AddListener(() => ChooseTimeline(Timeline.Passado));
@@ -30,12 +43,18 @@ public class TimelineUI : MonoBehaviour
     public void Open(TimeTravelTilemap timeObject)
     {
         currentTimeObject = timeObject;
+
         panel.SetActive(true);
-        UpdateButtonStates(); // atualiza os botões quando abre
+        Presente.gameObject.SetActive(true);
+        Passado.gameObject.SetActive(true);
+        Futuro.gameObject.SetActive(true);
+
+        UpdateButtonStates();
         Time.timeScale = 0f;
         TimelineUI.isPaused = true;
-        playerInput.enabled = false;
         isPaused = true;
+        if (playerInput != null)
+            playerInput.enabled = false;
     }
 
     private void ChooseTimeline(Timeline timeline)
@@ -47,8 +66,12 @@ public class TimelineUI : MonoBehaviour
         panel.SetActive(false);
         Time.timeScale = 1f;
         TimelineUI.isPaused = false;
-        playerInput.enabled = true;
         isPaused = false;
+
+        if (playerInput != null)
+        {
+            playerInput.enabled = true;
+        }
     }
 
     private void UpdateButtonStates()

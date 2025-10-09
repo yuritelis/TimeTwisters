@@ -34,7 +34,6 @@ public class TimeTravelTilemap : MonoBehaviour, IInteractable
     {
         if (timelineUI != null)
         {
-            // Abre o painel de escolha de timeline
             timelineUI.Open(this);
         }
     }
