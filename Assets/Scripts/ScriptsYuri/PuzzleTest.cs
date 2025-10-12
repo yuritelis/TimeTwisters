@@ -65,9 +65,15 @@ public class Puzzle : MonoBehaviour
         contGarrafaTxt.text = contGarrafas.ToString();
     }
 
-    public void Voltar()
+    public void VoltarIntruc()
     {
-        papelUI.SetActive(false);
+        Debug.Log("VoltarInstruc chamado");
         instrucaoUI.SetActive(false);
+    }
+
+    public void VoltarPapel()
+    {
+        Debug.Log("VoltarPapel chamado");
+        papelUI.SetActive(false);
     }
 }
