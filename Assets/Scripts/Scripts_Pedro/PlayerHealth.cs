@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             if (gameObject.CompareTag("Player"))
-                Destroy(gameObject);
+                SceneManager.LoadScene("DeathScreen");
         }
     }
 
