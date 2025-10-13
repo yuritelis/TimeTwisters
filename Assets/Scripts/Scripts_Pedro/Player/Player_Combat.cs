@@ -28,15 +28,11 @@ public class Player_Combat : MonoBehaviour
 
         Vector2 dir = playerMovement != null ? playerMovement.LastInput : Vector2.right;
 
-        // Move o ponto de ataque
         if (attackPoint != null)
             attackPoint.localPosition = dir.normalized * weaponRange;
 
-        // Aplica flip só se o ataque for na horizontal.
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
-        {
             sr.flipX = dir.x < 0;
-        }
 
         anim.SetFloat("InputX", dir.x);
         anim.SetFloat("InputY", dir.y);
@@ -71,11 +67,9 @@ public class Player_Combat : MonoBehaviour
         if (anim != null)
             anim.SetBool("isAttacking", false);
 
-        // Reseta o attackPoint pra posição original no final do ataque
         if (attackPoint != null)
             attackPoint.localPosition = originalAttackPointLocalPos;
 
-        // Reseta o flip pra não afetar outras animações
         sr.flipX = false;
     }
 
