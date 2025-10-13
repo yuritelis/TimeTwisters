@@ -14,13 +14,14 @@ public class EnemyCombat : MonoBehaviour
         isAttacking = true;
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
-        // Se tiver mais de 1 elemento no array, significa que o jogador está dentro do attackPoint (ou seja, no alcance do ataque).
         if (hits.Length > 0)
         {
             hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
+            HitStopManager.Instance.DoGlobalHitStop(0.08f);
             Debug.Log("Player levou dano");
         }
     }
+
 
     private void OnDrawGizmos()
     {
