@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         Object.DontDestroyOnLoad(gameObject);
+        PlayMus(menuBgm);
     }
 
     void Update()
@@ -53,7 +54,8 @@ public class AudioManager : MonoBehaviour
     public void PlayMus(AudioClip clip)
     {
         fonteMus.Stop();
-        fonteMus.PlayOneShot(clip);
+        fonteMus.clip = clip;
+        fonteMus.Play();
     }
 
     void ChangeMusic()

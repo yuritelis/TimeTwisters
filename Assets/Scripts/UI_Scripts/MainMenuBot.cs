@@ -11,6 +11,8 @@ public class BotController : MonoBehaviour
 
     AudioManager aManager;
 
+    private string nomeCena = "teste_yuri";
+
     private void Awake()
     {
         aManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
@@ -28,7 +30,7 @@ public class BotController : MonoBehaviour
     public void BotPlay()
     {
         aManager.PlaySFX(aManager.botClick);
-        SceneManager.LoadScene("Alpha");
+        SceneManager.LoadScene(nomeCena);
     }
 
     public void BotOptions()
