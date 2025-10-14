@@ -10,10 +10,12 @@ public class BossEdwardController : MonoBehaviour
 
     [Header("Configurações Gerais")]
     public float attackInterval = 5f;
-    public float attackRange = 5f; // alcance máximo do ataque
+    public float attackRange = 6f;
 
-    [Header("Ataque Leap")]
+    [Header("Ataques")]
     public BossEdward_Leap_Attack leapAttack;
+    public BossEdward_Wave_Attack waveAttack;
+    public BossEdward_Claw_Attack clawAttack;
 
     private bool isAttacking = false;
     private SpriteRenderer sr;
@@ -39,41 +41,47 @@ public class BossEdwardController : MonoBehaviour
 
         while (true)
         {
-            if (!isAttacking)
+            if (!isAttacking && player != null)
             {
-                // Só ataca se o player estiver dentro do alcance definido
-                if (player != null && Vector2.Distance(transform.position, player.position) <= attackRange)
+                float distance = Vector2.Distance(transform.position, player.position);
+
+                if (distance <= attackRange)
                 {
-                    yield return StartCoroutine(DoLeapAttack());
+                    yield return StartCoroutine(ChooseRandomAttack());
                     yield return new WaitForSeconds(attackInterval);
                 }
-                else
-                {
-                    yield return null;
-                }
+                else yield return null;
             }
-            else
-                yield return null;
+            else yield return null;
         }
     }
 
-    IEnumerator DoLeapAttack()
+    IEnumerator ChooseRandomAttack()
     {
-        if (player == null || leapAttack == null) yield break;
-
-        // Checa novamente antes de iniciar
-        if (Vector2.Distance(transform.position, player.position) > attackRange)
-            yield break;
-
         isAttacking = true;
-
         if (movement != null) movement.canMove = false;
 
-        // chama o ataque completo (telegraph + dash)
-        yield return StartCoroutine(leapAttack.DoLeap(player));
+        int attackIndex = Random.Range(0, 3);
+
+        switch (attackIndex)
+        {
+            case 0: // Leap
+                if (leapAttack != null)
+                    yield return StartCoroutine(leapAttack.DoLeap(player));
+                break;
+
+            case 1: // Wave
+                if (waveAttack != null)
+                    yield return StartCoroutine(waveAttack.DoWave());
+                break;
+
+            case 2: // Claw
+                if (clawAttack != null)
+                    clawAttack.SpawnClaws(); // não bloqueia boss, paralelo
+                break;
+        }
 
         if (movement != null) movement.canMove = true;
-
         isAttacking = false;
     }
 }

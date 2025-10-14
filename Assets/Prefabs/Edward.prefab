@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4693805637858682062, guid: c6fbf0009578be843b3e012f58e470d0, type: 3}
   m_Color: {r: 0.6792453, g: 0.086507656, b: 0.58886147, a: 1}
   m_FlipX: 0
@@ -259,7 +259,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7531727206320245465, guid: 04840fc7e66522144a78b35230b39db6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -563,7 +563,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7531727206320245465, guid: 04840fc7e66522144a78b35230b39db6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -932,6 +932,8 @@ MonoBehaviour:
   attackInterval: 5
   attackRange: 5
   leapAttack: {fileID: 9191136136387692488}
+  waveAttack: {fileID: 8172553068961162112}
+  clawAttack: {fileID: 4873072339498591618}
 --- !u!114 &9191136136387692488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,10 +968,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4f68b569861bb48b0c34576069002d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveObject: {fileID: 2418532344573610302}
-  waveSpawnPoint: {fileID: 8515149879341827460}
+  wavePrefab: {fileID: 2418532344573610302}
   waveSpeed: 6
   waveLifetime: 3
+  waveColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &4873072339498591618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,13 +984,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c71a8bf071ccc04a81fca694ac1837b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftClaw: {fileID: 5889342478931142365}
-  rightClaw: {fileID: 3368489342630512906}
-  leftSpawn: {fileID: 6157672546478346433}
-  rightSpawn: {fileID: 2374166122380027141}
-  clawSpeed: 12
-  chargeTime: 1.2
-  lifetime: 3
+  clawPrefab: {fileID: 5889342478931142365}
+  clawPositions:
+  - {fileID: 0}
+  clawLifetime: 2
+  telegraphTime: 0.5
+  telegraphColor: {r: 0.6375065, g: 0, b: 1, a: 1}
 --- !u!1 &8299245797353210834
 GameObject:
   m_ObjectHideFlags: 0

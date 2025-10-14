@@ -3,33 +3,42 @@ using System.Collections;
 
 public class BossEdward_Wave_Attack : MonoBehaviour
 {
-    public GameObject waveObject; // Filho do Edward
-    public Transform waveSpawnPoint; // Empty filho do boss para spawn da onda
+    [Header("Wave")]
+    public GameObject wavePrefab;        // prefab da onda
     public float waveSpeed = 6f;
     public float waveLifetime = 3f;
+    public Color waveColor = Color.blue; // cor de telegraph
 
-    private Rigidbody2D rb;
+    private SpriteRenderer bossSprite;
 
     void Awake()
     {
-        waveObject.SetActive(false);
-        rb = waveObject.GetComponent<Rigidbody2D>();
+        bossSprite = GetComponent<SpriteRenderer>();
     }
 
-    public IEnumerator DoWave(Transform player)
+    public IEnumerator DoWave()
     {
-        waveObject.SetActive(true);
+        // TELEGRAPH: muda cor do boss
+        Color originalColor = bossSprite.color;
+        bossSprite.color = waveColor;
 
-        Vector2 spawnPos = waveSpawnPoint != null ? (Vector2)waveSpawnPoint.position : (Vector2)transform.position;
-        waveObject.transform.position = spawnPos;
+        yield return null; // instantâneo, sem delay
 
-        Vector2 dir = ((Vector2)player.position - spawnPos).normalized;
+        // SPAWN DA WAVE
+        if (wavePrefab != null)
+        {
+            GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
+            Rigidbody2D rb = wave.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.right * waveSpeed * transform.localScale.x; // usa direção do boss
+            }
 
-        rb.linearVelocity = dir * waveSpeed;
+            // Destrói após tempo de vida
+            Destroy(wave, waveLifetime);
+        }
 
-        yield return new WaitForSeconds(waveLifetime);
-
-        rb.linearVelocity = Vector2.zero;
-        waveObject.SetActive(false);
+        // Volta cor original
+        bossSprite.color = originalColor;
     }
 }

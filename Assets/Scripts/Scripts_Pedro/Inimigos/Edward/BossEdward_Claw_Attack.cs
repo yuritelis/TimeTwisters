@@ -3,44 +3,43 @@ using System.Collections;
 
 public class BossEdward_Claw_Attack : MonoBehaviour
 {
-    public GameObject leftClaw;  // Filho do Edward
-    public GameObject rightClaw; // Filho do Edward
-    public Transform leftSpawn;  // Empty child do boss
-    public Transform rightSpawn; // Empty child do boss
-    public float clawSpeed = 12f;
-    public float chargeTime = 1.2f;
-    public float lifetime = 3f;
+    [Header("Garras/Claws")]
+    public GameObject clawPrefab;           // prefab da garra/fogo
+    public Transform[] clawPositions;       // posições fixas da arena
+    public float clawLifetime = 2f;         // tempo que a garra fica ativa
+    public float telegraphTime = 0.5f;      // telegraph antes do dano
+    public Color telegraphColor = Color.red;
 
-    private Rigidbody2D rbL;
-    private Rigidbody2D rbR;
+    private SpriteRenderer bossSprite;
 
     void Awake()
     {
-        leftClaw.SetActive(false);
-        rightClaw.SetActive(false);
-
-        rbL = leftClaw.GetComponent<Rigidbody2D>();
-        rbR = rightClaw.GetComponent<Rigidbody2D>();
+        bossSprite = GetComponent<SpriteRenderer>();
     }
 
-    public IEnumerator DoClaw()
+    public void SpawnClaws()
     {
-        yield return new WaitForSeconds(chargeTime);
+        // Não bloqueia o boss, ataque paralelo
+        StartCoroutine(DoClaws());
+    }
 
-        leftClaw.transform.position = leftSpawn.position;
-        rightClaw.transform.position = rightSpawn.position;
+    private IEnumerator DoClaws()
+    {
+        // TELEGRAPH: muda cor do boss rapidamente
+        Color originalColor = bossSprite.color;
+        bossSprite.color = telegraphColor;
 
-        leftClaw.SetActive(true);
-        rightClaw.SetActive(true);
+        yield return new WaitForSeconds(telegraphTime);
 
-        rbL.linearVelocity = Vector2.right * clawSpeed;
-        rbR.linearVelocity = Vector2.left * clawSpeed;
+        // SPAWN de todas as garras
+        foreach (Transform pos in clawPositions)
+        {
+            GameObject claw = Instantiate(clawPrefab, pos.position, Quaternion.identity);
+            claw.SetActive(true);
+            Destroy(claw, clawLifetime);
+        }
 
-        yield return new WaitForSeconds(lifetime);
-
-        rbL.linearVelocity = Vector2.zero;
-        rbR.linearVelocity = Vector2.zero;
-        leftClaw.SetActive(false);
-        rightClaw.SetActive(false);
+        // Volta cor do boss
+        bossSprite.color = originalColor;
     }
 }
