@@ -6,80 +6,73 @@ using UnityEngine.Windows;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField] GameObject target;
+    private Animator anim;
 
-    Rigidbody2D rb;
-    Animator anim;
-    private Vector2 input;
+    private EnemyState eState;
+    private Vector2 pos;
 
     private bool isWalking = false;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         anim.SetBool("isWalking", false);
-        isWalking = false;
+        anim.SetBool("isChasing", false);
+        anim.SetBool("isIdle", true);
+        anim.SetBool("isAttacking", false);
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        if (target)
+        if (eState != EnemyState.Idle && eState != EnemyState.Attacking)
         {
-            Vector3 dif = target.transform.position - transform.position;
-
-            rb.AddForce(dif);
-            anim.SetBool("isWalking", true);
             isWalking = true;
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isChasing", true);
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isAttacking", false);
+        }
+        else if (eState != EnemyState.Chasing && eState != EnemyState.Idle)
+        {
+            isWalking = false;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isChasing", false);
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isAttacking", true);
         }
         else
         {
-            anim.SetBool("isWalking", false);
             isWalking = false;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isChasing", false);
+            anim.SetBool("isIdle", true);
+            anim.SetBool("isAttacking", false);
         }
 
-        if (rb.linearVelocityX > 0.01f && isWalking)
+        if(transform.position.x > 0.001f && isWalking)
         {
-            anim.SetFloat("InputX", input.x);
+            anim.SetFloat("InputX", pos.x);
+            anim.SetFloat("InputY", 0);
         }
-        else if (rb.linearVelocityX < -0.01f && isWalking)
+        else if (transform.position.x < -0.0001f && isWalking)
         {
-            anim.SetFloat("InputX", input.x);
-        }
-        else if (rb.linearVelocityY > 0.01f && isWalking)
-        {
-            anim.SetFloat("InputY", input.y);
-        }
-        else if (rb.linearVelocityY < -0.01f && isWalking)
-        {
-            anim.SetFloat("InputY", input.y);
+            anim.SetFloat("InputX", pos.x);
+            anim.SetFloat("InputY", 0);
         }
 
-        if (rb.linearVelocityX > 0.01f && !isWalking)
+        if (transform.position.y > 0.001f && isWalking)
         {
-            anim.SetFloat("LastInputX", input.x);
+            anim.SetFloat("InputX", 0);
+            anim.SetFloat("InputY", pos.y);
         }
-        else if (rb.linearVelocityX < -0.01f && !isWalking)
+        else if (transform.position.y < -0.0001f && isWalking)
         {
-            anim.SetFloat("LastInputX", input.x);
+            anim.SetFloat("InputX", 0);
+            anim.SetFloat("InputY", pos.y);
         }
-        else if (rb.linearVelocityY > 0.01f && !isWalking)
-        {
-            anim.SetFloat("LastInputX", input.y);
-        }
-        else if (rb.linearVelocityY < -0.01f && !isWalking)
-        {
-            anim.SetFloat("LastInputX", input.y);
-        }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            target = collision.gameObject;
-        }
+        anim.SetFloat("LastInputX", pos.x);
+        anim.SetFloat("LastInputY", pos.y);
     }
 }
