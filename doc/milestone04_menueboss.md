@@ -17,7 +17,12 @@ Para esta entrega, nos foi solicitado que fossem desenvolvidas a navegação (me
 
 ## Estrutura de Navegação e Navegação
 ### Estrutura
-
+<img width="1850" height="840" alt="diagrama que representa a navegação interna do jogo feito com ovais representando as telas e setas representando o caminho" src="https://github.com/user-attachments/assets/26d209d1-8e8c-4d31-9b10-054e90ddb6e9" />
+- **Menu principal:** o menu principal é a tela de título e ele possui 3 (três) caminhos possíveis para o jogador, que são ativos cada um por um botão próprio; o primeiro é o botão de jogar, que leva ao jogo
+- **Opções**
+- **Créditos**
+- **Sair**:
+- **Jogar**
 
 ### Navegação Implementada
 
