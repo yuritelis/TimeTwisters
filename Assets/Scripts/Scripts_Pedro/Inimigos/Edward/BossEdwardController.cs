@@ -10,10 +10,11 @@ public class BossEdwardController : MonoBehaviour
 
     [Header("Configurações Gerais")]
     public float attackInterval = 5f;
-    public float attackRange = 5f; // alcance máximo do ataque
+    public float attackRange = 6f;
 
-    [Header("Ataque Leap")]
+    [Header("Ataques")]
     public BossEdward_Leap_Attack leapAttack;
+    public BossEdward_Claw_Attack clawAttack;
 
     private bool isAttacking = false;
     private SpriteRenderer sr;
@@ -35,45 +36,53 @@ public class BossEdwardController : MonoBehaviour
 
     IEnumerator AttackCycle()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f); // atraso inicial
 
         while (true)
         {
-            if (!isAttacking)
+            if (!isAttacking && player != null)
             {
-                // Só ataca se o player estiver dentro do alcance definido
-                if (player != null && Vector2.Distance(transform.position, player.position) <= attackRange)
+                float distance = Vector2.Distance(transform.position, player.position);
+
+                if (distance <= attackRange)
                 {
-                    yield return StartCoroutine(DoLeapAttack());
+                    yield return StartCoroutine(ChooseRandomAttack());
                     yield return new WaitForSeconds(attackInterval);
                 }
-                else
-                {
-                    yield return null;
-                }
+                else yield return null;
             }
-            else
-                yield return null;
+            else yield return null;
         }
     }
 
-    IEnumerator DoLeapAttack()
+    IEnumerator ChooseRandomAttack()
     {
-        if (player == null || leapAttack == null) yield break;
-
-        // Checa novamente antes de iniciar
-        if (Vector2.Distance(transform.position, player.position) > attackRange)
-            yield break;
-
         isAttacking = true;
-
         if (movement != null) movement.canMove = false;
 
-        // chama o ataque completo (telegraph + dash)
-        yield return StartCoroutine(leapAttack.DoLeap(player));
+        // Sorteia apenas entre Leap (0) e Claw (1)
+        int attackIndex = Random.Range(0, 2);
+        Debug.Log($"[Boss] Ataque sorteado: {attackIndex} ({(attackIndex == 0 ? "Leap" : "Claw")})");
+
+        switch (attackIndex)
+        {
+            case 0: // Leap
+                if (leapAttack != null)
+                {
+                    Debug.Log("[Boss] Executando Leap");
+                    yield return StartCoroutine(leapAttack.DoLeap(player));
+                }
+                break;
+            case 1: // Claw
+                if (clawAttack != null)
+                {
+                    Debug.Log("[Boss] Executando Claw");
+                    yield return StartCoroutine(clawAttack.SpawnClawsCoroutine());
+                }
+                break;
+        }
 
         if (movement != null) movement.canMove = true;
-
         isAttacking = false;
     }
 }

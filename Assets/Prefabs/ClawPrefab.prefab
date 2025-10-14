@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3792837605918225458}
   - component: {fileID: 5581454430846535124}
   - component: {fileID: 742647540962464095}
-  - component: {fileID: 2272371674860387903}
-  m_Layer: 0
+  - component: {fileID: -7695265866573260759}
+  m_Layer: 3
   m_Name: ClawPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3368489342630512906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.83, y: 3.14, z: -0.02107439}
+  m_LocalPosition: {x: 28.83, y: 3.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7531727206320245465, guid: 04840fc7e66522144a78b35230b39db6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,17 +124,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0068387985, y: -0.15386629}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9951172, y: 0.9951172}
+    oldSize: {x: 1.9902344, y: 1.9902344}
     newSize: {x: 21.229166, y: 21.229166}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 0.42408562, y: 0.73181915}
   m_EdgeRadius: 0
 --- !u!50 &742647540962464095
 Rigidbody2D:
@@ -162,8 +162,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &2272371674860387903
+  m_Constraints: 4
+--- !u!114 &-7695265866573260759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,10 +172,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3368489342630512906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6158c9fea2224645b340e9d0c42528f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c78e4532518e8c4db1b591d11001e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  hitboxDuration: 0.1

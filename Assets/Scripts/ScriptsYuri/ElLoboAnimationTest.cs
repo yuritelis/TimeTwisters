@@ -9,7 +9,8 @@ public class FollowPlayer : MonoBehaviour
     private Animator anim;
 
     private EnemyState eState;
-    private Vector2 pos;
+    
+    private Enemy_Movement eMove;
 
     private bool isWalking = false;
 
@@ -50,7 +51,7 @@ public class FollowPlayer : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
 
-        if(transform.position.x > 0.001f && isWalking)
+        if(eMove.transform.position.x > eMove.player.position.x && isWalking)
         {
             anim.SetFloat("InputX", pos.x);
             anim.SetFloat("InputY", 0);

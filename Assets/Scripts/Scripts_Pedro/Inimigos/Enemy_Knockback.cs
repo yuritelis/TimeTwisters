@@ -3,38 +3,38 @@ using System.Collections;
 
 public class Enemy_Knockback : MonoBehaviour
 {
+    [Header("Resistência ao knockback")]
+    [Range(0f, 1f)]
+    public float knockbackResistance = 0f; // 0 = sem resistência, 1 = totalmente imune
+
     private bool isKnocked = false;
 
     public void Knockback(Transform playerTransform, float knockbackDistance, float knockbackDuration = 0.1f)
     {
         if (!isKnocked)
         {
-            StartCoroutine(ApplyKnockback(playerTransform, knockbackDistance, knockbackDuration));
+            // Reduz a força de acordo com a resistência
+            float adjustedDistance = knockbackDistance * (1f - knockbackResistance);
+            StartCoroutine(KnockbackCoroutine(playerTransform, adjustedDistance, knockbackDuration));
         }
     }
 
-    private IEnumerator ApplyKnockback(Transform playerTransform, float distance, float duration)
+    private IEnumerator KnockbackCoroutine(Transform playerTransform, float distance, float duration)
     {
         isKnocked = true;
-
-        Vector2 start = transform.position;
-        Vector2 direction = (transform.position - playerTransform.position).normalized;
-        Vector2 target = start + direction * distance;
-
-        float elapsed = 0f;
-        while (elapsed < duration)
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            transform.position = Vector2.Lerp(start, target, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
+            Vector2 dir = (transform.position - playerTransform.position).normalized;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                rb.MovePosition(rb.position + dir * (distance / duration) * Time.fixedDeltaTime);
+                elapsed += Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
+            }
         }
-
-        transform.position = target;
         isKnocked = false;
-    }
-
-    public bool IsKnocked()
-    {
-        return isKnocked;
     }
 }

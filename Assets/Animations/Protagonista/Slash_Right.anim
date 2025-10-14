@@ -30,7 +30,7 @@ AnimationClip:
       value: {fileID: -9223349960555969305, guid: 0328c22ec8054744ab64a7eb3a9db8d6, type: 3}
     - time: 0.46666667
       value: {fileID: 3877490595803222828, guid: 0328c22ec8054744ab64a7eb3a9db8d6, type: 3}
-    - time: 0.6666667
+    - time: 0.65
       value: {fileID: 3877490595803222828, guid: 0328c22ec8054744ab64a7eb3a9db8d6, type: 3}
     attribute: m_Sprite
     path: 
@@ -65,7 +65,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,7 +85,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.23333333
+  - time: 0.38333333
     functionName: DealDamage
     data: 
     objectReferenceParameter: {fileID: 0}
