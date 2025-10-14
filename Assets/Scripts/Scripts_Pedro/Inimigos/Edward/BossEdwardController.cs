@@ -14,7 +14,6 @@ public class BossEdwardController : MonoBehaviour
 
     [Header("Ataques")]
     public BossEdward_Leap_Attack leapAttack;
-    public BossEdward_Wave_Attack waveAttack;
     public BossEdward_Claw_Attack clawAttack;
 
     private bool isAttacking = false;
@@ -37,7 +36,7 @@ public class BossEdwardController : MonoBehaviour
 
     IEnumerator AttackCycle()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f); // atraso inicial
 
         while (true)
         {
@@ -61,23 +60,25 @@ public class BossEdwardController : MonoBehaviour
         isAttacking = true;
         if (movement != null) movement.canMove = false;
 
-        int attackIndex = Random.Range(0, 3);
+        // Sorteia apenas entre Leap (0) e Claw (1)
+        int attackIndex = Random.Range(0, 2);
+        Debug.Log($"[Boss] Ataque sorteado: {attackIndex} ({(attackIndex == 0 ? "Leap" : "Claw")})");
 
         switch (attackIndex)
         {
             case 0: // Leap
                 if (leapAttack != null)
+                {
+                    Debug.Log("[Boss] Executando Leap");
                     yield return StartCoroutine(leapAttack.DoLeap(player));
+                }
                 break;
-
-            case 1: // Wave
-                if (waveAttack != null)
-                    yield return StartCoroutine(waveAttack.DoWave());
-                break;
-
-            case 2: // Claw
+            case 1: // Claw
                 if (clawAttack != null)
-                    clawAttack.SpawnClaws(); // não bloqueia boss, paralelo
+                {
+                    Debug.Log("[Boss] Executando Claw");
+                    yield return StartCoroutine(clawAttack.SpawnClawsCoroutine());
+                }
                 break;
         }
 
