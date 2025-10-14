@@ -7,7 +7,6 @@ public class BotController : MonoBehaviour
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject optionsScreen;
     [SerializeField] GameObject creditsScreen;
-    [SerializeField] GameObject gObject;
 
     AudioManager aManager;
 
@@ -20,7 +19,7 @@ public class BotController : MonoBehaviour
 
     private void Start()
     {
-        Object.DontDestroyOnLoad(gObject);
+        Object.DontDestroyOnLoad(gameObject);
 
         titleScreen.SetActive(true);
         optionsScreen.SetActive(false);

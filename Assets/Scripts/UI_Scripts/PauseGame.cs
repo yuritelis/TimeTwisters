@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
-    //[SerializeField] GameObject optionsScreen;
+    [SerializeField] GameObject optionsScreen;
 
     private bool isPaused = false;
 
@@ -18,7 +18,7 @@ public class PauseGame : MonoBehaviour
     void Start()
     {
         pauseScreen.SetActive(false);
-        //optionsScreen.SetActive(false);
+        optionsScreen.SetActive(false);
     }
 
     private void Update()
@@ -48,7 +48,7 @@ public class PauseGame : MonoBehaviour
     private void Resume()
     {
         pauseScreen.SetActive(false);
-        //optionsScreen.SetActive(false);
+        optionsScreen.SetActive(false);
     }
 
     public void BotMenu()
@@ -61,13 +61,20 @@ public class PauseGame : MonoBehaviour
     {
         aManager.PlaySFX(aManager.botClick);
         pauseScreen.SetActive(false);
-        //optionsScreen.SetActive(false);
+        optionsScreen.SetActive(false);
     }
 
     public void BotOpcoes()
     {
         aManager.PlaySFX(aManager.botClick);
         pauseScreen.SetActive(false);
-        //optionsScreen.SetActive(true);
+        optionsScreen.SetActive(true);
+    }
+
+    public void BotVoltar()
+    {
+        aManager.PlaySFX(aManager.botClick);
+        pauseScreen.SetActive(true);
+        optionsScreen.SetActive(false);
     }
 }
