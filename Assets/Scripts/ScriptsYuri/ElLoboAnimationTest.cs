@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +10,19 @@ public class FollowPlayer : MonoBehaviour
     private Animator anim;
 
     private EnemyState eState;
-    
+
     private Enemy_Movement eMove;
 
-    private bool isWalking = false;
+    private bool isWalking;
+    private float moveX = 0;
+    private float moveY = -1;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        eMove = GetComponent<Enemy_Movement>();
+
+        isWalking = false;
 
         anim.SetBool("isWalking", false);
         anim.SetBool("isChasing", false);
@@ -26,17 +32,19 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (eState != EnemyState.Idle && eState != EnemyState.Attacking)
+        Debug.Log($"Estado: {eState}, Walking: {isWalking}, MoveX: {moveX}, MoveY: {moveY}, LastX: {anim.GetFloat("LastMoveX")}, LastY: {anim.GetFloat("LastMoveY")}");
+
+        isWalking = eMove.GetComponent<Rigidbody2D>().linearVelocity.magnitude > 0.1f;
+
+        if (eState == EnemyState.Chasing)
         {
-            isWalking = true;
             anim.SetBool("isWalking", true);
             anim.SetBool("isChasing", true);
             anim.SetBool("isIdle", false);
             anim.SetBool("isAttacking", false);
         }
-        else if (eState != EnemyState.Chasing && eState != EnemyState.Idle)
+        else if (eState == EnemyState.Attacking)
         {
-            isWalking = false;
             anim.SetBool("isWalking", false);
             anim.SetBool("isChasing", false);
             anim.SetBool("isIdle", false);
@@ -44,36 +52,26 @@ public class FollowPlayer : MonoBehaviour
         }
         else
         {
-            isWalking = false;
             anim.SetBool("isWalking", false);
             anim.SetBool("isChasing", false);
             anim.SetBool("isIdle", true);
             anim.SetBool("isAttacking", false);
         }
 
-        if(eMove.transform.position.x > eMove.player.position.x && isWalking)
+        if (isWalking)
         {
-            anim.SetFloat("InputX", pos.x);
-            anim.SetFloat("InputY", 0);
-        }
-        else if (transform.position.x < -0.0001f && isWalking)
-        {
-            anim.SetFloat("InputX", pos.x);
-            anim.SetFloat("InputY", 0);
+            Vector3 direction = (eMove.player.position - transform.position).normalized;
+
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isWalking", true);
+            anim.SetFloat("MoveX", direction.x);
+            anim.SetFloat("MoveY", direction.y);
+
+            moveX = direction.x;
+            moveY = direction.y;
         }
 
-        if (transform.position.y > 0.001f && isWalking)
-        {
-            anim.SetFloat("InputX", 0);
-            anim.SetFloat("InputY", pos.y);
-        }
-        else if (transform.position.y < -0.0001f && isWalking)
-        {
-            anim.SetFloat("InputX", 0);
-            anim.SetFloat("InputY", pos.y);
-        }
-
-        anim.SetFloat("LastInputX", pos.x);
-        anim.SetFloat("LastInputY", pos.y);
+        anim.SetFloat("LastMoveX", moveX);
+        anim.SetFloat("LastMoveY", moveY);
     }
 }

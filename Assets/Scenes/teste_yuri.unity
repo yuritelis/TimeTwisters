@@ -5736,7 +5736,8 @@ GameObject:
   - component: {fileID: 1069416885}
   - component: {fileID: 1069416884}
   - component: {fileID: 1069416886}
-  - component: {fileID: 1069416887}
+  - component: {fileID: 1069416889}
+  - component: {fileID: 1069416888}
   m_Layer: 0
   m_Name: boss_lobao1
   m_TagString: Untagged
@@ -5945,7 +5946,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1069416887
+--- !u!114 &1069416888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5954,7 +5955,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1069416879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8225fec82ae0d3f4684135a27359bc96, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bd6eda1b5bab6046b6ee7e81534a32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1069416889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069416879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f768fa0d0a79d440bbeddc1ab53ef37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
@@ -5966,7 +5979,9 @@ MonoBehaviour:
   detectionPoint: {fileID: 1069416881}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 96
+    m_Bits: 64
+  player: {fileID: 0}
+  facingDirection: -1
 --- !u!1 &1085636458
 GameObject:
   m_ObjectHideFlags: 0
