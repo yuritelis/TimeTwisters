@@ -493,8 +493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1047a9be7dd1e248b484a51d5c0016e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
-  maxHealth: 5
+  currentHealth: 10
+  maxHealth: 10
   isInvincible: 0
   invincibilityDuration: 1
   flashInterval: 0.1

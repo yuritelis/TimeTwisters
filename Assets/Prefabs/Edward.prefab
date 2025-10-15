@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 8322993602447176179}
   - component: {fileID: 9191136136387692488}
   - component: {fileID: 4873072339498591618}
+  - component: {fileID: 9068775745278843260}
   m_Layer: 3
   m_Name: Edward
   m_TagString: Untagged
@@ -171,7 +172,7 @@ Animator:
   m_GameObject: {fileID: 8044634306082866186}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87a1321dab1d5ce42b133c7a03eea3b0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -400,3 +401,15 @@ MonoBehaviour:
   telegraphDuration: 0.8
   clawSpeed: 8
   showDebugLogs: 1
+--- !u!114 &9068775745278843260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044634306082866186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd6eda1b5bab6046b6ee7e81534a32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

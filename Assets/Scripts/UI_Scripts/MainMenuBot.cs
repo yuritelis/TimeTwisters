@@ -7,9 +7,10 @@ public class BotController : MonoBehaviour
     [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject optionsScreen;
     [SerializeField] GameObject creditsScreen;
-    [SerializeField] GameObject gObject;
 
     AudioManager aManager;
+
+    private string nomeCena = "teste_yuri";
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class BotController : MonoBehaviour
 
     private void Start()
     {
-        Object.DontDestroyOnLoad(gObject);
+        Object.DontDestroyOnLoad(gameObject);
 
         titleScreen.SetActive(true);
         optionsScreen.SetActive(false);
@@ -28,7 +29,7 @@ public class BotController : MonoBehaviour
     public void BotPlay()
     {
         aManager.PlaySFX(aManager.botClick);
-        SceneManager.LoadScene("Alpha");
+        SceneManager.LoadScene(nomeCena);
     }
 
     public void BotOptions()
