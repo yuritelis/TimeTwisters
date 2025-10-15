@@ -20,7 +20,7 @@ public class EdwardMovement : MonoBehaviour
     private float attackCooldownTimer = 0f;
     private Rigidbody2D rb;
     private Animator anim;
-    private Transform player;
+    public Transform player;
     private EdwardState enemyState;
     private bool canAttack = true;
     private int facingDirection = -1;
@@ -116,7 +116,7 @@ public class EdwardMovement : MonoBehaviour
         if ((player.position.x > transform.position.x && facingDirection == -1) ||
             (player.position.x < transform.position.x && facingDirection == 1))
         {
-            Flip();
+            //Flip();
         }
 
         Vector2 direction = (player.position - transform.position).normalized;

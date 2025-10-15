@@ -5,13 +5,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
-public class FollowPlayer : MonoBehaviour
+public class ElLoboAnimationTest : MonoBehaviour
 {
     private Animator anim;
 
     private EnemyState eState;
 
-    private Enemy_Movement eMove;
+    private EdwardMovement eMove;
 
     private bool isWalking;
     private float moveX = 0;
@@ -20,7 +20,7 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        eMove = GetComponent<Enemy_Movement>();
+        eMove = GetComponent<EdwardMovement>();
 
         isWalking = false;
 
@@ -32,8 +32,6 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"Estado: {eState}, Walking: {isWalking}, MoveX: {moveX}, MoveY: {moveY}, LastX: {anim.GetFloat("LastMoveX")}, LastY: {anim.GetFloat("LastMoveY")}");
-
         isWalking = eMove.GetComponent<Rigidbody2D>().linearVelocity.magnitude > 0.1f;
 
         if (eState == EnemyState.Chasing)

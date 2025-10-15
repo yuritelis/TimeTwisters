@@ -16,13 +16,22 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
+    public VidaUI ui;
+
     private void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ui = FindFirstObjectByType<VidaUI>();
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
+
+        if (ui != null)
+        {
+            ui.SetVidaMax(maxHealth);
+            ui.UpdateVidas(currentHealth);
+        }
     }
 
     public void ChangeHealth(int amount)
@@ -30,6 +39,9 @@ public class PlayerHealth : MonoBehaviour
         if (amount < 0 && isInvincible) return;
 
         currentHealth += amount;
+
+        if (ui != null)
+            ui.UpdateVidas(currentHealth);
 
         if (amount < 0)
         {
