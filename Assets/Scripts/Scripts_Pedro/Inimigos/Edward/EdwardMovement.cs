@@ -160,6 +160,28 @@ public class EdwardMovement : MonoBehaviour
         attackLockTimer = attackLockTime;
     }
 
+    /// <summary>
+    /// Força um ataque normal pelo BossEdwardController
+    /// </summary>
+    public void ForceNormalAttack()
+    {
+        if (canAttack && player != null)
+        {
+            Debug.Log("ForceNormalAttack: Iniciando ataque");
+            ChangeState(EdwardState.Attacking);
+            canAttack = false;
+            attackCooldownTimer = attackCooldown;
+            attackLockTimer = attackLockTime;
+
+            // EXECUTA O ATAQUE IMEDIATAMENTE - ISSO QUE TAVA FALTANDO
+            Attack();
+        }
+        else
+        {
+            Debug.Log($"ForceNormalAttack: Não pode atacar - canAttack: {canAttack}, player: {player != null}");
+        }
+    }
+
     private void ChangeState(EdwardState newState)
     {
         enemyState = newState;

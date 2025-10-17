@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -39,6 +39,8 @@ public class PlayerHealth : MonoBehaviour
         if (amount < 0 && isInvincible) return;
 
         currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // <-- aqui
+        Debug.Log($"ChangeHealth chamado. Amount: {amount}, CurrentHealth: {currentHealth}");
 
         if (ui != null)
             ui.UpdateVidas(currentHealth);
@@ -55,10 +57,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
     private IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
         float elapsed = 0f;
+
+        // 🔁 Desativa colisão entre Player e Enemy durante a invencibilidade
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 
         while (elapsed < invincibilityDuration)
         {
@@ -77,7 +83,11 @@ public class PlayerHealth : MonoBehaviour
         if (spriteRenderer != null)
             spriteRenderer.color = originalColor;
 
+        // ✅ Reativa a colisão depois da invencibilidade
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+
         isInvincible = false;
     }
+
 
 }

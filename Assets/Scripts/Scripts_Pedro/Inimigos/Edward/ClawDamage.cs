@@ -3,7 +3,7 @@ using UnityEngine;
 public class ClawDamage : MonoBehaviour
 {
     [Header("Dano")]
-    public int damage = 20;
+    public int damage = 1;
     public float hitboxDuration = 0.1f; // opcional: tempo até destruir a garra depois de acertar
 
     private bool hasHit = false;

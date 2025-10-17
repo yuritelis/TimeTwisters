@@ -11,14 +11,21 @@ public class EnemyCombat : MonoBehaviour
 
     public void Attack()
     {
+        Debug.Log("EnemyCombat: Attack() chamado");
         isAttacking = true;
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+
+        Debug.Log($"EnemyCombat: {hits.Length} colisões detectadas");
 
         if (hits.Length > 0)
         {
             hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
             HitStopManager.Instance.DoGlobalHitStop(0.08f);
             Debug.Log("Player levou dano");
+        }
+        else
+        {
+            Debug.Log("Nenhum player atingido");
         }
     }
 
