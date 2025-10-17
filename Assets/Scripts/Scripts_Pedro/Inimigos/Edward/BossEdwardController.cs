@@ -53,7 +53,6 @@ public class BossEdwardController : MonoBehaviour
                     // Executa ataque normal através do EdwardMovement para ter a animação
                     if (movement != null)
                     {
-                        movement.ForceNormalAttack();
                         canDoNormalAttack = false;
 
                         // Aguarda cooldown específico para ataques normais

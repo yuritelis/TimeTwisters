@@ -28,6 +28,9 @@ public class EdwardMovement : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
+    // NOVO: guarda o último estado para evitar spam no log
+    private bool lastIsAttackingState = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -78,6 +81,21 @@ public class EdwardMovement : MonoBehaviour
             case EdwardState.Idle:
                 rb.linearVelocity = Vector2.zero;
                 break;
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("Testando ataque manual");
+            BossAttack(); // Deve chamar o Attack() do EnemyCombat e mostrar tudo no console
+            anim.Play("Attack_Left");
+        }
+
+        // Loga só quando o isAttacking muda, evitando spam
+        bool currentIsAttacking = anim.GetBool("isAttacking");
+        if (currentIsAttacking != lastIsAttackingState)
+        {
+            Debug.Log("isAttacking no Animator mudou para: " + currentIsAttacking);
+            lastIsAttackingState = currentIsAttacking;
         }
     }
 
@@ -131,12 +149,14 @@ public class EdwardMovement : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void Attack()
+    public void BossAttack()
     {
+        Debug.Log("EdwardMovement: BossAttack() foi chamado pela animação.");
+        ChangeState(EdwardState.Attacking);
         GetComponent<EnemyCombat>()?.Attack();
     }
 
-    public void EndAttack()
+    public void EndBossAttack()
     {
         attackCooldownTimer = attackCooldown;
         canAttack = false;
@@ -158,28 +178,6 @@ public class EdwardMovement : MonoBehaviour
     public void LockAttack()
     {
         attackLockTimer = attackLockTime;
-    }
-
-    /// <summary>
-    /// Força um ataque normal pelo BossEdwardController
-    /// </summary>
-    public void ForceNormalAttack()
-    {
-        if (canAttack && player != null)
-        {
-            Debug.Log("ForceNormalAttack: Iniciando ataque");
-            ChangeState(EdwardState.Attacking);
-            canAttack = false;
-            attackCooldownTimer = attackCooldown;
-            attackLockTimer = attackLockTime;
-
-            // EXECUTA O ATAQUE IMEDIATAMENTE - ISSO QUE TAVA FALTANDO
-            Attack();
-        }
-        else
-        {
-            Debug.Log($"ForceNormalAttack: Não pode atacar - canAttack: {canAttack}, player: {player != null}");
-        }
     }
 
     private void ChangeState(EdwardState newState)
