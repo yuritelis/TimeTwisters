@@ -13,6 +13,8 @@ public class PauseGame : MonoBehaviour
     private void Awake()
     {
         Object.DontDestroyOnLoad(gameObject);
+
+        aManager = FindFirstObjectByType<AudioManager>();
     }
 
     void Start()
@@ -42,6 +44,7 @@ public class PauseGame : MonoBehaviour
     private void Pause()
     {
         pauseScreen.SetActive(true);
+
         isPaused = true;
     }
 
@@ -49,31 +52,51 @@ public class PauseGame : MonoBehaviour
     {
         pauseScreen.SetActive(false);
         optionsScreen.SetActive(false);
+
+        isPaused = false;
     }
 
     public void BotMenu()
     {
-        aManager.PlaySFX(aManager.botClick);
+        if(aManager != null)
+        {
+            aManager.PlaySFX(aManager.botClick);
+        }
+
         SceneManager.LoadScene("TitleScreen");
     }
 
     public void BotResume()
     {
-        aManager.PlaySFX(aManager.botClick);
+        if (aManager != null)
+        {
+            aManager.PlaySFX(aManager.botClick);
+        }
+
         pauseScreen.SetActive(false);
         optionsScreen.SetActive(false);
+
+        isPaused = false;
     }
 
     public void BotOpcoes()
     {
-        aManager.PlaySFX(aManager.botClick);
+        if (aManager != null)
+        {
+            aManager.PlaySFX(aManager.botClick);
+        }
+
         pauseScreen.SetActive(false);
         optionsScreen.SetActive(true);
     }
 
     public void BotVoltar()
     {
-        aManager.PlaySFX(aManager.botClick);
+        if (aManager != null)
+        {
+            aManager.PlaySFX(aManager.botClick);
+        }
+
         pauseScreen.SetActive(true);
         optionsScreen.SetActive(false);
     }
