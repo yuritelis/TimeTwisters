@@ -1,23 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 public class Enemy_Knockback : MonoBehaviour
 {
-    [Header("Resistência ao knockback")]
+    [Header("ResistÃªncia ao knockback")]
     [Range(0f, 1f)]
-    public float knockbackResistance = 0f; // 0 = sem resistência, 1 = totalmente imune
+    public float knockbackResistance = 0f; // 0 = sem resistÃªncia, 1 = totalmente imune
 
     private bool isKnocked = false;
 
     public void Knockback(Transform playerTransform, float knockbackDistance, float knockbackDuration = 0.1f)
     {
+        if (!isActiveAndEnabled) return; // ðŸ”’ evita knockback em inimigos mortos/desativados
+
         if (!isKnocked)
         {
-            // Reduz a força de acordo com a resistência
             float adjustedDistance = knockbackDistance * (1f - knockbackResistance);
             StartCoroutine(KnockbackCoroutine(playerTransform, adjustedDistance, knockbackDuration));
         }
     }
+
 
     private IEnumerator KnockbackCoroutine(Transform playerTransform, float distance, float duration)
     {

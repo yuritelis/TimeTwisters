@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float knockbackDecay = 12f;
 
+    public bool canMove = true; // ✅ controle de movimentação (usado pelo Stealth)
+
     private Rigidbody2D rb;
     private Vector2 input;
     private Animator anim;
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 lastInput = Vector2.right;
 
     public Vector2 LastInput => lastInput;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,12 +27,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // pausa da timeline
         if (TimelineUI.isPaused)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
 
+        // ❌ se o player estiver travado (por stealth, cutscene etc.)
+        if (!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            anim.SetBool("isWalking", false);
+            return;
+        }
+
+        // knockback ativo
         if (!isKnockedBack)
         {
             rb.linearVelocity = input * moveSpeed;
@@ -39,9 +52,11 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, knockbackDecay * Time.deltaTime);
         }
     }
+
     public void Move(InputAction.CallbackContext context)
     {
-        if (TimelineUI.isPaused || isKnockedBack)
+        // evita movimentar quando travado, pausado ou em knockback
+        if (!canMove || TimelineUI.isPaused || isKnockedBack)
         {
             anim.SetBool("isWalking", false);
             input = Vector2.zero;
@@ -67,9 +82,10 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("InputX", input.x);
         anim.SetFloat("InputY", input.y);
     }
+
     public void Attack(InputAction.CallbackContext context)
     {
-        if (TimelineUI.isPaused || isKnockedBack)
+        if (!canMove || TimelineUI.isPaused || isKnockedBack)
             return;
 
         if (context.performed)
