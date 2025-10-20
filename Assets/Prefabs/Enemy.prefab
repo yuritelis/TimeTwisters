@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3648275448728151083}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.49, y: 0.4, z: 0.051673252}
+  m_LocalPosition: {x: 3.82, y: -20.88, z: 0.051673252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -208,11 +208,17 @@ MonoBehaviour:
   playerDetectRange: 4
   attackCooldown: 2
   attackLockTime: 0.4
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  patrolWaitTime: 2
   attackPoint: {fileID: 5822341394883308145}
   detectionPoint: {fileID: 8330492560955041592}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  player: {fileID: 0}
+  facingDirection: -1
 --- !u!114 &9178952446288513090
 MonoBehaviour:
   m_ObjectHideFlags: 0
