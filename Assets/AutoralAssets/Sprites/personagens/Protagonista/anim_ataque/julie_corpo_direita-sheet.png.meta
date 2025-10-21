@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 0328c22ec8054744ab64a7eb3a9db8d6
+guid: f3d240d14fd32b94c9da3a09a80fa5ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1385287135945642663
-    second: julie_ataque_direita-sheet_0
+      213: -8044415720208853782
+    second: julie_corpo_direita-sheet_0
   - first:
-      213: -6414043886447434257
-    second: julie_ataque_direita-sheet_1
+      213: 3713882950144574607
+    second: julie_corpo_direita-sheet_1
   - first:
-      213: 819718981661818776
-    second: julie_ataque_direita-sheet_2
+      213: -785422373564030645
+    second: julie_corpo_direita-sheet_2
   - first:
-      213: -9223349960555969305
-    second: julie_ataque_direita-sheet_3
+      213: 3442425645493283274
+    second: julie_corpo_direita-sheet_3
   - first:
-      213: 3877490595803222828
-    second: julie_ataque_direita-sheet_4
+      213: -3688446026329063317
+    second: julie_corpo_direita-sheet_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,7 +126,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -138,111 +138,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: julie_ataque_direita-sheet_0
+      name: julie_corpo_direita-sheet_0
       rect:
         serializedVersion: 2
         x: 69
         y: 0
         width: 172
-        height: 391
+        height: 311
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a255f18f47893310800000000000000
-      internalID: 1385287135945642663
+      spriteID: ae4126b068e7c5090800000000000000
+      internalID: -8044415720208853782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_direita-sheet_1
+      name: julie_corpo_direita-sheet_1
       rect:
         serializedVersion: 2
-        x: 539
+        x: 379
         y: 0
         width: 182
-        height: 400
+        height: 311
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe5e88e711dbcf6a0800000000000000
-      internalID: -6414043886447434257
+      spriteID: f844fbcbddc5a8330800000000000000
+      internalID: 3713882950144574607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_direita-sheet_2
+      name: julie_corpo_direita-sheet_2
       rect:
         serializedVersion: 2
-        x: 1029
+        x: 709
         y: 0
         width: 172
-        height: 391
+        height: 311
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89ff89d121a306b00800000000000000
-      internalID: 819718981661818776
+      spriteID: b416219338e9915f0800000000000000
+      internalID: -785422373564030645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_direita-sheet_3
+      name: julie_corpo_direita-sheet_3
       rect:
         serializedVersion: 2
-        x: 1529
+        x: 1049
         y: 0
-        width: 352
-        height: 380
+        width: 182
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e4c2f90414100080800000000000000
-      internalID: -9223349960555969305
+      spriteID: ac96255c2e3f5cf20800000000000000
+      internalID: 3442425645493283274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_direita-sheet_4
+      name: julie_corpo_direita-sheet_4
       rect:
         serializedVersion: 2
-        x: 2009
+        x: 1369
         y: 0
-        width: 352
-        height: 321
+        width: 172
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c23d4ce272d9fc530800000000000000
-      internalID: 3877490595803222828
+      spriteID: b60847b91e100dcc0800000000000000
+      internalID: -3688446026329063317
       vertices: []
       indices: 
       edges: []
@@ -251,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 598a4e2cdeffa7a4abea76ff9bac903a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -261,11 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      julie_ataque_direita-sheet_0: 1385287135945642663
-      julie_ataque_direita-sheet_1: -6414043886447434257
-      julie_ataque_direita-sheet_2: 819718981661818776
-      julie_ataque_direita-sheet_3: -9223349960555969305
-      julie_ataque_direita-sheet_4: 3877490595803222828
+      julie_corpo_direita-sheet_0: -8044415720208853782
+      julie_corpo_direita-sheet_1: 3713882950144574607
+      julie_corpo_direita-sheet_2: -785422373564030645
+      julie_corpo_direita-sheet_3: 3442425645493283274
+      julie_corpo_direita-sheet_4: -3688446026329063317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
