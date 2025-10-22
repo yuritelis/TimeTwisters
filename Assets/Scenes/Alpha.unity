@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1143071415}
   optionsScreen: {fileID: 0}
+  playerInput: {fileID: 0}
 --- !u!4 &131623993
 Transform:
   m_ObjectHideFlags: 0
@@ -354,6 +355,7 @@ MonoBehaviour:
   titleScreen: {fileID: 0}
   optionsScreen: {fileID: 0}
   creditsScreen: {fileID: 0}
+  aManager: {fileID: 0}
 --- !u!114 &164798576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17171,6 +17173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barras:
+  - {fileID: -1387872591, guid: ffcaaeb86c6de8d4e8e22ded5219f7f9, type: 3}
   - {fileID: 2030177177196209439, guid: ffcaaeb86c6de8d4e8e22ded5219f7f9, type: 3}
   - {fileID: 210299093400689733, guid: ffcaaeb86c6de8d4e8e22ded5219f7f9, type: 3}
   - {fileID: 3708303408015160567, guid: ffcaaeb86c6de8d4e8e22ded5219f7f9, type: 3}
@@ -23316,6 +23319,7 @@ MonoBehaviour:
   titleScreen: {fileID: 0}
   optionsScreen: {fileID: 0}
   creditsScreen: {fileID: 0}
+  aManager: {fileID: 0}
 --- !u!114 &1635859431
 MonoBehaviour:
   m_ObjectHideFlags: 0

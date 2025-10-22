@@ -18,7 +18,7 @@ public class VidaUI : MonoBehaviour
     {
         if (hpAtual >= 0 && hpAtual < barras.Length)
         {
-            barraUI.sprite = barras[hpAtual - 1];
+            barraUI.sprite = barras[hpAtual];
         }
         else
         {

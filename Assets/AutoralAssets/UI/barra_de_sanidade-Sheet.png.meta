@@ -346,6 +346,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: barra_de_sanidade-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b391ca045193aa4facad3f82a29581b
+      internalID: -1387872591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -362,6 +384,7 @@ TextureImporter:
     nameFileIdTable:
       barra_de_sanidade-Sheet_0: -7227684327463356451
       barra_de_sanidade-Sheet_1: 5377083185873576411
+      barra_de_sanidade-Sheet_10: -1387872591
       barra_de_sanidade-Sheet_2: -7400047605969676501
       barra_de_sanidade-Sheet_3: -3048678803637818778
       barra_de_sanidade-Sheet_4: 5234492173047769819
