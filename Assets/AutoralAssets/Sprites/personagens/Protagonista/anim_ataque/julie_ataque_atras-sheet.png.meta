@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: d516504997e8c90498e433df76c82502
+guid: 699ad153f2f84c14a8499798283176e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8261928136084418576
-    second: julie_ataque_esquerda-sheet_0
+      213: 6976172784303770999
+    second: julie_ataque_atras-sheet_0
   - first:
-      213: -7062798617293532091
-    second: julie_ataque_esquerda-sheet_1
+      213: 7616237615984284657
+    second: julie_ataque_atras-sheet_1
   - first:
-      213: 5858350264108890099
-    second: julie_ataque_esquerda-sheet_2
+      213: -7238638315698744883
+    second: julie_ataque_atras-sheet_2
   - first:
-      213: 771697149112425701
-    second: julie_ataque_esquerda-sheet_3
+      213: -5063074027091896803
+    second: julie_ataque_atras-sheet_3
   - first:
-      213: -3601895326484207295
-    second: julie_ataque_esquerda-sheet_4
+      213: -6118198941827626209
+    second: julie_ataque_atras-sheet_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,17 +108,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: julie_ataque_esquerda-sheet_0
+      name: julie_ataque_atras-sheet_0
       rect:
         serializedVersion: 2
-        x: 239
+        x: 0
         y: 0
-        width: 172
-        height: 391
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 010fd1fbdd348a270800000000000000
-      internalID: 8261928136084418576
+      spriteID: 77d8c2c9f2850d060800000000000000
+      internalID: 6976172784303770999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_esquerda-sheet_1
+      name: julie_ataque_atras-sheet_1
       rect:
         serializedVersion: 2
-        x: 719
+        x: 480
         y: 0
-        width: 182
-        height: 401
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5445910f316ebfd90800000000000000
-      internalID: -7062798617293532091
+      spriteID: 1f316b952cf42b960800000000000000
+      internalID: 7616237615984284657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_esquerda-sheet_2
+      name: julie_ataque_atras-sheet_2
       rect:
         serializedVersion: 2
-        x: 1199
+        x: 960
         y: 0
-        width: 172
-        height: 391
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f7b60eb68a0d4150800000000000000
-      internalID: 5858350264108890099
+      spriteID: dc19e37cdc03b8b90800000000000000
+      internalID: -7238638315698744883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_esquerda-sheet_3
+      name: julie_ataque_atras-sheet_3
       rect:
         serializedVersion: 2
-        x: 1479
+        x: 1440
         y: 0
-        width: 352
-        height: 381
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +219,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ec170fe77e95ba00800000000000000
-      internalID: 771697149112425701
+      spriteID: d165ea76ff85cb9b0800000000000000
+      internalID: -5063074027091896803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: julie_ataque_esquerda-sheet_4
+      name: julie_ataque_atras-sheet_4
       rect:
         serializedVersion: 2
-        x: 1959
+        x: 1920
         y: 0
-        width: 352
-        height: 321
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +241,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 149e4c2c84f730ec0800000000000000
-      internalID: -3601895326484207295
+      spriteID: f1b813f5a7ac71ba0800000000000000
+      internalID: -6118198941827626209
       vertices: []
       indices: 
       edges: []
@@ -225,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6948e48c362700b4283004bb59907fca
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      julie_ataque_esquerda-sheet_0: 8261928136084418576
-      julie_ataque_esquerda-sheet_1: -7062798617293532091
-      julie_ataque_esquerda-sheet_2: 5858350264108890099
-      julie_ataque_esquerda-sheet_3: 771697149112425701
-      julie_ataque_esquerda-sheet_4: -3601895326484207295
+      julie_ataque_atras-sheet_0: 6976172784303770999
+      julie_ataque_atras-sheet_1: 7616237615984284657
+      julie_ataque_atras-sheet_2: -7238638315698744883
+      julie_ataque_atras-sheet_3: -5063074027091896803
+      julie_ataque_atras-sheet_4: -6118198941827626209
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

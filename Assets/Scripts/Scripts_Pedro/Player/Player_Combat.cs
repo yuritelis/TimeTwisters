@@ -8,14 +8,14 @@ public class Player_Combat : MonoBehaviour
     public LayerMask enemyLayer;
     public int damage = 1;
     public Animator anim;
-    private SpriteRenderer sr;
     private Vector3 originalAttackPointLocalPos;
+
+    private Vector2 attackDirection;
 
     void Start()
     {
         playerMovement = GetComponent<PlayerController>();
         anim = anim != null ? anim : GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
 
         if (attackPoint != null)
             originalAttackPointLocalPos = attackPoint.localPosition;
@@ -26,20 +26,30 @@ public class Player_Combat : MonoBehaviour
         if (anim.GetBool("isAttacking"))
             return;
 
-        Vector2 dir = playerMovement != null ? playerMovement.LastInput : Vector2.right;
+        // 🧭 pega a direção atual e "discretiza" pra uma das 4 direções fixas
+        Vector2 dir = playerMovement != null ? playerMovement.LastInput.normalized : Vector2.right;
+        attackDirection = GetCardinalDirection(dir);
 
         if (attackPoint != null)
-            attackPoint.localPosition = dir.normalized * weaponRange;
+            attackPoint.localPosition = attackDirection * weaponRange;
 
-        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
-            sr.flipX = dir.x < 0;
+        // 🔒 usa apenas a direção fixa, sem variação
+        anim.SetFloat("InputX", attackDirection.x);
+        anim.SetFloat("InputY", attackDirection.y);
+        anim.SetFloat("LastInputX", attackDirection.x);
+        anim.SetFloat("LastInputY", attackDirection.y);
 
-        anim.SetFloat("InputX", dir.x);
-        anim.SetFloat("InputY", dir.y);
-        anim.SetFloat("LastInputX", dir.x);
-        anim.SetFloat("LastInputY", dir.y);
         anim.SetBool("isAttacking", true);
         anim.SetTrigger("Attack");
+    }
+
+    // ✅ força o ataque pra uma direção exata (sem diagonais)
+    private Vector2 GetCardinalDirection(Vector2 dir)
+    {
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+            return new Vector2(Mathf.Sign(dir.x), 0); // direita/esquerda
+        else
+            return new Vector2(0, Mathf.Sign(dir.y)); // cima/baixo
     }
 
     public void DealDamage()
@@ -69,8 +79,6 @@ public class Player_Combat : MonoBehaviour
 
         if (attackPoint != null)
             attackPoint.localPosition = originalAttackPointLocalPos;
-
-        sr.flipX = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -80,16 +88,5 @@ public class Player_Combat : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, weaponRange);
-    }
-
-    private void UpdateSpriteFlip(Vector2 direction)
-    {
-        if (sr == null)
-            return;
-
-        if (direction.x < 0)
-            sr.flipX = true;
-        else if (direction.x > 0)
-            sr.flipX = false;
     }
 }
