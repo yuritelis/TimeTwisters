@@ -141,10 +141,10 @@ TextureImporter:
       name: julie_corpo_esquerda-sheet_0
       rect:
         serializedVersion: 2
-        x: 79
+        x: 0
         y: 0
-        width: 172
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: julie_corpo_esquerda-sheet_1
       rect:
         serializedVersion: 2
-        x: 399
+        x: 320
         y: 0
-        width: 182
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: julie_corpo_esquerda-sheet_2
       rect:
         serializedVersion: 2
-        x: 719
+        x: 640
         y: 0
-        width: 172
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,9 +207,9 @@ TextureImporter:
       name: julie_corpo_esquerda-sheet_3
       rect:
         serializedVersion: 2
-        x: 1009
+        x: 960
         y: 0
-        width: 182
+        width: 320
         height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,9 +229,9 @@ TextureImporter:
       name: julie_corpo_esquerda-sheet_4
       rect:
         serializedVersion: 2
-        x: 1339
+        x: 1280
         y: 0
-        width: 172
+        width: 320
         height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -251,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: db8d28bc6c74eb44ba73ec31c56abe0c
     internalID: 0
     vertices: []
     indices: 

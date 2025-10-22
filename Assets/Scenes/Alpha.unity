@@ -284,7 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1143071415}
   optionsScreen: {fileID: 0}
-  playerInput: {fileID: 0}
 --- !u!4 &131623993
 Transform:
   m_ObjectHideFlags: 0
@@ -355,7 +354,6 @@ MonoBehaviour:
   titleScreen: {fileID: 0}
   optionsScreen: {fileID: 0}
   creditsScreen: {fileID: 0}
-  aManager: {fileID: 0}
 --- !u!114 &164798576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2952,13 +2950,14 @@ GameObject:
   m_Component:
   - component: {fileID: 463308253}
   - component: {fileID: 463308254}
+  - component: {fileID: 463308255}
   m_Layer: 6
   m_Name: "Vergalh\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &463308253
 Transform:
   m_ObjectHideFlags: 0
@@ -3017,18 +3016,40 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7621626479387980553, guid: b6bc732fef683e843bf63e8c07332542, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.225, y: 0.5693054}
+  m_Size: {x: 1.5, y: 1.5014647}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &463308255
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463308252}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bd6c495f829f7e4b96b639280560a9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &502461664
 GameObject:
   m_ObjectHideFlags: 0
@@ -23295,7 +23316,6 @@ MonoBehaviour:
   titleScreen: {fileID: 0}
   optionsScreen: {fileID: 0}
   creditsScreen: {fileID: 0}
-  aManager: {fileID: 0}
 --- !u!114 &1635859431
 MonoBehaviour:
   m_ObjectHideFlags: 0

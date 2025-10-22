@@ -150,12 +150,12 @@ TextureImporter:
       name: arma_esquerda-sheet_0
       rect:
         serializedVersion: 2
-        x: 289
-        y: 209
-        width: 72
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.6660787, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: arma_esquerda-sheet_1
       rect:
         serializedVersion: 2
-        x: 819
-        y: 209
-        width: 72
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.6660787, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: arma_esquerda-sheet_2
       rect:
         serializedVersion: 2
-        x: 1249
-        y: 209
-        width: 72
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.6660787, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: arma_esquerda-sheet_3
       rect:
         serializedVersion: 2
-        x: 1479
-        y: 9
-        width: 242
-        height: 372
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1440
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.6660787, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,12 +238,12 @@ TextureImporter:
       name: arma_esquerda-sheet_4
       rect:
         serializedVersion: 2
-        x: 1959
-        y: 209
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.6660787, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,77 +256,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: arma_esquerda-sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1999
-        y: 229
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a4387a7b822a70d0800000000000000
-      internalID: -3424386584211344224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arma_esquerda-sheet_6
-      rect:
-        serializedVersion: 2
-        x: 1959
-        y: 0
-        width: 252
-        height: 201
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e4b8c185843c2cc60800000000000000
-      internalID: 7837041017061411662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arma_esquerda-sheet_7
-      rect:
-        serializedVersion: 2
-        x: 2009
-        y: 159
-        width: 32
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df869b8b0c07eb1b0800000000000000
-      internalID: -5638945710386091779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1d84480451e19c7419357c7a159772e1
     internalID: 0
     vertices: []
     indices: 
@@ -341,9 +275,6 @@ TextureImporter:
       arma_esquerda-sheet_2: 4713737377156449385
       arma_esquerda-sheet_3: -2847478849616252940
       arma_esquerda-sheet_4: 630803478855126799
-      arma_esquerda-sheet_5: -3424386584211344224
-      arma_esquerda-sheet_6: 7837041017061411662
-      arma_esquerda-sheet_7: -5638945710386091779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

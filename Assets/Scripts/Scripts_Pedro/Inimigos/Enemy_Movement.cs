@@ -28,6 +28,7 @@ public class Enemy_Movement : MonoBehaviour
     [Header("Campo de Visão")]
     [Range(0f, 180f)]
     public float visionAngle = 45f;          // meia-abertura do cone
+    public float chaseVisionRadius = 6f;     // alcance 360º durante perseguição
     public LayerMask visionBlockMask;        // paredes/chão que bloqueiam visão (NÃO inclua Player)
 
     private float attackCooldownTimer = 0f;
@@ -109,31 +110,33 @@ public class Enemy_Movement : MonoBehaviour
     // =======================
     private void CheckForPlayer()
     {
-        // Pegamos quem está no raio máximo, depois filtramos por cone e LOS
-        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, playerDetectRange, playerLayer);
         bool playerDetected = false;
+
+        // 🔄 alterna o tipo de visão conforme o estado
+        float detectRange = enemyState == EnemyState.Chasing ? chaseVisionRadius : playerDetectRange;
+        float currentVisionAngle = enemyState == EnemyState.Chasing ? 180f : visionAngle;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, detectRange, playerLayer);
 
         foreach (Collider2D hit in hits)
         {
             if (!hit.CompareTag("Player")) continue;
 
-            // Direção e distância até o player
             Vector2 dirToPlayer = ((Vector2)hit.transform.position - (Vector2)detectionPoint.position).normalized;
             float distToPlayer = Vector2.Distance(detectionPoint.position, hit.transform.position);
 
-            // 1) Checagem do cone (ângulo)
-            float angle = Vector2.Angle(facingDirection, dirToPlayer);
-            if (angle > visionAngle) continue;
-
-            // 2) Linha de visão: se houver QUALQUER bloqueio entre inimigo e player, não vê
-            RaycastHit2D blocker = Physics2D.Raycast(detectionPoint.position, dirToPlayer, distToPlayer, visionBlockMask);
-            if (blocker.collider != null)
+            // 🔺 Checagem do cone e linha de visão apenas quando NÃO está perseguindo
+            if (enemyState != EnemyState.Chasing)
             {
-                // Tem parede no meio -> não detecta
-                continue;
+                float angle = Vector2.Angle(facingDirection, dirToPlayer);
+                if (angle > currentVisionAngle) continue;
+
+                RaycastHit2D blocker = Physics2D.Raycast(detectionPoint.position, dirToPlayer, distToPlayer, visionBlockMask);
+                if (blocker.collider != null)
+                    continue;
             }
 
-            // Passou: dentro do cone e sem bloqueio
+            // ✅ detectou o jogador
             player = hit.transform;
             playerDetected = true;
             break;
@@ -157,9 +160,31 @@ public class Enemy_Movement : MonoBehaviour
         }
         else
         {
-            if (enemyState != EnemyState.Patrolling)
+            if (enemyState == EnemyState.Chasing)
             {
+                // se perdeu o jogador mesmo com visão 360º -> volta a patrulhar
                 ChangeState(EnemyState.Patrolling);
+
+                // 🧠 novo: ajusta o ponto de patrulha para o mais próximo
+                if (patrolPoints.Length > 0)
+                {
+                    float closestDistance = Mathf.Infinity;
+                    int closestIndex = 0;
+
+                    for (int i = 0; i < patrolPoints.Length; i++)
+                    {
+                        if (patrolPoints[i] == null) continue;
+                        float dist = Vector2.Distance(transform.position, patrolPoints[i].position);
+                        if (dist < closestDistance)
+                        {
+                            closestDistance = dist;
+                            closestIndex = i;
+                        }
+                    }
+
+                    currentPatrolIndex = closestIndex;
+                }
+
                 player = null;
             }
         }
@@ -335,31 +360,32 @@ public class Enemy_Movement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // CONE DE VISÃO (sem círculo)
         if (detectionPoint != null)
         {
-            Gizmos.color = new Color(1f, 0f, 0f, 0.9f);
-
-            // base do cone = facingDirection a partir do detectionPoint
-            Vector2 forward = facingDirection == Vector2.zero ? Vector2.right : facingDirection;
-
-            // desenha as duas bordas do cone
-            Vector3 leftDir = Quaternion.Euler(0, 0, visionAngle) * (Vector3)forward;
-            Vector3 rightDir = Quaternion.Euler(0, 0, -visionAngle) * (Vector3)forward;
-            Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + leftDir * playerDetectRange);
-            Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + rightDir * playerDetectRange);
-
-            // desenha o arco do cone (apenas linhas, sem círculo)
-            int steps = 24;
-            float start = -visionAngle;
-            float stepAngle = (visionAngle * 2f) / steps;
-            Vector3 prev = detectionPoint.position + (Quaternion.Euler(0, 0, start) * (Vector3)forward) * playerDetectRange;
-            for (int i = 1; i <= steps; i++)
+            if (enemyState == EnemyState.Chasing)
             {
-                float a = start + stepAngle * i;
-                Vector3 next = detectionPoint.position + (Quaternion.Euler(0, 0, a) * (Vector3)forward) * playerDetectRange;
-                Gizmos.DrawLine(prev, next);
-                prev = next;
+                Gizmos.color = new Color(1f, 0.5f, 0f, 0.4f);
+                Gizmos.DrawWireSphere(detectionPoint.position, chaseVisionRadius);
+            }
+            else
+            {
+                Gizmos.color = new Color(1f, 0f, 0f, 0.9f);
+                Vector2 forward = facingDirection == Vector2.zero ? Vector2.right : facingDirection;
+                Vector3 leftDir = Quaternion.Euler(0, 0, visionAngle) * (Vector3)forward;
+                Vector3 rightDir = Quaternion.Euler(0, 0, -visionAngle) * (Vector3)forward;
+                Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + leftDir * playerDetectRange);
+                Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + rightDir * playerDetectRange);
+                int steps = 24;
+                float start = -visionAngle;
+                float stepAngle = (visionAngle * 2f) / steps;
+                Vector3 prev = detectionPoint.position + (Quaternion.Euler(0, 0, start) * (Vector3)forward) * playerDetectRange;
+                for (int i = 1; i <= steps; i++)
+                {
+                    float a = start + stepAngle * i;
+                    Vector3 next = detectionPoint.position + (Quaternion.Euler(0, 0, a) * (Vector3)forward) * playerDetectRange;
+                    Gizmos.DrawLine(prev, next);
+                    prev = next;
+                }
             }
         }
 
@@ -387,16 +413,12 @@ public class Enemy_Movement : MonoBehaviour
     {
         Debug.Log($"☠️ {name} eliminado por stealth.");
 
-        // aqui você pode tocar uma animação de morte se quiser:
-        // anim.SetTrigger("Die");
-
-        // opcional: desativar colisões
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
 
-        // remove o inimigo após 0.5s
-        Destroy(gameObject, 0.5f);
+        transform.SetParent(null);
+        Destroy(this.gameObject, 0.5f);
     }
 }
 

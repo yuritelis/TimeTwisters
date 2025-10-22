@@ -150,12 +150,12 @@ TextureImporter:
       name: arma_direita-sheet_0
       rect:
         serializedVersion: 2
-        x: 119
-        y: 209
-        width: 72
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.3339213, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: arma_direita-sheet_1
       rect:
         serializedVersion: 2
-        x: 549
-        y: 209
-        width: 72
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.3339213, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: arma_direita-sheet_2
       rect:
         serializedVersion: 2
-        x: 1079
-        y: 209
-        width: 72
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.3339213, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: arma_direita-sheet_3
       rect:
         serializedVersion: 2
-        x: 1639
-        y: 9
-        width: 242
-        height: 372
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1440
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.3339213, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,12 +238,12 @@ TextureImporter:
       name: arma_direita-sheet_4
       rect:
         serializedVersion: 2
-        x: 2309
-        y: 229
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 0
+        width: 480
+        height: 480
+      alignment: 9
+      pivot: {x: 0.3339213, y: 0.3332921}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,77 +256,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: arma_direita-sheet_5
-      rect:
-        serializedVersion: 2
-        x: 2339
-        y: 209
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7494ee5b013c3de90800000000000000
-      internalID: -7002038519091803833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arma_direita-sheet_6
-      rect:
-        serializedVersion: 2
-        x: 2109
-        y: 0
-        width: 252
-        height: 201
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 814441dfe6efa9160800000000000000
-      internalID: 7033213520738272280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arma_direita-sheet_7
-      rect:
-        serializedVersion: 2
-        x: 2279
-        y: 159
-        width: 32
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a2fabf10516a034a0800000000000000
-      internalID: -6615605243449462998
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e7a551e81681e1947a3673d8838de1d9
     internalID: 0
     vertices: []
     indices: 
@@ -341,9 +275,6 @@ TextureImporter:
       arma_direita-sheet_2: 5864148712969230315
       arma_direita-sheet_3: 6076449945770665308
       arma_direita-sheet_4: -1683947174817269059
-      arma_direita-sheet_5: -7002038519091803833
-      arma_direita-sheet_6: 7033213520738272280
-      arma_direita-sheet_7: -6615605243449462998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
