@@ -1,7 +1,7 @@
 # Milestone 04
 ## Informações Gerais
 Entrega: 15/10/2025 <br>
-Status: Em andamento <br>
+Status: Concluído <br>
 Integrantes:
 - Daniel Barroquelo
 - Gabriel Mezet

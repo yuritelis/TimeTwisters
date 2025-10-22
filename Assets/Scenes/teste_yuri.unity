@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 27132819}
   - component: {fileID: 27132818}
   - component: {fileID: 27132817}
-  - component: {fileID: 27132816}
   m_Layer: 5
   m_Name: botResume
   m_TagString: Untagged
@@ -159,21 +158,6 @@ RectTransform:
   m_AnchoredPosition: {x: -24.9, y: -59}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &27132816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27132814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c7507e5813b6d4cb653e8cec269f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleScreen: {fileID: 0}
-  optionsScreen: {fileID: 0}
-  creditsScreen: {fileID: 0}
 --- !u!114 &27132817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5388,7 +5372,6 @@ MonoBehaviour:
   - {fileID: 5377083185873576411, guid: ffcaaeb86c6de8d4e8e22ded5219f7f9, type: 3}
   - {fileID: -7227684327463356451, guid: ffcaaeb86c6de8d4e8e22ded5219f7f9, type: 3}
   barraUI: {fileID: 851739608}
-  index: 9
 --- !u!114 &851739608
 MonoBehaviour:
   m_ObjectHideFlags: 0
