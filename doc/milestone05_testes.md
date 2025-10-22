@@ -18,7 +18,7 @@ Para esta milestone, nos foi solicitado que fizessemos grupos de testes e fosse 
 ## Testes e Correção de Bugs
 Na tabela abaixo estão os _reports_ de bugs, junto do status e sua correção (se tiver):
 
-| <div align=center> _BUG_ </div> | <div align=center> _STATUS_ </div> | <div align=center> _MOTIVO / CAUSA_ </div> | <div align=center> _CORREÇÃO_ </div> |
+| <div align = center> _BUG_ </div> | <div align = center> _STATUS_ </div> | <div align = center> _MOTIVO / CAUSA_ </div> | <div align = center> _CORREÇÃO_ </div> |
 | :-- | :-- | :-- | :--
 | Botôes da UI estão com problema para serem pressionados | Corrigido | Era um problema de hierarquia, o Panel estava atrapalhando a interação, embora em testes anteriores isso não ter atrapalhado | Bastava arrastar o Panel para o local certo da hierarquia |
 | A barra de sanidade do jogador não baixava quando estava entre 7 e 8, ela "pulava" valores | Corrigido | Era um problema de ajustes de sprites no Inspector, o que só foi percebido durante os teste | Arrumar os sprites corretamente cada um em seu respectivo lugar no inspector |
@@ -28,9 +28,11 @@ Na tabela abaixo estão os _reports_ de bugs, junto do status e sua correção (
 | Dash da julie ao estar muito proxima de um inimigo, faz com que ela empurre o inimigo ao invés de atravessá-lo | Corrigido | A colisão da julie com inimigos da layer Enemy não é desativada no dash, ela só fica imune a dano | Desativar colisão da mesma com inimigos na respectiva layer |
 | O botão de interação com a interface de viagem no tempo precisava ser pressionado 2x para interagir com ela na primeira vez | Corrigido | código habilitava somente a interface e não os botões simultaneamente, o que fazia com que a interação do jogador com a engine fosse: ao apertar E a primeira vez a interface ativava (embora não ficasse visível pro player), e na segunda com a interface já ativa, os botões eram ativados. além disso, o bug ainda pode ocorrer caso inicialize o teste deixando a própria interface desativada na unity. | Ajustar o código para que não fosse necessário essa interação com clique duplo |
 | Ao usar o stealth attack em um inimigo próximo à parede, a parede some junto | Corrigido | O motivo era a interação do inimigo com a layer de colisão, que todos os objetos estão na mesma layer para os inimigos não verem a Julie e quando o inimigo era derrotado, a parede destruía junto do inimigo | Ajustar no código para quebrar apenas o objeto que estava sendo atacado |
-| Quando um inimigo em patrulha via a Julie, ao sair do campo de visão dele, ele voltava para patrulhar o ponto que ele estava patrulhando, mesmo que tivesse outro ponto mais perto | Corrigido | - | - |
-| Ataque básico do boss não reproduz animação e só causa dano na primeira iteração | Não Corrigido | - | - |
-| ⁠telegraph do leap attack do boss ultrapassa o player mesmo a lógica do código tentando fazer com que isso não aconteça, causando uma representação visual que não condiz com o alcance real do golpe | Não Corrigido | - | - |
-| Quando o jogador troca de cena (do menu pro jogo), a música fica acumulando uma sobre a outra | Não Corrigido | A possível causa é no código, onde a troca/pause da música não é feita | - |
+| Quando um inimigo em patrulha via a Julie, ao sair do campo de visão dele, ele voltava para patrulhar o ponto que ele estava patrulhando, mesmo que tivesse outro ponto mais perto | Corrigido | No script, não tinha um cálculo para o inimigo verificar qual é o ponto mais perto, então seu comportamento era ir para o ponto que ainda não tinha patrulhado | Adicionar no script um cálculo para achar o ponto de patrulha mais perto do inimigo ao perder o jogador de vista |
+| Ataque básico do boss não reproduz animação e só causa dano na primeira iteração | Não Corrigido | <div align = center> - </div> | <div align = center> - </div> |
+| ⁠telegraph do leap attack do boss ultrapassa o player mesmo a lógica do código tentando fazer com que isso não aconteça, causando uma representação visual que não condiz com o alcance real do golpe | Não Corrigido | <div align = center> - </div> | <div align = center> - </div> |
+| Quando o jogador troca de cena (do menu pro jogo), a música fica acumulando uma sobre a outra | Não Corrigido | A possível causa é no código, onde a troca/pause da música não é feita | <div align = center> - </div> |
 <br>
-C
+
+## Melhorias
+Com os feedbacks que recebemos nos _playtests_, conseguimos fazer os ajustes necessários para melhorar a jogabilidade, assim a _gameplay_ do nosso jogo melhorou significativamente.
