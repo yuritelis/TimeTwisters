@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -17,12 +17,14 @@ public class PlayerDash : MonoBehaviour
     private Vector2 lastCardinalDirection = Vector2.right;
     private PlayerHealth playerHealth;
     private SpriteRenderer spriteRenderer;
+    private PlayerController playerController;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         playerHealth = GetComponent<PlayerHealth>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerController = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -35,16 +37,17 @@ public class PlayerDash : MonoBehaviour
                 lastCardinalDirection = inputDir.normalized;
         }
 
+        // impede dash durante ataque ou hit
+        if (playerController != null)
+        {
+            if (playerController.IsAttacking || playerController.IsHit)
+                return;
+        }
+
         // Dash
         if (canDash && !isDashing && Input.GetKeyDown(dashKey))
         {
-            Vector2 dashDir;
-
-            if (inputDir != Vector2.zero)
-                dashDir = inputDir.normalized;
-            else
-                dashDir = lastCardinalDirection;
-
+            Vector2 dashDir = (inputDir != Vector2.zero) ? inputDir.normalized : lastCardinalDirection;
             StartCoroutine(PerformDash(dashDir));
         }
     }
