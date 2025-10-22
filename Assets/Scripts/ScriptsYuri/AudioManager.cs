@@ -22,12 +22,10 @@ public class AudioManager : MonoBehaviour
     private bool inBossZone = false;
     private TimeTravelTilemap timeTravel;
 
-    // Singleton para fácil acesso
     public static AudioManager instance;
 
     void Awake()
     {
-        // Implementação do Singleton
         if (instance == null)
         {
             instance = this;
@@ -39,7 +37,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // Garantir que fonteMus está configurado corretamente
         if (fonteMus != null)
         {
             fonteMus.loop = true;
@@ -55,7 +52,6 @@ public class AudioManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().name;
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        // Buscar o TimeTravelTilemap na cena
         FindTimeTravelReference();
         UpdateMusic();
     }
@@ -63,15 +59,13 @@ public class AudioManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         currentScene = scene.name;
-        inBossZone = false; // Reset boss zone ao mudar de cena
-        currentTimeline = ""; // Reset timeline
+        inBossZone = false;
+        currentTimeline = "";
 
-        // Buscar nova referência do TimeTravel na nova cena
         FindTimeTravelReference();
         UpdateMusic();
     }
 
-    // Buscar referência do TimeTravelTilemap na cena
     private void FindTimeTravelReference()
     {
         timeTravel = FindObjectOfType<TimeTravelTilemap>();
@@ -87,7 +81,6 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        // Verificar automaticamente a timeline atual
         if (timeTravel != null)
         {
             string newTimeline = "";
@@ -104,11 +97,10 @@ public class AudioManager : MonoBehaviour
                     newTimeline = "Futuro";
                     break;
                 default:
-                    newTimeline = "Presente"; // Valor padrão
+                    newTimeline = "Presente";
                     break;
             }
 
-            // Só atualizar se a timeline mudou
             if (currentTimeline != newTimeline)
             {
                 currentTimeline = newTimeline;
@@ -118,21 +110,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Método manual para forçar mudança (opcional)
     public void SetCurrentTimeline(string timeline)
     {
         currentTimeline = timeline;
         UpdateMusic();
     }
 
-    // Chamado quando entra/sai da zona do boss
     public void SetBossZone(bool inZone)
     {
         inBossZone = inZone;
         UpdateMusic();
     }
 
-    // Chamado quando o boss morre
     public void OnBossDefeated()
     {
         inBossZone = false;
@@ -143,7 +132,6 @@ public class AudioManager : MonoBehaviour
     {
         AudioClip clipToPlay = null;
 
-        // Prioridade: Boss > Timeline > Cena
         if (inBossZone && bossBgm != null)
         {
             clipToPlay = bossBgm;
@@ -182,21 +170,19 @@ public class AudioManager : MonoBehaviour
                 default:
                     if (presBgm != null)
                     {
-                        clipToPlay = presBgm; // Música padrão
+                        clipToPlay = presBgm;
                         Debug.Log("Tocando música padrão (Presente)");
                     }
                     break;
             }
         }
 
-        // Só toca se o clip for válido
         if (clipToPlay != null)
         {
             PlayMus(clipToPlay);
         }
         else
         {
-            // Se não há música para tocar, para a música atual
             if (fonteMus.isPlaying)
             {
                 fonteMus.Stop();
@@ -220,7 +206,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // Só troca de música se for uma música diferente
         if (fonteMus.clip != clip)
         {
             fonteMus.Stop();
@@ -228,7 +213,6 @@ public class AudioManager : MonoBehaviour
             fonteMus.Play();
             Debug.Log($"Tocando música: {clip.name}");
         }
-        // Se for a mesma música mas não está tocando, toca
         else if (!fonteMus.isPlaying)
         {
             fonteMus.Play();
@@ -236,7 +220,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Método para parar a música completamente
     public void StopMusic()
     {
         if (fonteMus.isPlaying)
@@ -246,7 +229,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Método para pausar/despausar música
     public void SetMusicPaused(bool paused)
     {
         if (paused)
@@ -259,13 +241,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Configurar volume
     public void SetMusicVolume(float volume)
     {
         fonteMus.volume = Mathf.Clamp01(volume);
     }
 
-    // Importante: Remover o event listener quando o objeto for destruído
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -279,7 +259,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // DEBUG: Método para verificar o estado atual
     public void DebugAudioState()
     {
         Debug.Log($"Cena: {currentScene}, Timeline: {currentTimeline}, BossZone: {inBossZone}");
