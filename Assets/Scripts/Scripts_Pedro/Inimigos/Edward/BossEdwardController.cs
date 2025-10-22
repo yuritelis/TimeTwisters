@@ -16,9 +16,15 @@ public class BossEdwardController : MonoBehaviour
     public BossEdward_Leap_Attack leapAttack;
     public BossEdward_Claw_Attack clawAttack;
 
-    private bool isAttacking = false;
+    [Header("Ataque Normal")]
+    public EnemyCombat normalAttack;
+    public float normalAttackRange = 2f;
+    public float normalAttackCooldown = 1f;
+
+    private bool isAttackingSpecial = false;
     private SpriteRenderer sr;
     private EdwardMovement movement;
+    private bool canDoNormalAttack = true; // Novo: controle específico para ataques normais
 
     void Awake()
     {
@@ -31,7 +37,33 @@ public class BossEdwardController : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(AttackCycle());
+        StartCoroutine(AttackCycle());       // ataques especiais
+        StartCoroutine(NormalAttackLoop());  // ataques normais contínuos
+    }
+
+    IEnumerator NormalAttackLoop()
+    {
+        while (true)
+        {
+            if (!isAttackingSpecial && player != null && canDoNormalAttack)
+            {
+                float distance = Vector2.Distance(transform.position, player.position);
+                if (distance <= normalAttackRange)
+                {
+                    // Executa ataque normal através do EdwardMovement para ter a animação
+                    if (movement != null)
+                    {
+                        canDoNormalAttack = false;
+
+                        // Aguarda cooldown específico para ataques normais
+                        yield return new WaitForSeconds(normalAttackCooldown);
+                        canDoNormalAttack = true;
+                    }
+                }
+            }
+
+            yield return null; // espera o próximo frame
+        }
     }
 
     IEnumerator AttackCycle()
@@ -40,7 +72,7 @@ public class BossEdwardController : MonoBehaviour
 
         while (true)
         {
-            if (!isAttacking && player != null)
+            if (!isAttackingSpecial && player != null)
             {
                 float distance = Vector2.Distance(transform.position, player.position);
 
@@ -57,32 +89,25 @@ public class BossEdwardController : MonoBehaviour
 
     IEnumerator ChooseRandomAttack()
     {
-        isAttacking = true;
+        isAttackingSpecial = true;
         if (movement != null) movement.canMove = false;
 
-        // Sorteia apenas entre Leap (0) e Claw (1)
         int attackIndex = Random.Range(0, 2);
-        Debug.Log($"[Boss] Ataque sorteado: {attackIndex} ({(attackIndex == 0 ? "Leap" : "Claw")})");
+        Debug.Log($"[Boss] Ataque especial sorteado: {attackIndex}");
 
         switch (attackIndex)
         {
-            case 0: // Leap
+            case 0:
                 if (leapAttack != null)
-                {
-                    Debug.Log("[Boss] Executando Leap");
                     yield return StartCoroutine(leapAttack.DoLeap(player));
-                }
                 break;
-            case 1: // Claw
+            case 1:
                 if (clawAttack != null)
-                {
-                    Debug.Log("[Boss] Executando Claw");
                     yield return StartCoroutine(clawAttack.SpawnClawsCoroutine());
-                }
                 break;
         }
 
         if (movement != null) movement.canMove = true;
-        isAttacking = false;
+        isAttackingSpecial = false;
     }
 }

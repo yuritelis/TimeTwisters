@@ -8,13 +8,13 @@ public class BotController : MonoBehaviour
     [SerializeField] GameObject optionsScreen;
     [SerializeField] GameObject creditsScreen;
 
-    AudioManager aManager;
+    public AudioManager aManager;
 
     private string nomeCena = "teste_yuri";
 
     private void Awake()
     {
-        aManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
+        aManager = GameObject.FindFirstObjectByType<AudioManager>();
     }
 
     private void Start()

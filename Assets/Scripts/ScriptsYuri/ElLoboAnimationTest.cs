@@ -25,7 +25,6 @@ public class ElLoboAnimationTest : MonoBehaviour
         isWalking = false;
 
         anim.SetBool("isWalking", false);
-        anim.SetBool("isChasing", false);
         anim.SetBool("isIdle", true);
         anim.SetBool("isAttacking", false);
     }
@@ -37,21 +36,18 @@ public class ElLoboAnimationTest : MonoBehaviour
         if (eState == EnemyState.Chasing)
         {
             anim.SetBool("isWalking", true);
-            anim.SetBool("isChasing", true);
             anim.SetBool("isIdle", false);
             anim.SetBool("isAttacking", false);
         }
         else if (eState == EnemyState.Attacking)
         {
             anim.SetBool("isWalking", false);
-            anim.SetBool("isChasing", false);
             anim.SetBool("isIdle", false);
             anim.SetBool("isAttacking", true);
         }
         else
         {
             anim.SetBool("isWalking", false);
-            anim.SetBool("isChasing", false);
             anim.SetBool("isIdle", true);
             anim.SetBool("isAttacking", false);
         }

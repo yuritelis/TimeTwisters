@@ -27,6 +27,14 @@ Para esta entrega, nos foi solicitado que fossem desenvolvidas a navegação (me
 - *__Pause:__* quando o jogador pressionar esc enquanto estiver jogando, o jogo será pausado e terá 3 botões, o primeiro para voltar a jogar, o seugndo para acessar as onfigurações do jogo e o terceiro para voltar ao menu. <br>
 
 ### Navegação Implementada
+#### Tela de Título
+<img width="1757" height="836" alt="Captura de tela 2025-10-15 130406" src="https://github.com/user-attachments/assets/a149c45e-f4dc-4395-9634-8d49598df2eb" /> <br>
+#### Tela de Opções
+<img width="1756" height="831" alt="Captura de tela 2025-10-15 130415" src="https://github.com/user-attachments/assets/5d10a724-b89e-4733-94ad-e73c2b690c65" /> <br>
+#### Tela de Créditos
+<img width="1758" height="836" alt="Captura de tela 2025-10-15 130514" src="https://github.com/user-attachments/assets/5a5ebed4-0572-4381-aef5-507047ccd88f" /> <br>
+#### Tela de Pause
+<img width="1919" height="836" alt="Captura de tela 2025-10-15 130529" src="https://github.com/user-attachments/assets/9fa191a1-a555-4ab8-8ee4-ecb15046cae7" /> <br>
 
 
 ## Mecânicas do Boss e Boss Fight
@@ -35,7 +43,6 @@ Para esta entrega, nos foi solicitado que fossem desenvolvidas a navegação (me
 <img width="671" height="1220" alt="esta imagem mostra o ataque básico do lobo, que consiste em um retângulo vermelho que mostra o caminho pelo qual o lobo seguirá para avançar no jogador" src="https://github.com/user-attachments/assets/94d5b695-4297-4458-b90d-1f3967b44d2e" /> <br>
 - *__Ataque de Fogo:__* O ataque de fogo consiste em faixas horizontais e verticais que mostrarão o caminho que as bolas de fogo irão percorrer para o jogador poder desviar. <br>
 <img width="671" height="1220" alt="esta imagem mostra o ataque de fogo do lobo, que consiste em faixar verticais e horizontais que mostram o caminho que o fogo percorrerá" src="https://github.com/user-attachments/assets/81f5f572-76a1-4673-a941-20963ac941cb" /> <br>
-
 
 ### Implementação
 #### Ataque Básico
