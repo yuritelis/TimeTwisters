@@ -10,7 +10,7 @@ public class BotController : MonoBehaviour
 
     public AudioManager aManager;
 
-    private string nomeCena = "teste_yuri";
+    private string nomeCena = "Alpha";
 
     private void Awake()
     {

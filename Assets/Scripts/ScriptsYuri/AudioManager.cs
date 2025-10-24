@@ -142,7 +142,7 @@ public class AudioManager : MonoBehaviour
             clipToPlay = menuBgm;
             Debug.Log("Tocando música do Menu");
         }
-        else if (currentScene == "teste_yuri")
+        else if (currentScene == "Alpha")
         {
             switch (currentTimeline)
             {
