@@ -1,5 +1,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -41,10 +42,6 @@ public class AudioManager : MonoBehaviour
         {
             fonteMus.loop = true;
         }
-        else
-        {
-            Debug.LogError("fonteMus não está atribuído no Inspector!");
-        }
     }
 
     void Start()
@@ -54,6 +51,8 @@ public class AudioManager : MonoBehaviour
 
         FindTimeTravelReference();
         UpdateMusic();
+
+        VolumeSettings.Instance.ApplyVolumeWithoutSliders();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -68,7 +67,7 @@ public class AudioManager : MonoBehaviour
 
     private void FindTimeTravelReference()
     {
-        timeTravel = FindObjectOfType<TimeTravelTilemap>();
+        timeTravel = FindFirstObjectByType<TimeTravelTilemap>();
         if (timeTravel != null)
         {
             Debug.Log("TimeTravelTilemap encontrado na cena!");
