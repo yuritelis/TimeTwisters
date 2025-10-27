@@ -283,7 +283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1143071415}
-  optionsScreen: {fileID: 0}
   playerInput: {fileID: 0}
   isPaused: 0
 --- !u!4 &131623993
@@ -17864,7 +17863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1143071416
 RectTransform:
   m_ObjectHideFlags: 0
