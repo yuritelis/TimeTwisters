@@ -68,14 +68,6 @@ public class AudioManager : MonoBehaviour
     private void FindTimeTravelReference()
     {
         timeTravel = FindFirstObjectByType<TimeTravelTilemap>();
-        if (timeTravel != null)
-        {
-            Debug.Log("TimeTravelTilemap encontrado na cena!");
-        }
-        else
-        {
-            Debug.LogWarning("TimeTravelTilemap não encontrado na cena.");
-        }
     }
 
     private void Update()
@@ -103,7 +95,6 @@ public class AudioManager : MonoBehaviour
             if (currentTimeline != newTimeline)
             {
                 currentTimeline = newTimeline;
-                Debug.Log($"Timeline mudou para: {currentTimeline}");
                 UpdateMusic();
             }
         }
@@ -134,12 +125,10 @@ public class AudioManager : MonoBehaviour
         if (inBossZone && bossBgm != null)
         {
             clipToPlay = bossBgm;
-            Debug.Log("Tocando música do Boss");
         }
         else if (currentScene == "TitleScreen" && menuBgm != null)
         {
             clipToPlay = menuBgm;
-            Debug.Log("Tocando música do Menu");
         }
         else if (currentScene == "Alpha")
         {
@@ -149,28 +138,24 @@ public class AudioManager : MonoBehaviour
                     if (pasBgm != null)
                     {
                         clipToPlay = pasBgm;
-                        Debug.Log("Tocando música do Passado");
                     }
                     break;
                 case "Presente":
                     if (presBgm != null)
                     {
                         clipToPlay = presBgm;
-                        Debug.Log("Tocando música do Presente");
                     }
                     break;
                 case "Futuro":
                     if (futBgm != null)
                     {
                         clipToPlay = futBgm;
-                        Debug.Log("Tocando música do Futuro");
                     }
                     break;
                 default:
                     if (presBgm != null)
                     {
                         clipToPlay = presBgm;
-                        Debug.Log("Tocando música padrão (Presente)");
                     }
                     break;
             }
@@ -186,7 +171,6 @@ public class AudioManager : MonoBehaviour
             {
                 fonteMus.Stop();
                 fonteMus.clip = null;
-                Debug.Log("Parando música - nenhum clip válido");
             }
         }
     }
@@ -195,13 +179,11 @@ public class AudioManager : MonoBehaviour
     {
         if (clip == null)
         {
-            Debug.LogWarning("AudioClip é null!");
             return;
         }
 
         if (fonteMus == null)
         {
-            Debug.LogError("fonteMus é null! Verifique o Inspector.");
             return;
         }
 
@@ -210,12 +192,10 @@ public class AudioManager : MonoBehaviour
             fonteMus.Stop();
             fonteMus.clip = clip;
             fonteMus.Play();
-            Debug.Log($"Tocando música: {clip.name}");
         }
         else if (!fonteMus.isPlaying)
         {
             fonteMus.Play();
-            Debug.Log($"Retomando música: {clip.name}");
         }
     }
 
@@ -255,19 +235,6 @@ public class AudioManager : MonoBehaviour
         if (fonteSfx != null && clip != null)
         {
             fonteSfx.PlayOneShot(clip);
-        }
-    }
-
-    public void DebugAudioState()
-    {
-        Debug.Log($"Cena: {currentScene}, Timeline: {currentTimeline}, BossZone: {inBossZone}");
-        Debug.Log($"Música atual: {(fonteMus.clip != null ? fonteMus.clip.name : "Nenhuma")}");
-        Debug.Log($"Tocando: {fonteMus.isPlaying}");
-        Debug.Log($"TimeTravel referencia: {(timeTravel != null ? "Encontrado" : "Nulo")}");
-
-        if (timeTravel != null)
-        {
-            Debug.Log($"Timeline atual do TimeTravel: {timeTravel.CurrentTimeline}");
         }
     }
 }
