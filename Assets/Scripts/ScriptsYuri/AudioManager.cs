@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     [Header("> Audio Source <")]
     [SerializeField] AudioSource fonteMus;
     [SerializeField] AudioSource fonteSfx;
+    [SerializeField] AudioSource fonteVoz;
 
     [Header("> Audio Clips (Música) <")]
     public AudioClip menuBgm;

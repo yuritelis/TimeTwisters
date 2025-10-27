@@ -5,16 +5,28 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
-    [SerializeField] GameObject optionsScreen;
+    //[SerializeField] GameObject optionsScreen;
 
     public PlayerInput playerInput;
 
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     AudioManager aManager;
 
+    public static PauseGame Instance { get; private set; }
+
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         Object.DontDestroyOnLoad(gameObject);
 
         aManager = FindFirstObjectByType<AudioManager>();
@@ -23,7 +35,7 @@ public class PauseGame : MonoBehaviour
     void Start()
     {
         pauseScreen.SetActive(false);
-        optionsScreen.SetActive(false);
+        //optionsScreen.SetActive(false);
     }
 
     private void Update()
@@ -38,6 +50,11 @@ public class PauseGame : MonoBehaviour
             {
                 Resume();
             }
+        }
+
+        if (!isPaused)
+        {
+            pauseScreen.SetActive(false);
         }
     }
 
@@ -114,6 +131,8 @@ public class PauseGame : MonoBehaviour
             aManager.PlaySFX(aManager.botClick);
         }
 
+        Resume();
+
         SceneManager.LoadScene("TitleScreen");
     }
 
@@ -135,7 +154,7 @@ public class PauseGame : MonoBehaviour
         }
 
         pauseScreen.SetActive(false);
-        optionsScreen.SetActive(true);
+        //optionsScreen.SetActive(true);
     }
 
     public void BotVoltar()
@@ -146,6 +165,6 @@ public class PauseGame : MonoBehaviour
         }
 
         pauseScreen.SetActive(true);
-        optionsScreen.SetActive(false);
+        //optionsScreen.SetActive(false);
     }
 }

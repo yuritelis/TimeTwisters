@@ -56,4 +56,9 @@ public class TimeTravelTilemap : MonoBehaviour, IInteractable
         SetTimeline(nextTimeline);
         Debug.Log("Mudou para: " + nextTimeline);
     }
+
+    public bool CanInteract()
+    {
+        throw new System.NotImplementedException();
+    }
 }
