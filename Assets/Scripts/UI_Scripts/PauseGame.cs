@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
@@ -7,29 +6,15 @@ public class PauseGame : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     //[SerializeField] GameObject optionsScreen;
 
-    public PlayerInput playerInput;
-
-    public bool isPaused = false;
-
     AudioManager aManager;
-
-    public static PauseGame Instance { get; private set; }
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        Object.DontDestroyOnLoad(gameObject);
-
         aManager = FindFirstObjectByType<AudioManager>();
+
+        PauseController.SetPause(false);
+        
+        Time.timeScale = 1.0f;
     }
 
     void Start()
@@ -40,21 +25,19 @@ public class PauseGame : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(TimelineUI.isPaused != true)
         {
-            if (!isPaused)
-            { 
-                Pause(); 
-            }
-            else
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Resume();
+                if (PauseController.IsGamePaused != true)
+                {
+                    Pause();
+                }
+                else
+                {
+                    Resume();
+                }
             }
-        }
-
-        if (!isPaused)
-        {
-            pauseScreen.SetActive(false);
         }
     }
 
@@ -62,76 +45,24 @@ public class PauseGame : MonoBehaviour
     {
         Time.timeScale = 0f;
         pauseScreen.SetActive(true);
-        isPaused = true;
-
-        PlayerController player = FindFirstObjectByType<PlayerController>();
-        if (player != null)
-        {
-            // Desativa TODOS os scripts e componentes
-            MonoBehaviour[] scripts = player.GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour script in scripts)
-            {
-                if (script != this) // Não desativa o PauseGame
-                    script.enabled = false;
-            }
-
-            // Desativa Animator
-            Animator anim = player.GetComponent<Animator>();
-            if (anim != null) anim.enabled = false;
-
-            // Congela física
-            Rigidbody rb = player.GetComponent<Rigidbody>();
-            if (rb != null) rb.isKinematic = true;
-        }
-
-        if (playerInput != null)
-        {
-            playerInput.enabled = false;
-            playerInput.actions.Disable();
-        }
+        PauseController.SetPause(true);
     }
 
     private void Resume()
     {
         Time.timeScale = 1.0f;
         pauseScreen.SetActive(false);
-        isPaused = false;
-
-        PlayerController player = FindFirstObjectByType<PlayerController>();
-        if (player != null)
-        {
-            // Desativa TODOS os scripts e componentes
-            MonoBehaviour[] scripts = player.GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour script in scripts)
-            {
-                if (script != this) // Não desativa o PauseGame
-                    script.enabled = true;
-            }
-
-            // Desativa Animator
-            Animator anim = player.GetComponent<Animator>();
-            if (anim != null) anim.enabled = true;
-
-            // Congela física
-            Rigidbody rb = player.GetComponent<Rigidbody>();
-            if (rb != null) rb.isKinematic = false;
-        }
-
-        if (playerInput != null)
-        {
-            playerInput.enabled = true;
-            playerInput.actions.Enable();
-        }
+        PauseController.SetPause(false);
     }
 
     public void BotMenu()
     {
-        if(aManager != null)
+        if (aManager != null)
         {
             aManager.PlaySFX(aManager.botClick);
         }
 
-        Resume();
+        PauseController.SetPause(false);
 
         SceneManager.LoadScene("TitleScreen");
     }

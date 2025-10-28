@@ -851,8 +851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: []
-  button1: {fileID: 0}
-  button2: {fileID: 0}
+  button1: {fileID: -6790153521216413870, guid: 3debcc73443b158488b63747df288e1b, type: 3}
+  button2: {fileID: 6406189502320623755, guid: 55416ec0fafe60c4aa1f115ed50a0ecf, type: 3}
 --- !u!1 &176366222
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fonteMus: {fileID: 1234851790}
   fonteSfx: {fileID: 47729255}
+  fonteVoz: {fileID: 0}
   menuBgm: {fileID: 8300000, guid: 57f23865b7affc34ea7d5b6762c3e3be, type: 3}
   pasBgm: {fileID: 8300000, guid: 0f7b5bf579a93c64fb5aec28738aacb4, type: 3}
   presBgm: {fileID: 8300000, guid: 5380d6b0be07e5d41aa98cbfdd2cbff1, type: 3}

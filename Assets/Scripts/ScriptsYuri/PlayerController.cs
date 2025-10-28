@@ -39,11 +39,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
+
+        PauseController.SetPause(false);
     }
 
     void Update()
     {
-        if (TimelineUI.isPaused)
+        if (TimelineUI.isPaused || PauseController.IsGamePaused)
         {
             rb.linearVelocity = Vector2.zero;
             return;
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviour
         bool isAttacking = anim.GetBool("isAttacking");
         bool isHit = IsHit;
 
-        if (!canMove || TimelineUI.isPaused || isKnockedBack || isAttacking || isHit)
+        if (!canMove || TimelineUI.isPaused || PauseController.IsGamePaused || isKnockedBack || isAttacking || isHit)
             return;
 
         if (context.performed)
