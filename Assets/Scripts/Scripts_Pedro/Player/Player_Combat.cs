@@ -63,13 +63,18 @@ public class Player_Combat : MonoBehaviour
         {
             var h = enemy.GetComponent<Enemy_Health>();
             var k = enemy.GetComponent<Enemy_Knockback>();
+            var edwardH = enemy.GetComponent<EdwardHealth>();
 
             if (h != null)
                 h.ChangeHealth(-damage);
 
+            if (edwardH != null)
+                edwardH.ChangeHealth(-damage);
+
             if (k != null)
                 k.Knockback(transform, 0.5f, 0.1f);
         }
+
     }
 
     public void FinishAttacking()

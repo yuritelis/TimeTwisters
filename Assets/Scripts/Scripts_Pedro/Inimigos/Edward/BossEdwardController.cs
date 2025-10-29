@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class BossEdwardController : MonoBehaviour
 {
-    [Header("Referências")]
+    [Header("ReferÃªncias")]
     public Transform player;
 
-    [Header("Configurações Gerais")]
+    [Header("ConfiguraÃ§Ãµes Gerais")]
     public float attackInterval = 5f;
     public float attackRange = 6f;
 
@@ -24,7 +24,9 @@ public class BossEdwardController : MonoBehaviour
     private bool isAttackingSpecial = false;
     private SpriteRenderer sr;
     private EdwardMovement movement;
-    private bool canDoNormalAttack = true; // Novo: controle específico para ataques normais
+    private bool canDoNormalAttack = true;
+
+    public bool isDead = false;
 
     void Awake()
     {
@@ -37,40 +39,51 @@ public class BossEdwardController : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(AttackCycle());       // ataques especiais
-        StartCoroutine(NormalAttackLoop());  // ataques normais contínuos
+        StartCoroutine(AttackCycle());
+        StartCoroutine(NormalAttackLoop());
     }
 
+    public void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        Debug.Log("[BossEdward] morreu, limpando ataques ativos.");
+        StopAllCoroutines();
+
+        if (leapAttack != null) leapAttack.CleanupAfterDeath();
+        if (clawAttack != null) clawAttack.CleanupAfterDeath();
+
+        GameObject cleaner = new GameObject("EdwardCleanupExecutor");
+        DontDestroyOnLoad(cleaner);
+        cleaner.AddComponent<BossEdwardCleanup>().StartCleanup();
+    }
     IEnumerator NormalAttackLoop()
     {
-        while (true)
+        while (!isDead)
         {
             if (!isAttackingSpecial && player != null && canDoNormalAttack)
             {
                 float distance = Vector2.Distance(transform.position, player.position);
                 if (distance <= normalAttackRange)
                 {
-                    // Executa ataque normal através do EdwardMovement para ter a animação
                     if (movement != null)
                     {
                         canDoNormalAttack = false;
-
-                        // Aguarda cooldown específico para ataques normais
                         yield return new WaitForSeconds(normalAttackCooldown);
                         canDoNormalAttack = true;
                     }
                 }
             }
-
-            yield return null; // espera o próximo frame
+            yield return null;
         }
     }
 
     IEnumerator AttackCycle()
     {
-        yield return new WaitForSeconds(2f); // atraso inicial
+        yield return new WaitForSeconds(2f);
 
-        while (true)
+        while (!isDead)
         {
             if (!isAttackingSpecial && player != null)
             {
@@ -99,11 +112,11 @@ public class BossEdwardController : MonoBehaviour
         {
             case 0:
                 if (leapAttack != null)
-                    yield return StartCoroutine(leapAttack.DoLeap(player));
+                    yield return StartCoroutine(leapAttack.DoLeap(player, this));
                 break;
             case 1:
                 if (clawAttack != null)
-                    yield return StartCoroutine(clawAttack.SpawnClawsCoroutine());
+                    yield return StartCoroutine(clawAttack.SpawnClawsCoroutine(this));
                 break;
         }
 
