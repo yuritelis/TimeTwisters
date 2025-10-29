@@ -4,17 +4,22 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] GameObject sanidadeBar;
     //[SerializeField] GameObject optionsScreen;
 
     AudioManager aManager;
+    TimelineUI timelineUI;
 
     private void Awake()
     {
         aManager = FindFirstObjectByType<AudioManager>();
+        timelineUI = FindFirstObjectByType<TimelineUI>();
 
         PauseController.SetPause(false);
         
         Time.timeScale = 1.0f;
+
+        sanidadeBar.SetActive(true);
     }
 
     void Start()
@@ -39,6 +44,13 @@ public class PauseGame : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                timelineUI.Close();
+            }
+        }
     }
 
     private void Pause()
@@ -46,6 +58,7 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 0f;
         pauseScreen.SetActive(true);
         PauseController.SetPause(true);
+        sanidadeBar.SetActive(false);
     }
 
     private void Resume()
@@ -53,6 +66,7 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1.0f;
         pauseScreen.SetActive(false);
         PauseController.SetPause(false);
+        sanidadeBar.SetActive(true);
     }
 
     public void BotMenu()

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TimelineUI : MonoBehaviour
 {
     public GameObject panel; // TimelinePanel
+    public GameObject sanidadeBar;
     public Button Presente;
     public Button Passado;
     public Button Futuro;
@@ -45,6 +46,7 @@ public class TimelineUI : MonoBehaviour
         currentTimeObject = timeObject;
 
         panel.SetActive(true);
+        sanidadeBar.SetActive(false);
         Presente.gameObject.SetActive(true);
         Passado.gameObject.SetActive(true);
         Futuro.gameObject.SetActive(true);
@@ -55,6 +57,25 @@ public class TimelineUI : MonoBehaviour
         isPaused = true;
         if (playerInput != null)
             playerInput.enabled = false;
+    }
+
+    public void Close()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            panel.SetActive(false);
+            sanidadeBar.SetActive(true);
+            Presente.gameObject.SetActive(false);
+            Passado.gameObject.SetActive(false);
+            Futuro.gameObject.SetActive(false);
+
+            UpdateButtonStates();
+            Time.timeScale = 1.0f;
+            TimelineUI.isPaused = false;
+            isPaused = false;
+            if (playerInput != null)
+                playerInput.enabled = true;
+        }
     }
 
     private void ChooseTimeline(Timeline timeline)

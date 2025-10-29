@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 8268276349870619569}
   - component: {fileID: 5922076694015326918}
   - component: {fileID: 7733124983821056603}
-  - component: {fileID: 6473890658912326071}
   - component: {fileID: 4028995318749010050}
   - component: {fileID: 247341487888241528}
   - component: {fileID: 3041189864061013213}
@@ -299,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   knockbackDecay: 12
+  canMove: 1
   player_Combat: {fileID: 4028995318749010050}
 --- !u!114 &7733124983821056603
 MonoBehaviour:
@@ -442,26 +442,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6473890658912326071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8246532481326297681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8998b865bbb24e146a75695749a17feb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instrucaoUI: {fileID: 0}
-  contGarrafasUI: {fileID: 0}
-  garrafasObject: {fileID: 0}
-  papel: {fileID: 0}
-  livro: {fileID: 0}
-  papelUI: {fileID: 0}
-  contGarrafaTxt: {fileID: 0}
-  interactKey: 101
 --- !u!114 &4028995318749010050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +478,7 @@ MonoBehaviour:
   isInvincible: 0
   invincibilityDuration: 1
   flashInterval: 0.1
+  ui: {fileID: 0}
 --- !u!114 &3041189864061013213
 MonoBehaviour:
   m_ObjectHideFlags: 0
