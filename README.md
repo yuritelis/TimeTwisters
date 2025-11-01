@@ -18,8 +18,13 @@ A equipe responsável pela idealização e produção do jogo foi:
 </div>
 
 ## Sumário do Projeto
-- Milestone 01: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone01_mecanicaeuniverso.md"> Mecânica Temporal e Universo Narrativo </a>
-- Milestone 02: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone02_coregameplay.md"> Core Gameplay e Protótipo </a>
-- Milestone 03: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone03_niveistematicos.md"> Níveis Temáticos (Passado, Presente e Futuro) </a>
-- Milestone 04: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone04_menueboss.md"> Navegação e Boss </a>
-- Milestone 05: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone05_testes.md"> Teste de Gameplay </a>
+- Milestone 01: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone01_mecanicaeuniverso.md"> Mecânica Temporal e Universo Narrativo</a>;
+- Milestone 02: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone02_coregameplay.md"> Core Gameplay e Protótipo</a>;
+- Milestone 03: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone03_niveistematicos.md"> Níveis Temáticos (Passado, Presente e Futuro)</a>;
+- Milestone 04: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone04_menueboss.md"> Navegação e Boss</a>;
+- Milestone 05: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone05_testes.md"> Teste de Gameplay</a>;
+- Milestone 06: <a href=""> Em breve</a>;
+- Milestone 07: <a href=""> Em breve</a>.
+
+## Links Externos / Referências / Assets
+- Música: <a href="https://pixabay.com/sound-effects/search/music-box/"> Vitrola (Caixa de Música) </a>
