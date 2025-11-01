@@ -27,4 +27,5 @@ A equipe responsável pela idealização e produção do jogo foi:
 - Milestone 07: <a href=""> Em breve</a>.
 
 ## Links Externos / Referências / Assets
-- Música: <a href="https://pixabay.com/sound-effects/search/music-box/"> Tela de Game Over</a>.
+- Referência de música: <a href="https://pixabay.com/sound-effects/search/music-box/"> Tela de Game Over</a>;
+- Referência de música: <a href="https://pixabay.com/pt/music/search/claire%20de%20lune/"> Vitrola (Save) </a>.
