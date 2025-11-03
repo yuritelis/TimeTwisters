@@ -17,11 +17,9 @@ public class DialogoManager : MonoBehaviour//, IInteractable
     public TextMeshProUGUI dialogoTxt, personagemNome;
     public Image personagemIcon;
 
-    private Queue<DialogoFalas> falas = new Queue<DialogoFalas>();
-
-    //private int dialogoIndex;
+    private int dialogoIndex;
     private bool isTyping, isDialogoAtivo = false;
-    public float velFala = 0.5f;
+    public float velFala = 1f;
 
     private void Start()
     {
@@ -29,39 +27,12 @@ public class DialogoManager : MonoBehaviour//, IInteractable
             Instance = this;
     }
 
-    /*public bool CanInteract()
-    {
-        return !isDialogoAtivo;
-    }
-
-    public void Interact()
-    {
-        if (dialogoData == null || (PauseController.IsGamePaused && !isDialogoAtivo))
-        {
-            return;
-        }
-
-        if (isDialogoAtivo && falas.Count > 1)
-        {
-            ProxLinha();
-        }
-        else
-        {
-            StartDialogo(dialogoData);
-        }
-    }*/
-
     public void StartDialogo(Dialogo dialogo)
     {
         Debug.Log("Chamou StartDialogo");
 
         isDialogoAtivo = true;
-        //dialogoIndex = 0;
-
-        foreach (DialogoFalas dialogoFala in dialogo.dialogoFalas)
-        {
-            falas.Enqueue(dialogoFala);
-        }
+        dialogoIndex = 0;
 
         dialogoPanel.SetActive(true);
         sanidadeBar.SetActive(false);
@@ -71,30 +42,17 @@ public class DialogoManager : MonoBehaviour//, IInteractable
 
     public void ProxLinha()
     {
-        if (falas.Count == 1)
+        if (dialogoIndex++ < dialogoData.dialogoFalas.Count)
         {
-            FimDialogo();
-            return;
+            dialogoData.dialogoFalas.RemoveAt(0);
         }
 
-        DialogoFalas falaAtual = falas.Dequeue();
+        DialogoFalas falaAtual;
 
         personagemIcon.sprite = falaAtual.personagem.portrait;
         personagemNome.text = falaAtual.personagem.nome;
 
-        StopAllCoroutines();
         StartCoroutine(TypeLine(falaAtual));
-
-        if (isTyping && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0)))
-        {
-            StopAllCoroutines();
-            dialogoTxt.SetText(falaAtual.fala);
-            isTyping = false;
-        }
-        else
-        {
-            StartCoroutine(TypeLine(falaAtual));
-        }
     }
 
     IEnumerator TypeLine(DialogoFalas fala)
@@ -107,18 +65,6 @@ public class DialogoManager : MonoBehaviour//, IInteractable
             dialogoTxt.text += letter;
             //AudioManager.instance.PlaySFX(PersoInfos.somVoz);
             yield return new WaitForSeconds(velFala);
-
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                if (isTyping)
-                {
-                    dialogoTxt.text = fala.fala;
-                }
-                else
-                {
-                    ProxLinha();
-                }
-            }
         }
 
         isTyping = false;
