@@ -61,21 +61,18 @@ public class TimelineUI : MonoBehaviour
 
     public void Close()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            panel.SetActive(false);
-            sanidadeBar.SetActive(true);
-            Presente.gameObject.SetActive(false);
-            Passado.gameObject.SetActive(false);
-            Futuro.gameObject.SetActive(false);
+        panel.SetActive(false);
+        sanidadeBar.SetActive(true);
+        Presente.gameObject.SetActive(false);
+        Passado.gameObject.SetActive(false);
+        Futuro.gameObject.SetActive(false);
 
-            UpdateButtonStates();
-            Time.timeScale = 1.0f;
-            TimelineUI.isPaused = false;
-            isPaused = false;
-            if (playerInput != null)
-                playerInput.enabled = true;
-        }
+        UpdateButtonStates();
+        Time.timeScale = 1.0f;
+        TimelineUI.isPaused = false;
+        isPaused = false;
+        if (playerInput != null)
+            playerInput.enabled = true;
     }
 
     private void ChooseTimeline(Timeline timeline)

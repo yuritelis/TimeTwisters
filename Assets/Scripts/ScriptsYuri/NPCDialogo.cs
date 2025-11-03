@@ -1,20 +1,21 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewNPCDialogo", menuName = "NPC Dialogo")]
-public class NPCDialogo : ScriptableObject
+[System.Serializable]
+public class PersoInfos
 {
-    [Header("> Foto e Nome <")]
-    public string nomeNpc;
-    public Sprite npcPortrait;
+    [Header("> Foto, Nome e Voz <")]
+    public string nome;
+    public Sprite portrait;
+    public static AudioClip somVoz;
+}
 
-    [Header("> Som e Fala <")]
-    public AudioClip somVoz;
-    public float volFala = 1f;
-    public float autoProgressDelay = 1.5f;
-    public float velFala = 0.05f;
+[System.Serializable]
+public class Dialogo : ScriptableObject
+{
+    public PersoInfos personagem;
 
-    [Header("> Arrays de Diálogo <")]
+    [Header("> Falas <")]
     public string[] linhasDialogo;
-    public bool[] autoProgressLine;
-
+    public float volFala = 1f;
+    public float velFala = 0.05f;
 }

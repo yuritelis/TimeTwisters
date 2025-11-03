@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public NPCDialogo dialogoData;
+    public Dialogo dialogoData;
     public GameObject dialogoPanel;
     public TMP_Text dialogoTxt, nomeTxt;
     public Image portraitImg;
@@ -43,8 +43,8 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogoAtivo = true;
         dialogoIndex = 0;
 
-        nomeTxt.SetText(dialogoData.nomeNpc);
-        portraitImg.sprite = dialogoData.npcPortrait;
+        nomeTxt.SetText(dialogoData.personagem.nome);
+        portraitImg.sprite = dialogoData.personagem.portrait;
 
         dialogoPanel.SetActive(true);
         sanidadeBar.SetActive(false);
@@ -78,14 +78,14 @@ public class NPC : MonoBehaviour, IInteractable
         foreach (char letter in dialogoData.linhasDialogo[dialogoIndex])
         {
             dialogoTxt.text += letter;
+            AudioManager.instance.PlaySFX(PersoInfos.somVoz);
             yield return new WaitForSeconds(dialogoData.velFala);
         }
 
         isTyping = false;
 
-        if (dialogoData.autoProgressLine.Length > dialogoIndex && dialogoData.autoProgressLine[dialogoIndex])
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            yield return new WaitForSeconds(dialogoData.autoProgressDelay);
             ProxLinha();
         }
     }
