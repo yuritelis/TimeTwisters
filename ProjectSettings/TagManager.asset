@@ -19,7 +19,7 @@ TagManager:
   - UI
   - Player
   - Collision
-  - 
+  - Vision
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Vision
+    uniqueID: 3073329171
     locked: 0
   m_RenderingLayers:
   - Default

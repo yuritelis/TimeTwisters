@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BossEdward_Claw_Attack : MonoBehaviour
 {
@@ -16,19 +17,17 @@ public class BossEdward_Claw_Attack : MonoBehaviour
     public float clawSpeed = 8f;
     public bool showDebugLogs = true;
 
-    // Chamado pelo BossController
-    public IEnumerator SpawnClawsCoroutine()
-    {
-        if (startPoints == null || startPoints.Length == 0)
-        {
-            if (showDebugLogs) Debug.LogWarning("[ClawAttack] startPoints vazio. Nada a spawnar.");
-            yield break;
-        }
+    private readonly List<GameObject> spawnedObjects = new();
 
-        // 1️⃣ Spawn de todos os telegraphs simultaneamente
+    public IEnumerator SpawnClawsCoroutine(BossEdwardController boss)
+    {
+        if (boss == null || boss.isDead) yield break;
+
         GameObject[] telegraphs = new GameObject[startPoints.Length];
+
         for (int i = 0; i < startPoints.Length; i++)
         {
+            if (boss.isDead) yield break;
             Transform s = startPoints[i];
             Transform e = (i < endPoints.Length) ? endPoints[i] : null;
             if (s == null || e == null) continue;
@@ -36,6 +35,8 @@ public class BossEdward_Claw_Attack : MonoBehaviour
             if (telegraphPrefab != null)
             {
                 GameObject tele = Instantiate(telegraphPrefab, s.position, Quaternion.identity);
+                spawnedObjects.Add(tele);
+
                 Vector2 dir = (e.position - s.position);
                 float dist = dir.magnitude;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -43,18 +44,36 @@ public class BossEdward_Claw_Attack : MonoBehaviour
                 tele.transform.localScale = new Vector3(dist, tele.transform.localScale.y, tele.transform.localScale.z);
 
                 var sr = tele.GetComponent<SpriteRenderer>();
-                if (sr != null) { sr.sortingLayerName = "Default"; sr.sortingOrder = 10; }
+                if (sr != null)
+                {
+                    sr.sortingLayerName = "Default";
+                    sr.sortingOrder = 10;
+                }
 
                 telegraphs[i] = tele;
             }
         }
 
-        // 2️⃣ Espera duração do telegraph **uma vez só**
-        yield return new WaitForSeconds(telegraphDuration);
+        float elapsed = 0f;
+        while (elapsed < telegraphDuration)
+        {
+            if (boss.isDead)
+            {
+                CleanupAfterDeath();
+                yield break;
+            }
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
 
-        // 3️⃣ Spawn de todas as garras simultaneamente
         for (int i = 0; i < startPoints.Length; i++)
         {
+            if (boss.isDead)
+            {
+                CleanupAfterDeath();
+                yield break;
+            }
+
             Transform s = startPoints[i];
             Transform e = (i < endPoints.Length) ? endPoints[i] : null;
             if (s == null || e == null) continue;
@@ -62,27 +81,51 @@ public class BossEdward_Claw_Attack : MonoBehaviour
             if (clawPrefab != null)
             {
                 GameObject claw = Instantiate(clawPrefab, s.position, Quaternion.identity);
-                var clawSr = claw.GetComponent<SpriteRenderer>();
-                if (clawSr != null) { clawSr.sortingLayerName = "Default"; clawSr.sortingOrder = 11; }
+                spawnedObjects.Add(claw);
 
-                StartCoroutine(MoveClawToPoint(claw.transform, e.position, clawSpeed));
-                if (showDebugLogs) Debug.Log($"[ClawAttack] Claw spawned at {s.position} moving to {e.position}");
+                var clawSr = claw.GetComponent<SpriteRenderer>();
+                if (clawSr != null)
+                {
+                    clawSr.sortingLayerName = "Default";
+                    clawSr.sortingOrder = 11;
+                }
+
+                StartCoroutine(MoveClawToPoint(claw.transform, e.position, clawSpeed, boss));
             }
 
-            // destrói telegraph imediatamente
-            if (telegraphs[i] != null) Destroy(telegraphs[i]);
+            if (telegraphs[i] != null)
+            {
+                Destroy(telegraphs[i]);
+                spawnedObjects.Remove(telegraphs[i]);
+            }
         }
     }
 
-    // 4️⃣ Move a garra até o end e destrói ao chegar
-    private IEnumerator MoveClawToPoint(Transform t, Vector2 target, float speed)
+    private IEnumerator MoveClawToPoint(Transform t, Vector2 target, float speed, BossEdwardController boss)
     {
         while (t != null && Vector2.Distance(t.position, target) > 0.05f)
         {
+            if (boss == null || boss.isDead)
+            {
+                if (t != null) Destroy(t.gameObject);
+                yield break;
+            }
             t.position = Vector2.MoveTowards(t.position, target, speed * Time.deltaTime);
             yield return null;
         }
 
-        if (t != null) Destroy(t.gameObject);
+        if (t != null)
+            Destroy(t.gameObject);
+    }
+
+    public void CleanupAfterDeath()
+    {
+        if (showDebugLogs) Debug.Log("[ClawAttack] Limpando prefabs após morte do boss.");
+        foreach (var obj in spawnedObjects)
+        {
+            if (obj != null)
+                Destroy(obj);
+        }
+        spawnedObjects.Clear();
     }
 }
