@@ -129,12 +129,12 @@ TextureImporter:
       name: relogio_base_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 19
-        height: 32
+        x: 0
+        y: 16
+        width: 32
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,11 +147,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: relogio_base_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f58995c370ec7246a6b3ef1907c53c0
+      internalID: 1810423228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: da19c55bab4ca394f852be7aace94f9b
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +184,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       relogio_base_0: 4529525923303130993
+      relogio_base_1: 1810423228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
