@@ -25,6 +25,8 @@ public class DialogoManager : MonoBehaviour//, IInteractable
     {
         if(Instance == null)
             Instance = this;
+
+        DontDestroyOnLoad(dialogoPanel);
     }
 
     public void StartDialogo(Dialogo dialogo)
@@ -42,25 +44,23 @@ public class DialogoManager : MonoBehaviour//, IInteractable
 
     public void ProxLinha()
     {
+        personagemNome.SetText(dialogoData.dialogoFalas[dialogoIndex].personagem.nome);
+        personagemIcon.sprite = dialogoData.dialogoFalas[dialogoIndex].personagem.portrait;
+        
         if (dialogoIndex++ < dialogoData.dialogoFalas.Count)
         {
             dialogoData.dialogoFalas.RemoveAt(0);
         }
 
-        DialogoFalas falaAtual;
-
-        personagemIcon.sprite = falaAtual.personagem.portrait;
-        personagemNome.text = falaAtual.personagem.nome;
-
-        StartCoroutine(TypeLine(falaAtual));
+        StartCoroutine(TypeLine());
     }
 
-    IEnumerator TypeLine(DialogoFalas fala)
+    IEnumerator TypeLine()
     {
         isTyping = true;
         dialogoTxt.SetText("");
 
-        foreach (char letter in fala.fala.ToCharArray())
+        foreach (char letter in dialogoData.dialogoFalas[dialogoIndex].fala)
         {
             dialogoTxt.text += letter;
             //AudioManager.instance.PlaySFX(PersoInfos.somVoz);
