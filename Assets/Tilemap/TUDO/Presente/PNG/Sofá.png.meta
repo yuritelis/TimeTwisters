@@ -126,22 +126,44 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: "Sof\xE1_1"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 96
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b422f86a9a00747a2893ae57bb2f96
+      internalID: -1591970087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: "Sof\xE1_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 96
-        height: 26
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b7a6ee10785e83b20800000000000000
+      spriteID: b81f4bf97c2c11741ac277d3ca0e3ef6
       internalID: 3114491510342445691
       vertices: []
       indices: 
@@ -151,7 +173,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f1f28df2a9dca8a4081134b19d9c3752
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +184,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       "Sof\xE1_0": 3114491510342445691
+      "Sof\xE1_1": -1591970087
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
