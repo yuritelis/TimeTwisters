@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 82c7e7d27d58a89489fa0f7df903f88c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prototipo.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/teste_pedro.unity
     guid: a6e6d3aab21c96643acc6e22bb4b07b9
   - enabled: 1
@@ -23,6 +23,66 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScreen.unity
     guid: 6c0628fce3ff69d418d93700905e02e1
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Sagu\xE3o.unity"
+    guid: 175170d74c8e1fc48a904ef08e0ed5c3
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Sala_Convidados.unity"
+    guid: d8f5e34c0a277e64982c4a73d4983d5c
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Banheiro.unity"
+    guid: 576dca63bc022234e8420452d0a8defc
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Exposi\xE7\xE3o.unity"
+    guid: d8f1bd11e34922343bac1a8e1b2dcab7
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Fundos.unity"
+    guid: 1afb791e66ca7b64cbe0930b8313a8a3
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Cozinheiro.unity"
+    guid: a19f5a68c0d85d44e864319e417c2c36
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Maid.unity"
+    guid: 15e43c76a6560d147aad4b44b6dacf02
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Mordomo.unity"
+    guid: acaf858361ada2a4bb51cd0ba7721b54
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Sala_de_Jogos.unity"
+    guid: e7a5bbf41abdf34408154b5aedbd6b25
+  - enabled: 1
+    path: Assets/Scenes/Presente/Exterior.unity
+    guid: 1a3bd3a1aec3d6e45a0c5b9d7e6815f5
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/2\xB0Andar.unity"
+    guid: 6f07b89f05346eb4091d5f8dc2d78db8
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Banho_Campeoes.unity"
+    guid: eade886bd6df113459e964e1d79ebf64
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Ber\xE7ario.unity"
+    guid: f7113488cc339ab469a066c6f30827d5
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Biblioteca.unity"
+    guid: 52e876551f3c2a647ae7e751d54cf2fd
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Escritorio.unity"
+    guid: 71285d91b0749d74f93d518a9ec90046
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Quarto_Casal.unity"
+    guid: 66395bd6b9d8f954e85eebc00d3523df
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Quarto_Edward.unity"
+    guid: 4f51b26a3565598429e27ad07fec0dfc
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Quarto_Gemeos.unity"
+    guid: ee4363b573d00dc48921a3ace9ae253b
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Sala_Artes.unity"
+    guid: 8c1e673af71048544b4febc640f085a3
+  - enabled: 1
+    path: "Assets/Scenes/Presente/2\xB0 Andar/Varanda.unity"
+    guid: 721499a2347c6c447a6ff5179050f43d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

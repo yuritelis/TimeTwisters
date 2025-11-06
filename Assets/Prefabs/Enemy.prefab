@@ -218,7 +218,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  visionAngle: 45
+  visionAngle: 79.1
+  chaseVisionRadius: 6
   visionBlockMask:
     serializedVersion: 2
     m_Bits: 128
