@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 43bac1a94ea7cb34cbfce06a60d10bc8
+guid: 9a5f97cf5349a4d45ab71897b16d196b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 729205543759316431
-    second: interseccao_passado_c_0
+      213: 7980433606808638221
+    second: Lareira_ativado_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,37 +96,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: interseccao_passado_c_0
+      name: Lareira_ativado_2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc5050c1498ae1a00800000000000000
-      internalID: 729205543759316431
+      spriteID: d031b6f451230ce60800000000000000
+      internalID: 7980433606808638221
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      interseccao_passado_c_0: 729205543759316431
+      Lareira_ativado_2_0: 7980433606808638221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
