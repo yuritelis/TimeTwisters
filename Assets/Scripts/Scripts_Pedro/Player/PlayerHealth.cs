@@ -17,12 +17,14 @@ public class PlayerHealth : MonoBehaviour
     private Color originalColor;
 
     public VidaUI ui;
+    private FogController fog; // 🌫️
 
     private void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         ui = FindFirstObjectByType<VidaUI>();
+        fog = FindFirstObjectByType<FogController>();
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
@@ -32,62 +34,54 @@ public class PlayerHealth : MonoBehaviour
             ui.SetVidaMax(maxHealth);
             ui.UpdateVidas(currentHealth);
         }
+
+        // Fog inicial (vida cheia)
+        if (fog != null) fog.UpdateFog(1f);
     }
 
     public void ChangeHealth(int amount)
     {
         if (amount < 0 && isInvincible) return;
 
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // <-- aqui
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log($"ChangeHealth chamado. Amount: {amount}, CurrentHealth: {currentHealth}");
 
-        if (ui != null)
-            ui.UpdateVidas(currentHealth);
+        if (ui != null) ui.UpdateVidas(currentHealth);
 
-        if (amount < 0)
+        // Atualiza fog
+        if (fog != null)
         {
-            StartCoroutine(InvincibilityFrames());
+            float percent = (float)currentHealth / maxHealth;
+            fog.UpdateFog(percent);
         }
 
-        if (currentHealth <= 0)
-        {
-            if (gameObject.CompareTag("Player"))
-                SceneManager.LoadScene("DeathScreen");
-        }
+        if (amount < 0) StartCoroutine(InvincibilityFrames());
+
+        if (currentHealth <= 0 && gameObject.CompareTag("Player"))
+            SceneManager.LoadScene("DeathScreen");
     }
-
 
     private IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
         float elapsed = 0f;
 
-        // 🔁 Desativa colisão entre Player e Enemy durante a invencibilidade
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 
         while (elapsed < invincibilityDuration)
         {
             if (spriteRenderer != null)
             {
-                // Pisca usando alpha
                 spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
                 yield return new WaitForSeconds(flashInterval);
                 spriteRenderer.color = originalColor;
                 yield return new WaitForSeconds(flashInterval);
             }
-
             elapsed += flashInterval * 2;
         }
 
-        if (spriteRenderer != null)
-            spriteRenderer.color = originalColor;
-
-        // ✅ Reativa a colisão depois da invencibilidade
+        if (spriteRenderer != null) spriteRenderer.color = originalColor;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
-
         isInvincible = false;
     }
-
-
 }
