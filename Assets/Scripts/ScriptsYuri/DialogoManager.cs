@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class DialogoManager : MonoBehaviour//, IInteractable
+public class DialogoManager : MonoBehaviour
 {
     public static DialogoManager Instance;
 
@@ -19,63 +17,110 @@ public class DialogoManager : MonoBehaviour//, IInteractable
 
     private int dialogoIndex;
     private bool isTyping, isDialogoAtivo = false;
-    public float velFala = 1f;
+    public float velFala = 0.05f; // Valor mais razoável
 
-    private void Start()
+    private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
+        {
             Instance = this;
-
-        DontDestroyOnLoad(dialogoPanel);
+            DontDestroyOnLoad(gameObject); // Corrigido: DontDestroyOnLoad no GameObject, não no panel
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void StartDialogo(Dialogo dialogo)
     {
         Debug.Log("Chamou StartDialogo");
 
+        if (dialogo == null || dialogo.dialogoFalas.Count == 0)
+        {
+            Debug.LogError("Dialogo data está vazio ou nulo!");
+            return;
+        }
+
         isDialogoAtivo = true;
         dialogoIndex = 0;
+        dialogoData = dialogo; // IMPORTANTE: Atribuir o dialogo recebido
 
         dialogoPanel.SetActive(true);
-        sanidadeBar.SetActive(false);
+        if (sanidadeBar != null) sanidadeBar.SetActive(false);
 
         ProxLinha();
     }
 
     public void ProxLinha()
     {
-        personagemNome.SetText(dialogoData.dialogoFalas[dialogoIndex].personagem.nome);
-        personagemIcon.sprite = dialogoData.dialogoFalas[dialogoIndex].personagem.portrait;
-        
-        if (dialogoIndex++ < dialogoData.dialogoFalas.Count)
+        if (!isDialogoAtivo || dialogoData == null) return;
+
+        // Verifica se ainda há falas
+        if (dialogoIndex >= dialogoData.dialogoFalas.Count)
         {
-            dialogoData.dialogoFalas.RemoveAt(0);
+            FimDialogo();
+            return;
         }
 
-        StartCoroutine(TypeLine());
+        // Para a digitação atual se estiver acontecendo
+        if (isTyping)
+        {
+            StopAllCoroutines();
+            isTyping = false;
+            dialogoTxt.text = dialogoData.dialogoFalas[dialogoIndex].fala;
+            dialogoIndex++;
+            return;
+        }
+
+        // Configura a fala atual
+        var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
+
+        if (personagemNome != null)
+            personagemNome.text = falaAtual.personagem.nome;
+
+        if (personagemIcon != null && falaAtual.personagem.portrait != null)
+            personagemIcon.sprite = falaAtual.personagem.portrait;
+
+        StartCoroutine(TypeLine(falaAtual.fala));
     }
 
-    IEnumerator TypeLine()
+    IEnumerator TypeLine(string fala)
     {
         isTyping = true;
-        dialogoTxt.SetText("");
+        dialogoTxt.text = "";
 
-        foreach (char letter in dialogoData.dialogoFalas[dialogoIndex].fala)
+        foreach (char letter in fala.ToCharArray())
         {
             dialogoTxt.text += letter;
-            //AudioManager.instance.PlaySFX(PersoInfos.somVoz);
+            //if (AudioManager.instance != null) 
+            //    AudioManager.instance.PlaySFX(PersoInfos.somVoz);
             yield return new WaitForSeconds(velFala);
         }
 
         isTyping = false;
+        dialogoIndex++; // Só incrementa após terminar de digitar
+    }
+
+    private void Update()
+    {
+        // Input para próxima linha (opcional)
+        if (isDialogoAtivo && Input.GetKeyDown(KeyCode.Space))
+        {
+            ProxLinha();
+        }
     }
 
     public void FimDialogo()
     {
         StopAllCoroutines();
         isDialogoAtivo = false;
-        dialogoTxt.SetText("");
-        dialogoPanel.SetActive(false);
-        sanidadeBar.SetActive(true);
+        isTyping = false;
+
+        if (dialogoTxt != null) dialogoTxt.text = "";
+        if (dialogoPanel != null) dialogoPanel.SetActive(false);
+        if (sanidadeBar != null) sanidadeBar.SetActive(true);
+
+        Debug.Log("Dialogo finalizado");
     }
 }

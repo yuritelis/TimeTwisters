@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class TimelineUI : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class TimelineUI : MonoBehaviour
     public PlayerInput playerInput;
 
     public PlayerHealth vidaPlayer;
-    public int danoMax = 1;
+    public int danoMax = 3;
     public int danoMin = 0;
     public int danoAnterior;
     public int dano;
@@ -41,9 +42,15 @@ public class TimelineUI : MonoBehaviour
             playerController = FindFirstObjectByType<PlayerController>();
         }
 
+        if (vidaPlayer == null)
+            vidaPlayer = FindFirstObjectByType<PlayerHealth>();
+
         Presente.onClick.AddListener(() => ChooseTimeline(Timeline.Presente));
         Passado.onClick.AddListener(() => ChooseTimeline(Timeline.Passado));
         Futuro.onClick.AddListener(() => ChooseTimeline(Timeline.Futuro));
+
+        dano = 0;
+        danoAnterior = dano;
     }
 
     public void Open(TimeTravelTilemap timeObject)
@@ -83,7 +90,10 @@ public class TimelineUI : MonoBehaviour
         if (currentTimeObject != null)
         {
             currentTimeObject.SetTimeline(timeline);
-            //DanoSanidade(dano);
+            if (vidaPlayer.currentHealth >= 2)
+            {
+                DanoSanidade();
+            }
         }
         panel.SetActive(false);
         sanidadeBar.SetActive(true);
@@ -131,19 +141,29 @@ public class TimelineUI : MonoBehaviour
         btn.GetComponent<Image>().color = disabledColor;
     }
 
-    /*public void DanoSanidade(int dano)
+    public void DanoSanidade()
     {
-        dano = 0;
+        int novoDano;
 
-        for (danoAnterior = 0; danoAnterior == dano;)
+        if (vidaPlayer.currentHealth == 2)
+            danoMax = 2;
+
+        for (int i = 0; i < 3; i++)
         {
-            dano = Random.Range(danoMin, danoMax);
+            novoDano = Random.Range(danoMin, danoMax);
+
+            if (novoDano != danoAnterior || danoAnterior == -1)
+            {
+                danoAnterior = novoDano;
+                vidaPlayer.ChangeHealth(-novoDano);
+                return;
+            }
         }
 
-        if (dano != danoAnterior)
-        {
-            danoAnterior = dano;
-            vidaPlayer.ChangeHealth(dano);
-        }
-    }*/
+        novoDano = (danoAnterior + 1) % danoMax;
+        if (novoDano < danoMin) novoDano = danoMin;
+
+        danoAnterior = novoDano;
+        vidaPlayer.ChangeHealth(-novoDano);
+    }
 }
