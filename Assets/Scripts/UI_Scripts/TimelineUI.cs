@@ -18,6 +18,11 @@ public class TimelineUI : MonoBehaviour
     public static bool isPaused = false;
     public PlayerInput playerInput;
 
+    public PlayerHealth vidaPlayer;
+    public int danoMax = 1;
+    public int danoMin = 0;
+    public int danoAnterior;
+    public int dano;
 
     void Start()
     {
@@ -63,25 +68,25 @@ public class TimelineUI : MonoBehaviour
     {
         panel.SetActive(false);
         sanidadeBar.SetActive(true);
-        Presente.gameObject.SetActive(false);
-        Passado.gameObject.SetActive(false);
-        Futuro.gameObject.SetActive(false);
-
-        UpdateButtonStates();
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1f;
         TimelineUI.isPaused = false;
         isPaused = false;
+
         if (playerInput != null)
+        {
             playerInput.enabled = true;
+        }
     }
 
-    private void ChooseTimeline(Timeline timeline)
+    public void ChooseTimeline(Timeline timeline)
     {
         if (currentTimeObject != null)
         {
             currentTimeObject.SetTimeline(timeline);
+            //DanoSanidade(dano);
         }
         panel.SetActive(false);
+        sanidadeBar.SetActive(true);
         Time.timeScale = 1f;
         TimelineUI.isPaused = false;
         isPaused = false;
@@ -125,4 +130,20 @@ public class TimelineUI : MonoBehaviour
         btn.interactable = false;
         btn.GetComponent<Image>().color = disabledColor;
     }
+
+    /*public void DanoSanidade(int dano)
+    {
+        dano = 0;
+
+        for (danoAnterior = 0; danoAnterior == dano;)
+        {
+            dano = Random.Range(danoMin, danoMax);
+        }
+
+        if (dano != danoAnterior)
+        {
+            danoAnterior = dano;
+            vidaPlayer.ChangeHealth(dano);
+        }
+    }*/
 }

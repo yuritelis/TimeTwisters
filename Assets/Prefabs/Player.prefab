@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 247341487888241528}
   - component: {fileID: 3041189864061013213}
   - component: {fileID: 1912692369426168323}
+  - component: {fileID: 1334670077424573807}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -625,6 +626,20 @@ MonoBehaviour:
   stealthRange: 1.5
   stealthKillDelay: 1
   playerController: {fileID: 0}
+--- !u!114 &1334670077424573807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246532481326297681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2163fae87b5ed984ea9acd877dd8afc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseScreen: {fileID: 0}
+  sanidadeBar: {fileID: 0}
 --- !u!1 &8297388871029170808
 GameObject:
   m_ObjectHideFlags: 0

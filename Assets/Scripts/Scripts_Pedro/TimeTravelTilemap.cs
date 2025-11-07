@@ -21,7 +21,7 @@ public class TimeTravelTilemap : MonoBehaviour, IInteractable
     public Tilemap Tilemap_Passado_Colisao;
     public Tilemap Tilemap_Futuro_Colisao;
 
-    private Timeline currentTimeline = Timeline.Presente;
+    public Timeline currentTimeline = Timeline.Presente;
     public TimelineUI timelineUI;
 
 

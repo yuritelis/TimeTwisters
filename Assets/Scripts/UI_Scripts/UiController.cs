@@ -5,10 +5,10 @@ public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject sanidadeBar;
-    //[SerializeField] GameObject optionsScreen;
 
     AudioManager aManager;
     TimelineUI timelineUI;
+    TimeTravelTilemap timeline;
 
     private void Awake()
     {
@@ -25,7 +25,6 @@ public class PauseGame : MonoBehaviour
     void Start()
     {
         pauseScreen.SetActive(false);
-        //optionsScreen.SetActive(false);
     }
 
     private void Update()
@@ -91,17 +90,6 @@ public class PauseGame : MonoBehaviour
         Resume();
     }
 
-    public void BotOpcoes()
-    {
-        if (aManager != null)
-        {
-            aManager.PlaySFX(aManager.botClick);
-        }
-
-        pauseScreen.SetActive(false);
-        //optionsScreen.SetActive(true);
-    }
-
     public void BotVoltar()
     {
         if (aManager != null)
@@ -110,6 +98,5 @@ public class PauseGame : MonoBehaviour
         }
 
         pauseScreen.SetActive(true);
-        //optionsScreen.SetActive(false);
     }
 }
