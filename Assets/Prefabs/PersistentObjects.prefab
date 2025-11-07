@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7776181775470910609}
+  mapaCollider: {fileID: 0}
   velocidade: 0.05
 --- !u!1 &115044132770531542
 GameObject:

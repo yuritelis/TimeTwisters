@@ -4160,6 +4160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistentObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 491060599174374131, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.565061
