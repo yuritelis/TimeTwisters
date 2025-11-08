@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 0c6ae8df71f00aa4da9e31537b68610c
+guid: 97bd7eee49e7aec49ab466704db79918
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8080614764940022037
-    second: Cadeira_0
+      213: 5972460678479062119
+    second: Pia_0
+  - first:
+      213: -7520070729370610940
+    second: Pia_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,8 +49,8 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
-  spriteExtrude: 1
+  spriteMode: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -96,75 +99,49 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cadeira_0
+      name: Pia_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 32
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bee29f82fa3ebdf80800000000000000
-      internalID: -8080614764940022037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cadeira_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 13
-        width: 32
-        height: 19
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: be125295dd1d24f4eb64c2f58068d982
-      internalID: -116240596
+      spriteID: 764abb7f75172e250800000000000000
+      internalID: 5972460678479062119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pia_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 16
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4035d02c38753a790800000000000000
+      internalID: -7520070729370610940
       vertices: []
       indices: 
       edges: []
@@ -173,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 00ee408ac7bc3784fb8c382db4b39719
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -183,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cadeira_0: -8080614764940022037
-      Cadeira_1: -116240596
+      Pia_0: 5972460678479062119
+      Pia_1: -7520070729370610940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
