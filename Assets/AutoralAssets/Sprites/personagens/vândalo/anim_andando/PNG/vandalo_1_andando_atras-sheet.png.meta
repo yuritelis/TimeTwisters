@@ -112,12 +112,12 @@ TextureImporter:
       name: vandalo_1_andando_atras-sheet_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 0
         y: 0
-        width: 182
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: vandalo_1_andando_atras-sheet_1
       rect:
         serializedVersion: 2
-        x: 399
+        x: 320
         y: 0
-        width: 172
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: vandalo_1_andando_atras-sheet_2
       rect:
         serializedVersion: 2
-        x: 709
+        x: 640
         y: 0
-        width: 182
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: vandalo_1_andando_atras-sheet_3
       rect:
         serializedVersion: 2
-        x: 1039
+        x: 960
         y: 0
-        width: 162
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fbccd85e1ab3b234e9540fa75f6994c1
     internalID: 0
     vertices: []
     indices: 

@@ -112,12 +112,12 @@ TextureImporter:
       name: vandalo_1_andando_direita-sheet_0
       rect:
         serializedVersion: 2
-        x: 59
+        x: 0
         y: 0
-        width: 182
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: vandalo_1_andando_direita-sheet_1
       rect:
         serializedVersion: 2
-        x: 379
+        x: 320
         y: 0
-        width: 192
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: vandalo_1_andando_direita-sheet_2
       rect:
         serializedVersion: 2
-        x: 699
+        x: 640
         y: 0
-        width: 182
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: vandalo_1_andando_direita-sheet_3
       rect:
         serializedVersion: 2
-        x: 1019
+        x: 960
         y: 0
-        width: 192
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 865f80a18920ef14a84633969a7b2dce
     internalID: 0
     vertices: []
     indices: 

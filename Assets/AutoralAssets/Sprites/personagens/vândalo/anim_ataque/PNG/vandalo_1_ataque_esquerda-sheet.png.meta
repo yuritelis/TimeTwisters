@@ -124,12 +124,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_0
       rect:
         serializedVersion: 2
-        x: 29
+        x: 0
         y: 0
-        width: 232
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -146,12 +146,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_1
       rect:
         serializedVersion: 2
-        x: 349
+        x: 320
         y: 0
-        width: 232
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_2
       rect:
         serializedVersion: 2
-        x: 669
+        x: 640
         y: 0
-        width: 232
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_3
       rect:
         serializedVersion: 2
-        x: 989
+        x: 960
         y: 0
-        width: 232
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -212,12 +212,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_4
       rect:
         serializedVersion: 2
-        x: 1309
+        x: 1280
         y: 0
-        width: 232
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_5
       rect:
         serializedVersion: 2
-        x: 1629
+        x: 1600
         y: 0
-        width: 232
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,12 +256,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_6
       rect:
         serializedVersion: 2
-        x: 1919
+        x: 1920
         y: 0
-        width: 262
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: vandalo_1_ataque_esquerda-sheet_7
       rect:
         serializedVersion: 2
-        x: 2249
+        x: 2240
         y: 0
-        width: 252
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 49c7caea73e177545a4649eff4ba2132
     internalID: 0
     vertices: []
     indices: 

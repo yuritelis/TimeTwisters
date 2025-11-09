@@ -106,12 +106,12 @@ TextureImporter:
       name: vandalo_1_frente-sheet_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 0
         y: 0
-        width: 182
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: vandalo_1_frente-sheet_1
       rect:
         serializedVersion: 2
-        x: 379
+        x: 320
         y: 0
-        width: 192
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 42f4a50156adb254bbda9fa29575b8e6
     internalID: 0
     vertices: []
     indices: 

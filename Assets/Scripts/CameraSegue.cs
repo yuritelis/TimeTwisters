@@ -21,6 +21,12 @@ public class CameraSegue : MonoBehaviour
     private Vector2 minBounds;
     private Vector2 maxBounds;
 
+    // ===================== 🔹 NOVOS CAMPOS PARA CUTSCENE 🔹 =====================
+    private bool overridingTarget = false;    // indica se há alvo temporário
+    private Transform overrideTarget;         // alvo alternativo da câmera
+    [Range(0f, 1f)] public float velocidadeCutscene = 0.1f; // velocidade separada para cutscenes
+    // ===========================================================================
+
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -66,10 +72,16 @@ public class CameraSegue : MonoBehaviour
     {
         if (player == null) return;
 
-        // 🔹 Calcula posição desejada da câmera (seguindo o player com offset)
+        // ===================== 🔹 ALTERAÇÃO AQUI 🔹 =====================
+        // agora a câmera segue o player normalmente, mas se houver "override",
+        // ela segue o alvo temporário (ex: durante uma cutscene)
+        Transform target = overridingTarget && overrideTarget != null ? overrideTarget : player;
+        // ===============================================================
+
+        // 🔹 Calcula posição desejada da câmera (seguindo o alvo com offset)
         Vector3 posToGo = new Vector3(
-            player.position.x + offset.x,
-            player.position.y + offset.y,
+            target.position.x + offset.x,
+            target.position.y + offset.y,
             cameraZ
         );
 
@@ -81,8 +93,9 @@ public class CameraSegue : MonoBehaviour
             posToGo = new Vector3(clampX, clampY, posToGo.z);
         }
 
-        // 🔁 Movimento suave
-        transform.position = Vector3.Lerp(transform.position, posToGo, velocidade);
+        // 🔁 Movimento suave — usa velocidade normal ou da cutscene
+        float vel = overridingTarget ? velocidadeCutscene : velocidade;
+        transform.position = Vector3.Lerp(transform.position, posToGo, vel);
     }
 
     void OnDrawGizmosSelected()
@@ -94,4 +107,27 @@ public class CameraSegue : MonoBehaviour
             Gizmos.DrawWireCube(b.center, b.size);
         }
     }
+
+    // ===================== 🔹 NOVAS FUNÇÕES DE CUTSCENE 🔹 =====================
+
+    public void BeginTemporaryFocus(Transform target)
+    {
+        overrideTarget = target;
+        overridingTarget = true;
+    }
+
+    public void EndTemporaryFocus()
+    {
+        overridingTarget = false;
+        overrideTarget = null;
+    }
+
+    public System.Collections.IEnumerator FocusSequence(Transform target, float settleTime, float holdTime)
+    {
+        BeginTemporaryFocus(target);
+        yield return new WaitForSeconds(settleTime);
+        yield return new WaitForSeconds(holdTime);
+        EndTemporaryFocus();
+    }
+    // ===========================================================================
 }

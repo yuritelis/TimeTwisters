@@ -142,12 +142,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 169
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 320
         y: 0
-        width: 212
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_2
       rect:
         serializedVersion: 2
-        x: 369
+        x: 640
         y: 0
-        width: 202
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -208,12 +208,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_3
       rect:
         serializedVersion: 2
-        x: 659
-        y: 169
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -230,12 +230,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_4
       rect:
         serializedVersion: 2
-        x: 679
+        x: 1280
         y: 0
-        width: 212
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_5
       rect:
         serializedVersion: 2
-        x: 1009
+        x: 1600
         y: 0
-        width: 202
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -274,12 +274,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_6
       rect:
         serializedVersion: 2
-        x: 1299
-        y: 169
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -296,12 +296,12 @@ TextureImporter:
       name: vandalo_1_ataque_frente-sheet_7
       rect:
         serializedVersion: 2
-        x: 1319
+        x: 2240
         y: 0
-        width: 212
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -314,143 +314,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_frente-sheet_8
-      rect:
-        serializedVersion: 2
-        x: 1649
-        y: 0
-        width: 202
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0593415404c80cfe0800000000000000
-      internalID: -1170781695451580080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_frente-sheet_9
-      rect:
-        serializedVersion: 2
-        x: 1949
-        y: 0
-        width: 222
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b82094f2b46eea40800000000000000
-      internalID: 5399363723033847988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_frente-sheet_10
-      rect:
-        serializedVersion: 2
-        x: 2299
-        y: 0
-        width: 192
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4d3f95556a6ec6bd0800000000000000
-      internalID: -2635478079847664684
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_frente-sheet_11
-      rect:
-        serializedVersion: 2
-        x: 359
-        y: 119
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 018ac88ab0799f320800000000000000
-      internalID: 2592269136856655888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_frente-sheet_12
-      rect:
-        serializedVersion: 2
-        x: 999
-        y: 119
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 23abf770be260e320800000000000000
-      internalID: 2585174947693312562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_frente-sheet_13
-      rect:
-        serializedVersion: 2
-        x: 1639
-        y: 119
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e25708117dc85c2a0800000000000000
-      internalID: -6717808413813738194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bc7413d0b385416428a330814b15f05b
     internalID: 0
     vertices: []
     indices: 
@@ -462,18 +330,12 @@ TextureImporter:
     nameFileIdTable:
       vandalo_1_ataque_frente-sheet_0: 5673040850452414036
       vandalo_1_ataque_frente-sheet_1: 363744212998138920
-      vandalo_1_ataque_frente-sheet_10: -2635478079847664684
-      vandalo_1_ataque_frente-sheet_11: 2592269136856655888
-      vandalo_1_ataque_frente-sheet_12: 2585174947693312562
-      vandalo_1_ataque_frente-sheet_13: -6717808413813738194
       vandalo_1_ataque_frente-sheet_2: 4854965195335606271
       vandalo_1_ataque_frente-sheet_3: 1460417715756865022
       vandalo_1_ataque_frente-sheet_4: 5947665212566284216
       vandalo_1_ataque_frente-sheet_5: -805735449995559121
       vandalo_1_ataque_frente-sheet_6: 2199895334319031740
       vandalo_1_ataque_frente-sheet_7: 1067368394320050063
-      vandalo_1_ataque_frente-sheet_8: -1170781695451580080
-      vandalo_1_ataque_frente-sheet_9: 5399363723033847988
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

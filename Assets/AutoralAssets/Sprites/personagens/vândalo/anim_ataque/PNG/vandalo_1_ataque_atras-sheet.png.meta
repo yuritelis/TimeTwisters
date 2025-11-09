@@ -145,12 +145,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 0
         y: 0
-        width: 212
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -167,12 +167,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_1
       rect:
         serializedVersion: 2
-        x: 279
-        y: 169
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_2
       rect:
         serializedVersion: 2
-        x: 389
+        x: 640
         y: 0
-        width: 202
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_3
       rect:
         serializedVersion: 2
-        x: 709
+        x: 960
         y: 0
-        width: 212
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -233,12 +233,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_4
       rect:
         serializedVersion: 2
-        x: 919
-        y: 169
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -255,12 +255,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_5
       rect:
         serializedVersion: 2
-        x: 1029
+        x: 1600
         y: 0
-        width: 202
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -277,12 +277,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_6
       rect:
         serializedVersion: 2
-        x: 1349
+        x: 1920
         y: 0
-        width: 212
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -299,12 +299,12 @@ TextureImporter:
       name: vandalo_1_ataque_atras-sheet_7
       rect:
         serializedVersion: 2
-        x: 1559
-        y: 169
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2240
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,165 +317,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_atras-sheet_8
-      rect:
-        serializedVersion: 2
-        x: 1669
-        y: 0
-        width: 202
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6b64640560ea95750800000000000000
-      internalID: 6294253296366798518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_atras-sheet_9
-      rect:
-        serializedVersion: 2
-        x: 1989
-        y: 0
-        width: 222
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9c6277c091502d000800000000000000
-      internalID: 59115350250694345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_atras-sheet_10
-      rect:
-        serializedVersion: 2
-        x: 2309
-        y: 0
-        width: 192
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4198d22d84e510690800000000000000
-      internalID: -7637719826186794732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_atras-sheet_11
-      rect:
-        serializedVersion: 2
-        x: 2499
-        y: 179
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6c5ddda904003a6d0800000000000000
-      internalID: -2980538250912999994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_atras-sheet_12
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 119
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2600e2656e8dbda00800000000000000
-      internalID: 782457444078846050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_atras-sheet_13
-      rect:
-        serializedVersion: 2
-        x: 1229
-        y: 119
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 458e53f3ee12d1350800000000000000
-      internalID: 5988980386619058260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vandalo_1_ataque_atras-sheet_14
-      rect:
-        serializedVersion: 2
-        x: 1869
-        y: 119
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4a8e3140c21d9c00800000000000000
-      internalID: 908903316736346698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4fbea44001162d94d9d463c515cdead7
     internalID: 0
     vertices: []
     indices: 
@@ -487,19 +333,12 @@ TextureImporter:
     nameFileIdTable:
       vandalo_1_ataque_atras-sheet_0: 6275709459437078615
       vandalo_1_ataque_atras-sheet_1: 761105945079656980
-      vandalo_1_ataque_atras-sheet_10: -7637719826186794732
-      vandalo_1_ataque_atras-sheet_11: -2980538250912999994
-      vandalo_1_ataque_atras-sheet_12: 782457444078846050
-      vandalo_1_ataque_atras-sheet_13: 5988980386619058260
-      vandalo_1_ataque_atras-sheet_14: 908903316736346698
       vandalo_1_ataque_atras-sheet_2: 6344371847806268293
       vandalo_1_ataque_atras-sheet_3: -1523047810382734327
       vandalo_1_ataque_atras-sheet_4: 3215880054481877748
       vandalo_1_ataque_atras-sheet_5: 3190406976517214498
       vandalo_1_ataque_atras-sheet_6: -2768915473406662116
       vandalo_1_ataque_atras-sheet_7: -2213220235081421850
-      vandalo_1_ataque_atras-sheet_8: 6294253296366798518
-      vandalo_1_ataque_atras-sheet_9: 59115350250694345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

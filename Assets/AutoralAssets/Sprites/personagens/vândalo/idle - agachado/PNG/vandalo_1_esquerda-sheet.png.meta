@@ -106,12 +106,12 @@ TextureImporter:
       name: vandalo_1_esquerda-sheet_0
       rect:
         serializedVersion: 2
-        x: 99
+        x: 0
         y: 0
-        width: 162
-        height: 291
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: vandalo_1_esquerda-sheet_1
       rect:
         serializedVersion: 2
-        x: 319
+        x: 320
         y: 0
-        width: 242
-        height: 261
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: edf606ee26f0ce4449573132b03f7913
     internalID: 0
     vertices: []
     indices: 

@@ -109,12 +109,12 @@ TextureImporter:
       name: vandalo_1_atras-sheet_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 0
         y: 0
-        width: 182
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: vandalo_1_atras-sheet_1
       rect:
         serializedVersion: 2
-        x: 389
+        x: 320
         y: 0
-        width: 192
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,33 +149,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: vandalo_1_atras-sheet_2
-      rect:
-        serializedVersion: 2
-        x: 579
-        y: 149
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6c2c5d03b5087c10800000000000000
-      internalID: 2051395896848690284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b7a8298e8915f9349806756f5775c12d
     internalID: 0
     vertices: []
     indices: 
@@ -187,7 +165,6 @@ TextureImporter:
     nameFileIdTable:
       vandalo_1_atras-sheet_0: 4566530751420432388
       vandalo_1_atras-sheet_1: 3855011776331505034
-      vandalo_1_atras-sheet_2: 2051395896848690284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
