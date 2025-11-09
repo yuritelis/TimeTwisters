@@ -4,11 +4,14 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] GameObject inventarioScreen;
     [SerializeField] GameObject sanidadeBar;
 
     AudioManager aManager;
     TimelineUI timelineUI;
     TimeTravelTilemap timeline;
+
+    bool inventarioAberto = false;
 
     private void Awake()
     {
@@ -25,6 +28,7 @@ public class PauseGame : MonoBehaviour
     void Start()
     {
         pauseScreen.SetActive(false);
+        inventarioScreen.SetActive(false);
     }
 
     private void Update()
@@ -33,13 +37,34 @@ public class PauseGame : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (PauseController.IsGamePaused != true)
+                if (PauseController.IsGamePaused != true && !inventarioAberto)
                 {
                     Pause();
                 }
                 else
                 {
                     Resume();
+                }
+                if (inventarioAberto)
+                {
+                    inventarioScreen.SetActive(false);
+                    inventarioAberto = false;
+                    PauseController.SetPause(false);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if (!inventarioAberto)
+                {
+                    inventarioScreen.SetActive(true);
+                    inventarioAberto = true;
+                    PauseController.SetPause(true);
+                }
+                else
+                {
+                    inventarioScreen.SetActive(false);
+                    inventarioAberto = false;
+                    PauseController.SetPause(false);
                 }
             }
         }

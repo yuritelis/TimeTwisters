@@ -874,8 +874,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 13.023153, y: 3.9360144, z: 0.678477}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 795798311}
+  m_Children: []
   m_Father: {fileID: 751132093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1060,6 +1059,10 @@ PrefabInstance:
       propertyPath: sanidadeBar
       value: 
       objectReference: {fileID: 2033915396}
+    - target: {fileID: 1334670077424573807, guid: 29014521bde239546823169800fcd019, type: 3}
+      propertyPath: inventarioScreen
+      value: 
+      objectReference: {fileID: 152999786}
     - target: {fileID: 2892207734726083655, guid: 29014521bde239546823169800fcd019, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.01
@@ -5247,107 +5250,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &795798310
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 795798311}
-  - component: {fileID: 795798315}
-  - component: {fileID: 795798314}
-  - component: {fileID: 795798313}
-  - component: {fileID: 795798312}
-  m_Layer: 5
-  m_Name: item
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &795798311
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795798310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.25, z: 1.4738894}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 152999787}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &795798312
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795798310}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!114 &795798313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795798310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a32120792bdfdc8458754df8b0e8bc47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &795798314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795798310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 96928f7eba6bc4d448c19093cfc443ab, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &795798315
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795798310}
-  m_CullTransparentMesh: 1
 --- !u!1 &800203599
 GameObject:
   m_ObjectHideFlags: 0
@@ -7216,7 +7118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventarioPanel: {fileID: 152999786}
   slotPrefab: {fileID: 521913727091930469, guid: 410ccd931f8be244a8aa4140865e647c, type: 3}
-  itemPrefabs: []
+  itemPrefabs:
+  - {fileID: 7179377932692974747, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
+  - {fileID: 8232875544137793538, guid: 6a5e08909da26984395f14332f39c37e, type: 3}
   slotCount: 18
 --- !u!1 &1014898268
 GameObject:

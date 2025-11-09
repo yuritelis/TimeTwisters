@@ -15,15 +15,55 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         originalParent = transform.parent;
         transform.SetParent(transform.root);
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 0.6f;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = 1.0f;
+
+        Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
+        if (dropSlot == null && eventData.pointerEnter != null)
+        {
+            dropSlot = eventData.pointerEnter.GetComponentInParent<Slot>();
+        }
+
+        Slot originalSlot = originalParent.GetComponent<Slot>();
+
+        if (dropSlot == null)
+        {
+            transform.SetParent(originalParent);
+            GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+            return;
+        }
+
+        if (dropSlot.currentItem != null)
+        {
+            GameObject otherItem = dropSlot.currentItem;
+
+            transform.SetParent(dropSlot.transform);
+            dropSlot.currentItem = gameObject;
+
+            otherItem.transform.SetParent(originalSlot.transform);
+            originalSlot.currentItem = otherItem;
+
+            otherItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        }
+        else
+        {
+            originalSlot.currentItem = null;
+
+            transform.SetParent(dropSlot.transform);
+            dropSlot.currentItem = gameObject;
+        }
+
+        GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     }
 }
