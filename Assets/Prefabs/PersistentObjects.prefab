@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55d98d6d38ae97429ba34d410ba299a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fogRenderer: {fileID: 2340870955415265507}
+  fogMat: {fileID: 0}
   player: {fileID: 7776181775470910609}
-  minAlpha: 0.3
-  maxAlpha: 0.9
+  maxRadius: 0.6
+  minRadius: 0.2
   transitionSpeed: 3
 --- !u!1 &115044132770531542
 GameObject:
@@ -2681,7 +2681,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
