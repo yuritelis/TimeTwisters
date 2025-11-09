@@ -19,9 +19,12 @@ public class PlayerHealth : MonoBehaviour
     public VidaUI ui;
     private FogController fog; // 🌫️
 
+    private float lastHealth = -1f;
+
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         ui = FindFirstObjectByType<VidaUI>();
         fog = FindFirstObjectByType<FogController>();
@@ -35,8 +38,38 @@ public class PlayerHealth : MonoBehaviour
             ui.UpdateVidas(currentHealth);
         }
 
-        // Fog inicial (vida cheia)
-        if (fog != null) fog.UpdateFog(1f);
+        // 🧠 Atualiza névoa inicial (vida cheia ou valor já definido)
+        if (fog != null)
+        {
+            float sanityPercent = (float)currentHealth / maxHealth;
+            fog.UpdateFog(sanityPercent);
+        }
+
+        lastHealth = currentHealth;
+    }
+
+    private void Update()
+    {
+        // 🔹 Atualiza fog automaticamente se a vida mudar (debug, inspector, cheat etc.)
+        if (currentHealth != lastHealth)
+        {
+            lastHealth = currentHealth;
+
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+            if (ui != null)
+                ui.UpdateVidas(currentHealth);
+
+            if (fog != null)
+            {
+                float sanityPercent = (float)currentHealth / maxHealth;
+                fog.UpdateFog(sanityPercent);
+            }
+
+            // 🔻 Checa morte imediata se foi zerada manualmente
+            if (currentHealth <= 0 && gameObject.CompareTag("Player"))
+                SceneManager.LoadScene("DeathScreen");
+        }
     }
 
     public void ChangeHealth(int amount)
@@ -44,18 +77,20 @@ public class PlayerHealth : MonoBehaviour
         if (amount < 0 && isInvincible) return;
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log($"ChangeHealth chamado. Amount: {amount}, CurrentHealth: {currentHealth}");
+        Debug.Log($"[PlayerHealth] ChangeHealth chamado. Amount: {amount}, CurrentHealth: {currentHealth}");
 
-        if (ui != null) ui.UpdateVidas(currentHealth);
+        if (ui != null)
+            ui.UpdateVidas(currentHealth);
 
-        // Atualiza fog
+        // 🌫️ Atualiza fog conforme a nova sanidade
         if (fog != null)
         {
-            float percent = (float)currentHealth / maxHealth;
-            fog.UpdateFog(percent);
+            float sanityPercent = (float)currentHealth / maxHealth;
+            fog.UpdateFog(sanityPercent);
         }
 
-        if (amount < 0) StartCoroutine(InvincibilityFrames());
+        if (amount < 0)
+            StartCoroutine(InvincibilityFrames());
 
         if (currentHealth <= 0 && gameObject.CompareTag("Player"))
             SceneManager.LoadScene("DeathScreen");
@@ -66,7 +101,11 @@ public class PlayerHealth : MonoBehaviour
         isInvincible = true;
         float elapsed = 0f;
 
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+        Physics2D.IgnoreLayerCollision(
+            LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("Enemy"),
+            true
+        );
 
         while (elapsed < invincibilityDuration)
         {
@@ -80,8 +119,15 @@ public class PlayerHealth : MonoBehaviour
             elapsed += flashInterval * 2;
         }
 
-        if (spriteRenderer != null) spriteRenderer.color = originalColor;
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor;
+
+        Physics2D.IgnoreLayerCollision(
+            LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("Enemy"),
+            false
+        );
+
         isInvincible = false;
     }
 }

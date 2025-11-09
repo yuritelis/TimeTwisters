@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fog_Mat
+  m_Name: Fog_Insanity_Mat
   m_Shader: {fileID: 4800000, guid: aac9b70a6aba3da4a96a4eba46f9f7f2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -27,12 +27,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CrackTex:
+        m_Texture: {fileID: 2800000, guid: 728de6da38fc5de4389b0e892c2cdeff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: cc49737adf5ecdd47bccd1259130f0b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -42,13 +50,28 @@ Material:
     m_Ints: []
     m_Floats:
     - PixelSnap: 0
+    - _Aspect: 1.7777778
+    - _CrackIntensity: 0
+    - _Density: 0.044086635
+    - _Distortion: 1
+    - _DistortionStrength: 0
     - _EnableExternalAlpha: 0
-    - _Radius: 0.5
-    - _Softness: 0.2
+    - _HeartbeatIntensity: 0.01836943
+    - _HeartbeatSpeed: 0.08817327
+    - _InnerDarkness: 1
+    - _Radius: 0.296549
+    - _RimDarkness: 0.05878218
+    - _SanityFocus: 0.4
+    - _Scale: 5
+    - _Softness: 0.27241182
+    - _Speed: 0.0073477724
+    - _VignetteStrength: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _PulseColor: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

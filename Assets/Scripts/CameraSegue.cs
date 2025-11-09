@@ -10,6 +10,10 @@ public class CameraSegue : MonoBehaviour
     [Header("Movimento")]
     [Range(0f, 1f)] public float velocidade = 0.05f;
 
+    [Header("Configuração")]
+    public float cameraZ = -10f; // 🔹 garante que o Z nunca muda
+    public Vector2 offset;       // opcional: leve deslocamento da câmera em relação ao player
+
     private Camera cam;
     private float halfHeight;
     private float halfWidth;
@@ -44,14 +48,23 @@ public class CameraSegue : MonoBehaviour
         {
             Debug.LogWarning("[CameraSegue] Nenhum mapaCollider definido — sem limites de câmera.");
         }
+
+        // 🔹 Garante que a câmera começa com o Z correto
+        Vector3 startPos = transform.position;
+        startPos.z = cameraZ;
+        transform.position = startPos;
     }
 
     void LateUpdate()
     {
         if (player == null) return;
 
-        // Calcula a posição desejada da câmera (seguindo o player)
-        Vector3 posToGo = new Vector3(player.position.x, player.position.y, transform.position.z);
+        // 🔹 Calcula a posição desejada da câmera (seguindo o player com offset)
+        Vector3 posToGo = new Vector3(
+            player.position.x + offset.x,
+            player.position.y + offset.y,
+            cameraZ
+        );
 
         // 🔒 Aplica os limites de câmera se o mapa tiver collider
         if (mapaCollider != null)
