@@ -17,14 +17,14 @@ public class DialogoManager : MonoBehaviour
 
     private int dialogoIndex;
     private bool isTyping, isDialogoAtivo = false;
-    public float velFala = 0.05f; // Valor mais razoável
+    public float velFala = 0.5f;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Corrigido: DontDestroyOnLoad no GameObject, não no panel
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -44,7 +44,7 @@ public class DialogoManager : MonoBehaviour
 
         isDialogoAtivo = true;
         dialogoIndex = 0;
-        dialogoData = dialogo; // IMPORTANTE: Atribuir o dialogo recebido
+        dialogoData = dialogo;
 
         dialogoPanel.SetActive(true);
         if (sanidadeBar != null) sanidadeBar.SetActive(false);
@@ -56,14 +56,12 @@ public class DialogoManager : MonoBehaviour
     {
         if (!isDialogoAtivo || dialogoData == null) return;
 
-        // Verifica se ainda há falas
         if (dialogoIndex >= dialogoData.dialogoFalas.Count)
         {
             FimDialogo();
             return;
         }
 
-        // Para a digitação atual se estiver acontecendo
         if (isTyping)
         {
             StopAllCoroutines();
@@ -73,7 +71,6 @@ public class DialogoManager : MonoBehaviour
             return;
         }
 
-        // Configura a fala atual
         var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
 
         if (personagemNome != null)
@@ -93,18 +90,17 @@ public class DialogoManager : MonoBehaviour
         foreach (char letter in fala.ToCharArray())
         {
             dialogoTxt.text += letter;
-            //if (AudioManager.instance != null) 
-            //    AudioManager.instance.PlaySFX(PersoInfos.somVoz);
+            if (AudioManager.instance != null) 
+                AudioManager.instance.PlaySFX(PersoInfos.somVoz);
             yield return new WaitForSeconds(velFala);
         }
 
         isTyping = false;
-        dialogoIndex++; // Só incrementa após terminar de digitar
+        dialogoIndex++;
     }
 
     private void Update()
     {
-        // Input para próxima linha (opcional)
         if (isDialogoAtivo && Input.GetKeyDown(KeyCode.Space))
         {
             ProxLinha();

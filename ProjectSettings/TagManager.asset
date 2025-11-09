@@ -10,6 +10,7 @@ TagManager:
   - audio
   - Button
   - PauseScreen
+  - SanityAffected
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Player
   - Collision
   - Vision
-  - 
+  - VisionAffected
   - 
   - 
   - 

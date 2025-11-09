@@ -33,6 +33,13 @@ public class CameraSegue : MonoBehaviour
                 player = found.transform;
         }
 
+        // 🔹 Garante que a câmera já começa exatamente sobre o player
+        if (player != null)
+        {
+            Vector3 startPos = new Vector3(player.position.x, player.position.y, cameraZ);
+            transform.position = startPos;
+        }
+
         // 🔹 Calcula o tamanho da câmera em unidades do mundo
         halfHeight = cam.orthographicSize;
         halfWidth = halfHeight * cam.aspect;
@@ -49,24 +56,24 @@ public class CameraSegue : MonoBehaviour
             Debug.LogWarning("[CameraSegue] Nenhum mapaCollider definido — sem limites de câmera.");
         }
 
-        // 🔹 Garante que a câmera começa com o Z correto
-        Vector3 startPos = transform.position;
-        startPos.z = cameraZ;
-        transform.position = startPos;
+        // 🔹 Garante Z correto
+        Vector3 pos = transform.position;
+        pos.z = cameraZ;
+        transform.position = pos;
     }
 
     void LateUpdate()
     {
         if (player == null) return;
 
-        // 🔹 Calcula a posição desejada da câmera (seguindo o player com offset)
+        // 🔹 Calcula posição desejada da câmera (seguindo o player com offset)
         Vector3 posToGo = new Vector3(
             player.position.x + offset.x,
             player.position.y + offset.y,
             cameraZ
         );
 
-        // 🔒 Aplica os limites de câmera se o mapa tiver collider
+        // 🔒 Aplica limites de câmera, se houver collider de mapa
         if (mapaCollider != null)
         {
             float clampX = Mathf.Clamp(posToGo.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
@@ -74,7 +81,7 @@ public class CameraSegue : MonoBehaviour
             posToGo = new Vector3(clampX, clampY, posToGo.z);
         }
 
-        // 🔁 Movimento suave (Lerp)
+        // 🔁 Movimento suave
         transform.position = Vector3.Lerp(transform.position, posToGo, velocidade);
     }
 
