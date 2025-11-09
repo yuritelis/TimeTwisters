@@ -24,11 +24,20 @@ public class FogController : MonoBehaviour
     public Color insaneBase = new(0.1f, 0f, 0f, 1f);
     public Color insanePulse = new(0.7f, 0f, 0f, 1f);
 
+    [Header("Sistema de Visibilidade")]
+    public SanityVisibilitySystem visibilitySystem;
+
     // Valores atuais e alvo
     private float targetDensity, targetSpeed, targetCrack, targetRim, targetHeartbeatInt, targetHeartbeatSpeed;
     private float currentDensity, currentSpeed, currentCrack, currentRim, currentHeartbeatInt, currentHeartbeatSpeed;
     private Color targetBaseColor, targetPulseColor, currentBaseColor, currentPulseColor;
     private Vector3 smoothedPos;
+
+    // Propriedades públicas para acesso externo (Modificação do passo 4)
+    public float CurrentDensity => currentDensity;
+    public float CurrentCrackIntensity => currentCrack;
+    public float CurrentRimDarkness => currentRim;
+    public float CurrentInnerDarkness { get; private set; } = 1f;
 
     void Start()
     {
@@ -43,12 +52,13 @@ public class FogController : MonoBehaviour
             currentRim = 0.8f;
             currentHeartbeatInt = 0.25f;
             currentHeartbeatSpeed = 1.2f;
+            CurrentInnerDarkness = 1f;
 
             fogMat.SetFloat("_Density", currentDensity);
             fogMat.SetFloat("_Speed", currentSpeed);
             fogMat.SetFloat("_CrackIntensity", currentCrack);
             fogMat.SetFloat("_RimDarkness", currentRim);
-            fogMat.SetFloat("_InnerDarkness", 1f);
+            fogMat.SetFloat("_InnerDarkness", CurrentInnerDarkness);
             fogMat.SetFloat("_HeartbeatIntensity", currentHeartbeatInt);
             fogMat.SetFloat("_HeartbeatSpeed", currentHeartbeatSpeed);
         }
@@ -136,7 +146,13 @@ public class FogController : MonoBehaviour
         {
             insanityFactor = 1.6f;
             crackFactor = 5f;
-            fogMat.SetFloat("_InnerDarkness", 1.2f);
+            CurrentInnerDarkness = 1.2f;
+            fogMat.SetFloat("_InnerDarkness", CurrentInnerDarkness);
+        }
+        else
+        {
+            CurrentInnerDarkness = 1f;
+            fogMat.SetFloat("_InnerDarkness", CurrentInnerDarkness);
         }
 
         // 🧩 define alvos (suavizados com o tempo)
@@ -149,5 +165,12 @@ public class FogController : MonoBehaviour
 
         targetBaseColor = Color.Lerp(insaneBase, calmBase, sanityPercent);
         targetPulseColor = Color.Lerp(insanePulse, calmPulse, sanityPercent);
+
+        // 🔄 Sincroniza com o sistema de visibilidade
+        if (visibilitySystem != null)
+        {
+            // Opcional: você pode querer ajustar o raio baseado na sanidade
+            // O SanityVisibilitySystem já faz isso automaticamente
+        }
     }
 }

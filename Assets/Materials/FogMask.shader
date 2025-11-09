@@ -65,6 +65,46 @@
                 return o;
             }
 
+            // Função para calcular a visibilidade em um ponto específico
+            float CalculateVisibility(float2 worldUV, float2 center, float currentDensity, float currentCrackIntensity, float currentRimDarkness, float currentInnerDarkness)
+            {
+                float2 uv = worldUV * _Scale;
+                float t = _Time.y * _Speed;
+
+                float n1 = tex2D(_NoiseTex, uv + t).r;
+                float n2 = tex2D(_NoiseTex, uv - t * 0.4).g;
+                float distort = (n1 - n2) * _Distortion;
+                float2 distUV = uv + distort;
+
+                // Calcula a máscara de névoa
+                float fogMask = pow(tex2D(_NoiseTex, distUV).r, 0.8) * 1.7;
+                float fogAlpha = saturate(fogMask * currentDensity);
+
+                // Rachaduras
+                float3 crackSample = tex2D(_CrackTex, worldUV).rgb;
+                float crackMask = 1.0 - max(max(crackSample.r, crackSample.g), crackSample.b);
+                crackMask = pow(crackMask, 1.1);
+
+                float distFromCenter = distance(worldUV, center);
+
+                // Sombra interna
+                float innerShadow = smoothstep(0.25, 0.55, distFromCenter);
+                float visibility = (1.0 - innerShadow * currentInnerDarkness);
+
+                // Bordas e rachaduras
+                float rim = smoothstep(0.15, 1.0, distFromCenter);
+                float cracks = rim * currentCrackIntensity * crackMask * 3.2;
+
+                // Escuridão nas bordas
+                float rimDark = pow(smoothstep(0.05, 0.95, distFromCenter), 3.5);
+                visibility *= (1.0 - rimDark * currentRimDarkness);
+
+                // Aplica névoa e rachaduras
+                visibility = lerp(visibility, 0.0, saturate(cracks + rimDark * 1.5 + fogAlpha));
+
+                return saturate(visibility);
+            }
+
             half4 frag(v2f i) : SV_Target
             {
                 float2 uv = i.uv * _Scale;
