@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Maid.unity"
     guid: 15e43c76a6560d147aad4b44b6dacf02
   - enabled: 1
-    path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Mordomo.unity"
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Cozinheiro.unity"
     guid: acaf858361ada2a4bb51cd0ba7721b54
   - enabled: 1
     path: "Assets/Scenes/Presente/1\xB0 Andar/Sala_de_Jogos.unity"
@@ -83,6 +83,18 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Presente/2\xB0 Andar/Varanda.unity"
     guid: 721499a2347c6c447a6ff5179050f43d
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Cozinha.unity"
+    guid: 35cecb02875147f4099b14adde9f7260
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Maid2.unity"
+    guid: cca78d9c6e2a5fc428eb76f0a3074c28
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Mordomo.unity"
+    guid: 83785d4c44d451b46a0b205549ab29f7
+  - enabled: 1
+    path: "Assets/Scenes/Presente/1\xB0 Andar/Sala_de_Jantar.unity"
+    guid: 3f7a82c4363d22f42adea5b1d28190a4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
