@@ -4,84 +4,139 @@ using System.Collections;
 public class DiningRoomCutscene : MonoBehaviour
 {
     [Header("Referências")]
-    public Transform vandal;          // inimigo/vândalo que a câmera vai focar
-    public CameraSegue cameraSegue;   // sua câmera de seguir
-    public float moveSpeed = 2f;      // velocidade de movimento da câmera
-    public float holdTime = 2f;       // tempo que ela foca o vândalo
-    public GameObject enemyToActivate; // inimigo que será ativado no fim
+    public CameraSegue cam;
+    public Transform vandalTarget;
+    public string playerTag = "Player";
 
+    [Header("Controle do Jogador")]
+    public MonoBehaviour playerController; // arraste seu script de movimento
+    private Rigidbody2D playerRb;
+
+    [Header("Tempos")]
+    [Tooltip("Tempo para a câmera 'chegar' ao vândalo")]
+    public float cameraSettleTime = 1.2f;
+    [Tooltip("Tempo que a câmera permanece focada no vândalo")]
+    public float cameraHoldTime = 2.0f;
+    [Tooltip("Pausa antes de devolver o controle")]
+    public float afterReturnDelay = 0.5f;
+
+    [Header("Execução")]
+    public bool playOnlyOnce = true;
     private bool played = false;
-    private GameObject player;
-    private PlayerController playerController;
-    private Transform cameraTransform;
-    private Transform originalTarget;
 
+    [Header("Inimigo (Vândalo)")]
+    [Tooltip("Arraste aqui o inimigo desativado na cena")]
+    public GameObject enemyObject;
+    [Tooltip("Atraso em segundos para ele aparecer após a cutscene começar")]
+    public float enemyAppearDelay = 0.7f;
+
+    // ============================
+    // TRIGGER PRINCIPAL
+    // ============================
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (played) return;
-        if (!other.CompareTag("Player")) return;
+        Debug.Log($"➡️ OnTriggerEnter2D chamado por: {other.name} (Tag: {other.tag})");
 
-        played = true;
-        player = other.gameObject;
-        playerController = player.GetComponent<PlayerController>();
-        cameraTransform = cameraSegue.transform;
-        originalTarget = cameraSegue.player;
-
-        StartCoroutine(PlayCutscene());
-    }
-
-    private IEnumerator PlayCutscene()
-    {
-        // 🔒 trava o player
-        if (playerController != null)
-            playerController.canMove = false;
-
-        // 🚫 desliga o follow da câmera
-        cameraSegue.player = null;
-
-        Vector3 startPos = cameraTransform.position;
-        Vector3 targetPos = new Vector3(vandal.position.x, vandal.position.y, cameraSegue.cameraZ);
-
-        // 🎥 move até o vândalo
-        yield return StartCoroutine(MoveCamera(startPos, targetPos));
-
-        // 👁️ espera um pouco olhando pra ele
-        yield return new WaitForSeconds(holdTime);
-
-        // 🎥 volta pro jogador
-        Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y, cameraSegue.cameraZ);
-        yield return StartCoroutine(MoveCamera(cameraTransform.position, playerPos));
-
-        // 🔁 reativa o follow
-        cameraSegue.player = originalTarget;
-
-        // 🔓 libera o player
-        if (playerController != null)
-            playerController.canMove = true;
-
-        // ⚔️ ativa o inimigo
-        if (enemyToActivate != null)
-            enemyToActivate.SetActive(true);
-
-        Debug.Log("[DiningRoomCutscene] Cutscene concluída. Combate iniciado!");
-    }
-
-    private IEnumerator MoveCamera(Vector3 start, Vector3 end)
-    {
-        float t = 0;
-        while (t < 1)
+        if (played && playOnlyOnce)
         {
-            t += Time.deltaTime * moveSpeed;
-            cameraTransform.position = Vector3.Lerp(start, end, t);
-            yield return null;
+            Debug.Log("⚠️ Cutscene já foi executada antes, ignorando.");
+            return;
         }
+
+        if (!other.CompareTag(playerTag))
+        {
+            Debug.Log($"🚫 Tag incorreta ({other.tag}), esperando {playerTag}");
+            return;
+        }
+
+        Debug.Log("✅ Iniciando Coroutine da cutscene...");
+        StartCoroutine(RunCutscene(other.gameObject));
     }
 
-    private void OnDrawGizmosSelected()
+    // ============================
+    // CUTSCENE
+    // ============================
+    private IEnumerator RunCutscene(GameObject player)
     {
-        Gizmos.color = Color.yellow;
-        var col = GetComponent<Collider2D>();
-        if (col != null)
-            Gizmos.DrawWireCube(col.bounds.center, col.bounds.size);
+        Debug.Log("🎬 CUTSCENE STARTADA!");
+        played = true;
+
+        // ---- Garantir Rigidbody e Controller ----
+        if (playerRb == null)
+            playerRb = player.GetComponent<Rigidbody2D>();
+
+        if (playerRb != null)
+        {
+            playerRb.linearVelocity = Vector2.zero;
+            Debug.Log("🧊 Player parado (velocity zerada).");
+        }
+        else
+            Debug.LogWarning("⚠️ Player não tem Rigidbody2D.");
+
+        if (playerController == null)
+            playerController = player.GetComponent<MonoBehaviour>();
+
+        if (playerController != null)
+        {
+            playerController.enabled = false;
+            Debug.Log("🧍‍♂️ Controle do jogador desativado.");
+        }
+        else
+            Debug.LogWarning("⚠️ playerController está nulo!");
+
+        // ---- Foco da Câmera ----
+        if (cam != null && vandalTarget != null)
+        {
+            Debug.Log($"🎥 Focando câmera em: {vandalTarget.name}");
+            cam.BeginTemporaryFocus(vandalTarget);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Câmera ou VandalTarget estão nulos!");
+        }
+
+        // ---- Aparição do inimigo ----
+        if (enemyObject != null)
+        {
+            Debug.Log($"⏳ Aguardando {enemyAppearDelay}s para ativar inimigo...");
+            yield return new WaitForSeconds(enemyAppearDelay);
+
+            enemyObject.SetActive(true);
+            Debug.Log("💀 Inimigo ativado!");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Nenhum inimigo atribuído em enemyObject!");
+        }
+
+        // ---- Duração da cutscene ----
+        Debug.Log($"⏱️ Mantendo foco por {cameraSettleTime + cameraHoldTime}s...");
+        yield return new WaitForSeconds(cameraSettleTime + cameraHoldTime);
+
+        // ---- Voltar câmera ----
+        if (cam != null)
+        {
+            cam.EndTemporaryFocus();
+            Debug.Log("🎥 Câmera retornou ao jogador.");
+        }
+
+        // ---- Delay antes de liberar player ----
+        yield return new WaitForSeconds(afterReturnDelay);
+
+        // ---- Reativa o jogador ----
+        if (playerController != null)
+        {
+            playerController.enabled = true;
+            Debug.Log("🕹️ Controle do jogador reativado!");
+        }
+
+        // ---- Marca como executado ----
+        if (playOnlyOnce)
+        {
+            Debug.Log("🧩 Desativando trigger (one-shot).");
+            gameObject.SetActive(false);
+        }
+
+        Debug.Log("✅ CUTSCENE FINALIZADA.");
     }
 }
