@@ -1,49 +1,63 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class TimelineUI : MonoBehaviour
 {
-    public GameObject panel; // TimelinePanel
+    [Header("Referências de UI")]
+    public GameObject panel;
     public GameObject sanidadeBar;
     public Button Presente;
     public Button Passado;
     public Button Futuro;
 
-    private TimeTravelTilemap currentTimeObject;
-
-    private Color normalColor = Color.white;
-    private Color disabledColor = Color.gray;
+    [Header("Controle do Jogador")]
     public PlayerController playerController;
-    public static bool isPaused = false;
     public PlayerInput playerInput;
 
+    [Header("Configuração de Cor")]
+    public Color normalColor = Color.white;
+    public Color disabledColor = Color.gray;
+
+    public static bool isPaused = false;
+
+    private Timeline currentTimeline = Timeline.Presente;
 
     void Start()
     {
-        panel.SetActive(false); // garante que comece desativado
+        panel.SetActive(false);
         Presente.gameObject.SetActive(false);
         Passado.gameObject.SetActive(false);
         Futuro.gameObject.SetActive(false);
 
         if (playerInput == null)
-        {
             playerInput = FindFirstObjectByType<PlayerInput>();
-        }
 
         if (playerController == null)
-        {
             playerController = FindFirstObjectByType<PlayerController>();
-        }
 
         Presente.onClick.AddListener(() => ChooseTimeline(Timeline.Presente));
         Passado.onClick.AddListener(() => ChooseTimeline(Timeline.Passado));
         Futuro.onClick.AddListener(() => ChooseTimeline(Timeline.Futuro));
+
+        DetectarTimelineAtual();
+    }
+
+    private void DetectarTimelineAtual()
+    {
+        string cena = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.ToLower();
+
+        if (cena.Contains("passado"))
+            currentTimeline = Timeline.Passado;
+        else if (cena.Contains("futuro"))
+            currentTimeline = Timeline.Futuro;
+        else
+            currentTimeline = Timeline.Presente;
     }
 
     public void Open(TimeTravelTilemap timeObject)
     {
-        currentTimeObject = timeObject;
+        DetectarTimelineAtual();
 
         panel.SetActive(true);
         sanidadeBar.SetActive(false);
@@ -51,10 +65,11 @@ public class TimelineUI : MonoBehaviour
         Passado.gameObject.SetActive(true);
         Futuro.gameObject.SetActive(true);
 
-        UpdateButtonStates();
+        AtualizarEstadoDosBotoes();
+
         Time.timeScale = 0f;
-        TimelineUI.isPaused = true;
         isPaused = true;
+
         if (playerInput != null)
             playerInput.enabled = false;
     }
@@ -63,67 +78,69 @@ public class TimelineUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            panel.SetActive(false);
-            sanidadeBar.SetActive(true);
-            Presente.gameObject.SetActive(false);
-            Passado.gameObject.SetActive(false);
-            Futuro.gameObject.SetActive(false);
-
-            UpdateButtonStates();
-            Time.timeScale = 1.0f;
-            TimelineUI.isPaused = false;
-            isPaused = false;
-            if (playerInput != null)
-                playerInput.enabled = true;
+            FecharUI();
         }
+    }
+
+    private void FecharUI()
+    {
+        panel.SetActive(false);
+        sanidadeBar.SetActive(true);
+        Presente.gameObject.SetActive(false);
+        Passado.gameObject.SetActive(false);
+        Futuro.gameObject.SetActive(false);
+
+        Time.timeScale = 1f;
+        isPaused = false;
+
+        if (playerInput != null)
+            playerInput.enabled = true;
     }
 
     private void ChooseTimeline(Timeline timeline)
     {
-        if (currentTimeObject != null)
-        {
-            currentTimeObject.SetTimeline(timeline);
-        }
-        panel.SetActive(false);
-        Time.timeScale = 1f;
-        TimelineUI.isPaused = false;
-        isPaused = false;
+        if (timeline == currentTimeline)
+            return;
 
-        if (playerInput != null)
+        FecharUI();
+
+        if (TimeTravelSceneManager.instance != null)
         {
-            playerInput.enabled = true;
+            TimeTravelSceneManager.instance.CarregarCena(timeline);
+        }
+        else
+        {
+            Debug.LogWarning("Nenhum TimeTravelSceneManager encontrado na cena!");
         }
     }
 
-    private void UpdateButtonStates()
+    private void AtualizarEstadoDosBotoes()
     {
-        // reseta todos para normal
-        ResetButton(Presente);
-        ResetButton(Passado);
-        ResetButton(Futuro);
+        ResetarBotao(Presente);
+        ResetarBotao(Passado);
+        ResetarBotao(Futuro);
 
-        // desativa o bot�o da timeline atual
-        switch (currentTimeObject.CurrentTimeline)
+        switch (currentTimeline)
         {
             case Timeline.Presente:
-                DisableButton(Presente);
+                DesativarBotao(Presente);
                 break;
             case Timeline.Passado:
-                DisableButton(Passado);
+                DesativarBotao(Passado);
                 break;
             case Timeline.Futuro:
-                DisableButton(Futuro);
+                DesativarBotao(Futuro);
                 break;
         }
     }
 
-    private void ResetButton(Button btn)
+    private void ResetarBotao(Button btn)
     {
         btn.interactable = true;
         btn.GetComponent<Image>().color = normalColor;
     }
 
-    private void DisableButton(Button btn)
+    private void DesativarBotao(Button btn)
     {
         btn.interactable = false;
         btn.GetComponent<Image>().color = disabledColor;

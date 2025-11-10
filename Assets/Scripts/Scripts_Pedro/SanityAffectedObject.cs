@@ -6,7 +6,7 @@ public class SanityAffectedObject : MonoBehaviour
     [Header("Configurações de Auto-Aplicação")]
     public bool applyToChildren = true;
     public bool includeInactiveChildren = true;
-    public string childTagFilter = "SanityAffected"; // ⭐ MUDEI: Agora usa "SanityAffected" por padrão
+    public string childTagFilter = "SanityAffected";
 
     [Header("Debug")]
     public bool showDebugInfo = false;
@@ -43,10 +43,8 @@ public class SanityAffectedObject : MonoBehaviour
     {
         if (applyToChildren)
         {
-            // Busca todos os renderers nos filhos
             targetRenderers = GetComponentsInChildren<Renderer>(includeInactiveChildren);
 
-            // ⭐ CORREÇÃO: Só filtra se a tag NÃO estiver vazia
             if (!string.IsNullOrEmpty(childTagFilter))
             {
                 System.Collections.Generic.List<Renderer> filteredRenderers =
@@ -65,12 +63,10 @@ public class SanityAffectedObject : MonoBehaviour
         }
         else
         {
-            // Apenas o renderer deste objeto
             Renderer selfRenderer = GetComponent<Renderer>();
             targetRenderers = selfRenderer != null ? new Renderer[] { selfRenderer } : new Renderer[0];
         }
 
-        // ⭐ NOVO: Se não encontrou nenhum renderer, avisa
         if (targetRenderers.Length == 0)
         {
             Debug.LogWarning($"[SanityAffectedObject] Nenhum renderer encontrado em '{gameObject.name}' com as configurações atuais");
@@ -110,7 +106,6 @@ public class SanityAffectedObject : MonoBehaviour
 
     bool IsValidRenderer(Renderer renderer)
     {
-        // Verifica se é um tipo de renderer válido
         if (renderer is TilemapRenderer)
         {
             if (showDebugInfo) Debug.Log($"Ignorado (Tilemap): {renderer.gameObject.name}");
@@ -122,7 +117,6 @@ public class SanityAffectedObject : MonoBehaviour
             return false;
         }
 
-        // Verifica se não é o jogador
         if (renderer.transform == visibilitySystem?.player)
         {
             if (showDebugInfo) Debug.Log($"Ignorado (Jogador): {renderer.gameObject.name}");
@@ -139,7 +133,6 @@ public class SanityAffectedObject : MonoBehaviour
 
     void OnEnable()
     {
-        // Re-registra se o objeto for reativado
         if (visibilitySystem != null)
         {
             RegisterAllRenderers();
@@ -148,7 +141,6 @@ public class SanityAffectedObject : MonoBehaviour
 
     void OnDisable()
     {
-        // Remove quando o objeto for desativado
         UnregisterAllRenderers();
     }
 }
