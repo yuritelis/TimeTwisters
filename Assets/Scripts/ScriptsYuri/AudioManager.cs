@@ -11,10 +11,15 @@ public class AudioManager : MonoBehaviour
 
     [Header("> Audio Clips (Música) <")]
     public AudioClip menuBgm;
+    public AudioClip deathScreenBgm;
     public AudioClip pasBgm;
     public AudioClip presBgm;
     public AudioClip futBgm;
     public AudioClip bossBgm;
+    public AudioClip preBossBgm;
+    public AudioClip perseguicaoBgm;
+    public AudioClip vitrolaBgm;
+    public AudioClip vitrolaDistortBgm;
 
     [Header("> Audio Clips (SFX) <")]
     public AudioClip botClick;

@@ -129,12 +129,12 @@ TextureImporter:
       name: Mesa_1_0
       rect:
         serializedVersion: 2
-        x: 12
+        x: 0
         y: 0
-        width: 35
+        width: 96
         height: 96
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -143,28 +143,6 @@ TextureImporter:
       bones: []
       spriteID: 32996d0749082afa0800000000000000
       internalID: -5790924795808409309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mesa_1_1
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 0
-        width: 30
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3813001c2138ac43ba52c7b70756aa4
-      internalID: 5220208
       vertices: []
       indices: 
       edges: []
