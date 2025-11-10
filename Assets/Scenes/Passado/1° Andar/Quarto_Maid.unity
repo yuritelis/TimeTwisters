@@ -129,9 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 17077418}
   - component: {fileID: 17077419}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: relogio_base_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,9 +217,9 @@ GameObject:
   - component: {fileID: 122691914}
   - component: {fileID: 122691916}
   - component: {fileID: 122691915}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_2
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,6 +340,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &331659885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331659887}
+  - component: {fileID: 331659886}
+  m_Layer: 9
+  m_Name: "decora\xE7\xF5es"
+  m_TagString: SanityAffected
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &331659886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331659885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
+--- !u!4 &331659887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331659885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.231651, y: -2.1444457, z: -0.07505991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2054467165}
+  - {fileID: 1926357271}
+  - {fileID: 388642937}
+  - {fileID: 923746098}
+  - {fileID: 1510012108}
+  - {fileID: 1777860019}
+  - {fileID: 1064519418}
+  - {fileID: 830108313}
+  - {fileID: 1507754447}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &388642935
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,9 +407,9 @@ GameObject:
   m_Component:
   - component: {fileID: 388642937}
   - component: {fileID: 388642936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_0 (4)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,14 +477,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388642935}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.38, y: 0.199, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.611651, y: 2.3434458, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1744598596}
   - {fileID: 1502765854}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705336528
 GameObject:
@@ -440,9 +497,9 @@ GameObject:
   - component: {fileID: 705336529}
   - component: {fileID: 705336531}
   - component: {fileID: 705336530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -574,9 +631,9 @@ GameObject:
   - component: {fileID: 807521843}
   - component: {fileID: 807521845}
   - component: {fileID: 807521844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_2
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,9 +765,9 @@ GameObject:
   - component: {fileID: 830108313}
   - component: {fileID: 830108312}
   - component: {fileID: 830108314}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesinha de Cabeceira_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,12 +835,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830108311}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.24, y: 0.93, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.471651, y: 3.0744457, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &830108314
 BoxCollider2D:
@@ -842,9 +899,9 @@ GameObject:
   - component: {fileID: 849666971}
   - component: {fileID: 849666973}
   - component: {fileID: 849666972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -976,9 +1033,9 @@ GameObject:
   - component: {fileID: 889095865}
   - component: {fileID: 889095867}
   - component: {fileID: 889095866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_2
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1109,9 +1166,9 @@ GameObject:
   m_Component:
   - component: {fileID: 923746098}
   - component: {fileID: 923746097}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_0 (5)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1179,14 +1236,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923746096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.98, y: 0.199, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.21165, y: 2.3434458, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 849666971}
   - {fileID: 807521843}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &965717108
 GameObject:
@@ -1874,9 +1931,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1064519418}
   - component: {fileID: 1064519417}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tapete de Porta_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1944,12 +2001,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064519416}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 9.08, y: -1.97, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 20.311651, y: 0.17444563, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!1 &1205578845
 GameObject:
@@ -1962,9 +2019,9 @@ GameObject:
   - component: {fileID: 1205578846}
   - component: {fileID: 1205578848}
   - component: {fileID: 1205578847}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2096,9 +2153,9 @@ GameObject:
   - component: {fileID: 1266892287}
   - component: {fileID: 1266892289}
   - component: {fileID: 1266892288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_2
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2230,9 +2287,9 @@ GameObject:
   - component: {fileID: 1502765854}
   - component: {fileID: 1502765856}
   - component: {fileID: 1502765855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_2
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2363,9 +2420,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1507754447}
   - component: {fileID: 1507754446}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pintura_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2433,12 +2490,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507754445}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.21, y: 1.59, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.441651, y: 3.7344456, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510012106
 GameObject:
@@ -2450,9 +2507,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1510012108}
   - component: {fileID: 1510012107}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_0 (3)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2520,14 +2577,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510012106}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.45, y: 0.199, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.7816515, y: 2.3434458, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 705336529}
   - {fileID: 1266892287}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1636416455
 PrefabInstance:
@@ -2556,6 +2613,10 @@ PrefabInstance:
     - target: {fileID: 3244634622535033641, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: sanidadeBar
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13.081188
       objectReference: {fileID: 0}
     - target: {fileID: 6862939784799312751, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4099,9 +4160,9 @@ GameObject:
   - component: {fileID: 1744598596}
   - component: {fileID: 1744598598}
   - component: {fileID: 1744598597}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4233,9 +4294,9 @@ GameObject:
   - component: {fileID: 1777860019}
   - component: {fileID: 1777860018}
   - component: {fileID: 1777860017}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: relogio_base_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4349,14 +4410,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777860016}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1, y: 0.29, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.331652, y: 2.4344456, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2092749233}
   - {fileID: 17077418}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926357269
 GameObject:
@@ -4368,9 +4429,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1926357271}
   - component: {fileID: 1926357270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_0 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4438,14 +4499,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926357269}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.899, y: 0.199, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.130651, y: 2.3434458, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2118029746}
   - {fileID: 889095865}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1962819733
 GameObject:
@@ -4503,9 +4564,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2054467165}
   - component: {fileID: 2054467164}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4573,14 +4634,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054467163}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.45, y: 0.199, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.7816515, y: 2.3434458, z: 0.07505991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1205578846}
   - {fileID: 122691914}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 331659887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060299349
 GameObject:
@@ -4676,9 +4737,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2092749233}
   - component: {fileID: 2092749234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: relogio_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4764,9 +4825,9 @@ GameObject:
   - component: {fileID: 2118029746}
   - component: {fileID: 2118029748}
   - component: {fileID: 2118029747}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cama_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4894,12 +4955,4 @@ SceneRoots:
   - {fileID: 2060299351}
   - {fileID: 1636416455}
   - {fileID: 1962819735}
-  - {fileID: 2054467165}
-  - {fileID: 1926357271}
-  - {fileID: 388642937}
-  - {fileID: 923746098}
-  - {fileID: 1510012108}
-  - {fileID: 1777860019}
-  - {fileID: 1064519418}
-  - {fileID: 830108313}
-  - {fileID: 1507754447}
+  - {fileID: 331659887}
