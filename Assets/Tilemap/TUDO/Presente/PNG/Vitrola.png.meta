@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 89f5927952c0c06449523e167eb0659d
+guid: 3335bd339e3cbe5449bddf48423f6fed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5790924795808409309
-    second: Mesa_1_0
+      213: 4067005790440758471
+    second: Vitrola_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mesa_1_0
+      name: Vitrola_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 96
-        height: 96
+        width: 28
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32996d0749082afa0800000000000000
-      internalID: -5790924795808409309
+      spriteID: 7cc9daee738e07830800000000000000
+      internalID: 4067005790440758471
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fcd1e2473f8558b4f9206acc5ad78dfe
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mesa_1_0: -5790924795808409309
-      Mesa_1_1: 5220208
+      Vitrola_0: 4067005790440758471
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
