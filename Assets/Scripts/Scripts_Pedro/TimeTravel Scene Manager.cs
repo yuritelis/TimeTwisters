@@ -1,5 +1,6 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using System.Collections;
 
 #if UNITY_EDITOR
@@ -8,7 +9,7 @@ using UnityEditor;
 
 public class TimeTravelSceneManager : MonoBehaviour
 {
-    [Header("Referências das Cenas (arraste aqui)")]
+    [Header("ReferÃªncias das Cenas (arraste aqui)")]
     public Object cenaPresenteAsset;
     public Object cenaPassadoAsset;
     public Object cenaFuturoAsset;
@@ -72,18 +73,31 @@ public class TimeTravelSceneManager : MonoBehaviour
         if (!string.IsNullOrEmpty(nomeCena))
             StartCoroutine(LoadSceneWithFade(nomeCena));
         else
-            Debug.LogWarning($"Nenhuma cena atribuída para {timeline}");
+            Debug.LogWarning($"Nenhuma cena atribuÃ­da para {timeline}");
     }
 
     private IEnumerator LoadSceneWithFade(string sceneName)
     {
+        PlayerInput playerInput = FindFirstObjectByType<PlayerInput>();
+        if (playerInput != null)
+            playerInput.enabled = false;
+
         if (SceneFadeController.instance != null)
             yield return SceneFadeController.instance.FadeOut();
+
+        PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
+        if (playerHealth != null && playerHealth.currentHealth > 1)
+            playerHealth.ChangeHealth(-1);
 
         Time.timeScale = 1f;
         yield return SceneManager.LoadSceneAsync(sceneName);
 
         if (SceneFadeController.instance != null)
             yield return SceneFadeController.instance.FadeIn();
+
+        playerInput = FindFirstObjectByType<PlayerInput>();
+        if (playerInput != null)
+            playerInput.enabled = true;
     }
 }
+

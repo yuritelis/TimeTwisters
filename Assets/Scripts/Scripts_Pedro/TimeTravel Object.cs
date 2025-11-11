@@ -1,13 +1,25 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TimeTravelMarker : MonoBehaviour
+public class TimeTravelMarker : MonoBehaviour, IInteractable
 {
-    [Tooltip("Refer�ncia para a UI de viagem no tempo")]
-    public TimelineUI timelineUI;
+    private TimelineUI timelineUI;
 
-    private void Reset()
+    private void Awake()
     {
-        if (timelineUI == null)
-            timelineUI = FindFirstObjectByType<TimelineUI>();
+        timelineUI = FindFirstObjectByType<TimelineUI>();
     }
+
+    public void Interact()
+    {
+        if (TimelineUI.instance != null)
+        {
+            TimelineUI.instance.Open(null);
+        }
+        else
+        {
+            Debug.LogError("❌ Nenhum TimelineUI ativo encontrado (instance é null)!");
+        }
+    }
+
+    public bool CanInteract() => true;
 }

@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimelineUI : MonoBehaviour
 {
+    public static TimelineUI instance;
+
     [Header("Referências de UI")]
     public GameObject panel;
     public GameObject sanidadeBar;
@@ -20,33 +23,93 @@ public class TimelineUI : MonoBehaviour
     public Color disabledColor = Color.gray;
 
     public static bool isPaused = false;
-
     private Timeline currentTimeline = Timeline.Presente;
+
+    private static bool bootstrapped = false;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        RecarregarReferenciasUI();
+        DetectarTimelineAtual();
+    }
+
+    private void RecarregarReferenciasUI()
+    {
+        if (panel == null)
+            panel = GameObject.Find("TimelinePanel");
+        if (sanidadeBar == null)
+            sanidadeBar = GameObject.Find("SanidadeBar");
+
+        if (Presente == null || Passado == null || Futuro == null)
+        {
+            Button[] botoes = FindObjectsByType<Button>(FindObjectsSortMode.None);
+            foreach (var b in botoes)
+            {
+                if (b.name.Contains("Presente")) Presente = b;
+                else if (b.name.Contains("Passado")) Passado = b;
+                else if (b.name.Contains("Futuro")) Futuro = b;
+            }
+        }
+    }
 
     void Start()
     {
-        panel.SetActive(false);
-        Presente.gameObject.SetActive(false);
-        Passado.gameObject.SetActive(false);
-        Futuro.gameObject.SetActive(false);
-
         if (playerInput == null)
             playerInput = FindFirstObjectByType<PlayerInput>();
 
         if (playerController == null)
             playerController = FindFirstObjectByType<PlayerController>();
 
-        Presente.onClick.AddListener(() => ChooseTimeline(Timeline.Presente));
-        Passado.onClick.AddListener(() => ChooseTimeline(Timeline.Passado));
-        Futuro.onClick.AddListener(() => ChooseTimeline(Timeline.Futuro));
+        if (Presente != null)
+            Presente.onClick.AddListener(() => ChooseTimeline(Timeline.Presente));
+        if (Passado != null)
+            Passado.onClick.AddListener(() => ChooseTimeline(Timeline.Passado));
+        if (Futuro != null)
+            Futuro.onClick.AddListener(() => ChooseTimeline(Timeline.Futuro));
 
         DetectarTimelineAtual();
+
+        if (!bootstrapped)
+        {
+            panel.SetActive(false);
+            Presente.gameObject.SetActive(false);
+            Passado.gameObject.SetActive(false);
+            Futuro.gameObject.SetActive(false);
+            if (sanidadeBar != null) sanidadeBar.SetActive(true);
+            Time.timeScale = 1f;
+            isPaused = false;
+            if (playerInput != null) playerInput.enabled = true;
+            bootstrapped = true;
+        }
     }
 
     private void DetectarTimelineAtual()
     {
-        string cena = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.ToLower();
-
+        string cena = SceneManager.GetActiveScene().name.ToLower();
         if (cena.Contains("passado"))
             currentTimeline = Timeline.Passado;
         else if (cena.Contains("futuro"))
@@ -57,14 +120,15 @@ public class TimelineUI : MonoBehaviour
 
     public void Open(TimeTravelTilemap timeObject)
     {
-        DetectarTimelineAtual();
-
         panel.SetActive(true);
-        sanidadeBar.SetActive(false);
         Presente.gameObject.SetActive(true);
         Passado.gameObject.SetActive(true);
         Futuro.gameObject.SetActive(true);
 
+        if (sanidadeBar != null)
+            sanidadeBar.SetActive(false);
+
+        DetectarTimelineAtual();
         AtualizarEstadoDosBotoes();
 
         Time.timeScale = 0f;
@@ -74,18 +138,13 @@ public class TimelineUI : MonoBehaviour
             playerInput.enabled = false;
     }
 
+
     public void Close()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            FecharUI();
-        }
-    }
-
-    private void FecharUI()
-    {
         panel.SetActive(false);
-        sanidadeBar.SetActive(true);
+        if (sanidadeBar != null)
+            sanidadeBar.SetActive(true);
+
         Presente.gameObject.SetActive(false);
         Passado.gameObject.SetActive(false);
         Futuro.gameObject.SetActive(false);
@@ -102,16 +161,12 @@ public class TimelineUI : MonoBehaviour
         if (timeline == currentTimeline)
             return;
 
-        FecharUI();
+        Close();
 
         if (TimeTravelSceneManager.instance != null)
-        {
             TimeTravelSceneManager.instance.CarregarCena(timeline);
-        }
         else
-        {
-            Debug.LogWarning("Nenhum TimeTravelSceneManager encontrado na cena!");
-        }
+            Debug.LogWarning("Nenhum TimeTravelSceneManager encontrado!");
     }
 
     private void AtualizarEstadoDosBotoes()
@@ -136,12 +191,14 @@ public class TimelineUI : MonoBehaviour
 
     private void ResetarBotao(Button btn)
     {
+        if (btn == null) return;
         btn.interactable = true;
         btn.GetComponent<Image>().color = normalColor;
     }
 
     private void DesativarBotao(Button btn)
     {
+        if (btn == null) return;
         btn.interactable = false;
         btn.GetComponent<Image>().color = disabledColor;
     }
