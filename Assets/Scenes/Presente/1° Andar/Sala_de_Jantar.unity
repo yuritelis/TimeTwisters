@@ -1181,9 +1181,9 @@ GameObject:
   m_Component:
   - component: {fileID: 143887903}
   - component: {fileID: 143887904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1197,11 +1197,11 @@ Transform:
   m_GameObject: {fileID: 143887902}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: -5.924223, y: 0.37920356, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676869232}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &143887904
 SpriteRenderer:
@@ -1269,9 +1269,9 @@ GameObject:
   - component: {fileID: 316762741}
   - component: {fileID: 316762743}
   - component: {fileID: 316762742}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1285,12 +1285,12 @@ Transform:
   m_GameObject: {fileID: 316762740}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.19, y: -3.51, z: 0}
+  m_LocalPosition: {x: -0.49422264, y: -2.4807963, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1721033040}
-  m_Father: {fileID: 356580419}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &316762742
 BoxCollider2D:
@@ -1407,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.816292
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 6239699794732491742, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_labelHash
@@ -1468,6 +1468,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
   m_PrefabInstance: {fileID: 320017104}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &320017106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8037628185141361484, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+  m_PrefabInstance: {fileID: 320017104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c89f3c0bd1c5479cbad9700128c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &320017107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289950219585462800, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+  m_PrefabInstance: {fileID: 320017104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0897cc8f9164e40b607567b7e336e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &322721537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,9 +1635,9 @@ GameObject:
   - component: {fileID: 356580419}
   - component: {fileID: 356580421}
   - component: {fileID: 356580420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_0 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1629,13 +1651,11 @@ Transform:
   m_GameObject: {fileID: 356580418}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.65, y: 1.63, z: 0}
+  m_LocalPosition: {x: -4.6842227, y: 1.0292035, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2094627281}
-  - {fileID: 316762741}
-  m_Father: {fileID: 380415236}
+  m_Children: []
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &356580420
 BoxCollider2D:
@@ -1868,14 +1888,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1528460852}
-  - {fileID: 356580419}
-  - {fileID: 1919119972}
-  - {fileID: 388972352}
-  - {fileID: 1676869232}
-  - {fileID: 820245136}
-  - {fileID: 2052205321}
-  - {fileID: 1527602837}
-  - {fileID: 883901669}
   - {fileID: 94037491}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1890,9 +1902,9 @@ GameObject:
   - component: {fileID: 388972352}
   - component: {fileID: 388972354}
   - component: {fileID: 388972353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira de Lado_0 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1906,11 +1918,11 @@ Transform:
   m_GameObject: {fileID: 388972351}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.79, y: 1.17, z: 0}
+  m_LocalPosition: {x: -1.2442226, y: 0.5692035, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 380415236}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &388972353
 BoxCollider2D:
@@ -2001,7 +2013,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3453444073636023019, guid: aa7edab2fe84ff3498a6cd7860a9724f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -2274,6 +2286,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &620687934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620687936}
+  - component: {fileID: 620687935}
+  m_Layer: 0
+  m_Name: NavMeshSurface2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &620687935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620687934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 659ba874a759092449401b6037cf9f0b, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &620687936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620687934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.59884024, y: 1.5580505, z: -0.04958125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644897021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2551,9 +2627,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Fundos
+  sceneAsset: {fileID: 0}
   spawnPointName: Fundos (Esq) > Jantar (Esq)
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 2
+  dialogoPortaTrancada:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "N\xE3o \xE9 poss\xEDvel sair agora."
 --- !u!61 &680520835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2610,7 +2694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 697017435}
   - component: {fileID: 697017436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2965,7 +3049,11 @@ GameObject:
   - component: {fileID: 764044130}
   - component: {fileID: 764044129}
   - component: {fileID: 764044128}
-  m_Layer: 0
+  - component: {fileID: 764044133}
+  - component: {fileID: 764044132}
+  - component: {fileID: 764044134}
+  - component: {fileID: 764044135}
+  m_Layer: 3
   m_Name: "V\xE2ndalo"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3009,7 +3097,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4944b1970e07cf34ca5aced5d060315a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3110,7 +3198,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4566530751420432388, guid: ad420708a8810c14986736b2262c8e3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3215,6 +3303,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 8
   maxHealth: 8
+--- !u!195 &764044132
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764044122}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.18
+  m_Speed: 1.8
+  m_Acceleration: 30
+  avoidancePriority: 50
+  m_AngularSpeed: 720
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 0.1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &764044133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764044122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e712fd0d59334b42bec127e7fba7390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 320017105}
+  stoppingDistance: 0.6
+  moveSpeed: 2
+  manualObstacles:
+  - {fileID: 1640845009}
+  avoidRadius: 1.2
+  avoidForce: 1.8
+  stuckTime: 1
+  unstuckThreshold: 0.02
+--- !u!114 &764044134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764044122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4bbd58e5062b648a18c63b259b6771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apenasUmaVez: 1
+  detectarDesativacao: 0
+--- !u!114 &764044135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764044122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2e03df6aad87546b54ddaee1690eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyID: Vandalo_1
 --- !u!1 &768350462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,9 +3476,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Fundos
+  sceneAsset: {fileID: 0}
   spawnPointName: Fundos (Dir) > Jantar (Dir)
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 2
+  dialogoPortaTrancada:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "N\xE3o \xE9 poss\xEDvel sair agora."
 --- !u!61 &768350466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3542,9 +3708,9 @@ GameObject:
   m_Component:
   - component: {fileID: 820245136}
   - component: {fileID: 820245137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira de Lado_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3558,11 +3724,11 @@ Transform:
   m_GameObject: {fileID: 820245135}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3599999, y: -1.0395999, z: 0}
+  m_LocalPosition: {x: -1.6742227, y: -1.6403964, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 380415236}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &820245137
 SpriteRenderer:
@@ -3616,7 +3782,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &841356162
@@ -3717,9 +3883,9 @@ GameObject:
   - component: {fileID: 883901669}
   - component: {fileID: 883901671}
   - component: {fileID: 883901670}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira de Lado_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3733,11 +3899,11 @@ Transform:
   m_GameObject: {fileID: 883901668}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.36, y: -0.54, z: 0}
+  m_LocalPosition: {x: -1.6742226, y: -1.1407964, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 380415236}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &883901670
 BoxCollider2D:
@@ -3828,7 +3994,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3453444073636023019, guid: aa7edab2fe84ff3498a6cd7860a9724f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -3935,9 +4101,9 @@ GameObject:
   - component: {fileID: 970690128}
   - component: {fileID: 970690130}
   - component: {fileID: 970690129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3951,12 +4117,12 @@ Transform:
   m_GameObject: {fileID: 970690127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.19, y: -3.51, z: 0}
+  m_LocalPosition: {x: -1.7342227, y: -3.6307964, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 697017435}
-  m_Father: {fileID: 1676869232}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &970690129
 BoxCollider2D:
@@ -4669,8 +4835,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1221143599}
-  - component: {fileID: 1221143598}
   - component: {fileID: 1221143600}
+  - component: {fileID: 1221143601}
+  - component: {fileID: 1221143602}
   m_Layer: 0
   m_Name: DiningRoom_Cutscene_Trigger
   m_TagString: Untagged
@@ -4678,8 +4845,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1221143598
-BoxCollider2D:
+--- !u!4 &1221143599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221143597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.53, y: -0.98, z: -0.1910706}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221143600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221143597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79964cfa29fc9a40aa93373ccf653af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 320017106}
+  vandalTarget: {fileID: 764044127}
+  playerTag: Player
+  playerController: {fileID: 320017107}
+  cameraSettleTime: 1.2
+  cameraHoldTime: 2
+  afterReturnDelay: 0.5
+  playOnlyOnce: 1
+  enemyObject: {fileID: 764044122}
+  enemyAppearDelay: 0
+  enemyAIScripts:
+  - {fileID: 764044130}
+  - {fileID: 764044129}
+  - {fileID: 764044133}
+--- !u!60 &1221143601
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4712,7 +4920,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.91613317}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4722,24 +4930,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2.8322663}
-  m_EdgeRadius: 0
---- !u!4 &1221143599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1221143597}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.53, y: -0.98, z: -0.1910706}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1221143600
+  m_Points:
+    m_Paths:
+    - - {x: -0.5448899, y: 2.8861456}
+      - {x: 0.30056572, y: 2.0337934}
+      - {x: 0.29952097, y: -0.19808203}
+      - {x: -0.7572499, y: -0.20192972}
+      - {x: -0.8168301, y: -0.6328286}
+      - {x: 1.0811125, y: -0.61520946}
+      - {x: 1.0743885, y: 2.705181}
+  m_UseDelaunayMesh: 0
+--- !u!114 &1221143602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4748,19 +4949,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1221143597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79964cfa29fc9a40aa93373ccf653af, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a08b6a94467fe742a0d2b4f45b0ca54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  vandalTarget: {fileID: 0}
-  playerTag: Player
-  playerController: {fileID: 0}
-  cameraSettleTime: 1.2
-  cameraHoldTime: 2
-  afterReturnDelay: 0.5
-  playOnlyOnce: 1
-  enemyObject: {fileID: 0}
-  enemyAppearDelay: 0.7
+  apenasUmaVez: 1
 --- !u!1 &1244649142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,9 +5620,9 @@ GameObject:
   - component: {fileID: 1527602837}
   - component: {fileID: 1527602839}
   - component: {fileID: 1527602838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira de Lado_0 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5444,11 +5636,11 @@ Transform:
   m_GameObject: {fileID: 1527602836}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.78, y: -2.13, z: 0}
+  m_LocalPosition: {x: -4.8142223, y: -2.7307966, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 380415236}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1527602838
 BoxCollider2D:
@@ -5539,7 +5731,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3453444073636023019, guid: aa7edab2fe84ff3498a6cd7860a9724f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7279,6 +7471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1640845009}
+  - component: {fileID: 1640845010}
   m_Layer: 0
   m_Name: Objetos_Cenario
   m_TagString: Untagged
@@ -7299,6 +7492,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 356580419}
+  - {fileID: 2094627281}
+  - {fileID: 316762741}
+  - {fileID: 1919119972}
+  - {fileID: 388972352}
+  - {fileID: 1676869232}
+  - {fileID: 143887903}
+  - {fileID: 970690128}
+  - {fileID: 820245136}
+  - {fileID: 2052205321}
+  - {fileID: 1527602837}
+  - {fileID: 883901669}
   - {fileID: 1207121345}
   - {fileID: 1581515748}
   - {fileID: 841356164}
@@ -7319,6 +7524,22 @@ Transform:
   - {fileID: 2020416833}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1640845010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640845008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1649407903
 GameObject:
   m_ObjectHideFlags: 0
@@ -7361,9 +7582,9 @@ GameObject:
   - component: {fileID: 1676869232}
   - component: {fileID: 1676869234}
   - component: {fileID: 1676869233}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7377,13 +7598,11 @@ Transform:
   m_GameObject: {fileID: 1676869231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.89, y: 0.48, z: 0}
+  m_LocalPosition: {x: -5.924223, y: -0.12079647, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 143887903}
-  - {fileID: 970690128}
-  m_Father: {fileID: 380415236}
+  m_Children: []
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1676869233
 BoxCollider2D:
@@ -7583,7 +7802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1721033040}
   - component: {fileID: 1721033041}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8058,9 +8277,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1919119972}
   - component: {fileID: 1919119973}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira de Lado_1 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8074,11 +8293,11 @@ Transform:
   m_GameObject: {fileID: 1919119971}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7899998, y: 0.6704, z: 0}
+  m_LocalPosition: {x: -1.2442228, y: 0.06960356, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 380415236}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1919119973
 SpriteRenderer:
@@ -8132,66 +8351,9 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1927501967
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 27.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.035748906
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283022774539169235, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8044634306082866186, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
-      propertyPath: m_Name
-      value: Edward
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
 --- !u!1 &2008758402
 GameObject:
   m_ObjectHideFlags: 0
@@ -8357,9 +8519,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Cozinha
+  sceneAsset: {fileID: 0}
   spawnPointName: Cozinha > Jantar
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 2
+  dialogoPortaTrancada:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "N\xE3o \xE9 poss\xEDvel sair agora."
 --- !u!61 &2020416832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8431,9 +8601,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2052205321}
   - component: {fileID: 2052205322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira de Lado_1 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8447,11 +8617,11 @@ Transform:
   m_GameObject: {fileID: 2052205320}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.78, y: -2.6296, z: 0}
+  m_LocalPosition: {x: -4.8142223, y: -3.2303965, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 380415236}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2052205322
 SpriteRenderer:
@@ -8505,7 +8675,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2066543165
@@ -8605,9 +8775,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2094627281}
   - component: {fileID: 2094627282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cadeira_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8621,11 +8791,11 @@ Transform:
   m_GameObject: {fileID: 2094627280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: -4.6842227, y: 1.5292037, z: 0.16360399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 356580419}
+  m_Father: {fileID: 1640845009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2094627282
 SpriteRenderer:
@@ -8779,4 +8949,4 @@ SceneRoots:
   - {fileID: 1640845009}
   - {fileID: 1221143599}
   - {fileID: 764044127}
-  - {fileID: 1927501967}
+  - {fileID: 620687936}
