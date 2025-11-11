@@ -29,19 +29,24 @@ public class InventarioController : MonoBehaviour
         //}
     }
 
-    //public bool AddItem(GameObject itemPrefab)
-    //{
-    //    foreach (Transform slotTransform in inventarioPanel.transform)
-    //    {
-    //        Slot slot = GetComponent<Slot>();
+    public bool AddItem(GameObject itemPrefab)
+    {
+        foreach (Transform slotTransform in inventarioPanel.transform)
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
 
-    //        if (slot != null && slot.currentItem == null)
-    //        {
-    //            GameObject newItem = Instantiate(itemPrefab, slot.transform);
-    //            //newItem.
-    //        }
-    //    }
-    //}
+            if (slot != null && slot.currentItem == null)
+            {
+                GameObject newItem = Instantiate(itemPrefab, slotTransform);
+                newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                slot.currentItem = newItem;
+                return true;
+            }
+        }
+
+        Debug.Log("Inventário cheio!!!");
+        return false;
+    }
 
     public List<InventorySaveData> GetInventarioItems()
     {
