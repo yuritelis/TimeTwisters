@@ -66,8 +66,6 @@ public class InventarioController : MonoBehaviour
 
     public void SetInventarioItems(List<InventorySaveData> inventarioSaveData)
     {
-        Debug.Log("chamou SetInventarioItems");
-
         foreach (Transform child in inventarioPanel.transform)
         {
             Destroy(child.gameObject);
@@ -80,14 +78,17 @@ public class InventarioController : MonoBehaviour
 
         foreach (InventorySaveData data in inventarioSaveData)
         {
-            Slot slot = inventarioPanel.transform.GetChild(data.slotIndex).GetComponent<Slot>();
-            GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
-
-            if (itemPrefab != null)
+            if (data.slotIndex < slotCount)
             {
-                GameObject item = Instantiate(itemPrefab, slot.transform);
-                item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                slot.currentItem = item;
+                Slot slot = inventarioPanel.transform.GetChild(data.slotIndex).GetComponent<Slot>();
+                GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
+
+                if (itemPrefab != null)
+                {
+                    GameObject item = Instantiate(itemPrefab, slot.transform);
+                    item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                    slot.currentItem = item;
+                }
             }
         }
     }

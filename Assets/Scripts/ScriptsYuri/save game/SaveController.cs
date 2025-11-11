@@ -5,10 +5,13 @@ public class SaveController : MonoBehaviour
 {
     private string saveLocation;
     private InventarioController inventarioController;
+    private HotbarController hotbarController;
+
     void Start()
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         inventarioController = FindFirstObjectByType<InventarioController>();
+        hotbarController = FindFirstObjectByType<HotbarController>();
 
         LoadGame();
     }
@@ -19,6 +22,7 @@ public class SaveController : MonoBehaviour
         {
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
             inventarioSaveData = inventarioController.GetInventarioItems(),
+            hotbarSaveData = hotbarController.GetHotbarItems(),
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
@@ -33,6 +37,7 @@ public class SaveController : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
 
             inventarioController.SetInventarioItems(saveData.inventarioSaveData);
+            hotbarController.SetHotbarItems(saveData.hotbarSaveData);
         }
         else
         {
