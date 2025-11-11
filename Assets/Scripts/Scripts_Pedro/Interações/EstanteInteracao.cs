@@ -43,12 +43,9 @@ public class EstanteInterativa : MonoBehaviour, IInteractable
     {
         if (DialogoManager.Instance == null) return false;
 
-        var campo = typeof(DialogoManager).GetField("isDialogoAtivo",
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
-        if (campo == null) return false;
-        return (bool)campo.GetValue(DialogoManager.Instance);
+        return DialogoManager.Instance.dialogoAtivoPublico;
     }
+
 
     private IEnumerator MostrarImagem()
     {
