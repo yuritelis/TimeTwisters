@@ -16,8 +16,8 @@ public class DialogoManager : MonoBehaviour
     public Image personagemIcon;
 
     private int dialogoIndex;
-    private bool isTyping, isDialogoAtivo = false;
-    public float velFala = 0.5f;
+    private bool isTyping, isDialogoAtivo, fimFala = false;
+    public float velFala = 1f;
 
     private void Awake()
     {
@@ -55,6 +55,11 @@ public class DialogoManager : MonoBehaviour
     public void ProxLinha()
     {
         if (!isDialogoAtivo || dialogoData == null) return;
+
+        if (fimFala)
+        {
+            dialogoIndex += dialogoData.dialogoFalas.Count - 1;
+        }
 
         if (dialogoIndex >= dialogoData.dialogoFalas.Count)
         {
@@ -112,6 +117,7 @@ public class DialogoManager : MonoBehaviour
         StopAllCoroutines();
         isDialogoAtivo = false;
         isTyping = false;
+        fimFala = true;
 
         if (dialogoTxt != null) dialogoTxt.text = "";
         if (dialogoPanel != null) dialogoPanel.SetActive(false);

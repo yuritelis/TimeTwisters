@@ -29,6 +29,20 @@ public class InventarioController : MonoBehaviour
         //}
     }
 
+    //public bool AddItem(GameObject itemPrefab)
+    //{
+    //    foreach (Transform slotTransform in inventarioPanel.transform)
+    //    {
+    //        Slot slot = GetComponent<Slot>();
+
+    //        if (slot != null && slot.currentItem == null)
+    //        {
+    //            GameObject newItem = Instantiate(itemPrefab, slot.transform);
+    //            //newItem.
+    //        }
+    //    }
+    //}
+
     public List<InventorySaveData> GetInventarioItems()
     {
          List<InventorySaveData> invData = new List<InventorySaveData>();

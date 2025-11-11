@@ -202,30 +202,4 @@ public class TimelineUI : MonoBehaviour
         btn.interactable = false;
         btn.GetComponent<Image>().color = disabledColor;
     }
-
-    public void DanoSanidade()
-    {
-        int novoDano;
-
-        if (vidaPlayer.currentHealth == 2)
-            danoMax = 2;
-
-        for (int i = 0; i < 3; i++)
-        {
-            novoDano = Random.Range(danoMin, danoMax);
-
-            if (novoDano != danoAnterior || danoAnterior == -1)
-            {
-                danoAnterior = novoDano;
-                vidaPlayer.ChangeHealth(-novoDano);
-                return;
-            }
-        }
-
-        novoDano = (danoAnterior + 1) % danoMax;
-        if (novoDano < danoMin) novoDano = danoMin;
-
-        danoAnterior = novoDano;
-        vidaPlayer.ChangeHealth(-novoDano);
-    }
 }
