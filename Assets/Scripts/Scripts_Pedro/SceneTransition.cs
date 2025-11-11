@@ -1,19 +1,28 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class SceneTransition : MonoBehaviour
 {
-    [Header("ConfiguraÁ„o da TransiÁ„o")]
-    [Tooltip("Nome exato da cena para carregar (deve estar adicionada no Build Settings)")]
+    [Header("Configura√ß√£o da Transi√ß√£o")]
+    [Tooltip("Nome exato da cena para carregar (se n√£o arrastar uma cena)")]
     public string sceneToLoad;
 
-    [Tooltip("Nome do ponto de spawn na prÛxima cena (opcional)")]
+#if UNITY_EDITOR
+    [Tooltip("Voc√™ pode arrastar uma cena aqui como alternativa ao nome")]
+    public SceneAsset sceneAsset;
+#endif
+
+    [Tooltip("Nome do ponto de spawn na pr√≥xima cena (opcional)")]
     public string spawnPointName;
 
     [Tooltip("Requer apertar uma tecla para transicionar (ex: E)")]
     public bool requireInput = false;
 
-    [Tooltip("Tecla usada para ativar a transiÁ„o")]
+    [Tooltip("Tecla usada para ativar a transi√ß√£o")]
     public KeyCode interactKey = KeyCode.E;
 
     private bool playerInside = false;
@@ -29,7 +38,8 @@ public class SceneTransition : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = true;
-            if (!requireInput) PerformTransition();
+            if (!requireInput)
+                PerformTransition();
         }
     }
 
@@ -41,9 +51,26 @@ public class SceneTransition : MonoBehaviour
 
     private void PerformTransition()
     {
+        string finalSceneName = GetSceneName();
+
+        if (string.IsNullOrEmpty(finalSceneName))
+        {
+            Debug.LogError($"‚ùå Nenhuma cena configurada em {name}. Insira o nome ou arraste a cena no Inspector!");
+            return;
+        }
+
         if (!string.IsNullOrEmpty(spawnPointName))
             PlayerPrefs.SetString("SpawnPoint", spawnPointName);
 
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(finalSceneName);
+    }
+
+    private string GetSceneName()
+    {
+#if UNITY_EDITOR
+        if (sceneAsset != null)
+            return sceneAsset.name;
+#endif
+        return sceneToLoad;
     }
 }
