@@ -52,6 +52,7 @@ Material:
     - PixelSnap: 0
     - _Aspect: 1.7777778
     - _CrackIntensity: 0
+<<<<<<< Updated upstream
     - _Density: 0.02920532
     - _Distortion: 1
     - _DistortionStrength: 0
@@ -65,6 +66,21 @@ Material:
     - _Scale: 5
     - _Softness: 0.27241182
     - _Speed: 0.0048675532
+=======
+    - _Density: 0.16009593
+    - _Distortion: 1
+    - _DistortionStrength: 0
+    - _EnableExternalAlpha: 0
+    - _HeartbeatIntensity: 0.06670664
+    - _HeartbeatSpeed: 0.32019186
+    - _InnerDarkness: 1
+    - _Radius: 0.296549
+    - _RimDarkness: 0.21346122
+    - _SanityFocus: 0.4
+    - _Scale: 5
+    - _Softness: 0.27241182
+    - _Speed: 0.026682653
+>>>>>>> Stashed changes
     - _VignetteStrength: 0
     - _VisionMultiplier: 0
     - _VisionRadius: 0.29000002
