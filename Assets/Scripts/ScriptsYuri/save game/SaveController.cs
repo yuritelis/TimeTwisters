@@ -4,9 +4,11 @@ using UnityEngine;
 public class SaveController : MonoBehaviour
 {
     private string saveLocation;
+    private InventarioController inventarioController;
     void Start()
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+        inventarioController = FindFirstObjectByType<InventarioController>();
 
         LoadGame();
     }
@@ -16,6 +18,7 @@ public class SaveController : MonoBehaviour
         SaveData saveData = new SaveData
         {
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
+            inventarioSaveData = inventarioController.GetInventarioItems(),
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
@@ -28,6 +31,8 @@ public class SaveController : MonoBehaviour
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
+
+            inventarioController.SetInventarioItems(saveData.inventarioSaveData);
         }
         else
         {
