@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 186548257}
   - component: {fileID: 186548256}
   - component: {fileID: 186548255}
+  - component: {fileID: 186548258}
   m_Layer: 9
   m_Name: relogio_base_1
   m_TagString: SanityAffected
@@ -277,6 +278,22 @@ Transform:
   - {fileID: 813048384}
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &186548258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186548254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &195308757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4253845897552968649, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
@@ -304,6 +321,7 @@ GameObject:
   - component: {fileID: 276286536}
   - component: {fileID: 276286535}
   - component: {fileID: 276286534}
+  - component: {fileID: 276286537}
   m_Layer: 9
   m_Name: "Sof\xE1_0"
   m_TagString: SanityAffected
@@ -427,6 +445,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &276286537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276286533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &370683628
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +472,7 @@ GameObject:
   - component: {fileID: 370683631}
   - component: {fileID: 370683630}
   - component: {fileID: 370683629}
+  - component: {fileID: 370683632}
   m_Layer: 9
   m_Name: Mesinha de Cabeceira_0
   m_TagString: SanityAffected
@@ -561,6 +596,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370683632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370683628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
+--- !u!1 &409220981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409220982}
+  - component: {fileID: 409220983}
+  m_Layer: 9
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &409220982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409220981}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1158546100}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &409220983
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409220981}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.010090321, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.9283025, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &445574957
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +701,7 @@ GameObject:
   - component: {fileID: 445574959}
   - component: {fileID: 445574958}
   - component: {fileID: 445574960}
+  - component: {fileID: 445574961}
   m_Layer: 9
   m_Name: Convidados > Jogos
   m_TagString: SanityAffected
@@ -653,9 +783,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Sala_De_Jogos
+  sceneAsset: {fileID: 0}
   spawnPointName: Jogos > Convidados
   requireInput: 1
   interactKey: 101
+--- !u!114 &445574961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445574957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &672802094
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,8 +813,11 @@ GameObject:
   m_Component:
   - component: {fileID: 672802096}
   - component: {fileID: 672802095}
+  - component: {fileID: 672802098}
+  - component: {fileID: 672802097}
+  - component: {fileID: 672802099}
   m_Layer: 9
-  m_Name: porta_passado_0
+  m_Name: Futuro Convidados > Futuro Jogos
   m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -743,6 +893,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &672802097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672802094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 
+  sceneAsset: {fileID: 102900000, guid: 15b68f1c82cd99343b04307ac9ca294c, type: 3}
+  spawnPointName: Futuro Jogos > Futuro Convidados
+  requireInput: 1
+  interactKey: 101
+--- !u!61 &672802098
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672802094}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 1}
+    newSize: {x: 0.75, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.75, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &672802099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672802094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!114 &697852612 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6973271818393367203, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
@@ -935,6 +1164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925736997}
   - component: {fileID: 925736996}
+  - component: {fileID: 925736998}
   m_Layer: 9
   m_Name: Objetos_Cenario
   m_TagString: SanityAffected
@@ -983,6 +1213,22 @@ Transform:
   - {fileID: 276286536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925736998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925736995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1001 &942041236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1796,6 +2042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1070921812}
   - component: {fileID: 1070921811}
+  - component: {fileID: 1070921813}
   m_Layer: 9
   m_Name: "Arm\xE1rio_passado_0"
   m_TagString: SanityAffected
@@ -1873,6 +2120,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070921813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070921810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1158546098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,8 +2148,9 @@ GameObject:
   - component: {fileID: 1158546099}
   - component: {fileID: 1158546102}
   - component: {fileID: 1158546101}
+  - component: {fileID: 1158546103}
   m_Layer: 9
-  m_Name: "Convidados > Sagu\xE3o"
+  m_Name: "Futuro Convidados > Futuro Sagu\xE3o"
   m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1956,10 +2220,11 @@ Transform:
   m_GameObject: {fileID: 1158546098}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 3.0700521, y: -2.3706176, z: 0.31841964}
+  m_LocalPosition: {x: 3, y: -2.3, z: 0.31841964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 409220982}
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!114 &1158546101
@@ -1974,8 +2239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: "Sagu\xE3o"
-  spawnPointName: "Sagu\xE3o > Convidados"
+  sceneToLoad: 
+  sceneAsset: {fileID: 102900000, guid: e2897a2da3b5e9842bbfcc590b03a2f4, type: 3}
+  spawnPointName: "Futuro Sagu\xE3o > Futuro Convidados"
   requireInput: 1
   interactKey: 101
 --- !u!61 &1158546102
@@ -2024,6 +2290,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.9375}
   m_EdgeRadius: 0
+--- !u!114 &1158546103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158546098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1257363115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,6 +2688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1320398619}
   - component: {fileID: 1320398618}
+  - component: {fileID: 1320398620}
   m_Layer: 9
   m_Name: Escudo_0
   m_TagString: SanityAffected
@@ -2483,6 +2766,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1320398620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320398617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1489052985 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8633732175409082868, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
@@ -4142,6 +4441,7 @@ GameObject:
   - component: {fileID: 1760351471}
   - component: {fileID: 1760351470}
   - component: {fileID: 1760351472}
+  - component: {fileID: 1760351473}
   m_Layer: 9
   m_Name: "Arm\xE1rio_passado_0 (1)"
   m_TagString: SanityAffected
@@ -4265,6 +4565,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.381516, y: 0.90992737}
   m_EdgeRadius: 0
+--- !u!114 &1760351473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760351469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1001 &1817031981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4283,7 +4599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.666667
+      value: 9.940631
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4361,6 +4677,7 @@ GameObject:
   - component: {fileID: 1855060244}
   - component: {fileID: 1855060243}
   - component: {fileID: 1855060242}
+  - component: {fileID: 1855060245}
   m_Layer: 9
   m_Name: Lareira_0
   m_TagString: SanityAffected
@@ -4460,6 +4777,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 925736997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1855060245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855060241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!114 &1906084156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2925149191181771405, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}

@@ -1052,9 +1052,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Sala_de_Jogos
+  sceneAsset: {fileID: 0}
   spawnPointName: Jogos > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &151707372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1369,9 +1373,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Banheiro
+  sceneAsset: {fileID: 0}
   spawnPointName: Banheiro > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &192557448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1636,7 +1644,7 @@ GameObject:
   - component: {fileID: 221325077}
   - component: {fileID: 221325076}
   - component: {fileID: 221325080}
-  - component: {fileID: 221325079}
+  - component: {fileID: 221325081}
   m_Layer: 9
   m_Name: Fundos (Esq) > Jantar (Esq)
   m_TagString: SanityAffected
@@ -1715,22 +1723,6 @@ Transform:
   - {fileID: 1115181053}
   m_Father: {fileID: 284273913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
---- !u!114 &221325079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221325075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: Sala_de_Jantar
-  spawnPointName: Jantar (Esq) > Fundos (Esq)
-  requireInput: 1
-  interactKey: 101
 --- !u!61 &221325080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1777,6 +1769,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.9375}
   m_EdgeRadius: 0
+--- !u!114 &221325081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221325075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 
+  sceneAsset: {fileID: 102900000, guid: 3f7a82c4363d22f42adea5b1d28190a4, type: 3}
+  spawnPointName: Jantar (Esq) > Fundos (Esq)
+  requireInput: 1
+  interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!1 &223399647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,9 +2246,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Maid2
+  sceneAsset: {fileID: 0}
   spawnPointName: Maid2 > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!1 &482693880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,10 +2566,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Sala_de_Jantar
+  sceneToLoad: 
+  sceneAsset: {fileID: 102900000, guid: 3f7a82c4363d22f42adea5b1d28190a4, type: 3}
   spawnPointName: Jantar (Dir) > Fundos (Dir)
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 1
+  dialogoPortaTrancada:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: Porta trancada.
 --- !u!1 &550974675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,9 +2680,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "Sagu\xE3o"
+  sceneAsset: {fileID: 0}
   spawnPointName: "Sagu\xE3o > Fundos (Dir)"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &550974679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5648,9 +5676,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Maid
+  sceneAsset: {fileID: 0}
   spawnPointName: Maid > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: Sala trancada.
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6136,9 +6172,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Mordomo
+  sceneAsset: {fileID: 0}
   spawnPointName: Mordomo > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1223359444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6540,9 +6580,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Cozinheiro
+  sceneAsset: {fileID: 0}
   spawnPointName: Cozinheiro > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1408842613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6690,7 +6734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.1669445
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11616,9 +11660,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "Sagu\xE3o"
+  sceneAsset: {fileID: 0}
   spawnPointName: "Sagu\xE3o > Fundos (Esq)"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1896157799
 BoxCollider2D:
   m_ObjectHideFlags: 0
