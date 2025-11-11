@@ -1,0 +1,291 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: julie_idle_atras-sheet_0
+      m_Hash: 546744171
+      m_Sprite: {fileID: 3396261017617330621, guid: 0410432c8355f9b4a80aff7960f2990a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3396261017617330621, guid: 0410432c8355f9b4a80aff7960f2990a, type: 3}
+    - m_Name: julie_idle_atras-sheet_1
+      m_Hash: 395417597
+      m_Sprite: {fileID: 2417901069862354117, guid: 0410432c8355f9b4a80aff7960f2990a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2417901069862354117, guid: 0410432c8355f9b4a80aff7960f2990a, type: 3}
+    - m_Name: julie_idle_atras-sheet_2
+      m_Hash: 244893255
+      m_Sprite: {fileID: 8621137499410786015, guid: 0410432c8355f9b4a80aff7960f2990a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8621137499410786015, guid: 0410432c8355f9b4a80aff7960f2990a, type: 3}
+    - m_Name: julie_idle_direita-sheet_0
+      m_Hash: 307716296
+      m_Sprite: {fileID: 3074532802089602738, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3074532802089602738, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+    - m_Name: julie_idle_direita-sheet_1
+      m_Hash: 626020446
+      m_Sprite: {fileID: -4604732273896859706, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4604732273896859706, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+    - m_Name: julie_idle_direita-sheet_2
+      m_Hash: 1012466148
+      m_Sprite: {fileID: -3082144513698329019, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3082144513698329019, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+    - m_Name: julie_idle_direita-sheet_3
+      m_Hash: 190722418
+      m_Sprite: {fileID: -1325323685746491590, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1325323685746491590, guid: 335bbb8f0e0beab47bc255431943073c, type: 3}
+    - m_Name: julie_idle_esquerda-sheet_0
+      m_Hash: 815159826
+      m_Sprite: {fileID: 3574479392054373684, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3574479392054373684, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+    - m_Name: julie_idle_esquerda-sheet_1
+      m_Hash: 126970500
+      m_Sprite: {fileID: 8577821452539282963, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8577821452539282963, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+    - m_Name: julie_idle_esquerda-sheet_2
+      m_Hash: 513293118
+      m_Sprite: {fileID: -8292263416660752658, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8292263416660752658, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+    - m_Name: julie_idle_esquerda-sheet_3
+      m_Hash: 698289064
+      m_Sprite: {fileID: 7683698257746759508, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7683698257746759508, guid: 66652096171c212409c28b1bdfe7288c, type: 3}
+    - m_Name: julie_idle_frente-sheet_0
+      m_Hash: 548280853
+      m_Sprite: {fileID: -6496759884815590984, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6496759884815590984, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+    - m_Name: julie_idle_frente-sheet_1
+      m_Hash: 396962435
+      m_Sprite: {fileID: 1461622950719122785, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1461622950719122785, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+    - m_Name: julie_idle_frente-sheet_2
+      m_Hash: 245398329
+      m_Sprite: {fileID: 236130765841781509, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 236130765841781509, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+    - m_Name: julie_idle_frente-sheet_3
+      m_Hash: 967265199
+      m_Sprite: {fileID: 4312682600385585631, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4312682600385585631, guid: 93387e2b86c8e134484a1de04c60ee9b, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 15
+  - m_Name: Walk
+    m_Hash: 765711723
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: julie_andando_atras-sheet_0
+      m_Hash: 271589139
+      m_Sprite: {fileID: 1275101795594893388, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1275101795594893388, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+    - m_Name: julie_andando_atras-sheet_1
+      m_Hash: 657928069
+      m_Sprite: {fileID: 6284367468977174532, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6284367468977174532, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+    - m_Name: julie_andando_atras-sheet_2
+      m_Hash: 1044282943
+      m_Sprite: {fileID: 7925723532006297178, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7925723532006297178, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+    - m_Name: julie_andando_atras-sheet_3
+      m_Hash: 154750633
+      m_Sprite: {fileID: -6933186566599742179, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6933186566599742179, guid: 08e1eb963326d3944b2fe97753671b63, type: 3}
+    - m_Name: julie_andando_direita-sheet_0
+      m_Hash: 806033454
+      m_Sprite: {fileID: 2399700783572800051, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2399700783572800051, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+    - m_Name: julie_andando_direita-sheet_1
+      m_Hash: 118237368
+      m_Sprite: {fileID: 2341985497850973633, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2341985497850973633, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+    - m_Name: julie_andando_direita-sheet_2
+      m_Hash: 503675138
+      m_Sprite: {fileID: -1812311148239463973, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1812311148239463973, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+    - m_Name: julie_andando_direita-sheet_3
+      m_Hash: 688015764
+      m_Sprite: {fileID: 3211959108015544880, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3211959108015544880, guid: 2facc2616a892ab4baf7a32f77037b71, type: 3}
+    - m_Name: julie_andando_esquerda-sheet_0
+      m_Hash: 970801447
+      m_Sprite: {fileID: 1796282862066723782, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1796282862066723782, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+    - m_Name: julie_andando_esquerda-sheet_1
+      m_Hash: 249196977
+      m_Sprite: {fileID: 2665578884218002339, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2665578884218002339, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+    - m_Name: julie_andando_esquerda-sheet_2
+      m_Hash: 399712267
+      m_Sprite: {fileID: 7768187424333028996, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7768187424333028996, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+    - m_Name: julie_andando_esquerda-sheet_3
+      m_Hash: 550768797
+      m_Sprite: {fileID: -8242798054726117037, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8242798054726117037, guid: 54b0a0608cb4e3e4e9688404cc79664e, type: 3}
+    - m_Name: julie_andando_frente-sheet_0
+      m_Hash: 1052788131
+      m_Sprite: {fileID: 2673845569127743490, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2673845569127743490, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+    - m_Name: julie_andando_frente-sheet_1
+      m_Hash: 164066613
+      m_Sprite: {fileID: 5202150117711444514, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5202150117711444514, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+    - m_Name: julie_andando_frente-sheet_2
+      m_Hash: 281945231
+      m_Sprite: {fileID: 519331169971343980, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 519331169971343980, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+    - m_Name: julie_andando_frente-sheet_3
+      m_Hash: 667489305
+      m_Sprite: {fileID: 1504716444196917564, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1504716444196917564, guid: bc9b8f57c6d1343468508a416ca451cf, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 16
+  - m_Name: Attack
+    m_Hash: 7088141
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: julie_corpo_atras-sheet_0
+      m_Hash: 125937301
+      m_Sprite: {fileID: 8309723022370439867, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8309723022370439867, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+    - m_Name: julie_corpo_atras-sheet_1
+      m_Hash: 814126595
+      m_Sprite: {fileID: -543190004167132425, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -543190004167132425, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+    - m_Name: julie_corpo_atras-sheet_2
+      m_Hash: 697288633
+      m_Sprite: {fileID: -4228922074444241383, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4228922074444241383, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+    - m_Name: julie_corpo_atras-sheet_3
+      m_Hash: 512292655
+      m_Sprite: {fileID: 3845770968292081239, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3845770968292081239, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+    - m_Name: julie_corpo_atras-sheet_4
+      m_Hash: 15491724
+      m_Sprite: {fileID: -8684097703220270830, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8684097703220270830, guid: 30f43dfd0d317e64ebdca63200cb69d9, type: 3}
+    - m_Name: julie_corpo_direita-sheet_0
+      m_Hash: 795868026
+      m_Sprite: {fileID: -8044415720208853782, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8044415720208853782, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+    - m_Name: julie_corpo_direita-sheet_1
+      m_Hash: 409521132
+      m_Sprite: {fileID: 3713882950144574607, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3713882950144574607, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+    - m_Name: julie_corpo_direita-sheet_2
+      m_Hash: 23173718
+      m_Sprite: {fileID: -785422373564030645, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -785422373564030645, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+    - m_Name: julie_corpo_direita-sheet_3
+      m_Hash: 912698048
+      m_Sprite: {fileID: 3442425645493283274, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3442425645493283274, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+    - m_Name: julie_corpo_direita-sheet_4
+      m_Hash: 671235939
+      m_Sprite: {fileID: -3688446026329063317, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3688446026329063317, guid: f3d240d14fd32b94c9da3a09a80fa5ab, type: 3}
+    - m_Name: julie_corpo_esquerda-sheet_0
+      m_Hash: 352628777
+      m_Sprite: {fileID: 8314351623268219027, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8314351623268219027, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+    - m_Name: julie_corpo_esquerda-sheet_1
+      m_Hash: 570654911
+      m_Sprite: {fileID: 8849161341178731610, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8849161341178731610, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+    - m_Name: julie_corpo_esquerda-sheet_2
+      m_Hash: 990564613
+      m_Sprite: {fileID: 7789495196053760428, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7789495196053760428, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+    - m_Name: julie_corpo_esquerda-sheet_3
+      m_Hash: 202236307
+      m_Sprite: {fileID: 6971027308269067606, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6971027308269067606, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+    - m_Name: julie_corpo_esquerda-sheet_4
+      m_Hash: 308900912
+      m_Sprite: {fileID: 6759754058103551532, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6759754058103551532, guid: 27dbf4b32caaf23488f1b3eba86c4f6a, type: 3}
+    - m_Name: julie_corpo_frente-sheet_0
+      m_Hash: 986501647
+      m_Sprite: {fileID: -8498369300308023999, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8498369300308023999, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+    - m_Name: julie_corpo_frente-sheet_1
+      m_Hash: 231465625
+      m_Sprite: {fileID: 2868822847210633194, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2868822847210633194, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+    - m_Name: julie_corpo_frente-sheet_2
+      m_Hash: 348304163
+      m_Sprite: {fileID: 4000364538761062682, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4000364538761062682, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+    - m_Name: julie_corpo_frente-sheet_3
+      m_Hash: 600146869
+      m_Sprite: {fileID: 5613384374935399290, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5613384374935399290, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+    - m_Name: julie_corpo_frente-sheet_4
+      m_Hash: 1033967126
+      m_Sprite: {fileID: -8797476649452346486, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8797476649452346486, guid: 5cea59c1bfe4d76438bb4b9dac22cd7a, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 20
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638983153529297488
+  m_Version: 1

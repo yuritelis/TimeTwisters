@@ -39,7 +39,6 @@ public class IntroLetter : MonoBehaviour
     {
         Debug.Log("Inicializando carta...");
 
-        // 🔹 FUNDO PRETO desde o início e SEMPRE visível
         if (background != null)
         {
             background.gameObject.SetActive(true);
@@ -55,7 +54,6 @@ public class IntroLetter : MonoBehaviour
             cartaUI.transform.SetAsLastSibling();
         }
 
-        // 🔹 DESLIGA a câmera para não ver a cena
         if (Camera.main != null)
         {
             Camera.main.cullingMask = 0;
@@ -77,7 +75,6 @@ public class IntroLetter : MonoBehaviour
         yield return new WaitForSecondsRealtime(startDelay);
         Debug.Log("Delay inicial completado");
 
-        // 🔹 Fade in da carta SOBRE O FUNDO PRETO
         float t = 0f;
         while (t < 1f)
         {
@@ -89,14 +86,12 @@ public class IntroLetter : MonoBehaviour
         if (cartaUI != null) cartaUI.alpha = 1f;
         Debug.Log("Fade in da carta completado");
 
-        // 🔹 AGORA reativa a câmera, mas o FUNDO PRETO continua bloqueando a visão
         if (Camera.main != null)
         {
             Camera.main.cullingMask = -1;
             Debug.Log("Câmera principal reativada, mas fundo preto ainda está visível");
         }
 
-        // 🔹 NÃO FAZ NADA com o fundo preto - ele fica aí até o fechamento
 
         StartCoroutine(HabilitarFechamento());
     }
@@ -138,7 +133,6 @@ public class IntroLetter : MonoBehaviour
     {
         Debug.Log("Iniciando fade out da carta E do fundo preto...");
 
-        // 🔹 Fade out SIMULTÂNEO da carta E do fundo preto
         float t = 1f;
         while (t > 0f)
         {

@@ -703,9 +703,10 @@ GameObject:
   - component: {fileID: 86953954}
   - component: {fileID: 86953956}
   - component: {fileID: 86953955}
+  - component: {fileID: 86953957}
   m_Layer: 9
   m_Name: "Sagu\xE3o > 2\xB0 Andar"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -787,6 +788,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.801627, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &86953957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86953953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &144242791
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +902,7 @@ GameObject:
   - component: {fileID: 212657594}
   - component: {fileID: 212657593}
   - component: {fileID: 212657592}
+  - component: {fileID: 212657595}
   m_Layer: 9
   m_Name: relogio_base_1
   m_TagString: SanityAffected
@@ -1010,6 +1028,22 @@ Transform:
   - {fileID: 1274172258}
   m_Father: {fileID: 1792688721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &212657595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212657591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &313752623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistentObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.1669445
+      objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.565061
@@ -1246,6 +1284,7 @@ GameObject:
   - component: {fileID: 360615200}
   - component: {fileID: 360615203}
   - component: {fileID: 360615202}
+  - component: {fileID: 360615204}
   m_Layer: 9
   m_Name: "Sagu\xE3o > Exposi\xE7\xE3o"
   m_TagString: SanityAffected
@@ -1386,6 +1425,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.9375}
   m_EdgeRadius: 0
+--- !u!114 &360615204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360615199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &507990337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,9 +1452,10 @@ GameObject:
   - component: {fileID: 507990338}
   - component: {fileID: 507990340}
   - component: {fileID: 507990339}
+  - component: {fileID: 507990341}
   m_Layer: 9
   m_Name: "Sagu\xE3o > Fundos (Esq)"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1413,7 +1469,7 @@ Transform:
   m_GameObject: {fileID: 507990337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.88, y: 4.61, z: 0}
+  m_LocalPosition: {x: -3.87, y: 4.557, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1481,6 +1537,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3442774, y: 0.9884381}
   m_EdgeRadius: 0
+--- !u!114 &507990341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507990337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &537095338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012147615}
   - component: {fileID: 1012147614}
+  - component: {fileID: 1012147616}
   m_Layer: 9
   m_Name: "Arm\xE1rio_0"
   m_TagString: SanityAffected
@@ -2362,6 +2435,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1792688721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012147616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012147613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1112541288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,6 +2463,7 @@ GameObject:
   - component: {fileID: 1112541289}
   - component: {fileID: 1112541292}
   - component: {fileID: 1112541291}
+  - component: {fileID: 1112541293}
   m_Layer: 9
   m_Name: "Sagu\xE3o > Convidados"
   m_TagString: SanityAffected
@@ -2514,6 +2604,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.9375}
   m_EdgeRadius: 0
+--- !u!114 &1112541293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112541288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1231883785
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438278679}
   - component: {fileID: 1438278678}
+  - component: {fileID: 1438278680}
   m_Layer: 9
   m_Name: porta_0 (1)
   m_TagString: SanityAffected
@@ -3347,6 +3454,22 @@ Transform:
   - {fileID: 1805937110}
   m_Father: {fileID: 1792688721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438278680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438278677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1498994246
 GameObject:
   m_ObjectHideFlags: 0
@@ -3520,9 +3643,10 @@ GameObject:
   - component: {fileID: 1630705108}
   - component: {fileID: 1630705110}
   - component: {fileID: 1630705109}
+  - component: {fileID: 1630705111}
   m_Layer: 9
   m_Name: "Sagu\xE3o > Fundos (Dir)"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3536,7 +3660,7 @@ Transform:
   m_GameObject: {fileID: 1630705107}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.461, y: 4.61, z: 0}
+  m_LocalPosition: {x: 6.461, y: 4.591, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3604,6 +3728,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3442774, y: 0.9884381}
   m_EdgeRadius: 0
+--- !u!114 &1630705111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630705107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1722417424
 GameObject:
   m_ObjectHideFlags: 0

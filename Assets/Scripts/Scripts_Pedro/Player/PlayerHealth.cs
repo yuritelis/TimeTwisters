@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private Color originalColor;
 
     public VidaUI ui;
-    private FogController fog; // 🌫️
+    private FogController fog;
 
     private float lastHealth = -1f;
 
@@ -38,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
             ui.UpdateVidas(currentHealth);
         }
 
-        // 🧠 Atualiza névoa inicial (vida cheia ou valor já definido)
         if (fog != null)
         {
             float sanityPercent = (float)currentHealth / maxHealth;
@@ -50,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        // 🔹 Atualiza fog automaticamente se a vida mudar (debug, inspector, cheat etc.)
         if (currentHealth != lastHealth)
         {
             lastHealth = currentHealth;
@@ -66,7 +64,6 @@ public class PlayerHealth : MonoBehaviour
                 fog.UpdateFog(sanityPercent);
             }
 
-            // 🔻 Checa morte imediata se foi zerada manualmente
             if (currentHealth <= 0 && gameObject.CompareTag("Player"))
                 SceneManager.LoadScene("DeathScreen");
         }
@@ -82,7 +79,6 @@ public class PlayerHealth : MonoBehaviour
         if (ui != null)
             ui.UpdateVidas(currentHealth);
 
-        // 🌫️ Atualiza fog conforme a nova sanidade
         if (fog != null)
         {
             float sanityPercent = (float)currentHealth / maxHealth;

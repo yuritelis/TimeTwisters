@@ -18,13 +18,12 @@ public class SanityVisibilitySystem : MonoBehaviour
     public float fadeDuration = 0.3f;
 
     [Header("Modo de Registro")]
-    public bool autoFindObjects = false; // ⭐ NOVO: Controla busca automática
+    public bool autoFindObjects = false;
 
     private List<Renderer> affectedRenderers = new List<Renderer>();
     private Dictionary<Renderer, Coroutine> fadeCoroutines = new Dictionary<Renderer, Coroutine>();
     private float checkTimer;
 
-    // Layers que NÃO serão afetadas pela sanidade
     public LayerMask ignoredLayers = 1;
 
     void Start()
@@ -32,7 +31,6 @@ public class SanityVisibilitySystem : MonoBehaviour
         if (mainCamera == null)
             mainCamera = Camera.main;
 
-        // ⭐ MODIFICADO: Só busca automaticamente se habilitado
         if (autoFindObjects)
         {
             FindAllAffectedObjects();
@@ -85,7 +83,6 @@ public class SanityVisibilitySystem : MonoBehaviour
         float distanceFromCenter = Vector2.Distance(fogUV, center);
         bool isVisible = distanceFromCenter <= visibleRadius;
 
-        // ⭐ DEBUG TEMPORÁRIO para objetos do cenário
         if (renderer.gameObject.name.Contains("Saguão") ||
             renderer.gameObject.name.Contains("Tapete") ||
             renderer.gameObject.name.Contains("relogio") ||
@@ -106,13 +103,10 @@ public class SanityVisibilitySystem : MonoBehaviour
         {
             float targetAlpha = visible ? 1f : 0f;
 
-            // ⭐ CORREÇÃO: Cria cópias dos materiais para não afetar outros objetos
             if (renderer.materials.Length > 0 && renderer.materials[0] != null)
             {
-                // Verifica se o material é instanciado
                 if (!renderer.materials[0].name.Contains("Instance"))
                 {
-                    // Se não é uma instância, cria uma
                     renderer.material = new Material(renderer.material);
                 }
             }
@@ -183,21 +177,17 @@ public class SanityVisibilitySystem : MonoBehaviour
         }
     }
 
-    // ⭐ MÉTODO PÚBLICO: Para registro manual (usado pelo SanityAffectedObject)
     public void RegisterObject(Renderer objectRenderer)
     {
         if (objectRenderer == null || affectedRenderers.Contains(objectRenderer))
             return;
 
-        // Pula se estiver em layer ignorada
         if (((1 << objectRenderer.gameObject.layer) & ignoredLayers) != 0)
             return;
 
-        // Pula o próprio jogador
         if (objectRenderer.transform == player)
             return;
 
-        // Pula tilemap renderers
         if (objectRenderer is TilemapRenderer)
             return;
 
@@ -206,7 +196,6 @@ public class SanityVisibilitySystem : MonoBehaviour
         Debug.Log($"[SanityVisibility] Registrou: {objectRenderer.gameObject.name}");
     }
 
-    // Método para remover objetos
     public void UnregisterObject(Renderer objectRenderer)
     {
         if (objectRenderer != null && affectedRenderers.Contains(objectRenderer))

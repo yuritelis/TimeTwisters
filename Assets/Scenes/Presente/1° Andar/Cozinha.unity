@@ -129,9 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 62176332}
   - component: {fileID: 62176331}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_0 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,11 +200,11 @@ Transform:
   m_GameObject: {fileID: 62176330}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.451727, y: 3.9172728, z: 0.21072866}
+  m_LocalPosition: {x: 6.2796483, y: 4.250044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87529069
 GameObject:
@@ -216,9 +216,9 @@ GameObject:
   m_Component:
   - component: {fileID: 87529071}
   - component: {fileID: 87529070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o_0"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,11 +287,11 @@ Transform:
   m_GameObject: {fileID: 87529069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9517274, y: 6.207273, z: 0.21072866}
+  m_LocalPosition: {x: -2.2203512, y: 6.540044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90911699
 GameObject:
@@ -303,9 +303,9 @@ GameObject:
   m_Component:
   - component: {fileID: 90911701}
   - component: {fileID: 90911700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_4 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,11 +374,11 @@ Transform:
   m_GameObject: {fileID: 90911699}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.7049336, y: 2.3709178, z: 0.21072866}
+  m_LocalPosition: {x: 2.532855, y: 2.7036886, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &105183682
 GameObject:
@@ -392,9 +392,9 @@ GameObject:
   - component: {fileID: 105183683}
   - component: {fileID: 105183686}
   - component: {fileID: 105183685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cozinha > Jantar
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,13 +462,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105183682}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.999, y: -3.848, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.2193513, y: 0.31204367, z: -0.051769085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1068130883}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &105183685
 MonoBehaviour:
@@ -665,9 +665,9 @@ GameObject:
   m_Component:
   - component: {fileID: 148745281}
   - component: {fileID: 148745280}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o5"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -736,11 +736,11 @@ Transform:
   m_GameObject: {fileID: 148745279}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.3617275, y: 6.187273, z: 0.21072866}
+  m_LocalPosition: {x: -0.81035113, y: 6.520044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &163383331
 GameObject:
@@ -752,9 +752,9 @@ GameObject:
   m_Component:
   - component: {fileID: 163383333}
   - component: {fileID: 163383332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_2 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -823,11 +823,11 @@ Transform:
   m_GameObject: {fileID: 163383331}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.671727, y: 3.4672728, z: 0.21072866}
+  m_LocalPosition: {x: 5.4996486, y: 3.8000436, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174239000
 GameObject:
@@ -839,9 +839,9 @@ GameObject:
   m_Component:
   - component: {fileID: 174239002}
   - component: {fileID: 174239001}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pia
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -910,11 +910,11 @@ Transform:
   m_GameObject: {fileID: 174239000}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.3417273, y: 5.197273, z: 0.21072866}
+  m_LocalPosition: {x: 2.1696486, y: 5.5300436, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200655095
 GameObject:
@@ -926,9 +926,9 @@ GameObject:
   m_Component:
   - component: {fileID: 200655097}
   - component: {fileID: 200655096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_4 (3)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,11 +997,11 @@ Transform:
   m_GameObject: {fileID: 200655095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.041727543, y: 0.3172729, z: 0.21072866}
+  m_LocalPosition: {x: -3.130351, y: 0.6500437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244462102
 GameObject:
@@ -1013,9 +1013,9 @@ GameObject:
   m_Component:
   - component: {fileID: 244462104}
   - component: {fileID: 244462103}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesinha de Cabeceira_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1084,11 +1084,11 @@ Transform:
   m_GameObject: {fileID: 244462102}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6217275, y: 5.097273, z: 0.21072866}
+  m_LocalPosition: {x: -0.55035114, y: 5.4300437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263405735
 GameObject:
@@ -1100,9 +1100,9 @@ GameObject:
   m_Component:
   - component: {fileID: 263405737}
   - component: {fileID: 263405736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesinha de Cabeceira_0 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1171,11 +1171,11 @@ Transform:
   m_GameObject: {fileID: 263405735}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6217275, y: 5.097273, z: 0.21072866}
+  m_LocalPosition: {x: -1.5503511, y: 5.4300437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438788506
 GameObject:
@@ -1187,9 +1187,9 @@ GameObject:
   m_Component:
   - component: {fileID: 438788508}
   - component: {fileID: 438788507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_1 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1258,11 +1258,11 @@ Transform:
   m_GameObject: {fileID: 438788506}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.921727, y: 3.007273, z: 0.21072866}
+  m_LocalPosition: {x: 1.7496486, y: 3.3400438, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &536486624
 GameObject:
@@ -1274,9 +1274,9 @@ GameObject:
   m_Component:
   - component: {fileID: 536486626}
   - component: {fileID: 536486625}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_0 (3)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1345,11 +1345,11 @@ Transform:
   m_GameObject: {fileID: 536486624}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.101727486, y: 3.967273, z: 0.21072866}
+  m_LocalPosition: {x: -3.0703511, y: 4.300044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607350727
 GameObject:
@@ -1361,9 +1361,9 @@ GameObject:
   m_Component:
   - component: {fileID: 607350729}
   - component: {fileID: 607350728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_3 (3)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,11 +1432,11 @@ Transform:
   m_GameObject: {fileID: 607350727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9717274, y: 4.107273, z: 0.21072866}
+  m_LocalPosition: {x: -0.20035124, y: 4.440044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &614171362
 GameObject:
@@ -1448,9 +1448,9 @@ GameObject:
   m_Component:
   - component: {fileID: 614171364}
   - component: {fileID: 614171363}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesa_1_0 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1519,11 +1519,11 @@ Transform:
   m_GameObject: {fileID: 614171362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 3.2207274, y: 2.5972729, z: 0.21072866}
+  m_LocalPosition: {x: 0.048648834, y: 2.9300437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!1 &708319871
 GameObject:
@@ -1535,9 +1535,9 @@ GameObject:
   m_Component:
   - component: {fileID: 708319873}
   - component: {fileID: 708319872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o8"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1606,11 +1606,11 @@ Transform:
   m_GameObject: {fileID: 708319871}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.8707275, y: 6.305273, z: 0.21072866}
+  m_LocalPosition: {x: 4.698649, y: 6.638044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &735135004
 GameObject:
@@ -1622,9 +1622,9 @@ GameObject:
   m_Component:
   - component: {fileID: 735135006}
   - component: {fileID: 735135005}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_4
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1693,11 +1693,11 @@ Transform:
   m_GameObject: {fileID: 735135004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6649337, y: 2.1009178, z: 0.21072866}
+  m_LocalPosition: {x: -2.507145, y: 2.4336886, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753570715
 GameObject:
@@ -1709,9 +1709,9 @@ GameObject:
   m_Component:
   - component: {fileID: 753570717}
   - component: {fileID: 753570716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_1 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1780,11 +1780,11 @@ Transform:
   m_GameObject: {fileID: 753570715}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.541727, y: 1.1472728, z: 0.21072866}
+  m_LocalPosition: {x: 5.3696485, y: 1.4800436, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &769219245
 GameObject:
@@ -1796,9 +1796,9 @@ GameObject:
   m_Component:
   - component: {fileID: 769219247}
   - component: {fileID: 769219246}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o7"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1867,11 +1867,11 @@ Transform:
   m_GameObject: {fileID: 769219245}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.001727, y: 5.617273, z: 0.21072866}
+  m_LocalPosition: {x: 4.8296485, y: 5.9500437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &782622221
 GameObject:
@@ -1929,9 +1929,9 @@ GameObject:
   m_Component:
   - component: {fileID: 834160816}
   - component: {fileID: 834160815}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesa_1_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2000,11 +2000,11 @@ Transform:
   m_GameObject: {fileID: 834160814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.191727, y: 2.5972729, z: 0.21072866}
+  m_LocalPosition: {x: 3.0196486, y: 2.9300437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &852240483
 GameObject:
@@ -2016,9 +2016,9 @@ GameObject:
   m_Component:
   - component: {fileID: 852240485}
   - component: {fileID: 852240484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o2_0"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2087,12 +2087,98 @@ Transform:
   m_GameObject: {fileID: 852240483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.401727, y: 6.267273, z: 0.21072866}
+  m_LocalPosition: {x: 2.2296486, y: 6.600044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &954133770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954133771}
+  - component: {fileID: 954133772}
+  m_Layer: 9
+  m_Name: "decora\xE7\xF5es"
+  m_TagString: SanityAffected
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &954133771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954133770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7796488, y: -4.1600437, z: 0.051769085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1805514999}
+  - {fileID: 834160816}
+  - {fileID: 614171364}
+  - {fileID: 1798943012}
+  - {fileID: 244462104}
+  - {fileID: 263405737}
+  - {fileID: 1551000550}
+  - {fileID: 967543996}
+  - {fileID: 1648128918}
+  - {fileID: 1535181433}
+  - {fileID: 148745281}
+  - {fileID: 1874235224}
+  - {fileID: 87529071}
+  - {fileID: 852240485}
+  - {fileID: 769219247}
+  - {fileID: 708319873}
+  - {fileID: 1479408693}
+  - {fileID: 174239002}
+  - {fileID: 2080342824}
+  - {fileID: 1517621829}
+  - {fileID: 1928600876}
+  - {fileID: 1417985310}
+  - {fileID: 438788508}
+  - {fileID: 1646870545}
+  - {fileID: 62176332}
+  - {fileID: 536486626}
+  - {fileID: 753570717}
+  - {fileID: 163383333}
+  - {fileID: 1747881868}
+  - {fileID: 1465688051}
+  - {fileID: 200655097}
+  - {fileID: 1672501334}
+  - {fileID: 607350729}
+  - {fileID: 90911701}
+  - {fileID: 1592187246}
+  - {fileID: 956299124}
+  - {fileID: 735135006}
+  - {fileID: 105183684}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &954133772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954133770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &956299122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,9 +2189,9 @@ GameObject:
   m_Component:
   - component: {fileID: 956299124}
   - component: {fileID: 956299123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_3
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2174,11 +2260,11 @@ Transform:
   m_GameObject: {fileID: 956299122}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7418423, y: 3.9365575, z: 0.21072866}
+  m_LocalPosition: {x: -1.4302363, y: 4.269328, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967543994
 GameObject:
@@ -2190,9 +2276,9 @@ GameObject:
   m_Component:
   - component: {fileID: 967543996}
   - component: {fileID: 967543995}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesinha de Cabeceira_0 (3)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2261,11 +2347,11 @@ Transform:
   m_GameObject: {fileID: 967543994}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5717273, y: 5.097273, z: 0.21072866}
+  m_LocalPosition: {x: 1.3996487, y: 5.4300437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1068130882
 GameObject:
@@ -2277,7 +2363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1068130883}
   - component: {fileID: 1068130884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2357,6 +2443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistentObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13.081188
+      objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.565061
@@ -2412,9 +2502,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1417985310}
   - component: {fileID: 1417985309}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_0 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2483,11 +2573,11 @@ Transform:
   m_GameObject: {fileID: 1417985308}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.3902392, y: 3.0562234, z: 0.21072866}
+  m_LocalPosition: {x: 3.2181606, y: 3.3889942, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1465688049
 GameObject:
@@ -2499,9 +2589,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1465688051}
   - component: {fileID: 1465688050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_4 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2570,11 +2660,11 @@ Transform:
   m_GameObject: {fileID: 1465688049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.6217275, y: 0.7972729, z: 0.21072866}
+  m_LocalPosition: {x: 3.4496489, y: 1.1300437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479408691
 GameObject:
@@ -2586,9 +2676,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1479408693}
   - component: {fileID: 1479408692}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pintura2_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2657,11 +2747,11 @@ Transform:
   m_GameObject: {fileID: 1479408691}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3269668, y: 6.227273, z: 0.21072866}
+  m_LocalPosition: {x: 0.15488815, y: 6.560044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1517621827
 GameObject:
@@ -2673,9 +2763,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1517621829}
   - component: {fileID: 1517621828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2744,11 +2834,11 @@ Transform:
   m_GameObject: {fileID: 1517621827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3502393, y: 2.7862234, z: 0.21072866}
+  m_LocalPosition: {x: -1.8218393, y: 3.1189942, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535181431
 GameObject:
@@ -2760,9 +2850,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1535181433}
   - component: {fileID: 1535181432}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o6"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2831,11 +2921,11 @@ Transform:
   m_GameObject: {fileID: 1535181431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.9417276, y: 5.647273, z: 0.21072866}
+  m_LocalPosition: {x: 3.769649, y: 5.980044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551000548
 GameObject:
@@ -2847,9 +2937,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1551000550}
   - component: {fileID: 1551000549}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesinha de Cabeceira_0 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2918,11 +3008,11 @@ Transform:
   m_GameObject: {fileID: 1551000548}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6117275, y: 5.097273, z: 0.21072866}
+  m_LocalPosition: {x: 0.43964887, y: 5.4300437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592187244
 GameObject:
@@ -2934,9 +3024,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1592187246}
   - component: {fileID: 1592187245}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_2
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3005,11 +3095,11 @@ Transform:
   m_GameObject: {fileID: 1592187244}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5915084, y: 1.3911366, z: 0.21072866}
+  m_LocalPosition: {x: -2.5805702, y: 1.7239075, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646870543
 GameObject:
@@ -3021,9 +3111,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1646870545}
   - component: {fileID: 1646870544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_2 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3092,11 +3182,11 @@ Transform:
   m_GameObject: {fileID: 1646870543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6315084, y: 1.6611366, z: 0.21072866}
+  m_LocalPosition: {x: 2.4594297, y: 1.9939075, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648128916
 GameObject:
@@ -3108,9 +3198,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1648128918}
   - component: {fileID: 1648128917}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o4"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3179,11 +3269,11 @@ Transform:
   m_GameObject: {fileID: 1648128916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.071728, y: 5.982274, z: 0.21072866}
+  m_LocalPosition: {x: 5.899649, y: 6.315045, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672501332
 GameObject:
@@ -3195,9 +3285,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1672501334}
   - component: {fileID: 1672501333}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_3 (1)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3266,11 +3356,11 @@ Transform:
   m_GameObject: {fileID: 1672501332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.781842, y: 4.2065578, z: 0.21072866}
+  m_LocalPosition: {x: 3.6097636, y: 4.5393286, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1747881866
 GameObject:
@@ -3282,9 +3372,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1747881868}
   - component: {fileID: 1747881867}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_3 (2)
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3353,11 +3443,11 @@ Transform:
   m_GameObject: {fileID: 1747881866}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6017275, y: 0.727273, z: 0.21072866}
+  m_LocalPosition: {x: 0.42964888, y: 1.0600438, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798943010
 GameObject:
@@ -3369,9 +3459,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1798943012}
   - component: {fileID: 1798943011}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Arm\xE1rio_0"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3440,11 +3530,11 @@ Transform:
   m_GameObject: {fileID: 1798943010}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.30827284, y: 5.327273, z: 0.21072866}
+  m_LocalPosition: {x: -3.4803514, y: 5.6600437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1805514998
 GameObject:
@@ -3455,9 +3545,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1805514999}
-  m_Layer: 0
+  - component: {fileID: 1805515000}
+  m_Layer: 9
   m_Name: Objetos_Cenario
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3470,49 +3561,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805514998}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.9517274, y: -3.827273, z: -0.21072866}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.1720786, y: 0.33277082, z: -0.26249775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 834160816}
-  - {fileID: 614171364}
-  - {fileID: 1798943012}
-  - {fileID: 244462104}
-  - {fileID: 263405737}
-  - {fileID: 1551000550}
-  - {fileID: 967543996}
-  - {fileID: 1648128918}
-  - {fileID: 1535181433}
-  - {fileID: 148745281}
-  - {fileID: 1874235224}
-  - {fileID: 87529071}
-  - {fileID: 852240485}
-  - {fileID: 769219247}
-  - {fileID: 708319873}
-  - {fileID: 1479408693}
-  - {fileID: 174239002}
-  - {fileID: 2080342824}
-  - {fileID: 1517621829}
-  - {fileID: 1928600876}
-  - {fileID: 1417985310}
-  - {fileID: 438788508}
-  - {fileID: 1646870545}
-  - {fileID: 62176332}
-  - {fileID: 536486626}
-  - {fileID: 753570717}
-  - {fileID: 163383333}
-  - {fileID: 1747881868}
-  - {fileID: 1465688051}
-  - {fileID: 200655097}
-  - {fileID: 1672501334}
-  - {fileID: 607350729}
-  - {fileID: 90911701}
-  - {fileID: 1592187246}
-  - {fileID: 956299124}
-  - {fileID: 735135006}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1805515000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805514998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1808753411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,6 +3594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808753413}
   - component: {fileID: 1808753412}
+  - component: {fileID: 1808753414}
   m_Layer: 0
   m_Name: Global Light
   m_TagString: Untagged
@@ -3597,6 +3669,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808753414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808753411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f482b8cd8bf7f4490da820ce1b9b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyToChildren: 1
+  includeInactiveChildren: 1
+  childTagFilter: SanityAffected
+  showDebugInfo: 0
 --- !u!1 &1874235222
 GameObject:
   m_ObjectHideFlags: 0
@@ -3607,9 +3695,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1874235224}
   - component: {fileID: 1874235223}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Picha\xE7\xE3o3"
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3678,11 +3766,11 @@ Transform:
   m_GameObject: {fileID: 1874235222}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.421727, y: 5.867273, z: 0.21072866}
+  m_LocalPosition: {x: 1.2496486, y: 6.2000437, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883755820
 GameObject:
@@ -5027,9 +5115,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1928600876}
   - component: {fileID: 1928600875}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Papeis_1
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5098,11 +5186,11 @@ Transform:
   m_GameObject: {fileID: 1928600874}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11827278, y: 2.7372727, z: 0.21072866}
+  m_LocalPosition: {x: -3.2903514, y: 3.0700436, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2080342822
 GameObject:
@@ -5114,9 +5202,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2080342824}
   - component: {fileID: 2080342823}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lareira_0
-  m_TagString: Untagged
+  m_TagString: SanityAffected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5185,11 +5273,11 @@ Transform:
   m_GameObject: {fileID: 2080342822}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.9717274, y: 5.397273, z: 0.21072866}
+  m_LocalPosition: {x: 4.799649, y: 5.730044, z: -0.051769093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1805514999}
+  m_Father: {fileID: 954133771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -5198,5 +5286,4 @@ SceneRoots:
   - {fileID: 1808753413}
   - {fileID: 1327698814}
   - {fileID: 782622223}
-  - {fileID: 105183684}
-  - {fileID: 1805514999}
+  - {fileID: 954133771}
