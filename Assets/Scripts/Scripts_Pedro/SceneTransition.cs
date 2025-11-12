@@ -7,42 +7,64 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 
+[System.Serializable]
+public class FalaSimples
+{
+    public string nome;
+    public Sprite retrato;
+    [TextArea(2, 4)] public string fala;
+}
+
 public class SceneTransition : MonoBehaviour
 {
     [Header("Configuração da Transição")]
-    [Tooltip("Nome exato da cena para carregar (se não arrastar uma cena)")]
     public string sceneToLoad;
-
 #if UNITY_EDITOR
-    [Tooltip("Você pode arrastar uma cena aqui como alternativa ao nome")]
     public SceneAsset sceneAsset;
 #endif
-
-    [Tooltip("Nome do ponto de spawn na próxima cena (opcional)")]
     public string spawnPointName;
-
-    [Tooltip("Requer apertar uma tecla para transicionar (ex: E)")]
     public bool requireInput = false;
-
-    [Tooltip("Tecla usada para ativar a transição")]
     public KeyCode interactKey = KeyCode.E;
 
     [Header("Progressão Necessária")]
-    [Tooltip("Etapa mínima da história necessária para abrir a porta (0 = sempre pode interagir)")]
+    [Tooltip("Etapa mínima da história necessária para abrir a porta (0 = sempre pode interagir).")]
     public int etapaNecessaria = 0;
 
-    [Tooltip("Diálogo exibido se o jogador tentar interagir antes da hora (deixe vazio para usar o padrão automático)")]
-    public Dialogo dialogoPortaTrancada;
+    [Header("Som de Porta Trancada")]
+    [Tooltip("Som reproduzido quando o jogador tenta interagir sem ter a progressão necessária.")]
+    public AudioClip somPortaTrancada;
+
+    [Header("Diálogo Completo (opcional)")]
+    [Tooltip("Se preenchido, será exibido ANTES da transição de cena.")]
+    public Dialogo dialogoAntesDaTransicao;
+
+    [Header("Diálogo de Porta Trancada (opcional)")]
+    [Tooltip("Se preenchido, será exibido quando o jogador tentar interagir antes da hora.")]
+    public Dialogo dialogoBloqueado;
+
+    [Header("Falas Aleatórias (simples, opcionais)")]
+    [Tooltip("Falas curtas que podem ter nome e retrato (serão sorteadas se o diálogo estiver vazio).")]
+    public List<FalaSimples> falasAleatorias = new List<FalaSimples>()
+    {
+        new FalaSimples { nome = "Julie", fala = "Está trancada..." },
+        new FalaSimples { nome = "", fala = "Nada acontece..." }
+    };
+
+    [Header("Progresso Após Diálogo (opcional)")]
+    [Tooltip("Se verdadeiro, a progressão é avançada após o diálogo de bloqueio.")]
+    public bool avancaProgressoAposDialogo = false;
+
+    [Tooltip("Quantidade de progresso a adicionar após o diálogo (padrão = 1).")]
+    public int progressoAposDialogo = 1;
 
     private bool playerInside = false;
     private bool transicionando = false;
     private PlayerController playerController;
     private Player_Combat playerCombat;
 
-    private void Reset()
-    {
-        etapaNecessaria = 0; // garante default 0 ao adicionar o componente
-    }
+    // ============================ //
+    // ===== Lógica Principal ===== //
+    // ============================ //
 
     private void Update()
     {
@@ -77,44 +99,111 @@ public class SceneTransition : MonoBehaviour
             ? StoryProgressManager.instance.historiaEtapaAtual
             : 0;
 
-        // 🔒 Verifica progressão mínima
+        // 🔒 Porta trancada
         if (etapaAtual < etapaNecessaria)
         {
-            // Usa o diálogo configurado ou monta um padrão seguro
-            Dialogo dlg = dialogoPortaTrancada ?? CriarDialogoAutomatico("Está trancada...");
+            // 🔊 Som de porta trancada
+            if (somPortaTrancada != null)
+            {
+                if (AudioManager.instance != null)
+                    AudioManager.instance.PlaySFX(somPortaTrancada);
+                else
+                    AudioSource.PlayClipAtPoint(somPortaTrancada, transform.position);
+            }
 
-            if (DialogoManager.Instance != null)
+            yield return new WaitForSeconds(0.25f);
+
+            Dialogo dlg = null;
+
+            // 💬 Define qual diálogo será usado
+            if (dialogoBloqueado != null && dialogoBloqueado.dialogoFalas != null && dialogoBloqueado.dialogoFalas.Count > 0)
+            {
+                dlg = dialogoBloqueado;
+            }
+            else if (falasAleatorias != null && falasAleatorias.Count > 0)
+            {
+                dlg = CriarDialogoDeFala(EscolherFalaAleatoria());
+            }
+
+            // 🎬 Executa o diálogo, se houver
+            if (dlg != null && DialogoManager.Instance != null)
             {
                 TravarJogador(true);
-                Debug.Log($"🚪 Porta trancada — etapa atual ({etapaAtual}) < necessária ({etapaNecessaria}).");
-
                 DialogoManager.Instance.StartDialogo(dlg);
 
-                while (DialogoManager.Instance != null && DialogoManager.Instance.dialogoAtivoPublico)
+                while (DialogoManager.Instance.dialogoAtivoPublico)
                     yield return null;
 
                 TravarJogador(false);
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ Nenhum DialogoManager encontrado na cena.");
+
+                // 💠 Após o diálogo, avança progresso se configurado
+                if (avancaProgressoAposDialogo && StoryProgressManager.instance != null)
+                {
+                    for (int i = 0; i < progressoAposDialogo; i++)
+                        StoryProgressManager.instance.AvancarEtapa();
+
+                    Debug.Log($"🧩 Porta {name} avançou o progresso em {progressoAposDialogo} etapa(s) após o diálogo.");
+                }
             }
 
             transicionando = false;
             yield break;
         }
 
-        // ✅ Progresso suficiente: transiciona
+        // ✅ Se há diálogo antes da transição, executa antes de trocar de cena
+        if (dialogoAntesDaTransicao != null && dialogoAntesDaTransicao.dialogoFalas != null && dialogoAntesDaTransicao.dialogoFalas.Count > 0)
+        {
+            TravarJogador(true);
+            DialogoManager.Instance.StartDialogo(dialogoAntesDaTransicao);
+
+            while (DialogoManager.Instance.dialogoAtivoPublico)
+                yield return null;
+
+            TravarJogador(false);
+        }
+
+        // 🌌 Só depois do diálogo (se houver), troca a cena
         PerformTransition();
+    }
+
+    // ============================ //
+    // ===== Métodos Auxiliares ==== //
+    // ============================ //
+
+    private FalaSimples EscolherFalaAleatoria()
+    {
+        if (falasAleatorias == null || falasAleatorias.Count == 0)
+            return new FalaSimples { nome = "Julie", fala = "Está trancada..." };
+
+        int i = Random.Range(0, falasAleatorias.Count);
+        return falasAleatorias[i];
+    }
+
+    private Dialogo CriarDialogoDeFala(FalaSimples fala)
+    {
+        return new Dialogo
+        {
+            dialogoFalas = new List<DialogoFalas>
+            {
+                new DialogoFalas
+                {
+                    personagem = new PersoInfos
+                    {
+                        nome = fala.nome,
+                        portrait = fala.retrato
+                    },
+                    fala = fala.fala
+                }
+            }
+        };
     }
 
     private void PerformTransition()
     {
         string finalSceneName = GetSceneName();
-
         if (string.IsNullOrEmpty(finalSceneName))
         {
-            Debug.LogError($"❌ Nenhuma cena configurada em {name}. Insira o nome ou arraste a cena no Inspector!");
+            Debug.LogError($"❌ Nenhuma cena configurada em {name}!");
             return;
         }
 
@@ -140,24 +229,5 @@ public class SceneTransition : MonoBehaviour
 
         if (playerCombat != null)
             playerCombat.enabled = !estado;
-
-        Debug.Log(estado ? "🧊 Player travado (porta trancada)." : "🔥 Player liberado.");
-    }
-
-    // 🧩 Cria um Dialogo simples em runtime evitando NullReference no DialogoManager
-    private Dialogo CriarDialogoAutomatico(string texto)
-    {
-        return new Dialogo
-        {
-            dialogoFalas = new List<DialogoFalas>
-            {
-                new DialogoFalas
-                {
-                    // personagem preenchido para evitar NRE ao acessar .nome
-                    personagem = new PersoInfos { nome = "", portrait = null },
-                    fala = texto
-                }
-            }
-        };
     }
 }

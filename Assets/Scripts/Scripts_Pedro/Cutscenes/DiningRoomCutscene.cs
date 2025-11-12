@@ -7,29 +7,37 @@ public class DiningRoomCutscene : MonoBehaviour
 {
     [Header("Referências")]
     public CameraSegue cam;
-    public Transform vandalTarget;
     public string playerTag = "Player";
 
     [Header("Controle do Jogador")]
     public MonoBehaviour playerController;
     private Rigidbody2D playerRb;
 
-    [Header("Tempos")]
-    public float cameraSettleTime = 1.2f;
-    public float cameraHoldTime = 2.0f;
-    public float afterReturnDelay = 0.5f;
-
     [Header("Execução")]
     public bool playOnlyOnce = true;
     private bool played = false;
     private Collider2D triggerCollider;
-    private string saveKey; // chave única pra salvar o estado
+    private string saveKey;
 
     [Header("Inimigo (Vândalo)")]
-    [Tooltip("Arraste aqui o inimigo (deve começar desativado ou será desativado automaticamente no Awake)")]
     public GameObject enemyObject;
     public float enemyAppearDelay = 0.7f;
     public List<MonoBehaviour> enemyAIScripts = new List<MonoBehaviour>();
+
+    [Header("Câmera / Foco")]
+    [Tooltip("Lista de pontos onde a câmera passará antes de voltar ao player.")]
+    public List<Transform> cameraFocusPoints = new List<Transform>();
+    [Tooltip("Tempo de transição entre pontos de câmera.")]
+    public float cameraMoveDuration = 1.2f;
+    [Tooltip("Tempo que a câmera permanece em cada ponto.")]
+    public float cameraHoldTime = 2f;
+
+    [Header("Diálogo da Cutscene")]
+    [Tooltip("Diálogo a ser reproduzido durante a cutscene.")]
+    public Dialogo cutsceneDialogo;
+
+    [Header("Delay final antes de devolver controle")]
+    public float afterReturnDelay = 0.5f;
 
     private void Awake()
     {
@@ -39,30 +47,22 @@ public class DiningRoomCutscene : MonoBehaviour
         if (cam == null)
             cam = Object.FindFirstObjectByType<CameraSegue>();
 
-        // 🔑 Cria chave única baseada na cena + nome
         saveKey = "Cutscene_" + gameObject.scene.name + "_" + gameObject.name;
         played = PlayerPrefs.GetInt(saveKey, 0) == 1;
 
         if (played && playOnlyOnce)
         {
-            // já foi executada antes — desativa o trigger de vez
             gameObject.SetActive(false);
-            Debug.Log($"⛔ Cutscene {name} já foi executada antes, desativando permanentemente.");
             return;
         }
 
-        // 🧩 Garante que o inimigo comece desativado SEMPRE
         if (enemyObject != null)
         {
             foreach (var ai in enemyAIScripts)
                 if (ai != null)
                     ai.enabled = false;
 
-            if (enemyObject.activeSelf)
-            {
-                enemyObject.SetActive(false);
-                Debug.Log($"🔒 Inimigo '{enemyObject.name}' forçado a iniciar desativado no Awake().");
-            }
+            enemyObject.SetActive(false);
         }
     }
 
@@ -74,15 +74,8 @@ public class DiningRoomCutscene : MonoBehaviour
     private IEnumerator EnsureCameraReference()
     {
         yield return null;
-
         if (cam == null)
-        {
             cam = Object.FindFirstObjectByType<CameraSegue>();
-            if (cam != null)
-                Debug.Log($"🎥 Cutscene {name}: CameraSegue reassociado automaticamente ({cam.name}).");
-            else
-                Debug.LogWarning($"⚠️ Cutscene {name}: nenhum CameraSegue encontrado na cena!");
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -91,18 +84,14 @@ public class DiningRoomCutscene : MonoBehaviour
         if (played && playOnlyOnce) return;
 
         played = true;
+        triggerCollider.enabled = false;
 
-        if (triggerCollider != null)
-            triggerCollider.enabled = false;
-
-        // 🔐 Salva o estado de que a cutscene já foi tocada
         if (playOnlyOnce)
         {
             PlayerPrefs.SetInt(saveKey, 1);
             PlayerPrefs.Save();
         }
 
-        Debug.Log($"🎬 Cutscene disparada por {other.name}");
         StartCoroutine(RunCutscene(other.gameObject));
     }
 
@@ -110,54 +99,60 @@ public class DiningRoomCutscene : MonoBehaviour
     {
         yield return null;
 
-        DisableEnemyAI();
-
+        // === Travar jogador ===
         if (playerController == null)
             playerController = player.GetComponent<PlayerController>();
-
-        if (playerController == null)
-        {
-            Debug.LogError("❌ Cutscene cancelada: playerController não encontrado!");
-            yield break;
-        }
-
-        playerController.enabled = false;
         playerRb = player.GetComponent<Rigidbody2D>();
-        if (playerRb != null)
-            playerRb.linearVelocity = Vector2.zero;
 
-        if (cam != null && vandalTarget != null)
+        if (playerController != null) playerController.enabled = false;
+        if (playerRb != null) playerRb.linearVelocity = Vector2.zero;
+
+        DisableEnemyAI();
+
+        // === Sequência da câmera ===
+        if (cam != null && cameraFocusPoints.Count > 0)
         {
-            cam.BeginTemporaryFocus(vandalTarget);
-            Debug.Log($"🎥 Focando câmera em {vandalTarget.name}...");
+            foreach (Transform point in cameraFocusPoints)
+            {
+                cam.BeginTemporaryFocus(point);
+                yield return new WaitForSeconds(cameraMoveDuration);
+
+                yield return new WaitForSeconds(cameraHoldTime);
+            }
         }
 
-        yield return new WaitForSeconds(enemyAppearDelay);
-
-        if (enemyObject != null && !enemyObject.activeSelf)
+        // === Ativar inimigo ===
+        if (enemyObject != null)
         {
+            yield return new WaitForSeconds(enemyAppearDelay);
             enemyObject.SetActive(true);
-            Debug.Log("👁️ Inimigo ativado (IA ainda desativada).");
         }
 
-        yield return new WaitForSeconds(cameraSettleTime + cameraHoldTime);
+        // === Diálogo da cutscene ===
+        if (cutsceneDialogo != null && DialogoManager.Instance != null)
+        {
+            DialogoManager.Instance.StartDialogo(cutsceneDialogo);
 
+            while (DialogoManager.Instance.dialogoAtivoPublico)
+                yield return null;
+        }
+
+        // === Retornar câmera ===
         if (cam != null)
         {
             cam.EndTemporaryFocus();
-            Debug.Log("🎥 Câmera voltou ao jogador.");
         }
 
+        // === Retornar controle ===
         yield return new WaitForSeconds(afterReturnDelay);
 
-        playerController.enabled = true;
+        if (playerController != null)
+            playerController.enabled = true;
 
         EnableEnemyAI();
 
         if (playOnlyOnce)
             gameObject.SetActive(false);
-
-        Debug.Log("✅ Cutscene finalizada com sucesso.");
     }
 
     private void DisableEnemyAI()
@@ -165,10 +160,7 @@ public class DiningRoomCutscene : MonoBehaviour
         foreach (var script in enemyAIScripts)
         {
             if (script != null)
-            {
                 script.enabled = false;
-                Debug.Log($"🧠 Desativando IA: {script.GetType().Name}");
-            }
         }
     }
 
@@ -177,10 +169,7 @@ public class DiningRoomCutscene : MonoBehaviour
         foreach (var script in enemyAIScripts)
         {
             if (script != null)
-            {
                 script.enabled = true;
-                Debug.Log($"⚔️ Reativando IA: {script.GetType().Name}");
-            }
         }
     }
 }

@@ -63,7 +63,12 @@ public class DialogoFalas
 
     [TextArea(3, 10)]
     public string fala;
+
+    [Header("Som opcional após esta fala")]
+    [Tooltip("Se preenchido, será reproduzido logo após esta fala terminar.")]
+    public AudioClip somPosFala;
 }
+
 
 [System.Serializable]
 public class Dialogo

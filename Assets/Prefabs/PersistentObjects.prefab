@@ -2397,7 +2397,7 @@ MonoBehaviour:
   personagemNome: {fileID: 564917533798989945}
   personagemIcon: {fileID: 2795589724854880172}
   escolhaUI: {fileID: 0}
-  velFala: 0.5
+  velFala: 20
   dialogoAtivoPublico: 0
   player: {fileID: 3582668591043947143}
 --- !u!1 &4196656276036114983
@@ -2921,7 +2921,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 10.666667, y: 6, z: 1}
+  m_LocalScale: {x: 13.081188, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6307244547871220886}
@@ -3319,7 +3319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.47003174, y: 0}
+  m_AnchoredPosition: {x: 0.4699707, y: 0}
   m_SizeDelta: {x: -1136.6973, y: -500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3123068726103698060

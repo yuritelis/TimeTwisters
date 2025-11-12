@@ -1407,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.666667
+      value: 13.081188
       objectReference: {fileID: 0}
     - target: {fileID: 6239699794732491742, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_labelHash
@@ -2632,12 +2632,14 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 1
-  dialogoPortaTrancada:
-    dialogoFalas:
-    - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: "N\xE3o \xE9 poss\xEDvel sair agora."
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias: []
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &680520835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3481,12 +3483,20 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 1
-  dialogoPortaTrancada:
-    dialogoFalas:
-    - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: "N\xE3o \xE9 poss\xEDvel sair agora."
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &768350466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4873,12 +4883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 320017106}
-  vandalTarget: {fileID: 764044127}
   playerTag: Player
   playerController: {fileID: 320017107}
-  cameraSettleTime: 1.2
-  cameraHoldTime: 2
-  afterReturnDelay: 0.5
   playOnlyOnce: 1
   enemyObject: {fileID: 764044122}
   enemyAppearDelay: 0
@@ -4886,6 +4892,17 @@ MonoBehaviour:
   - {fileID: 764044130}
   - {fileID: 764044129}
   - {fileID: 764044133}
+  cameraFocusPoints: []
+  cameraMoveDuration: 1.2
+  cameraHoldTime: 2
+  cutsceneDialogo:
+    dialogoFalas:
+    - personagem:
+        nome: Julie
+        portrait: {fileID: 0}
+      fala: 
+      somPosFala: {fileID: 0}
+  afterReturnDelay: 0.5
 --- !u!60 &1221143601
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4953,6 +4970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apenasUmaVez: 1
+  quantidadeProgresso: 1
 --- !u!1 &1244649142
 GameObject:
   m_ObjectHideFlags: 0
@@ -8524,12 +8542,20 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 1
-  dialogoPortaTrancada:
-    dialogoFalas:
-    - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: "N\xE3o \xE9 poss\xEDvel sair agora."
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &2020416832
 BoxCollider2D:
   m_ObjectHideFlags: 0
