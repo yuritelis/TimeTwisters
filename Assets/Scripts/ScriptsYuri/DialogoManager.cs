@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class DialogoManager : MonoBehaviour
 {
+    [Header("Som de Efeitos (opcional)")]
+    [Tooltip("Reprodutor para tocar efeitos sonoros durante falas específicas.")]
+    public AudioSource sfxSource;
+
     public static DialogoManager Instance;
 
     private Dialogo dialogoData;
@@ -18,7 +22,8 @@ public class DialogoManager : MonoBehaviour
     public DialogoEscolhaUI escolhaUI;
 
     [Header("Configuração")]
-    public float velFala = 0.03f;
+    [Tooltip("Velocidade da digitação (quanto maior, mais rápido).")]
+    [Range(1f, 50f)] public float velFala = 30f;
 
     private int dialogoIndex;
     private bool isTyping;
@@ -84,10 +89,25 @@ public class DialogoManager : MonoBehaviour
         var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
 
         if (personagemNome != null)
-            personagemNome.text = falaAtual.personagem.nome;
+        {
+            if (!string.IsNullOrEmpty(falaAtual.personagem.nome))
+                personagemNome.text = falaAtual.personagem.nome;
+            else
+                personagemNome.text = "";
+        }
 
-        if (personagemIcon != null && falaAtual.personagem.portrait != null)
-            personagemIcon.sprite = falaAtual.personagem.portrait;
+        if (personagemIcon != null)
+        {
+            if (falaAtual.personagem.portrait != null)
+            {
+                personagemIcon.sprite = falaAtual.personagem.portrait;
+                personagemIcon.gameObject.SetActive(true);
+            }
+            else
+            {
+                personagemIcon.gameObject.SetActive(false);
+            }
+        }
 
         StartCoroutine(TypeLine(falaAtual.fala));
 
@@ -102,17 +122,37 @@ public class DialogoManager : MonoBehaviour
         isTyping = true;
         dialogoTxt.text = "";
 
+        float delay = 1f / velFala;
+
         foreach (char letter in fala.ToCharArray())
         {
             dialogoTxt.text += letter;
             if (AudioManager.instance != null)
                 AudioManager.instance.PlaySFX(PersoInfos.somVoz);
-            yield return new WaitForSeconds(velFala);
+
+            yield return new WaitForSeconds(delay);
+        }
+
+        isTyping = false;
+
+        var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
+        if (falaAtual.somPosFala != null)
+        {
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlaySFX(falaAtual.somPosFala);
+            else
+                AudioSource.PlayClipAtPoint(falaAtual.somPosFala, Camera.main.transform.position);
         }
 
         isTyping = false;
         dialogoIndex++;
+
+        if (dialogoData.dialogoFalas[dialogoIndex - 1].somPosFala != null)
+        {
+            PlayDialogueSFX(dialogoData.dialogoFalas[dialogoIndex - 1].somPosFala);
+        }
     }
+
 
     private IEnumerator EsperarParaMostrarEscolha()
     {
@@ -178,4 +218,15 @@ public class DialogoManager : MonoBehaviour
 
         Debug.Log(estado ? "🎬 Player travado durante diálogo." : "🎮 Player liberado.");
     }
+
+    public void PlayDialogueSFX(AudioClip clip)
+    {
+        if (clip == null) return;
+
+        if (sfxSource != null)
+            sfxSource.PlayOneShot(clip);
+        else
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+    }
+
 }

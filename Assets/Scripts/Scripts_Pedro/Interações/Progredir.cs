@@ -6,13 +6,15 @@ public class Progredir : MonoBehaviour, IInteractable
     [Tooltip("Se verdadeiro, só pode avançar uma vez (mesmo entre cenas).")]
     public bool apenasUmaVez = true;
 
+    [Tooltip("Quantidade de etapas que o progresso avança ao interagir.")]
+    public int quantidadeProgresso = 1;
+
     private bool jaAtivado = false;
     private string chaveSalvamento;
 
     private void Awake()
     {
         chaveSalvamento = "Progredir_" + gameObject.scene.name + "_" + gameObject.name;
-
         jaAtivado = PlayerPrefs.GetInt(chaveSalvamento, 0) == 1;
     }
 
@@ -30,8 +32,10 @@ public class Progredir : MonoBehaviour, IInteractable
 
         if (StoryProgressManager.instance != null)
         {
-            StoryProgressManager.instance.AvancarEtapa();
-            Debug.Log($"🧩 Objeto {name} avançou o progresso da história!");
+            for (int i = 0; i < quantidadeProgresso; i++)
+                StoryProgressManager.instance.AvancarEtapa();
+
+            Debug.Log($"🧩 Objeto {name} avançou o progresso em {quantidadeProgresso} etapa(s)!");
         }
         else
         {

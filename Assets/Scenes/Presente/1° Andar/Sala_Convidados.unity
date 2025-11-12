@@ -489,9 +489,15 @@ MonoBehaviour:
   dialogo:
     dialogoFalas:
     - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "*Abrindo a gaveta, ela acidentalmente cai no ch\xE3o, levantando muita
+        poeira*"
+    - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
-      fala: Um jornal?
+      fala: "\u201C*Cough* *Cough* Porque algu\xE9m teria uma gaveta cheia de jornais
+        velhos?\u201D\r\n"
   imagemFinal: {fileID: 1803782506}
   imagemCanvas: {fileID: 1803782508}
   closeKey: 101
@@ -773,6 +779,9 @@ MonoBehaviour:
   spawnPointName: Jogos > Convidados
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!1 &672802094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,6 +2138,9 @@ MonoBehaviour:
   spawnPointName: "Sagu\xE3o > Convidados"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1158546102
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2699,6 +2711,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 165871550}
     - target: {fileID: 4413882900394647242, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: velFala
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413882900394647242, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: dialogoTxt
       value: 
       objectReference: {fileID: 1282841015}
@@ -2714,6 +2730,10 @@ PrefabInstance:
       propertyPath: personagemNome
       value: 
       objectReference: {fileID: 1826583157}
+    - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13.081188
+      objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0

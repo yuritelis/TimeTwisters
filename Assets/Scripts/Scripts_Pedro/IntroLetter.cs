@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class IntroLetter : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class IntroLetter : MonoBehaviour
     public CanvasGroup cartaUI;
     public Image background;
     public KeyCode closeKey = KeyCode.E;
+    public CameraSegue cameraSegue;                // 🎥 adiciona referência à câmera
 
     [Header("Configuração")]
     public float fadeSpeed = 2f;
@@ -17,27 +19,51 @@ public class IntroLetter : MonoBehaviour
     public bool showOnlyOnce = true;
     public string playerPrefsKey = "IntroLetter_Shown";
 
+    [Header("Cutscene Pós-Carta")]
+    [Tooltip("Pontos de câmera a serem visitados após a carta fechar.")]
+    public List<Transform> cameraPoints = new List<Transform>();
+    public float cameraMoveSpeed = 2f;
+    public float cameraHoldTime = 2f;
+
+    [Header("Diálogo Pós-Carta")]
+    [Tooltip("Diálogo exibido automaticamente após a cutscene da carta.")]
+    public Dialogo dialogoPosCarta;
+    [TextArea(2, 4)]
+    public string falaPadrao = "Preciso descobrir o que está acontecendo neste lugar...";
+
     private bool cartaAtiva = false;
     private bool podeFechar = false;
     private float tempoInicio;
 
     void Start()
     {
-        Debug.Log("=== INTRO LETTER INICIADA ===");
-
         if (showOnlyOnce && PlayerPrefs.GetInt(playerPrefsKey, 0) == 1)
         {
-            Debug.Log("Carta já foi mostrada antes, pulando...");
             SkipLetter();
             return;
         }
+
+        if (cameraSegue == null)
+            cameraSegue = FindFirstObjectByType<CameraSegue>();
 
         InicializarCarta();
     }
 
     void InicializarCarta()
     {
-        Debug.Log("Inicializando carta...");
+        if (player != null)
+        {
+            Animator anim = player.GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.SetFloat("InputX", 0f);
+                anim.SetFloat("InputY", 1f);
+                anim.SetFloat("LastInputX", 0f);
+                anim.SetFloat("LastInputY", 1f);
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isRunning", false);
+            }
+        }
 
         if (background != null)
         {
@@ -55,10 +81,7 @@ public class IntroLetter : MonoBehaviour
         }
 
         if (Camera.main != null)
-        {
             Camera.main.cullingMask = 0;
-            Debug.Log("Câmera principal desativada - cullingMask = 0");
-        }
 
         Time.timeScale = 0f;
         TravarJogador(true);
@@ -70,10 +93,7 @@ public class IntroLetter : MonoBehaviour
 
     private IEnumerator SequenciaCarta()
     {
-        Debug.Log("Iniciando sequência da carta...");
-
         yield return new WaitForSecondsRealtime(startDelay);
-        Debug.Log("Delay inicial completado");
 
         float t = 0f;
         while (t < 1f)
@@ -83,89 +103,108 @@ public class IntroLetter : MonoBehaviour
             yield return null;
         }
 
-        if (cartaUI != null) cartaUI.alpha = 1f;
-        Debug.Log("Fade in da carta completado");
-
         if (Camera.main != null)
-        {
             Camera.main.cullingMask = -1;
-            Debug.Log("Câmera principal reativada, mas fundo preto ainda está visível");
-        }
-
 
         StartCoroutine(HabilitarFechamento());
     }
 
     private IEnumerator HabilitarFechamento()
     {
-        Debug.Log($"Aguardando {minDisplayTime} segundos para permitir fechamento...");
         yield return new WaitForSecondsRealtime(minDisplayTime);
-
         podeFechar = true;
-        Debug.Log("AGORA PODE FECHAR A CARTA! Use E ou Clique do Mouse");
     }
 
     void Update()
     {
         if (!cartaAtiva) return;
 
-        bool inputE = Input.GetKeyDown(closeKey);
-        bool inputMouse = Input.GetMouseButtonDown(0);
-
-        if (inputE || inputMouse)
+        if ((Input.GetKeyDown(closeKey) || Input.GetMouseButtonDown(0)) && podeFechar)
         {
-            Debug.Log($"Input detectado - E: {inputE}, Mouse: {inputMouse}, PodeFechar: {podeFechar}");
-
-            if (podeFechar)
-            {
-                Debug.Log("Iniciando fechamento da carta!");
-                StartCoroutine(FecharCarta());
-            }
-            else
-            {
-                float tempoDecorrido = Time.realtimeSinceStartup - tempoInicio;
-                Debug.Log($"Ainda não pode fechar! Tempo decorrido: {tempoDecorrido:F1}s de {minDisplayTime}s");
-            }
+            StartCoroutine(FecharCarta());
         }
     }
 
     private IEnumerator FecharCarta()
     {
-        Debug.Log("Iniciando fade out da carta E do fundo preto...");
-
         float t = 1f;
         while (t > 0f)
         {
             t -= Time.unscaledDeltaTime * fadeSpeed;
-
-            // Fade out da carta
             if (cartaUI != null) cartaUI.alpha = t;
-
-            // Fade out do fundo preto
             if (background != null) background.canvasRenderer.SetAlpha(t);
-
             yield return null;
         }
 
-        // Limpa elementos
-        if (cartaUI != null) cartaUI.gameObject.SetActive(false);
-        if (background != null) background.gameObject.SetActive(false);
-
         if (showOnlyOnce) PlayerPrefs.SetInt(playerPrefsKey, 1);
-
-        Debug.Log("Finalizando carta e liberando jogo...");
-
         Time.timeScale = 1f;
-        LiberarJogador();
         cartaAtiva = false;
 
-        Debug.Log("Carta e fundo preto finalizados com sucesso!");
+        StartCoroutine(DialogoPosCarta());
+        yield return StartCoroutine(ExecutarCutscene());
+
+        if (cartaUI != null) cartaUI.gameObject.SetActive(false);
+        if (background != null) background.gameObject.SetActive(false);
+    }
+
+
+    private IEnumerator ExecutarCutscene()
+    {
+        if (cameraSegue == null || cameraPoints.Count == 0)
+            yield break;
+
+        TravarJogador(true);
+
+        foreach (var point in cameraPoints)
+        {
+            if (point == null) continue;
+
+            cameraSegue.BeginTemporaryFocus(point);
+            yield return StartCoroutine(MoverCameraLentamente(cameraSegue.transform, point.position));
+            yield return new WaitForSeconds(cameraHoldTime);
+        }
+
+        // Volta para o player
+        cameraSegue.BeginTemporaryFocus(player.transform);
+        yield return StartCoroutine(MoverCameraLentamente(cameraSegue.transform, player.transform.position));
+        cameraSegue.EndTemporaryFocus();
+    }
+
+    private IEnumerator MoverCameraLentamente(Transform cam, Vector3 destino)
+    {
+        float t = 0;
+        Vector3 inicio = cam.position;
+        destino.z = cam.position.z;
+
+        while (t < 1)
+        {
+            t += Time.deltaTime * cameraMoveSpeed;
+            cam.position = Vector3.Lerp(inicio, destino, Mathf.SmoothStep(0, 1, t));
+            yield return null;
+        }
+    }
+
+    private IEnumerator DialogoPosCarta()
+    {
+        Dialogo dlg = dialogoPosCarta ?? CriarDialogoAutomatico(falaPadrao);
+
+        if (DialogoManager.Instance != null)
+        {
+            DialogoManager.Instance.StartDialogo(dlg);
+            while (DialogoManager.Instance.dialogoAtivoPublico)
+                yield return null;
+        }
+        else
+        {
+            Debug.Log($"🗣️ Julie: {falaPadrao}");
+            yield return new WaitForSeconds(2f);
+        }
+
+        LiberarJogador();
     }
 
     void SkipLetter()
     {
-        Debug.Log("Pulando carta...");
-
         if (Camera.main != null)
             Camera.main.cullingMask = -1;
 
@@ -179,25 +218,15 @@ public class IntroLetter : MonoBehaviour
 
     private void TravarJogador(bool estado)
     {
-        if (player == null)
-        {
-            Debug.LogError("Player não atribuído!");
-            return;
-        }
+        if (player == null) return;
 
         var controller = player.GetComponent<PlayerController>();
         if (controller != null)
-        {
             controller.canMove = !estado;
-            Debug.Log($"PlayerController - canMove: {!estado}");
-        }
 
         var combat = player.GetComponent<Player_Combat>();
         if (combat != null)
-        {
             combat.enabled = !estado;
-            Debug.Log($"Player_Combat - enabled: {!estado}");
-        }
     }
 
     private void LiberarJogador()
@@ -206,16 +235,25 @@ public class IntroLetter : MonoBehaviour
 
         var controller = player.GetComponent<PlayerController>();
         if (controller != null)
-        {
             controller.canMove = true;
-            Debug.Log("PlayerController liberado - canMove: true");
-        }
 
         var combat = player.GetComponent<Player_Combat>();
         if (combat != null)
-        {
             combat.enabled = true;
-            Debug.Log("Player_Combat liberado - enabled: true");
-        }
+    }
+
+    private Dialogo CriarDialogoAutomatico(string texto)
+    {
+        return new Dialogo
+        {
+            dialogoFalas = new List<DialogoFalas>
+            {
+                new DialogoFalas
+                {
+                    personagem = new PersoInfos { nome = "Julie", portrait = null },
+                    fala = texto
+                }
+            }
+        };
     }
 }
