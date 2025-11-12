@@ -1,5 +1,6 @@
 using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy_Movement : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class Enemy_Movement : MonoBehaviour
 
     public Vector2 facingDirection = Vector2.left;
 
+
+    private EnemyPathfinder pathfinder;
+
     private float initialAttackDist;
     private float initialDetectDist;
 
@@ -56,6 +60,9 @@ public class Enemy_Movement : MonoBehaviour
 
         ApplyPointRotation();
         ChangeState(EnemyState.Patrolling);
+
+        pathfinder = GetComponent<EnemyPathfinder>();
+
     }
 
     private void Update()
@@ -105,14 +112,10 @@ public class Enemy_Movement : MonoBehaviour
         }
     }
 
-    // =======================
-    // DETECÇÃO (cone + LOS)
-    // =======================
     private void CheckForPlayer()
     {
         bool playerDetected = false;
 
-        // 🔄 alterna o tipo de visão conforme o estado
         float detectRange = enemyState == EnemyState.Chasing ? chaseVisionRadius : playerDetectRange;
         float currentVisionAngle = enemyState == EnemyState.Chasing ? 180f : visionAngle;
 
@@ -125,7 +128,6 @@ public class Enemy_Movement : MonoBehaviour
             Vector2 dirToPlayer = ((Vector2)hit.transform.position - (Vector2)detectionPoint.position).normalized;
             float distToPlayer = Vector2.Distance(detectionPoint.position, hit.transform.position);
 
-            // 🔺 Checagem do cone e linha de visão apenas quando NÃO está perseguindo
             if (enemyState != EnemyState.Chasing)
             {
                 float angle = Vector2.Angle(facingDirection, dirToPlayer);
@@ -136,7 +138,6 @@ public class Enemy_Movement : MonoBehaviour
                     continue;
             }
 
-            // ✅ detectou o jogador
             player = hit.transform;
             playerDetected = true;
             break;
@@ -162,10 +163,8 @@ public class Enemy_Movement : MonoBehaviour
         {
             if (enemyState == EnemyState.Chasing)
             {
-                // se perdeu o jogador mesmo com visão 360º -> volta a patrulhar
                 ChangeState(EnemyState.Patrolling);
 
-                // 🧠 novo: ajusta o ponto de patrulha para o mais próximo
                 if (patrolPoints.Length > 0)
                 {
                     float closestDistance = Mathf.Infinity;
@@ -194,11 +193,20 @@ public class Enemy_Movement : MonoBehaviour
     {
         if (player == null) return;
 
-        Vector2 direction = (player.position - transform.position).normalized;
-        UpdateFacingDirection(direction);
+        Vector2 target = player.position;
 
-        rb.linearVelocity = direction * speed;
+        if (pathfinder != null && NavMesh.SamplePosition(target, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
+        {
+            pathfinder.MoveTo(hit.position);
+        }
+        else
+        {
+            Vector2 direction = (player.position - transform.position).normalized;
+            UpdateFacingDirection(direction);
+            rb.linearVelocity = direction * speed;
+        }
     }
+
 
     private void Patrol()
     {

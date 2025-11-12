@@ -4,6 +4,9 @@ public class TimeTravelMarker : MonoBehaviour, IInteractable
 {
     private TimelineUI timelineUI;
 
+    [Header("Condição de Desbloqueio")]
+    public int etapaNecessaria = 3;
+
     private void Awake()
     {
         timelineUI = FindFirstObjectByType<TimelineUI>();
@@ -11,6 +14,12 @@ public class TimeTravelMarker : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (!CanInteract())
+        {
+            Debug.Log("🚫 O marcador de viagem no tempo ainda não pode ser usado.");
+            return;
+        }
+
         if (TimelineUI.instance != null)
         {
             TimelineUI.instance.Open(null);
@@ -21,5 +30,11 @@ public class TimeTravelMarker : MonoBehaviour, IInteractable
         }
     }
 
-    public bool CanInteract() => true;
+    public bool CanInteract()
+    {
+        if (StoryProgressManager.instance == null)
+            return true;
+
+        return StoryProgressManager.instance.historiaEtapaAtual >= etapaNecessaria;
+    }
 }

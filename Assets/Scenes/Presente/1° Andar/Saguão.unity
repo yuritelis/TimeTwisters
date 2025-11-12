@@ -739,9 +739,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "2\xB0Andar"
+  sceneAsset: {fileID: 0}
   spawnPointName: "2\xB0 Andar > Sagu\xE3o"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &86953956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1220,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.1669445
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1376,9 +1380,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "Exposi\xE7\xE3o"
+  sceneAsset: {fileID: 0}
   spawnPointName: "Exposi\xE7\xE3o > Sagu\xE3o"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &360615203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1441,6 +1449,109 @@ MonoBehaviour:
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
   showDebugInfo: 0
+--- !u!1 &430558332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 430558335}
+  - component: {fileID: 430558334}
+  - component: {fileID: 430558333}
+  m_Layer: 0
+  m_Name: Limitador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &430558333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430558332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a32fa364ca5bd44b4b617368add5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressaoNecessaria: 1
+  recuoDistancia: 1
+  recuoVelocidade: 3
+  dialogoBloqueio:
+    dialogoFalas:
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: Acho que eu deveria terminar de verificar o primeiro andar antes...
+  falaPadrao: '
+
+'
+--- !u!61 &430558334
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430558332}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 2.340095, y: -1.8270693}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.68019, y: 0.10682392}
+  m_EdgeRadius: 0
+--- !u!4 &430558335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430558332}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.84, y: 6.72, z: -0.27438304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507990337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,9 +1599,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Fundos
+  sceneAsset: {fileID: 0}
   spawnPointName: "Fundos (Esq) > Sagu\xE3o"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &507990340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2555,9 +2670,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Sala_Convidados
+  sceneAsset: {fileID: 0}
   spawnPointName: "Convidados > Sagu\xE3o"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3679,9 +3798,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Fundos
+  sceneAsset: {fileID: 0}
   spawnPointName: "Fundos (Dir) > Sagu\xE3o"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1630705110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7064,3 +7187,4 @@ SceneRoots:
   - {fileID: 1231883787}
   - {fileID: 1792688721}
   - {fileID: 1885995163}
+  - {fileID: 430558335}

@@ -21,6 +21,7 @@ public class Enemy_Health : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
+            GetComponent<EnemyPersistence>()?.MarkAsDead();
             Destroy(gameObject);
         }
     }

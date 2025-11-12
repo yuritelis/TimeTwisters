@@ -357,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.1669445
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1021,9 +1021,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Fundos
+  sceneAsset: {fileID: 0}
   spawnPointName: Fundos > Mordomo
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &859535765
 BoxCollider2D:
   m_ObjectHideFlags: 0
