@@ -2631,7 +2631,7 @@ MonoBehaviour:
   spawnPointName: Fundos (Esq) > Jantar (Esq)
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 2
+  etapaNecessaria: 1
   dialogoPortaTrancada:
     dialogoFalas:
     - personagem:
@@ -3480,7 +3480,7 @@ MonoBehaviour:
   spawnPointName: Fundos (Dir) > Jantar (Dir)
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 2
+  etapaNecessaria: 1
   dialogoPortaTrancada:
     dialogoFalas:
     - personagem:
@@ -8523,7 +8523,7 @@ MonoBehaviour:
   spawnPointName: Cozinha > Jantar
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 2
+  etapaNecessaria: 1
   dialogoPortaTrancada:
     dialogoFalas:
     - personagem:
