@@ -193,6 +193,7 @@ public class DialogoManager : MonoBehaviour
         isDialogoAtivo = false;
         dialogoAtivoPublico = false;
         isTyping = false;
+        fimFala = true;
 
         if (dialogoTxt != null) dialogoTxt.text = "";
         if (dialogoPanel != null) dialogoPanel.SetActive(false);
