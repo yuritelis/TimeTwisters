@@ -17,7 +17,7 @@ public class Enemy_Movement : MonoBehaviour
     [Header("Patrulha")]
     public Transform[] patrolPoints;
     private int currentPatrolIndex = 0;
-    private bool isReversing = false; // ping-pong
+    private bool isReversing = false;
     public float patrolWaitTime = 2f;
     private float patrolWaitTimer = 0f;
 
@@ -28,13 +28,12 @@ public class Enemy_Movement : MonoBehaviour
 
     [Header("Campo de Visão")]
     [Range(0f, 180f)]
-    public float visionAngle = 45f;          // meia-abertura do cone
-    public float chaseVisionRadius = 6f;     // alcance 360º durante perseguição
-    public LayerMask visionBlockMask;        // paredes/chão que bloqueiam visão (NÃO inclua Player)
+    public float visionAngle = 45f;
+    public float chaseVisionRadius = 6f;
+    public LayerMask visionBlockMask;
 
     private float attackCooldownTimer = 0f;
     private Rigidbody2D rb;
-    private Animator anim;
     private SpriteRenderer sr;
     public Transform player;
 
@@ -43,16 +42,13 @@ public class Enemy_Movement : MonoBehaviour
 
     public Vector2 facingDirection = Vector2.left;
 
-
     private EnemyPathfinder pathfinder;
-
     private float initialAttackDist;
     private float initialDetectDist;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
         initialAttackDist = Vector2.Distance(transform.position, attackPoint.position);
@@ -62,7 +58,6 @@ public class Enemy_Movement : MonoBehaviour
         ChangeState(EnemyState.Patrolling);
 
         pathfinder = GetComponent<EnemyPathfinder>();
-
     }
 
     private void Update()
@@ -207,7 +202,6 @@ public class Enemy_Movement : MonoBehaviour
         }
     }
 
-
     private void Patrol()
     {
         if (patrolPoints.Length == 0)
@@ -230,7 +224,6 @@ public class Enemy_Movement : MonoBehaviour
             {
                 patrolWaitTimer = patrolWaitTime;
 
-                // ping-pong
                 if (!isReversing)
                 {
                     if (currentPatrolIndex >= patrolPoints.Length - 1)
@@ -314,9 +307,6 @@ public class Enemy_Movement : MonoBehaviour
 
         if (sr != null)
             sr.flipX = (facingDirection == Vector2.left);
-
-        attackPoint.localScale = Vector3.one;
-        detectionPoint.localScale = Vector3.one;
     }
 
     public void Attack()
@@ -350,20 +340,7 @@ public class Enemy_Movement : MonoBehaviour
 
     private void ChangeState(EnemyState newState)
     {
-        anim.SetBool("isIdle", false);
-        anim.SetBool("isChasing", false);
-        anim.SetBool("isAttacking", false);
-        anim.SetBool("isPatrolling", false);
-
         enemyState = newState;
-
-        switch (enemyState)
-        {
-            case EnemyState.Idle: anim.SetBool("isIdle", true); break;
-            case EnemyState.Chasing: anim.SetBool("isChasing", true); break;
-            case EnemyState.Attacking: anim.SetBool("isAttacking", true); break;
-            case EnemyState.Patrolling: anim.SetBool("isPatrolling", true); break;
-        }
     }
 
     private void OnDrawGizmosSelected()
@@ -429,7 +406,6 @@ public class Enemy_Movement : MonoBehaviour
         Destroy(this.gameObject, 0.5f);
     }
 }
-
 
 public enum EnemyState
 {
