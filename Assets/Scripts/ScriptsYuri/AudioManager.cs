@@ -136,7 +136,7 @@ public class AudioManager : MonoBehaviour
         {
             clipToPlay = menuBgm;
         }
-        else if (currentScene == "Alpha")
+        else if (currentScene == "Saguão")
         {
             switch (currentTimeline)
             {
