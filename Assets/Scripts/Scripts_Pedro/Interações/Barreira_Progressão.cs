@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Collider2D))]
-public class Barreira_Progressão : MonoBehaviour
+public class Barreira_Progressao : MonoBehaviour
 {
     [Header("Configuração")]
     [Tooltip("Etapa mínima da história necessária para passar.")]
@@ -47,26 +47,37 @@ public class Barreira_Progressão : MonoBehaviour
         var rb = player.GetComponent<Rigidbody2D>();
         var anim = player.GetComponent<Animator>();
 
-        // 1️⃣ Desativa o controle completamente (DIÁLOGO + MOVIMENTAÇÃO)
+        // 1️⃣ Desativa o controle completamente
         if (controller != null) controller.canMove = false;
         if (combat != null) combat.enabled = false;
         if (rb != null) rb.linearVelocity = Vector2.zero;
 
-        // 2️⃣ Pega a direção atual do Input (não LastInput)
+        // 2️⃣ Pega direção atual do input e converte pra direção cardinal
         float inputX = anim.GetFloat("InputX");
         float inputY = anim.GetFloat("InputY");
 
-        // 3️⃣ Calcula direção de recuo (oposta ao input atual)
         Vector2 direcaoRecuo = new Vector2(-inputX, -inputY).normalized;
 
-        // 4️⃣ Vira o jogador pra direção de recuo
+        // 🔹 Garante que o recuo seja só em uma das 4 direções
+        if (Mathf.Abs(direcaoRecuo.x) > Mathf.Abs(direcaoRecuo.y))
+        {
+            direcaoRecuo = new Vector2(Mathf.Sign(direcaoRecuo.x), 0);
+        }
+        else
+        {
+            direcaoRecuo = new Vector2(0, Mathf.Sign(direcaoRecuo.y));
+        }
+
+        // 3️⃣ Vira o jogador pra direção de recuo
         if (anim != null)
         {
             anim.SetFloat("InputX", direcaoRecuo.x);
             anim.SetFloat("InputY", direcaoRecuo.y);
+            anim.SetFloat("LastInputX", direcaoRecuo.x);
+            anim.SetFloat("LastInputY", direcaoRecuo.y);
         }
 
-        // 5️⃣ Exibe diálogo (CONTROLE JÁ ESTÁ BLOQUEADO)
+        // 4️⃣ Exibe diálogo (controle já bloqueado)
         Dialogo dlg = dialogoBloqueio ?? CriarDialogoAutomatico(falaPadrao);
 
         if (DialogoManager.Instance != null)
@@ -78,10 +89,10 @@ public class Barreira_Progressão : MonoBehaviour
         else
         {
             Debug.Log($"🗣️ {falaPadrao}");
-            yield return new WaitForSeconds(1f); // Pequena pausa sem diálogo
+            yield return new WaitForSeconds(1f);
         }
 
-        // 6️⃣ Move automaticamente pra trás (CONTROLE AINDA BLOQUEADO)
+        // 5️⃣ Move automaticamente pra trás
         if (anim != null)
             anim.SetBool("isWalking", true);
 
@@ -96,11 +107,10 @@ public class Barreira_Progressão : MonoBehaviour
             yield return null;
         }
 
-        // 7️⃣ Para a animação
         if (anim != null)
             anim.SetBool("isWalking", false);
 
-        // 8️⃣ Só devolve o controle APÓS terminar toda a movimentação
+        // 6️⃣ Devolve controle
         if (controller != null) controller.canMove = true;
         if (combat != null) combat.enabled = true;
 
