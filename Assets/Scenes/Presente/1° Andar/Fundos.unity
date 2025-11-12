@@ -1052,9 +1052,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Sala_de_Jogos
+  sceneAsset: {fileID: 0}
   spawnPointName: Jogos > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &151707372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1369,9 +1373,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Banheiro
+  sceneAsset: {fileID: 0}
   spawnPointName: Banheiro > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &192557448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1636,7 +1644,7 @@ GameObject:
   - component: {fileID: 221325077}
   - component: {fileID: 221325076}
   - component: {fileID: 221325080}
-  - component: {fileID: 221325079}
+  - component: {fileID: 221325081}
   m_Layer: 9
   m_Name: Fundos (Esq) > Jantar (Esq)
   m_TagString: SanityAffected
@@ -1715,22 +1723,6 @@ Transform:
   - {fileID: 1115181053}
   m_Father: {fileID: 284273913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
---- !u!114 &221325079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221325075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: Sala_de_Jantar
-  spawnPointName: Jantar (Esq) > Fundos (Esq)
-  requireInput: 1
-  interactKey: 101
 --- !u!61 &221325080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1777,6 +1769,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.9375}
   m_EdgeRadius: 0
+--- !u!114 &221325081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221325075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 
+  sceneAsset: {fileID: 102900000, guid: 3f7a82c4363d22f42adea5b1d28190a4, type: 3}
+  spawnPointName: Jantar (Esq) > Fundos (Esq)
+  requireInput: 1
+  interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!1 &223399647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,9 +2246,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Maid2
+  sceneAsset: {fileID: 0}
   spawnPointName: Maid2 > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!1 &482693880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,10 +2566,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Sala_de_Jantar
+  sceneToLoad: 
+  sceneAsset: {fileID: 102900000, guid: 3f7a82c4363d22f42adea5b1d28190a4, type: 3}
   spawnPointName: Jantar (Dir) > Fundos (Dir)
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 1
+  dialogoPortaTrancada:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: Porta trancada.
 --- !u!1 &550974675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,9 +2680,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "Sagu\xE3o"
+  sceneAsset: {fileID: 0}
   spawnPointName: "Sagu\xE3o > Fundos (Dir)"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &550974679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5648,9 +5676,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Maid
+  sceneAsset: {fileID: 0}
   spawnPointName: Maid > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: Sala trancada.
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6136,9 +6172,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Mordomo
+  sceneAsset: {fileID: 0}
   spawnPointName: Mordomo > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1223359444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6540,9 +6580,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Quarto_Cozinheiro
+  sceneAsset: {fileID: 0}
   spawnPointName: Cozinheiro > Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1408842613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6690,15 +6734,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.1669445
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.28
+      value: 4.9700003
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.530001
+      value: -11.22
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6742,17 +6786,120 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.94
+      value: 4.63
       objectReference: {fileID: 0}
     - target: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.43
+      value: -12.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+--- !u!1 &1511425931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511425934}
+  - component: {fileID: 1511425933}
+  - component: {fileID: 1511425932}
+  m_Layer: 0
+  m_Name: Limitador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1511425932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511425931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a32fa364ca5bd44b4b617368add5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressaoNecessaria: 1
+  recuoDistancia: 1
+  recuoVelocidade: 3
+  dialogoBloqueio:
+    dialogoFalas:
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: Acho que eu deveria terminar de verificar o primeiro andar antes...
+  falaPadrao: '
+
+'
+--- !u!61 &1511425933
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511425931}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.6828587}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 2.3657174}
+  m_EdgeRadius: 0
+--- !u!4 &1511425934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511425931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.256458, y: -6.1, z: -0.27438304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577973605
 GameObject:
   m_ObjectHideFlags: 0
@@ -11616,9 +11763,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "Sagu\xE3o"
+  sceneAsset: {fileID: 0}
   spawnPointName: "Sagu\xE3o > Fundos (Esq)"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1896157799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11965,3 +12116,4 @@ SceneRoots:
   - {fileID: 1962819735}
   - {fileID: 1231883787}
   - {fileID: 284273913}
+  - {fileID: 1511425934}

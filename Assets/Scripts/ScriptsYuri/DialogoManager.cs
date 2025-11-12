@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,16 +7,26 @@ public class DialogoManager : MonoBehaviour
 {
     public static DialogoManager Instance;
 
-    Dialogo dialogoData;
+    private Dialogo dialogoData;
 
+    [Header("Referências de UI")]
     public GameObject dialogoPanel;
     public GameObject sanidadeBar;
-    public TextMeshProUGUI dialogoTxt, personagemNome;
+    public TextMeshProUGUI dialogoTxt;
+    public TextMeshProUGUI personagemNome;
     public Image personagemIcon;
+    public DialogoEscolhaUI escolhaUI;
+
+    [Header("Configuração")]
+    public float velFala = 0.03f;
 
     private int dialogoIndex;
-    private bool isTyping, isDialogoAtivo, fimFala = false;
-    public float velFala = 1f;
+    private bool isTyping;
+    private bool isDialogoAtivo;
+    [HideInInspector] public bool dialogoAtivoPublico;
+
+    [Header("Referência ao Player")]
+    public GameObject player;
 
     private void Awake()
     {
@@ -34,17 +43,18 @@ public class DialogoManager : MonoBehaviour
 
     public void StartDialogo(Dialogo dialogo)
     {
-        Debug.Log("Chamou StartDialogo");
-
         if (dialogo == null || dialogo.dialogoFalas.Count == 0)
         {
-            Debug.LogError("Dialogo data est� vazio ou nulo!");
+            Debug.LogError("⚠️ Dados do diálogo estão vazios ou nulos!");
             return;
         }
 
         isDialogoAtivo = true;
-        dialogoIndex = 0;
+        dialogoAtivoPublico = true;
         dialogoData = dialogo;
+        dialogoIndex = 0;
+
+        TravarJogador(true);
 
         dialogoPanel.SetActive(true);
         if (sanidadeBar != null) sanidadeBar.SetActive(false);
@@ -56,23 +66,18 @@ public class DialogoManager : MonoBehaviour
     {
         if (!isDialogoAtivo || dialogoData == null) return;
 
-        if (fimFala)
-        {
-            dialogoIndex += dialogoData.dialogoFalas.Count - 1;
-        }
-
-        if (dialogoIndex >= dialogoData.dialogoFalas.Count)
-        {
-            FimDialogo();
-            return;
-        }
-
         if (isTyping)
         {
             StopAllCoroutines();
             isTyping = false;
             dialogoTxt.text = dialogoData.dialogoFalas[dialogoIndex].fala;
             dialogoIndex++;
+            return;
+        }
+
+        if (dialogoIndex >= dialogoData.dialogoFalas.Count)
+        {
+            FimDialogo();
             return;
         }
 
@@ -85,9 +90,14 @@ public class DialogoManager : MonoBehaviour
             personagemIcon.sprite = falaAtual.personagem.portrait;
 
         StartCoroutine(TypeLine(falaAtual.fala));
+
+        if (falaAtual.fala.Contains("Deseja pegá-lo?") && escolhaUI != null)
+        {
+            StartCoroutine(EsperarParaMostrarEscolha());
+        }
     }
 
-    IEnumerator TypeLine(string fala)
+    private IEnumerator TypeLine(string fala)
     {
         isTyping = true;
         dialogoTxt.text = "";
@@ -95,7 +105,7 @@ public class DialogoManager : MonoBehaviour
         foreach (char letter in fala.ToCharArray())
         {
             dialogoTxt.text += letter;
-            if (AudioManager.instance != null) 
+            if (AudioManager.instance != null)
                 AudioManager.instance.PlaySFX(PersoInfos.somVoz);
             yield return new WaitForSeconds(velFala);
         }
@@ -104,9 +114,34 @@ public class DialogoManager : MonoBehaviour
         dialogoIndex++;
     }
 
+    private IEnumerator EsperarParaMostrarEscolha()
+    {
+        yield return new WaitUntil(() => !isTyping);
+        escolhaUI.Mostrar(OnEscolhaVergalhao);
+    }
+
+    private void OnEscolhaVergalhao(bool pegou)
+    {
+        if (pegou)
+        {
+            Debug.Log("✅ Jogador escolheu pegar o vergalhão!");
+
+            var combate = player?.GetComponent<Player_Combat>();
+            if (combate != null) combate.enabled = true;
+
+            StoryProgressManager.instance?.AvancarEtapa();
+        }
+        else
+        {
+            Debug.Log("🚫 Jogador recusou o vergalhão.");
+        }
+
+        FimDialogo();
+    }
+
     private void Update()
     {
-        if (isDialogoAtivo && Input.GetKeyDown(KeyCode.Space))
+        if (isDialogoAtivo && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)))
         {
             ProxLinha();
         }
@@ -116,6 +151,7 @@ public class DialogoManager : MonoBehaviour
     {
         StopAllCoroutines();
         isDialogoAtivo = false;
+        dialogoAtivoPublico = false;
         isTyping = false;
         fimFala = true;
 
@@ -123,6 +159,24 @@ public class DialogoManager : MonoBehaviour
         if (dialogoPanel != null) dialogoPanel.SetActive(false);
         if (sanidadeBar != null) sanidadeBar.SetActive(true);
 
-        Debug.Log("Dialogo finalizado");
+        TravarJogador(false);
+        Debug.Log("✅ Diálogo finalizado.");
+    }
+
+    private void TravarJogador(bool estado)
+    {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
+        var controller = player.GetComponent<PlayerController>();
+        if (controller != null)
+            controller.canMove = !estado;
+
+        var combat = player.GetComponent<Player_Combat>();
+        if (combat != null)
+            combat.enabled = !estado;
+
+        Debug.Log(estado ? "🎬 Player travado durante diálogo." : "🎮 Player liberado.");
     }
 }

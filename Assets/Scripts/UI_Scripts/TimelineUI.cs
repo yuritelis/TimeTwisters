@@ -128,7 +128,7 @@ public class TimelineUI : MonoBehaviour
         if (sanidadeBar != null)
             sanidadeBar.SetActive(false);
 
-        DetectarTimelineAtual();
+        DetectarTimelineAtual(); 
         AtualizarEstadoDosBotoes();
 
         Time.timeScale = 0f;
@@ -137,7 +137,6 @@ public class TimelineUI : MonoBehaviour
         if (playerInput != null)
             playerInput.enabled = false;
     }
-
 
     public void Close()
     {

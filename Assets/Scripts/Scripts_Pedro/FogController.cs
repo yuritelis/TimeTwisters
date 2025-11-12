@@ -71,7 +71,6 @@ public class FogController : MonoBehaviour
     {
         if (fogMat == null) return;
 
-        // ✅ Suaviza posição
         if (cameraTransform != null)
         {
             Vector3 targetPos = cameraTransform.position;
@@ -80,7 +79,6 @@ public class FogController : MonoBehaviour
             transform.position = smoothedPos;
         }
 
-        // ✅ Ajusta escala
         if (targetCamera != null)
         {
             float h = targetCamera.orthographicSize * 2f;
@@ -88,7 +86,6 @@ public class FogController : MonoBehaviour
             transform.localScale = new Vector3(w, h, 1f);
         }
 
-        // ✅ Interpola suavemente os valores reais até os alvos
         float t = Time.deltaTime * (1f / smoothTransitionTime);
 
         currentDensity = Mathf.Lerp(currentDensity, targetDensity, t);
@@ -100,7 +97,6 @@ public class FogController : MonoBehaviour
         currentBaseColor = Color.Lerp(currentBaseColor, targetBaseColor, t);
         currentPulseColor = Color.Lerp(currentPulseColor, targetPulseColor, t);
 
-        // ✅ Aplica no material
         fogMat.SetFloat("_Density", currentDensity);
         fogMat.SetFloat("_Speed", currentSpeed);
         fogMat.SetFloat("_CrackIntensity", currentCrack);

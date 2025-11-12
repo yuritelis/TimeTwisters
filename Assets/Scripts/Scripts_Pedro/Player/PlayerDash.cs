@@ -29,6 +29,9 @@ public class PlayerDash : MonoBehaviour
 
     private void Update()
     {
+        if (playerController != null && !playerController.canMove)
+            return;
+
         Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (inputDir != Vector2.zero)
@@ -37,7 +40,6 @@ public class PlayerDash : MonoBehaviour
                 lastCardinalDirection = inputDir.normalized;
         }
 
-        // impede dash durante ataque ou hit
         if (playerController != null)
         {
             if (playerController.IsAttacking || playerController.IsHit)
