@@ -1065,6 +1065,10 @@ PrefabInstance:
       propertyPath: fogMat
       value: 
       objectReference: {fileID: 2100000, guid: 11757634ea46f0d42a422d31aa4512b8, type: 2}
+    - target: {fileID: 7500624690306653550, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7253788481425222357, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
     m_RemovedGameObjects: []
@@ -1464,6 +1468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Edward
       objectReference: {fileID: 0}
+    - target: {fileID: 8044634306082866186, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1576,6 +1584,9 @@ MonoBehaviour:
   spawnPointName: "Futuro Exposi\xE7\xE3o > Futuro Sagu\xE3o"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &360615203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4249,6 +4260,9 @@ MonoBehaviour:
   spawnPointName: "Futuro Convidados > Futuro Sagu\xE3o"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5765,6 +5779,9 @@ MonoBehaviour:
   spawnPointName: "Futuro Fundos > Futuro Sagu\xE3o_2"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1438278681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6422,6 +6439,10 @@ PrefabInstance:
     - target: {fileID: 3648275448728151083, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648275448728151083, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9806,6 +9827,9 @@ MonoBehaviour:
   spawnPointName: "Futuro Fundos > Futuro Sagu\xE3o_1"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  dialogoPortaTrancada:
+    dialogoFalas: []
 --- !u!61 &1805937113
 BoxCollider2D:
   m_ObjectHideFlags: 0
