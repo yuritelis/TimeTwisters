@@ -1,17 +1,21 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class HotbarController : MonoBehaviour
 {
     public GameObject hotbarPanel;
     public GameObject slotPrefab;
+    public Sprite itemImg;
     public int slotCount = 10;
 
     private ItemDictionary itemDictionary;
 
     private Key[] hotbarKeys;
+    private int selectedSlotIndex = -1;
 
     void Awake()
     {
@@ -31,9 +35,26 @@ public class HotbarController : MonoBehaviour
         {
             if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
             {
-                UseItemInSlot(i);
+                ShowUsingSlot(i);
             }
         }
+    }
+
+    void CheckSlotSelection()
+    {
+        for (int i = 0; i < slotCount; i++)
+        {
+            if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
+            {
+                
+            }
+        }
+    }
+
+    void ShowUsingSlot(int index)
+    {
+        Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
+        
     }
 
     void UseItemInSlot(int index)
