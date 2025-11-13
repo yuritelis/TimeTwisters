@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Interacao_Geral_Itens : MonoBehaviour, IInteractable
 {
@@ -32,6 +33,35 @@ public class Interacao_Geral_Itens : MonoBehaviour, IInteractable
             return;
         }
 
+        // ================================ //
+        // 🎵 SOM DE INTERAÇÃO (igual SceneTransition)
+        // ================================ //
+        if (dialogo != null && dialogo.dialogoFalas != null && dialogo.dialogoFalas.Count > 0)
+        {
+            // tenta achar o primeiro som configurado em qualquer fala
+            AudioClip som = null;
+
+            foreach (var fala in dialogo.dialogoFalas)
+            {
+                if (fala.sfxAposFala != null)
+                {
+                    som = fala.sfxAposFala;
+                    break;
+                }
+            }
+
+            if (som != null)
+            {
+                if (AudioManager.instance != null)
+                    AudioManager.instance.PlaySFX(som);
+                else
+                    AudioSource.PlayClipAtPoint(som, transform.position);
+            }
+        }
+
+        // ================================ //
+        // 💬 INICIAR DIÁLOGO
+        // ================================ //
         DialogoManager.Instance.StartDialogo(dialogo);
 
         StartCoroutine(EsperarDialogoTerminar());
