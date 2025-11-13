@@ -305,8 +305,8 @@ public class Enemy_Movement : MonoBehaviour
         attackPoint.localPosition = offset * initialAttackDist;
         detectionPoint.localPosition = offset * initialDetectDist;
 
-        if (sr != null)
-            sr.flipX = (facingDirection == Vector2.left);
+        //if (sr != null)
+        //    sr.flipX = (facingDirection == Vector2.left);
     }
 
     public void Attack()
