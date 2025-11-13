@@ -2067,9 +2067,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "2\xB0Andar"
+  sceneAsset: {fileID: 0}
   spawnPointName: "2\xB0Andar > Casal"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &960928956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2493,9 +2507,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "Ber\xE7ario"
+  sceneAsset: {fileID: 0}
   spawnPointName: "Ber\xE7ario > Casal"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &1549368899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3116,7 +3144,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 10.666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3157,6 +3197,14 @@ PrefabInstance:
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65999985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1622,6 +1622,19 @@ MonoBehaviour:
   spawnPointName: Futuro Jantar_1 > Futuro Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &221325079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2201,6 +2214,19 @@ MonoBehaviour:
   spawnPointName: "1\xB0_Futuro_Banheiro > Futuro Fundos"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &360615203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2661,6 +2687,19 @@ MonoBehaviour:
   spawnPointName: Futuro Jantar_2 > Futuro Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!1 &550974675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,6 +2807,19 @@ MonoBehaviour:
   spawnPointName: "Futuro Sagu\xE3o_2 > Futuro Fundos"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &550974679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7165,6 +7217,19 @@ MonoBehaviour:
   spawnPointName: Futuro Maid1 > Futuro Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8007,10 +8072,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
-  sceneAsset: {fileID: 102900000, guid: fad0d81966331ac45be6b81834806605, type: 3}
+  sceneAsset: {fileID: 102900000, guid: 51da41b4a38d41c48b10b92c4623ab0f, type: 3}
   spawnPointName: Futuro Mordomo > Futuro Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &1223359444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9398,10 +9476,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
-  sceneAsset: {fileID: 102900000, guid: 51da41b4a38d41c48b10b92c4623ab0f, type: 3}
+  sceneAsset: {fileID: 102900000, guid: fad0d81966331ac45be6b81834806605, type: 3}
   spawnPointName: Futuro Cozinheiro > Futuro Fundos
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &1408842613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14995,7 +15086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.940631
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15744,6 +15835,19 @@ MonoBehaviour:
   spawnPointName: "Futuro Sagu\xE3o_1 > Futuro Fundos"
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &1896157799
 BoxCollider2D:
   m_ObjectHideFlags: 0
