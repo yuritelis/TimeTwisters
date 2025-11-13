@@ -448,41 +448,6 @@ public class Enemy_Movement : MonoBehaviour
 
         attackPoint.localPosition = offset * initialAttackDist;
         detectionPoint.localPosition = offset * initialDetectDist;
-<<<<<<< HEAD
-
-        //if (sr != null)
-        //    sr.flipX = (facingDirection == Vector2.left);
-    }
-
-    public void Attack()
-    {
-        GetComponent<EnemyCombat>()?.Attack();
-    }
-
-    public void EndAttack()
-    {
-        attackCooldownTimer = attackCooldown;
-        canAttack = false;
-
-        if (player != null)
-        {
-            float distance = Vector2.Distance(attackPoint.position, player.position);
-            if (distance <= attackRange)
-            {
-                ChangeState(EnemyState.Idle);
-                rb.linearVelocity = Vector2.zero;
-                return;
-            }
-        }
-
-        ChangeState(EnemyState.Chasing);
-    }
-
-    public void LockAttack()
-    {
-        attackLockTimer = attackLockTime;
-=======
->>>>>>> origin/main
     }
 
     private void ChangeState(EnemyState newState)

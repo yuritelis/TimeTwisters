@@ -166,11 +166,6 @@ public class DialogoManager : MonoBehaviour
         isTyping = false;
         isDialogoAtivo = false;
         dialogoAtivoPublico = false;
-<<<<<<< HEAD:Assets/Scripts/ScriptsYuri/Dialogo/DialogoManager.cs
-        isTyping = false;
-        //fimFala = true;
-=======
->>>>>>> origin/main:Assets/Scripts/ScriptsYuri/DialogoManager.cs
 
         dialogoPanel.SetActive(false);
         if (sanidadeBar != null) sanidadeBar.SetActive(true);
