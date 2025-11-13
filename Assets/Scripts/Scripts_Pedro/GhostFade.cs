@@ -1,26 +1,62 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GhostFade : MonoBehaviour
 {
-    public float alpha = 0.4f;
-    public Color ghostColor = new Color(0.8f, 0.9f, 1f);
-    private SpriteRenderer sr;
+    [Header("Transparência")]
+    [Range(0f, 1f)] public float minAlpha = 0.10f;
+    [Range(0f, 1f)] public float maxAlpha = 0.40f;
 
-    void Start()
+    [Header("Espectral Azul")]
+    public Color spectralTint = new Color(0.3f, 0.6f, 1f, 1f); // azul suave
+    public float tintIntensity = 0.35f; // quão forte é o azul
+    public float tintPulseSpeed = 1.4f;
+
+    [Header("Fade")]
+    public float fadeSpeed = 2f;
+    public float pulseSpeed = 1f;
+
+    private SpriteRenderer sr;
+    private float targetAlpha;
+    private float pulseTimer;
+    private float tintTimer;
+
+    private Color originalColor;
+
+    void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        ApplyGhostEffect();
+        originalColor = sr.color;
+
+        SetAlpha(minAlpha);
+        targetAlpha = minAlpha;
     }
 
-    public void ApplyGhostEffect()
+    void Update()
     {
-        if (sr == null) return;
+        // --- Pulsar de alpha ---
+        pulseTimer += Time.deltaTime * pulseSpeed;
+        float pulse = Mathf.Sin(pulseTimer) * 0.5f + 0.5f; // 0 a 1
+        targetAlpha = Mathf.Lerp(minAlpha, maxAlpha, pulse);
 
-        Color c = ghostColor;
-        c.a = alpha;
+        // Interpolação suave
+        float newAlpha = Mathf.Lerp(sr.color.a, targetAlpha, fadeSpeed * Time.deltaTime);
+
+        // --- Pulsar de azul espectral ---
+        tintTimer += Time.deltaTime * tintPulseSpeed;
+        float tintPulse = Mathf.Sin(tintTimer) * 0.5f + 0.5f; // 0–1
+        float tintAmount = tintPulse * tintIntensity;
+
+        // Combina a cor original com o azul spectral
+        Color finalColor = Color.Lerp(originalColor, spectralTint, tintAmount);
+        finalColor.a = newAlpha;
+
+        sr.color = finalColor;
+    }
+
+    private void SetAlpha(float a)
+    {
+        Color c = sr.color;
+        c.a = a;
         sr.color = c;
-
-        sr.sortingLayerName = sr.sortingLayerName;
-        sr.material = new Material(Shader.Find("Sprites/Default"));
     }
 }
