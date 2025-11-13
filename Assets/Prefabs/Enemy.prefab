@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3648275448728151083}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.72, y: -5.6, z: 0}
+  m_LocalPosition: {x: 4.53, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -7008412969330441016, guid: 4c1da5e7a59f0924399b6d5e4a8b0419, type: 3}
+  m_Sprite: {fileID: 3855011776331505034, guid: ad420708a8810c14986736b2262c8e3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,8 +182,8 @@ BoxCollider2D:
   m_Offset: {x: -0.0024571419, y: 0.3804899}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.46875, y: 0.9375}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.46875, y: 0.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -204,9 +204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  attackRange: 0.7
+  attackRange: 2
   playerDetectRange: 3.4
-  attackCooldown: 2
+  attackCooldown: 1
   attackLockTime: 0.4
   patrolPoints:
   - {fileID: 0}
@@ -237,8 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3568e0db80a60e04db6a91d8c9c6de97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
-  maxHealth: 5
+  currentHealth: 8
+  maxHealth: 8
 --- !u!114 &56410055188535334
 MonoBehaviour:
   m_ObjectHideFlags: 0

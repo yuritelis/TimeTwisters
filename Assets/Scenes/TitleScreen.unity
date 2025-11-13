@@ -3673,12 +3673,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fonteMus: {fileID: 1234851790}
   fonteSfx: {fileID: 47729255}
-  fonteVoz: {fileID: 0}
+  fonteVoz: {fileID: 521807016}
   menuBgm: {fileID: 8300000, guid: 57f23865b7affc34ea7d5b6762c3e3be, type: 3}
-  pasBgm: {fileID: 8300000, guid: 0f7b5bf579a93c64fb5aec28738aacb4, type: 3}
-  presBgm: {fileID: 8300000, guid: 5380d6b0be07e5d41aa98cbfdd2cbff1, type: 3}
-  futBgm: {fileID: 8300000, guid: 77ce89bb8a18ece47b919b80c9d1c255, type: 3}
-  bossBgm: {fileID: 0}
+  deathScreenBgm: {fileID: 8300000, guid: 95dded702dde24a4bab4dc368b3e3e82, type: 3}
+  pasBgm: {fileID: 8300000, guid: 57c9ddf1123190f43a6d3c08a7ae3af0, type: 3}
+  presBgm: {fileID: 8300000, guid: 8f2c12bca341dd64e8b03166640c7eca, type: 3}
+  futBgm: {fileID: 8300000, guid: 17e2a2ea9de81e0409f0f5258c5bbf7a, type: 3}
+  bossBgm: {fileID: 8300000, guid: eda96d5c125175743b319e494b2188ab, type: 3}
+  preBossBgm: {fileID: 8300000, guid: 6a49e0f52807fcf42b2f6e3a757a73dd, type: 3}
+  perseguicaoBgm: {fileID: 8300000, guid: f41a3448a542c5c4584783e2a062c874, type: 3}
+  vitrolaBgm: {fileID: 8300000, guid: fda78dfe22eecb84493bda260464a1fb, type: 3}
+  vitrolaDistortBgm: {fileID: 8300000, guid: 947d9974c995fe4409cd1288eaf76611, type: 3}
   botClick: {fileID: 8300000, guid: b2c29565da7da44439e1f5cf9ce130b2, type: 3}
 --- !u!4 &1791576176
 Transform:

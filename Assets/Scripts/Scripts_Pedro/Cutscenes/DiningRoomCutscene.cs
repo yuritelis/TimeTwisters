@@ -5,39 +5,30 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Collider2D))]
 public class DiningRoomCutscene : MonoBehaviour
 {
-    [Header("Referências")]
     public CameraSegue cam;
     public string playerTag = "Player";
 
-    [Header("Controle do Jogador")]
     public MonoBehaviour playerController;
     private Rigidbody2D playerRb;
 
-    [Header("Execução")]
     public bool playOnlyOnce = true;
     private bool played = false;
     private Collider2D triggerCollider;
     private string saveKey;
 
-    [Header("Inimigo (Vândalo)")]
     public GameObject enemyObject;
-    public float enemyAppearDelay = 0.7f;
-    public List<MonoBehaviour> enemyAIScripts = new List<MonoBehaviour>();
+    public List<MonoBehaviour> enemyAIScripts = new();
+    public float spawnDelay = 0.3f;
+    private bool enemySpawned = false;
 
-    [Header("Câmera / Foco")]
-    [Tooltip("Lista de pontos onde a câmera passará antes de voltar ao player.")]
-    public List<Transform> cameraFocusPoints = new List<Transform>();
-    [Tooltip("Tempo de transição entre pontos de câmera.")]
-    public float cameraMoveDuration = 1.2f;
-    [Tooltip("Tempo que a câmera permanece em cada ponto.")]
-    public float cameraHoldTime = 2f;
-
-    [Header("Diálogo da Cutscene")]
-    [Tooltip("Diálogo a ser reproduzido durante a cutscene.")]
     public Dialogo cutsceneDialogo;
 
-    [Header("Delay final antes de devolver controle")]
-    public float afterReturnDelay = 0.5f;
+    public float cameraMoveDuration = 0.9f;
+    public AnimationCurve cameraEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
+    public AudioClip musicaCutscene;
+
+    private Transform focusProxy;
 
     private void Awake()
     {
@@ -46,6 +37,9 @@ public class DiningRoomCutscene : MonoBehaviour
 
         if (cam == null)
             cam = Object.FindFirstObjectByType<CameraSegue>();
+
+        focusProxy = new GameObject($"{name}_CameraProxy").transform;
+        focusProxy.hideFlags = HideFlags.HideInHierarchy;
 
         saveKey = "Cutscene_" + gameObject.scene.name + "_" + gameObject.name;
         played = PlayerPrefs.GetInt(saveKey, 0) == 1;
@@ -66,22 +60,14 @@ public class DiningRoomCutscene : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        StartCoroutine(EnsureCameraReference());
-    }
-
-    private IEnumerator EnsureCameraReference()
-    {
-        yield return null;
-        if (cam == null)
-            cam = Object.FindFirstObjectByType<CameraSegue>();
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(playerTag)) return;
         if (played && playOnlyOnce) return;
+
+        // ************* AQUI ESTÁ A CORREÇÃO *************
+        cam = FindAnyObjectByType<CameraSegue>();
+        // *************************************************
 
         played = true;
         triggerCollider.enabled = false;
@@ -97,54 +83,31 @@ public class DiningRoomCutscene : MonoBehaviour
 
     private IEnumerator RunCutscene(GameObject player)
     {
-        yield return null;
-
-        // === Travar jogador ===
         if (playerController == null)
             playerController = player.GetComponent<PlayerController>();
-        playerRb = player.GetComponent<Rigidbody2D>();
 
+        playerRb = player.GetComponent<Rigidbody2D>();
         if (playerController != null) playerController.enabled = false;
         if (playerRb != null) playerRb.linearVelocity = Vector2.zero;
 
         DisableEnemyAI();
 
-        // === Sequência da câmera ===
-        if (cam != null && cameraFocusPoints.Count > 0)
+        DialogoManager.Instance.OnFalaIniciada = null;
+
+        DialogoManager.Instance.OnFalaIniciada += HandleFalaIniciada;
+        DialogoManager.Instance.StartDialogo(cutsceneDialogo);
+
+        while (DialogoManager.Instance.dialogoAtivoPublico)
+            yield return null;
+
+        DialogoManager.Instance.OnFalaIniciada -= HandleFalaIniciada;
+
+        cam.EndTemporaryFocus();
+
+        if (AudioManager.instance != null && musicaCutscene != null)
         {
-            foreach (Transform point in cameraFocusPoints)
-            {
-                cam.BeginTemporaryFocus(point);
-                yield return new WaitForSeconds(cameraMoveDuration);
-
-                yield return new WaitForSeconds(cameraHoldTime);
-            }
+            AudioManager.instance.TocarMusicaCutscene(musicaCutscene);
         }
-
-        // === Ativar inimigo ===
-        if (enemyObject != null)
-        {
-            yield return new WaitForSeconds(enemyAppearDelay);
-            enemyObject.SetActive(true);
-        }
-
-        // === Diálogo da cutscene ===
-        if (cutsceneDialogo != null && DialogoManager.Instance != null)
-        {
-            DialogoManager.Instance.StartDialogo(cutsceneDialogo);
-
-            while (DialogoManager.Instance.dialogoAtivoPublico)
-                yield return null;
-        }
-
-        // === Retornar câmera ===
-        if (cam != null)
-        {
-            cam.EndTemporaryFocus();
-        }
-
-        // === Retornar controle ===
-        yield return new WaitForSeconds(afterReturnDelay);
 
         if (playerController != null)
             playerController.enabled = true;
@@ -155,21 +118,61 @@ public class DiningRoomCutscene : MonoBehaviour
             gameObject.SetActive(false);
     }
 
+    private IEnumerator SmoothFocusTo(Vector3 pos)
+    {
+        Vector3 start = focusProxy.position;
+        Vector3 end = new(pos.x, pos.y, start.z);
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / cameraMoveDuration;
+            focusProxy.position = Vector3.Lerp(start, end, cameraEase.Evaluate(t));
+            yield return null;
+        }
+
+        focusProxy.position = end;
+    }
+
+    private void HandleFalaIniciada(DialogoFalas fala)
+    {
+        cam.BeginTemporaryFocus(focusProxy);
+
+        focusProxy.position = new Vector3(
+            Camera.main.transform.position.x,
+            Camera.main.transform.position.y,
+            0f
+        );
+
+        if (fala.focoCamera != null)
+            StartCoroutine(SmoothFocusTo(fala.focoCamera.position));
+
+        if (fala.spawnInimigoAqui && !enemySpawned)
+        {
+            enemySpawned = true;
+            StartCoroutine(SpawnEnemy());
+        }
+    }
+
+    private IEnumerator SpawnEnemy()
+    {
+        yield return new WaitForSeconds(spawnDelay);
+
+        if (enemyObject != null && !enemyObject.activeSelf)
+            enemyObject.SetActive(true);
+    }
+
     private void DisableEnemyAI()
     {
-        foreach (var script in enemyAIScripts)
-        {
-            if (script != null)
-                script.enabled = false;
-        }
+        foreach (var ai in enemyAIScripts)
+            if (ai != null)
+                ai.enabled = false;
     }
 
     private void EnableEnemyAI()
     {
-        foreach (var script in enemyAIScripts)
-        {
-            if (script != null)
-                script.enabled = true;
-        }
+        foreach (var ai in enemyAIScripts)
+            if (ai != null)
+                ai.enabled = true;
     }
 }
