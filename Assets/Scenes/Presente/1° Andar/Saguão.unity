@@ -696,12 +696,16 @@ MonoBehaviour:
       fala: ...
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "\xC9, t\xE1 pior do que eu pensei."
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -709,6 +713,8 @@ MonoBehaviour:
         orelha"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -716,12 +722,16 @@ MonoBehaviour:
         lugar desses sozinha?"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "Coragem. Ou loucura, n\xE9"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
   falaPadrao: 
 --- !u!225 &18293662
 CanvasGroup:
@@ -799,8 +809,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &86953956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1465,8 +1473,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &360615203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1559,7 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a32fa364ca5bd44b4b617368add5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressaoNecessaria: 1
+  progressaoNecessaria: 3
   recuoDistancia: 1
   recuoVelocidade: 3
   dialogoBloqueio:
@@ -1570,6 +1576,8 @@ MonoBehaviour:
       fala: Acho que eu deveria terminar de verificar o primeiro andar antes...
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
   falaPadrao: '
 
 '
@@ -1698,8 +1706,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &507990340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2781,8 +2787,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3983,8 +3987,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &1630705110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7311,12 +7313,16 @@ MonoBehaviour:
       fala: ...
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "\xC9, t\xE1 pior do que eu pensei."
       focoCamera: {fileID: 1201330636}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -7324,6 +7330,8 @@ MonoBehaviour:
         orelha"
       focoCamera: {fileID: 1366726079}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -7331,12 +7339,16 @@ MonoBehaviour:
         lugar desses sozinha?"
       focoCamera: {fileID: 1970241895}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "Coragem. Ou loucura, n\xE9."
       focoCamera: {fileID: 1780720149}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -7344,6 +7356,8 @@ MonoBehaviour:
         presta."
       focoCamera: {fileID: 357138829}
       spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
   dialogoDepoisDaCamera:
     dialogoFalas: []
   cameraMoveDuration: 0.9
