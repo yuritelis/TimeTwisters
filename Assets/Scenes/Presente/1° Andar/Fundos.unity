@@ -1786,6 +1786,7 @@ GameObject:
   - component: {fileID: 221325080}
   - component: {fileID: 221325081}
   - component: {fileID: 221325082}
+  - component: {fileID: 221325083}
   m_Layer: 9
   m_Name: Fundos (Esq) > Jantar (Esq)
   m_TagString: SanityAffected
@@ -2079,6 +2080,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &221325083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221325075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5319c94243936884c9274f6454ab89c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableCombat: 1
+  lockMovement: 0
+  dialogoAntes:
+    dialogoFalas: []
 --- !u!1 &223399647
 GameObject:
   m_ObjectHideFlags: 0
@@ -5348,7 +5365,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 1
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -5537,10 +5554,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 8384475806198998459, guid: c6792d2cd3049394aab66fe38895261c, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 8384475806198998459, guid: c6792d2cd3049394aab66fe38895261c, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -8548967981692267428, guid: fe1046c916ae58a489faac61b240c702, type: 3}
   - m_RefCount: 10
@@ -7482,7 +7499,7 @@ PrefabInstance:
       objectReference: {fileID: 221325082}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.808743
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
