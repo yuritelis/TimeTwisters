@@ -1,6 +1,4 @@
-using System.Xml.Linq;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy_Movement : MonoBehaviour
 {
@@ -27,41 +25,50 @@ public class Enemy_Movement : MonoBehaviour
     public LayerMask playerLayer;
 
     [Header("Campo de Visão")]
-    [Range(0f, 180f)]
-    public float visionAngle = 45f;
+    [Range(0f, 180f)] public float visionAngle = 45f;
     public float chaseVisionRadius = 6f;
     public LayerMask visionBlockMask;
 
     private float attackCooldownTimer = 0f;
     private Rigidbody2D rb;
-    private SpriteRenderer sr;
+    private Animator anim;
     public Transform player;
 
     private EnemyState enemyState;
     private bool canAttack = true;
-
     public Vector2 facingDirection = Vector2.left;
 
-    private EnemyPathfinder pathfinder;
     private float initialAttackDist;
     private float initialDetectDist;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         initialAttackDist = Vector2.Distance(transform.position, attackPoint.position);
         initialDetectDist = Vector2.Distance(transform.position, detectionPoint.position);
 
         ApplyPointRotation();
         ChangeState(EnemyState.Patrolling);
-
-        pathfinder = GetComponent<EnemyPathfinder>();
     }
 
     private void Update()
     {
+        // ---------------------------
+        // MOVIMENTO INTENCIONAL PARA ANIMAÇÃO
+        // ---------------------------
+        Vector2 movementIntent = rb.linearVelocity;
+
+        if (movementIntent.sqrMagnitude < 0.01f)
+            movementIntent = facingDirection;
+
+        anim.SetBool("isMoving", movementIntent.magnitude > 0.05f);
+
+        // ---------------------------
+        // Timers
+        // ---------------------------
         if (attackCooldownTimer > 0)
         {
             attackCooldownTimer -= Time.deltaTime;
@@ -72,6 +79,9 @@ public class Enemy_Movement : MonoBehaviour
         if (attackLockTimer > 0)
             attackLockTimer -= Time.deltaTime;
 
+        // ---------------------------
+        // Lógica de estado
+        // ---------------------------
         CheckForPlayer();
 
         switch (enemyState)
@@ -80,6 +90,7 @@ public class Enemy_Movement : MonoBehaviour
                 if (player != null)
                 {
                     float distance = Vector2.Distance(attackPoint.position, player.position);
+
                     if (distance > attackRange)
                         Chase();
                     else
@@ -89,9 +100,11 @@ public class Enemy_Movement : MonoBehaviour
 
             case EnemyState.Attacking:
                 rb.linearVelocity = Vector2.zero;
+
                 if (player != null)
                 {
                     float distance = Vector2.Distance(attackPoint.position, player.position);
+
                     if (distance > attackRange && attackLockTimer <= 0)
                         ChangeState(EnemyState.Chasing);
                 }
@@ -106,6 +119,7 @@ public class Enemy_Movement : MonoBehaviour
                 break;
         }
     }
+
 
     private void CheckForPlayer()
     {
@@ -123,12 +137,19 @@ public class Enemy_Movement : MonoBehaviour
             Vector2 dirToPlayer = ((Vector2)hit.transform.position - (Vector2)detectionPoint.position).normalized;
             float distToPlayer = Vector2.Distance(detectionPoint.position, hit.transform.position);
 
+            // Se não está perseguindo ainda, precisa respeitar o cone de visão
             if (enemyState != EnemyState.Chasing)
             {
                 float angle = Vector2.Angle(facingDirection, dirToPlayer);
                 if (angle > currentVisionAngle) continue;
 
-                RaycastHit2D blocker = Physics2D.Raycast(detectionPoint.position, dirToPlayer, distToPlayer, visionBlockMask);
+                RaycastHit2D blocker = Physics2D.Raycast(
+                    detectionPoint.position,
+                    dirToPlayer,
+                    distToPlayer,
+                    visionBlockMask
+                );
+
                 if (blocker.collider != null)
                     continue;
             }
@@ -168,6 +189,7 @@ public class Enemy_Movement : MonoBehaviour
                     for (int i = 0; i < patrolPoints.Length; i++)
                     {
                         if (patrolPoints[i] == null) continue;
+
                         float dist = Vector2.Distance(transform.position, patrolPoints[i].position);
                         if (dist < closestDistance)
                         {
@@ -184,22 +206,14 @@ public class Enemy_Movement : MonoBehaviour
         }
     }
 
+    // 🔥 PERSEGUIÇÃO sem NavMesh
     private void Chase()
     {
         if (player == null) return;
 
-        Vector2 target = player.position;
-
-        if (pathfinder != null && NavMesh.SamplePosition(target, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
-        {
-            pathfinder.MoveTo(hit.position);
-        }
-        else
-        {
-            Vector2 direction = (player.position - transform.position).normalized;
-            UpdateFacingDirection(direction);
-            rb.linearVelocity = direction * speed;
-        }
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.linearVelocity = direction * speed;
+        UpdateFacingDirection(direction);
     }
 
     private void Patrol()
@@ -212,10 +226,12 @@ public class Enemy_Movement : MonoBehaviour
 
         Transform target = patrolPoints[currentPatrolIndex];
         Vector2 direction = (target.position - transform.position).normalized;
-        UpdateFacingDirection(direction);
+
         rb.linearVelocity = direction * speed;
+        UpdateFacingDirection(direction);
 
         float distance = Vector2.Distance(transform.position, target.position);
+
         if (distance < 0.2f)
         {
             rb.linearVelocity = Vector2.zero;
@@ -231,10 +247,7 @@ public class Enemy_Movement : MonoBehaviour
                         isReversing = true;
                         currentPatrolIndex--;
                     }
-                    else
-                    {
-                        currentPatrolIndex++;
-                    }
+                    else currentPatrolIndex++;
                 }
                 else
                 {
@@ -243,32 +256,32 @@ public class Enemy_Movement : MonoBehaviour
                         isReversing = false;
                         currentPatrolIndex++;
                     }
-                    else
-                    {
-                        currentPatrolIndex--;
-                    }
+                    else currentPatrolIndex--;
                 }
             }
-            else
-            {
-                patrolWaitTimer -= Time.deltaTime;
-            }
+            else patrolWaitTimer -= Time.deltaTime;
         }
     }
+
 
     private void UpdateFacingDirection(Vector2 direction)
     {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
+        const float deadZone = 0.20f;
+
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) + deadZone)
             facingDirection = direction.x > 0 ? Vector2.right : Vector2.left;
-        }
-        else
-        {
+
+        else if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x) + deadZone)
             facingDirection = direction.y > 0 ? Vector2.up : Vector2.down;
-        }
+
+        else return;
 
         ApplyPointRotation();
+
+        anim.SetFloat("moveX", facingDirection.x);
+        anim.SetFloat("moveY", facingDirection.y);
     }
+
 
     private void ApplyPointRotation()
     {
@@ -304,24 +317,28 @@ public class Enemy_Movement : MonoBehaviour
 
         attackPoint.localPosition = offset * initialAttackDist;
         detectionPoint.localPosition = offset * initialDetectDist;
-
-        if (sr != null)
-            sr.flipX = (facingDirection == Vector2.left);
     }
 
+
+    // ----------------------------------------------------------------------------------
+    // 🔥 SISTEMA DE ATAQUE COM isAttacking
+    // ----------------------------------------------------------------------------------
     public void Attack()
     {
         GetComponent<EnemyCombat>()?.Attack();
     }
 
-    public void EndAttack()
+    public void EndAttack()   // Animation Event
     {
+        anim.SetBool("isAttacking", false);
+
         attackCooldownTimer = attackCooldown;
         canAttack = false;
 
         if (player != null)
         {
             float distance = Vector2.Distance(attackPoint.position, player.position);
+
             if (distance <= attackRange)
             {
                 ChangeState(EnemyState.Idle);
@@ -333,44 +350,64 @@ public class Enemy_Movement : MonoBehaviour
         ChangeState(EnemyState.Chasing);
     }
 
-    public void LockAttack()
-    {
-        attackLockTimer = attackLockTime;
-    }
-
     private void ChangeState(EnemyState newState)
     {
         enemyState = newState;
+
+        if (newState == EnemyState.Attacking)
+        {
+            anim.SetBool("isAttacking", true);
+            anim.SetTrigger("Attack");
+        }
     }
 
+    public void ReceiveStealthKill()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = false;
+
+        transform.SetParent(null);
+        Destroy(gameObject, 0.5f);
+    }
+
+    // ----------------------------------------------------------------------------------
+    // 🔥 GIZMOS — SEMPRE MOSTRA CHASE RADIUS
+    // ----------------------------------------------------------------------------------
     private void OnDrawGizmosSelected()
     {
         if (detectionPoint != null)
         {
-            if (enemyState == EnemyState.Chasing)
+            // ALWAYS SHOW chase radius
+            Gizmos.color = new Color(1f, 0.5f, 0f, 0.4f);
+            Gizmos.DrawWireSphere(detectionPoint.position, chaseVisionRadius);
+
+            // Normal vision cone
+            Gizmos.color = new Color(1f, 0f, 0f, 0.9f);
+
+            Vector2 forward = facingDirection == Vector2.zero ? Vector2.right : facingDirection;
+            Vector3 leftDir = Quaternion.Euler(0, 0, visionAngle) * (Vector3)forward;
+            Vector3 rightDir = Quaternion.Euler(0, 0, -visionAngle) * (Vector3)forward;
+
+            Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + leftDir * playerDetectRange);
+            Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + rightDir * playerDetectRange);
+
+            int steps = 24;
+            float start = -visionAngle;
+            float stepAngle = (visionAngle * 2f) / steps;
+
+            Vector3 prev = detectionPoint.position +
+                           (Quaternion.Euler(0, 0, start) * (Vector3)forward) * playerDetectRange;
+
+            for (int i = 1; i <= steps; i++)
             {
-                Gizmos.color = new Color(1f, 0.5f, 0f, 0.4f);
-                Gizmos.DrawWireSphere(detectionPoint.position, chaseVisionRadius);
-            }
-            else
-            {
-                Gizmos.color = new Color(1f, 0f, 0f, 0.9f);
-                Vector2 forward = facingDirection == Vector2.zero ? Vector2.right : facingDirection;
-                Vector3 leftDir = Quaternion.Euler(0, 0, visionAngle) * (Vector3)forward;
-                Vector3 rightDir = Quaternion.Euler(0, 0, -visionAngle) * (Vector3)forward;
-                Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + leftDir * playerDetectRange);
-                Gizmos.DrawLine(detectionPoint.position, detectionPoint.position + rightDir * playerDetectRange);
-                int steps = 24;
-                float start = -visionAngle;
-                float stepAngle = (visionAngle * 2f) / steps;
-                Vector3 prev = detectionPoint.position + (Quaternion.Euler(0, 0, start) * (Vector3)forward) * playerDetectRange;
-                for (int i = 1; i <= steps; i++)
-                {
-                    float a = start + stepAngle * i;
-                    Vector3 next = detectionPoint.position + (Quaternion.Euler(0, 0, a) * (Vector3)forward) * playerDetectRange;
-                    Gizmos.DrawLine(prev, next);
-                    prev = next;
-                }
+                float a = start + stepAngle * i;
+
+                Vector3 next = detectionPoint.position +
+                               (Quaternion.Euler(0, 0, a) * (Vector3)forward) * playerDetectRange;
+
+                Gizmos.DrawLine(prev, next);
+                prev = next;
             }
         }
 
@@ -392,18 +429,6 @@ public class Enemy_Movement : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)facingDirection * 1f);
-    }
-
-    public void ReceiveStealthKill()
-    {
-        Debug.Log($"☠️ {name} eliminado por stealth.");
-
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null)
-            col.enabled = false;
-
-        transform.SetParent(null);
-        Destroy(this.gameObject, 0.5f);
     }
 }
 

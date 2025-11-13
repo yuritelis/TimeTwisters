@@ -5888,7 +5888,7 @@ MonoBehaviour:
   spawnPointName: Maid > Fundos
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 0
+  etapaNecessaria: 2
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -5896,11 +5896,20 @@ MonoBehaviour:
     dialogoFalas: []
   falasAleatorias:
   - nome: Julie
-    retrato: {fileID: 0}
-    fala: "Est\xE1 trancada..."
+    retrato: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+    fala: "\xD3timo, esqueceram de entregar TODAS as chaves da minha propriedade"
+  - nome: Julie
+    retrato: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+    fala: "AI! Entrou uma Farpa na minha m\xE3o!"
+  - nome: Julie
+    retrato: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+    fala: "*A Ma\xE7aneta se move, mas a porta n\xE3o.*"
   - nome: 
     retrato: {fileID: 0}
-    fala: Nada acontece...
+    fala: "*Empurr\xF5es e Chutes n\xE3o movem a porta*"
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "A Ma\xE7aneta \xE9 movida inquietamente"
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7066,7 +7075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a32fa364ca5bd44b4b617368add5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressaoNecessaria: 1
+  progressaoNecessaria: 3
   recuoDistancia: 1
   recuoVelocidade: 3
   dialogoBloqueio:

@@ -617,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2268,9 +2268,94 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Fundos
+  sceneAsset: {fileID: 0}
   spawnPointName: Fundos > Maid
   requireInput: 1
   interactKey: 101
+  etapaNecessaria: 0
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
+    dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+--- !u!1 &1104393798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3648275448728151083, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+  m_PrefabInstance: {fileID: 1487066912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1104393808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104393798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4bbd58e5062b648a18c63b259b6771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apenasUmaVez: 1
+  detectarDesativacao: 0
+--- !u!114 &1104393809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104393798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2e03df6aad87546b54ddaee1690eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyID: Vandalo_2
+--- !u!114 &1104393810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104393798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2994d0cb6b43e47b7c033faf3491e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogoAoMorrer:
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "mmmm-mmm\u2026 mmm-mmm\u2026"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: ...?
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "M\xFAsica? Vindo de cima?"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+  apenasUmaVez: 1
 --- !u!1 &1139952198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,6 +3059,92 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2052512450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1487066912
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 56410055188535334, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: attackRange
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648275448728151083, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191342525927670915, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1718246156}
+    - target: {fileID: 5191342525927670915, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: attackRange
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191342525927670915, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: visionAngle
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191342525927670915, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: chaseVisionRadius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234581481659161885, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3648275448728151083, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1104393809}
+    - targetCorrespondingSourceObject: {fileID: 3648275448728151083, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1104393808}
+    - targetCorrespondingSourceObject: {fileID: 3648275448728151083, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1104393810}
+  m_SourcePrefab: {fileID: 100100000, guid: 8e1039ab24b0a184eb76728f776edc85, type: 3}
 --- !u!1 &1502765853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,6 +3455,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2052512450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1718246156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+  m_PrefabInstance: {fileID: 580126608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1733318425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5682,3 +5858,4 @@ SceneRoots:
   - {fileID: 580126608}
   - {fileID: 1962819735}
   - {fileID: 2052512450}
+  - {fileID: 1487066912}
