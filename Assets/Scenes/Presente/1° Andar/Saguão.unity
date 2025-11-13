@@ -694,24 +694,34 @@ MonoBehaviour:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: ...
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "\xC9, t\xE1 pior do que eu pensei."
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "*Atchim*. Isso aqui ainda \xE9 melhor do que ouvir o locador na minha
         orelha"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "T\xE1 tudo caindo aos peda\xE7os, a v\xE9ia estava mesmo morando num
         lugar desses sozinha?"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "Coragem. Ou loucura, n\xE9"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
   falaPadrao: 
 --- !u!225 &18293662
 CanvasGroup:
@@ -777,8 +787,20 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
-  dialogoPortaTrancada:
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
     dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &86953956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1259,9 +1281,13 @@ PrefabInstance:
       propertyPath: velFala
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4413882900394647242, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: dialogoAutoPlay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1427,8 +1453,20 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
-  dialogoPortaTrancada:
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
     dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &360615203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1530,6 +1568,8 @@ MonoBehaviour:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: Acho que eu deveria terminar de verificar o primeiro andar antes...
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
   falaPadrao: '
 
 '
@@ -1646,8 +1686,20 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
-  dialogoPortaTrancada:
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
     dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &507990340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2717,8 +2769,20 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
-  dialogoPortaTrancada:
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
     dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2806,7 +2870,7 @@ Transform:
   m_GameObject: {fileID: 1201330635}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.61, y: 0.18, z: -0.013195952}
+  m_LocalPosition: {x: -8.62, y: 0.18, z: -0.013195952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3581,7 +3645,7 @@ Transform:
   m_GameObject: {fileID: 1366726078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2, y: 6.78, z: -0.013195952}
+  m_LocalPosition: {x: -5.97, y: 6.78, z: -0.013195952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3907,8 +3971,20 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
-  dialogoPortaTrancada:
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
     dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
+  avancaProgressoAposDialogo: 0
+  progressoAposDialogo: 1
 --- !u!61 &1630705110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7046,7 +7122,7 @@ Transform:
   m_GameObject: {fileID: 1780720148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.54, y: -0.51, z: -0.013195952}
+  m_LocalPosition: {x: 7.37, y: -0.51, z: -0.013195952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7227,24 +7303,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraSegue: {fileID: 1768508572}
   player: {fileID: 357138829}
-  cameraPoints:
-  - {fileID: 1201330636}
-  - {fileID: 1366726079}
-  - {fileID: 0}
-  cameraMoveSpeed: 2
-  holdTime: 2
   primeiroDialogo:
     dialogoFalas:
     - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: 
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: ...
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
     - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: 
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "\xC9, t\xE1 pior do que eu pensei."
+      focoCamera: {fileID: 1201330636}
+      spawnInimigoAqui: 0
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "*Atchim*. Isso aqui ainda \xE9 melhor do que ouvir o locador na minha
+        orelha"
+      focoCamera: {fileID: 1366726079}
+      spawnInimigoAqui: 0
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "T\xE1 tudo caindo aos peda\xE7os, a v\xE9ia estava mesmo morando num
+        lugar desses sozinha?"
+      focoCamera: {fileID: 1970241895}
+      spawnInimigoAqui: 0
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "Coragem. Ou loucura, n\xE9."
+      focoCamera: {fileID: 1780720149}
+      spawnInimigoAqui: 0
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "Bom, agora \xE9 dar uma olhada pra ver se algum lugar desse trapo v\xE9io
+        presta."
+      focoCamera: {fileID: 357138829}
+      spawnInimigoAqui: 0
   dialogoDepoisDaCamera:
     dialogoFalas: []
+  cameraMoveDuration: 0.9
+  cameraEase:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1813403700
 Transform:
   m_ObjectHideFlags: 0
@@ -7411,7 +7537,7 @@ Transform:
   m_GameObject: {fileID: 1970241894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1, y: 6.14, z: -0.013195952}
+  m_LocalPosition: {x: 4.4, y: 6.14, z: -0.013195952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

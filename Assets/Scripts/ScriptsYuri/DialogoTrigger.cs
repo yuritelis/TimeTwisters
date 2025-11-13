@@ -1,4 +1,4 @@
-using NUnit.Framework;
+ï»¿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -61,13 +61,17 @@ public class DialogoFalas
 {
     public PersoInfos personagem;
 
-    [TextArea(3, 10)]
+    [TextArea(2, 4)]
     public string fala;
 
-    [Header("Som opcional após esta fala")]
-    [Tooltip("Se preenchido, será reproduzido logo após esta fala terminar.")]
-    public AudioClip somPosFala;
+    public Transform focoCamera;
+    public bool spawnInimigoAqui;
+
+    public bool avancaProgressoAqui = false;
+
+    public AudioClip sfxAposFala;
 }
+
 
 
 [System.Serializable]

@@ -1069,8 +1069,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &151707372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1402,8 +1400,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &192557448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1821,35 +1817,51 @@ MonoBehaviour:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "Pelo menos esse c\xF4modo parece n\xE3o estar trancado, pra variar."
-      somPosFala: {fileID: 0}
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "S\xF3 preciso...*Esfor\xE7o*...tirar esse vergalh\xE3o do caminho!"
-      somPosFala: {fileID: 8300000, guid: 6baf1e95516061b409d86944d13e576e, type: 3}
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: 
         portrait: {fileID: 0}
       fala: "A haste de a\xE7o se desloca da parede caindo no ch\xE3o"
-      somPosFala: {fileID: 0}
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 8300000, guid: 6baf1e95516061b409d86944d13e576e, type: 3}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: ...
-      somPosFala: {fileID: 0}
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "Melhor eu levar isso at\xE9 encontrar um lixo"
-      somPosFala: {fileID: 0}
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: 
         portrait: {fileID: 0}
       fala: "*Voc\xEA recebeu \u201CVERGALH\xC3O"
-      somPosFala: {fileID: 0}
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 1
+      sfxAposFala: {fileID: 0}
   falasAleatorias: []
-  avancaProgressoAposDialogo: 1
-  progressoAposDialogo: 1
 --- !u!82 &221325082
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1863,7 +1875,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2421,8 +2433,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!1 &482693880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,8 +2776,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: "A Ma\xE7aneta \xE9 movida inquietamente"
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!1 &550974675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,8 +2895,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &550974679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5895,8 +5901,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6399,8 +6403,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &1223359444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6819,8 +6821,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &1408842613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6972,7 +6972,7 @@ PrefabInstance:
       objectReference: {fileID: 221325082}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7030,7 +7030,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -13.15
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3648573157780923713, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7074,7 +7075,10 @@ MonoBehaviour:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: Acho que eu deveria terminar de verificar o primeiro andar antes...
-      somPosFala: {fileID: 0}
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
   falaPadrao: '
 
 '
@@ -12019,8 +12023,6 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
-  avancaProgressoAposDialogo: 0
-  progressoAposDialogo: 1
 --- !u!61 &1896157799
 BoxCollider2D:
   m_ObjectHideFlags: 0

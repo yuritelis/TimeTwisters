@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class DialogoManager : MonoBehaviour
 {
-    [Header("Som de Efeitos (opcional)")]
-    [Tooltip("Reprodutor para tocar efeitos sonoros durante falas específicas.")]
-    public AudioSource sfxSource;
-
     public static DialogoManager Instance;
 
     private Dialogo dialogoData;
@@ -22,16 +18,18 @@ public class DialogoManager : MonoBehaviour
     public DialogoEscolhaUI escolhaUI;
 
     [Header("Configuração")]
-    [Tooltip("Velocidade da digitação (quanto maior, mais rápido).")]
     [Range(1f, 50f)] public float velFala = 30f;
 
     private int dialogoIndex;
     private bool isTyping;
     private bool isDialogoAtivo;
-    [HideInInspector] public bool dialogoAtivoPublico;
+    public bool dialogoAtivoPublico;
 
-    [Header("Referência ao Player")]
+    [Header("Player")]
     public GameObject player;
+
+    // 🔥 Evento para cutscenes (câmera / spawn etc)
+    public System.Action<DialogoFalas> OnFalaIniciada;
 
     private void Awake()
     {
@@ -40,24 +38,24 @@ public class DialogoManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else Destroy(gameObject);
     }
 
+    // ==========================================================
+    // INICIAR DIÁLOGO
+    // ==========================================================
     public void StartDialogo(Dialogo dialogo)
     {
         if (dialogo == null || dialogo.dialogoFalas.Count == 0)
         {
-            Debug.LogError("⚠️ Dados do diálogo estão vazios ou nulos!");
+            Debug.LogError("⚠️ Dados do diálogo estão vazios!");
             return;
         }
 
-        isDialogoAtivo = true;
-        dialogoAtivoPublico = true;
         dialogoData = dialogo;
         dialogoIndex = 0;
+        isDialogoAtivo = true;
+        dialogoAtivoPublico = true;
 
         TravarJogador(true);
 
@@ -67,19 +65,25 @@ public class DialogoManager : MonoBehaviour
         ProxLinha();
     }
 
+    // ==========================================================
+    // PRÓXIMA LINHA
+    // ==========================================================
     public void ProxLinha()
     {
         if (!isDialogoAtivo || dialogoData == null) return;
 
+        // Skip da digitação se o jogador apertar E
         if (isTyping)
         {
             StopAllCoroutines();
             isTyping = false;
+
             dialogoTxt.text = dialogoData.dialogoFalas[dialogoIndex].fala;
             dialogoIndex++;
             return;
         }
 
+        // Se finalizou
         if (dialogoIndex >= dialogoData.dialogoFalas.Count)
         {
             FimDialogo();
@@ -88,35 +92,42 @@ public class DialogoManager : MonoBehaviour
 
         var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
 
-        if (personagemNome != null)
+        // 🔥 Evento cutscene (câmera etc)
+        OnFalaIniciada?.Invoke(falaAtual);
+
+        // ⭐ AVANÇA PROGRESSO (somente se marcado na fala!)
+        if (falaAtual.avancaProgressoAqui)
         {
-            if (!string.IsNullOrEmpty(falaAtual.personagem.nome))
-                personagemNome.text = falaAtual.personagem.nome;
-            else
-                personagemNome.text = "";
+            if (StoryProgressManager.instance != null)
+            {
+                StoryProgressManager.instance.AvancarEtapa();
+                Debug.Log("⭐ Progresso avançado pela fala marcada!");
+            }
         }
 
-        if (personagemIcon != null)
+        // 🔊 SFX DEPOIS DA FALA (se configurado)
+        if (falaAtual.sfxAposFala != null)
         {
-            if (falaAtual.personagem.portrait != null)
-            {
-                personagemIcon.sprite = falaAtual.personagem.portrait;
-                personagemIcon.gameObject.SetActive(true);
-            }
-            else
-            {
-                personagemIcon.gameObject.SetActive(false);
-            }
+            StartCoroutine(PlaySfxDepois(falaAtual.sfxAposFala));
         }
+
+        // Nome da personagem
+        personagemNome.text = falaAtual.personagem.nome ?? "";
+
+        // Retrato da personagem
+        if (falaAtual.personagem.portrait != null)
+        {
+            personagemIcon.sprite = falaAtual.personagem.portrait;
+            personagemIcon.gameObject.SetActive(true);
+        }
+        else personagemIcon.gameObject.SetActive(false);
 
         StartCoroutine(TypeLine(falaAtual.fala));
-
-        if (falaAtual.fala.Contains("Deseja pegá-lo?") && escolhaUI != null)
-        {
-            StartCoroutine(EsperarParaMostrarEscolha());
-        }
     }
 
+    // ==========================================================
+    // DIGITAÇÃO
+    // ==========================================================
     private IEnumerator TypeLine(string fala)
     {
         isTyping = true;
@@ -124,110 +135,87 @@ public class DialogoManager : MonoBehaviour
 
         float delay = 1f / velFala;
 
-        foreach (char letter in fala.ToCharArray())
+        foreach (char c in fala)
         {
-            dialogoTxt.text += letter;
-            if (AudioManager.instance != null)
-                AudioManager.instance.PlaySFX(PersoInfos.somVoz);
-
+            dialogoTxt.text += c;
             yield return new WaitForSeconds(delay);
         }
 
         isTyping = false;
-
-        var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
-        if (falaAtual.somPosFala != null)
-        {
-            if (AudioManager.instance != null)
-                AudioManager.instance.PlaySFX(falaAtual.somPosFala);
-            else
-                AudioSource.PlayClipAtPoint(falaAtual.somPosFala, Camera.main.transform.position);
-        }
-
-        isTyping = false;
         dialogoIndex++;
-
-        if (dialogoData.dialogoFalas[dialogoIndex - 1].somPosFala != null)
-        {
-            PlayDialogueSFX(dialogoData.dialogoFalas[dialogoIndex - 1].somPosFala);
-        }
     }
 
-
-    private IEnumerator EsperarParaMostrarEscolha()
-    {
-        yield return new WaitUntil(() => !isTyping);
-        escolhaUI.Mostrar(OnEscolhaVergalhao);
-    }
-
-    private void OnEscolhaVergalhao(bool pegou)
-    {
-        if (pegou)
-        {
-            Debug.Log("✅ Jogador escolheu pegar o vergalhão!");
-
-            var combate = player?.GetComponent<Player_Combat>();
-            if (combate != null) combate.enabled = true;
-
-            StoryProgressManager.instance?.AvancarEtapa();
-        }
-        else
-        {
-            Debug.Log("🚫 Jogador recusou o vergalhão.");
-        }
-
-        FimDialogo();
-    }
-
+    // ==========================================================
+    // AVANÇO PELO TECLADO
+    // ==========================================================
     private void Update()
     {
-        if (isDialogoAtivo && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)))
+        if (isDialogoAtivo &&
+            (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)))
         {
             ProxLinha();
         }
     }
 
+    // ==========================================================
+    // FINALIZAR
+    // ==========================================================
     public void FimDialogo()
     {
         StopAllCoroutines();
+        isTyping = false;
         isDialogoAtivo = false;
         dialogoAtivoPublico = false;
-        isTyping = false;
-        fimFala = true;
 
-        if (dialogoTxt != null) dialogoTxt.text = "";
-        if (dialogoPanel != null) dialogoPanel.SetActive(false);
+        dialogoPanel.SetActive(false);
         if (sanidadeBar != null) sanidadeBar.SetActive(true);
 
+        dialogoTxt.text = "";
+
         TravarJogador(false);
-        Debug.Log("✅ Diálogo finalizado.");
     }
 
+    // ==========================================================
+    // AUX: TRAVAR PLAYER
+    // ==========================================================
     private void TravarJogador(bool estado)
     {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
-        var controller = player.GetComponent<PlayerController>();
-        if (controller != null)
-            controller.canMove = !estado;
+        var con = player.GetComponent<PlayerController>();
+        var comb = player.GetComponent<Player_Combat>();
 
-        var combat = player.GetComponent<Player_Combat>();
-        if (combat != null)
-            combat.enabled = !estado;
-
-        Debug.Log(estado ? "🎬 Player travado durante diálogo." : "🎮 Player liberado.");
+        if (con != null) con.canMove = !estado;
+        if (comb != null) comb.enabled = !estado;
     }
 
-    public void PlayDialogueSFX(AudioClip clip)
+    // ==========================================================
+    // AUX: TOCAR SFX DEPOIS DA FALA
+    // ==========================================================
+    private IEnumerator PlaySfxDepois(AudioClip clip)
     {
-        if (clip == null) return;
+        // espera a fala terminar
+        while (isTyping) yield return null;
 
-        if (sfxSource != null)
-            sfxSource.PlayOneShot(clip);
+        yield return new WaitForSeconds(0.05f);
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlaySFX(clip);
         else
             AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
 
+    // ==========================================================
+    // ACESSORES
+    // ==========================================================
+    public int GetCurrentIndex() => dialogoIndex;
+
+    public string GetCurrentSpeakerName()
+    {
+        if (dialogoData == null) return "";
+        int i = Mathf.Clamp(dialogoIndex, 0, dialogoData.dialogoFalas.Count - 1);
+        return dialogoData.dialogoFalas[i].personagem.nome ?? "";
+    }
 }

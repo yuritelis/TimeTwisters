@@ -15,7 +15,7 @@ public class HotbarController : MonoBehaviour
     private ItemDictionary itemDictionary;
 
     private Key[] hotbarKeys;
-    private int selectedSlotIndex = -1;
+    // private int selectedSlotIndex = -1;
 
     void Awake()
     {

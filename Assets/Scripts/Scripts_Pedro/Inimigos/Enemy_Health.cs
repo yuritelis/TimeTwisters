@@ -8,7 +8,6 @@ public class Enemy_Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        
     }
 
     public void ChangeHealth(int amount)
@@ -22,12 +21,8 @@ public class Enemy_Health : MonoBehaviour
         else if (currentHealth <= 0)
         {
             GetComponent<EnemyPersistence>()?.MarkAsDead();
+            GetComponent<EnemyDeathDialogTrigger>()?.OnEnemyDefeated();
             Destroy(gameObject);
         }
-    }
-
-    void Update()
-    {
-
     }
 }

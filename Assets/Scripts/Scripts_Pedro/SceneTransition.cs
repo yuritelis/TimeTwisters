@@ -43,19 +43,11 @@ public class SceneTransition : MonoBehaviour
     public Dialogo dialogoBloqueado;
 
     [Header("Falas Aleatórias (simples, opcionais)")]
-    [Tooltip("Falas curtas que podem ter nome e retrato (serão sorteadas se o diálogo estiver vazio).")]
     public List<FalaSimples> falasAleatorias = new List<FalaSimples>()
     {
         new FalaSimples { nome = "Julie", fala = "Está trancada..." },
-        new FalaSimples { nome = "", fala = "Nada acontece..." }
+        new FalaSimples { nome = "",      fala = "Nada acontece..." }
     };
-
-    [Header("Progresso Após Diálogo (opcional)")]
-    [Tooltip("Se verdadeiro, a progressão é avançada após o diálogo de bloqueio.")]
-    public bool avancaProgressoAposDialogo = false;
-
-    [Tooltip("Quantidade de progresso a adicionar após o diálogo (padrão = 1).")]
-    public int progressoAposDialogo = 1;
 
     private bool playerInside = false;
     private bool transicionando = false;
@@ -115,8 +107,10 @@ public class SceneTransition : MonoBehaviour
 
             Dialogo dlg = null;
 
-            // 💬 Define qual diálogo será usado
-            if (dialogoBloqueado != null && dialogoBloqueado.dialogoFalas != null && dialogoBloqueado.dialogoFalas.Count > 0)
+            // 💬 Se há diálogo bloqueado, ele é usado
+            if (dialogoBloqueado != null &&
+                dialogoBloqueado.dialogoFalas != null &&
+                dialogoBloqueado.dialogoFalas.Count > 0)
             {
                 dlg = dialogoBloqueado;
             }
@@ -125,44 +119,37 @@ public class SceneTransition : MonoBehaviour
                 dlg = CriarDialogoDeFala(EscolherFalaAleatoria());
             }
 
-            // 🎬 Executa o diálogo, se houver
+            // 🎬 Roda o diálogo, mas NÃO avança progressão automaticamente
             if (dlg != null && DialogoManager.Instance != null)
             {
                 TravarJogador(true);
-                DialogoManager.Instance.StartDialogo(dlg);
 
+                DialogoManager.Instance.StartDialogo(dlg);
                 while (DialogoManager.Instance.dialogoAtivoPublico)
                     yield return null;
 
                 TravarJogador(false);
-
-                // 💠 Após o diálogo, avança progresso se configurado
-                if (avancaProgressoAposDialogo && StoryProgressManager.instance != null)
-                {
-                    for (int i = 0; i < progressoAposDialogo; i++)
-                        StoryProgressManager.instance.AvancarEtapa();
-
-                    Debug.Log($"🧩 Porta {name} avançou o progresso em {progressoAposDialogo} etapa(s) após o diálogo.");
-                }
             }
 
             transicionando = false;
             yield break;
         }
 
-        // ✅ Se há diálogo antes da transição, executa antes de trocar de cena
-        if (dialogoAntesDaTransicao != null && dialogoAntesDaTransicao.dialogoFalas != null && dialogoAntesDaTransicao.dialogoFalas.Count > 0)
+        // 🍿 Há diálogo antes da transição (não avança progresso)
+        if (dialogoAntesDaTransicao != null &&
+            dialogoAntesDaTransicao.dialogoFalas != null &&
+            dialogoAntesDaTransicao.dialogoFalas.Count > 0)
         {
             TravarJogador(true);
-            DialogoManager.Instance.StartDialogo(dialogoAntesDaTransicao);
 
+            DialogoManager.Instance.StartDialogo(dialogoAntesDaTransicao);
             while (DialogoManager.Instance.dialogoAtivoPublico)
                 yield return null;
 
             TravarJogador(false);
         }
 
-        // 🌌 Só depois do diálogo (se houver), troca a cena
+        // 🌌 Troca de cena
         PerformTransition();
     }
 
@@ -172,9 +159,6 @@ public class SceneTransition : MonoBehaviour
 
     private FalaSimples EscolherFalaAleatoria()
     {
-        if (falasAleatorias == null || falasAleatorias.Count == 0)
-            return new FalaSimples { nome = "Julie", fala = "Está trancada..." };
-
         int i = Random.Range(0, falasAleatorias.Count);
         return falasAleatorias[i];
     }

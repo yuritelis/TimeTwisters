@@ -1,4 +1,4 @@
-using UnityEngine.SceneManagement;
+ï»¿using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Collections;
 
@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource fonteSfx;
     [SerializeField] AudioSource fonteVoz;
 
-    [Header("> Audio Clips (Música) <")]
+    [Header("> Audio Clips (MÃºsica) <")]
     public AudioClip menuBgm;
     public AudioClip deathScreenBgm;
     public AudioClip pasBgm;
@@ -24,14 +24,14 @@ public class AudioManager : MonoBehaviour
     [Header("> Audio Clips (SFX) <")]
     public AudioClip botClick;
 
-    private string currentScene;
-    private string currentTimeline;
-    private bool inBossZone = false;
-    private TimeTravelTilemap timeTravel;
-
     public static AudioManager instance;
 
-    void Awake()
+    private bool inBossZone = false;
+
+    private bool musicaForcada = false;
+    private AudioClip musicaOriginal = null;
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -45,153 +45,62 @@ public class AudioManager : MonoBehaviour
         }
 
         if (fonteMus != null)
-        {
             fonteMus.loop = true;
-        }
     }
 
-    void Start()
+    private void Start()
     {
-        currentScene = SceneManager.GetActiveScene().name;
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-        FindTimeTravelReference();
         UpdateMusic();
 
-        VolumeSettings.Instance.ApplyVolumeWithoutSliders();
+        if (VolumeSettings.Instance != null)
+            VolumeSettings.Instance.ApplyVolumeWithoutSliders();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        currentScene = scene.name;
         inBossZone = false;
-        currentTimeline = "";
-
-        FindTimeTravelReference();
+        musicaForcada = false;
         UpdateMusic();
     }
 
-    private void FindTimeTravelReference()
+    private void UpdateMusic()
     {
-        timeTravel = FindFirstObjectByType<TimeTravelTilemap>();
-    }
+        if (musicaForcada)
+            return;
 
-    private void Update()
-    {
-        if (timeTravel != null)
-        {
-            string newTimeline = "";
-
-            switch (timeTravel.CurrentTimeline)
-            {
-                case Timeline.Presente:
-                    newTimeline = "Presente";
-                    break;
-                case Timeline.Passado:
-                    newTimeline = "Passado";
-                    break;
-                case Timeline.Futuro:
-                    newTimeline = "Futuro";
-                    break;
-                default:
-                    newTimeline = "Presente";
-                    break;
-            }
-
-            if (currentTimeline != newTimeline)
-            {
-                currentTimeline = newTimeline;
-                UpdateMusic();
-            }
-        }
-    }
-
-    public void SetCurrentTimeline(string timeline)
-    {
-        currentTimeline = timeline;
-        UpdateMusic();
-    }
-
-    public void SetBossZone(bool inZone)
-    {
-        inBossZone = inZone;
-        UpdateMusic();
-    }
-
-    public void OnBossDefeated()
-    {
-        inBossZone = false;
-        UpdateMusic();
-    }
-
-    void UpdateMusic()
-    {
+        string cena = SceneManager.GetActiveScene().name.ToLower();
         AudioClip clipToPlay = null;
 
-        if (inBossZone && bossBgm != null)
-        {
-            clipToPlay = bossBgm;
-        }
-        else if (currentScene == "TitleScreen" && menuBgm != null)
+        if (cena.Contains("titlescreen"))
         {
             clipToPlay = menuBgm;
         }
-        else if (currentScene == "Saguão")
+        else if (cena.Contains("sagu"))
         {
-            switch (currentTimeline)
-            {
-                case "Passado":
-                    if (pasBgm != null)
-                    {
-                        clipToPlay = pasBgm;
-                    }
-                    break;
-                case "Presente":
-                    if (presBgm != null)
-                    {
-                        clipToPlay = presBgm;
-                    }
-                    break;
-                case "Futuro":
-                    if (futBgm != null)
-                    {
-                        clipToPlay = futBgm;
-                    }
-                    break;
-                default:
-                    if (presBgm != null)
-                    {
-                        clipToPlay = presBgm;
-                    }
-                    break;
-            }
+            clipToPlay = presBgm;
         }
-
-        if (clipToPlay != null)
+        else if (inBossZone && bossBgm != null)
         {
-            PlayMus(clipToPlay);
+            clipToPlay = bossBgm;
         }
         else
         {
-            if (fonteMus.isPlaying)
-            {
-                fonteMus.Stop();
-                fonteMus.clip = null;
-            }
+            if (cena.Contains("passado"))
+                clipToPlay = pasBgm;
+            else if (cena.Contains("futuro"))
+                clipToPlay = futBgm;
+            else
+                clipToPlay = presBgm;
         }
+
+        PlayMusInternal(clipToPlay);
     }
 
-    void PlayMus(AudioClip clip)
+    private void PlayMusInternal(AudioClip clip)
     {
-        if (clip == null)
-        {
+        if (clip == null || fonteMus == null)
             return;
-        }
-
-        if (fonteMus == null)
-        {
-            return;
-        }
 
         if (fonteMus.clip != clip)
         {
@@ -205,9 +114,29 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void TocarMusicaCutscene(AudioClip musica)
+    {
+        if (musica == null || fonteMus == null) return;
+
+        if (!musicaForcada)
+            musicaOriginal = fonteMus.clip;
+
+        musicaForcada = true;
+
+        fonteMus.Stop();
+        fonteMus.clip = musica;
+        fonteMus.Play();
+    }
+
+    public void RestaurarMusicaNormal()
+    {
+        musicaForcada = false;
+        UpdateMusic();
+    }
+
     public void StopMusic()
     {
-        if (fonteMus.isPlaying)
+        if (fonteMus != null)
         {
             fonteMus.Stop();
             fonteMus.clip = null;
@@ -216,14 +145,8 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicPaused(bool paused)
     {
-        if (paused)
-        {
-            fonteMus.Pause();
-        }
-        else
-        {
-            fonteMus.UnPause();
-        }
+        if (paused) fonteMus.Pause();
+        else fonteMus.UnPause();
     }
 
     public void SetMusicVolume(float volume)
@@ -231,16 +154,21 @@ public class AudioManager : MonoBehaviour
         fonteMus.volume = Mathf.Clamp01(volume);
     }
 
+    public void PlaySFX(AudioClip clip, float volume = 1f)
+    {
+        if (fonteSfx != null && clip != null)
+            fonteSfx.PlayOneShot(clip, Mathf.Clamp01(volume));
+    }
+
+
+    public void SetBossZone(bool inZone)
+    {
+        inBossZone = inZone;
+        UpdateMusic();
+    }
+
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        if (fonteSfx != null && clip != null)
-        {
-            fonteSfx.PlayOneShot(clip);
-        }
     }
 }
