@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f768fa0d0a79d440bbeddc1ab53ef37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.7
   attackRange: 1.8
   playerDetectRange: 16
   attackCooldown: 2
@@ -219,10 +219,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionAngle: 180
-  chaseVisionRadius: 12
+  chaseVisionRadius: 4
   visionBlockMask:
     serializedVersion: 2
     m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  collisionCheckDistance: 1
   player: {fileID: 0}
   facingDirection: {x: -1, y: 0}
 --- !u!114 &954065985122594399
