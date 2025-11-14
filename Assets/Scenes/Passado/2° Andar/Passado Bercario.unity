@@ -350,6 +350,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: 3057dd9bf3f607d47b13cb11c35f4681, type: 3}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Passado Casal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: "P_Casal > P_Ber\xE7ario"
       objectReference: {fileID: 0}
@@ -372,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.808743
+      value: 13.079052
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
