@@ -12,6 +12,7 @@ public class DialogoManager : MonoBehaviour
     [Header("Referências de UI")]
     public GameObject dialogoPanel;
     public GameObject sanidadeBar;
+    //public GameObject hotbarPanel;
     public TextMeshProUGUI dialogoTxt;
     public TextMeshProUGUI personagemNome;
     public Image personagemIcon;
@@ -38,7 +39,7 @@ public class DialogoManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);
+        //else Destroy(gameObject);
     }
 
     // ==========================================================
@@ -61,6 +62,7 @@ public class DialogoManager : MonoBehaviour
 
         dialogoPanel.SetActive(true);
         if (sanidadeBar != null) sanidadeBar.SetActive(false);
+        //if (hotbarPanel != null) hotbarPanel.SetActive(false);
 
         ProxLinha();
     }
@@ -169,6 +171,7 @@ public class DialogoManager : MonoBehaviour
 
         dialogoPanel.SetActive(false);
         if (sanidadeBar != null) sanidadeBar.SetActive(true);
+        //if (hotbarPanel != null) hotbarPanel.SetActive(true);
 
         dialogoTxt.text = "";
 
