@@ -39,19 +39,27 @@ public class TimeTravelSceneManager : MonoBehaviour
         cenaPresente = ObterNomeCena(cenaPresenteAsset);
         cenaPassado = ObterNomeCena(cenaPassadoAsset);
         cenaFuturo = ObterNomeCena(cenaFuturoAsset);
+
+        Debug.Log($"[TimeTravelSceneManager] Presente: {cenaPresente}, Passado: {cenaPassado}, Futuro: {cenaFuturo}");
     }
 
-#if UNITY_EDITOR
+    // 🔥 AGORA ESSE MÉTODO EXISTE SEMPRE, MAS A IMPLEMENTAÇÃO MUDA
     private string ObterNomeCena(Object sceneAsset)
     {
         if (sceneAsset == null)
             return "";
 
+#if UNITY_EDITOR
+        // Editor: usa AssetDatabase pra pegar o nome da cena pelo asset
         string path = AssetDatabase.GetAssetPath(sceneAsset);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
         return sceneName;
-    }
+#else
+            // Build: usa o .name do objeto serializado (fallback)
+            // (garante que o método exista e compile)
+            return sceneAsset.name;
 #endif
+    }
 
     public void CarregarCena(Timeline timeline)
     {
@@ -93,4 +101,3 @@ public class TimeTravelSceneManager : MonoBehaviour
             playerInput.enabled = true;
     }
 }
-

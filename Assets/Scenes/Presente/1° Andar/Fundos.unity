@@ -7567,14 +7567,16 @@ MonoBehaviour:
   dialogoAntesDaTransicao:
     dialogoFalas: []
   dialogoBloqueado:
-    dialogoFalas: []
-  falasAleatorias:
-  - nome: Julie
-    retrato: {fileID: 0}
-    fala: "Est\xE1 trancada..."
-  - nome: 
-    retrato: {fileID: 0}
-    fala: Nada acontece...
+    dialogoFalas:
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "\xC9 melhor eu terminar de olhar o primeiro andar antes..."
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+  falasAleatorias: []
 --- !u!61 &1445115994
 BoxCollider2D:
   m_ObjectHideFlags: 0
