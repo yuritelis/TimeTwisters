@@ -8,6 +8,7 @@ public class PauseGame : MonoBehaviour
     [SerializeField] GameObject sanidadeBar;
 
     AudioManager aManager;
+    DialogoManager dialogoManager;
     TimelineUI timelineUI;
     TimeTravelTilemap timeline;
 
@@ -23,10 +24,6 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1.0f;
 
         sanidadeBar.SetActive(true);
-    }
-
-    void Start()
-    {
         pauseScreen.SetActive(false);
         inventarioScreen.SetActive(false);
     }

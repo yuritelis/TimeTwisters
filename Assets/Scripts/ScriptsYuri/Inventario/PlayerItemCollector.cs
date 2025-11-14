@@ -4,7 +4,7 @@ public class PlayerItemCollector : MonoBehaviour
 {
     private InventarioController inventarioController;
     [SerializeField] GameObject interactKey;
-        Item item;
+    Item item;
     private bool playerInRange;
 
     void Start()
