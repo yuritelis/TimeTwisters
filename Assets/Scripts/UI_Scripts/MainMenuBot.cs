@@ -25,7 +25,6 @@
 
         private void Start()
         {
-            Object.DontDestroyOnLoad(gameObject);
 
             titleScreen.SetActive(true);
             optionsScreen.SetActive(false);

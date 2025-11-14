@@ -42,6 +42,16 @@ public class BossEdward_Leap_Attack : MonoBehaviour
         {
             telegraph = Instantiate(telegraphPrefab, startPos, Quaternion.identity);
             telegraph.transform.localScale = new Vector3(0f, telegraphWidth, 1f);
+
+            // 🔥 Transparência aplicada aqui
+            var srTele = telegraph.GetComponent<SpriteRenderer>();
+            if (srTele != null)
+            {
+                Color c = srTele.color;
+                c.a = 0.35f;
+                srTele.color = c;
+            }
+
             activeTelegraph = telegraph;
         }
 
@@ -126,11 +136,5 @@ public class BossEdward_Leap_Attack : MonoBehaviour
             Destroy(activeTelegraph);
             activeTelegraph = null;
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(telegraphWidth, telegraphWidth, 1f));
     }
 }

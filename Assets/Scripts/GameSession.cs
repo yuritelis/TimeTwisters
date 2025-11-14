@@ -1,11 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
     private static GameSession instance;
-
-    private string cena;
 
     void Awake()
     {
@@ -13,16 +11,22 @@ public class GameSession : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // 🔥 OUVINDO TODAS AS MUDANÇAS DE CENA
+            SceneManager.activeSceneChanged += OnSceneChanged;
         }
         else
         {
-            Destroy(gameObject); // Evita duplicar ao voltar pra cena anterior
+            Destroy(gameObject);
         }
     }
 
-    private void Start()
+    // Chamado SEMPRE que uma cena muda
+    private void OnSceneChanged(Scene oldScene, Scene newScene)
     {
-        if (cena == "DeathScreen")
+        string cena = newScene.name;
+
+        if (cena == "TitleScreen" || cena == "DeathScreen")
         {
             gameObject.SetActive(false);
         }
@@ -30,10 +34,5 @@ public class GameSession : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
-    }
-
-    private void Update()
-    {
-        cena = SceneManager.GetActiveScene().name;
     }
 }

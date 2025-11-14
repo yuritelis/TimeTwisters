@@ -9,14 +9,15 @@ using UnityEditor;
 
 public class TimeTravelSceneManager : MonoBehaviour
 {
-    [Header("Referências das Cenas (arraste aqui)")]
+    [Header("Arraste as cenas aqui (somente no Editor)")]
     public Object cenaPresenteAsset;
     public Object cenaPassadoAsset;
     public Object cenaFuturoAsset;
 
-    private string cenaPresente;
-    private string cenaPassado;
-    private string cenaFuturo;
+    [Header("Nomes gerados automaticamente (usados na Build)")]
+    [SerializeField] private string cenaPresente;
+    [SerializeField] private string cenaPassado;
+    [SerializeField] private string cenaFuturo;
 
     public static TimeTravelSceneManager instance;
 
@@ -26,7 +27,7 @@ public class TimeTravelSceneManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            InicializarNomesDasCenas();
+            AtualizarNomesDasCenas();
         }
         else
         {
@@ -34,29 +35,24 @@ public class TimeTravelSceneManager : MonoBehaviour
         }
     }
 
-    private void InicializarNomesDasCenas()
+    private void AtualizarNomesDasCenas()
     {
 #if UNITY_EDITOR
-        cenaPresente = ObterNomeCena(cenaPresenteAsset);
-        cenaPassado = ObterNomeCena(cenaPassadoAsset);
-        cenaFuturo = ObterNomeCena(cenaFuturoAsset);
-#else
-        // No build, salva o nome manualmente
-        cenaPresente = cenaPresenteAsset != null ? cenaPresenteAsset.name : "";
-        cenaPassado = cenaPassadoAsset != null ? cenaPassadoAsset.name : "";
-        cenaFuturo = cenaFuturoAsset != null ? cenaFuturoAsset.name : "";
+        cenaPresente = PegarNomeCena(cenaPresenteAsset);
+        cenaPassado = PegarNomeCena(cenaPassadoAsset);
+        cenaFuturo = PegarNomeCena(cenaFuturoAsset);
+
+        EditorUtility.SetDirty(this);
 #endif
     }
 
 #if UNITY_EDITOR
-    private string ObterNomeCena(Object sceneAsset)
+    private string PegarNomeCena(Object sceneAsset)
     {
-        if (sceneAsset == null)
-            return "";
+        if (sceneAsset == null) return "";
 
         string path = AssetDatabase.GetAssetPath(sceneAsset);
-        string sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
-        return sceneName;
+        return System.IO.Path.GetFileNameWithoutExtension(path);
     }
 #endif
 
@@ -71,21 +67,25 @@ public class TimeTravelSceneManager : MonoBehaviour
         };
 
         if (!string.IsNullOrEmpty(nomeCena))
+        {
             StartCoroutine(LoadSceneWithFade(nomeCena));
+        }
         else
+        {
             Debug.LogWarning($"Nenhuma cena atribuída para {timeline}");
+        }
     }
 
     private IEnumerator LoadSceneWithFade(string sceneName)
     {
-        PlayerInput playerInput = FindFirstObjectByType<PlayerInput>();
+        PlayerInput playerInput = FindFirstObjectByName<PlayerInput>();
         if (playerInput != null)
             playerInput.enabled = false;
 
         if (SceneFadeController.instance != null)
             yield return SceneFadeController.instance.FadeOut();
 
-        PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
+        PlayerHealth playerHealth = FindFirstObjectByName<PlayerHealth>();
         if (playerHealth != null && playerHealth.currentHealth > 1)
             playerHealth.ChangeHealth(-1);
 
@@ -95,9 +95,13 @@ public class TimeTravelSceneManager : MonoBehaviour
         if (SceneFadeController.instance != null)
             yield return SceneFadeController.instance.FadeIn();
 
-        playerInput = FindFirstObjectByType<PlayerInput>();
+        playerInput = FindFirstObjectByName<PlayerInput>();
         if (playerInput != null)
             playerInput.enabled = true;
     }
-}
 
+    private T FindFirstObjectByName<T>() where T : Object
+    {
+        return FindFirstObjectByType<T>();
+    }
+}

@@ -249,7 +249,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Voc\xEA consegue ver marcas ao redor do vaso sanit\xE1rio aberto"
+      fala: "*Voc\xEA consegue ver marcas ao redor do vaso sanit\xE1rio aberto*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.940631
+      value: 13.081188
       objectReference: {fileID: 0}
     - target: {fileID: 6862939784799312751, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -449,7 +449,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma estante de livros'
+      fala: '*Uma estante de livros*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Uma pia que conforme voc\xEA chega mais perto, mais voc\xEA percebe
-        que \xE9 apenas uma pia normal"
+        que \xE9 apenas uma pia normal*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -717,7 +717,7 @@ MonoBehaviour:
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
-      fala: "...preciso jogar uma \xE1gua no rosto se isso ter \xE1gua"
+      fala: "...preciso jogar uma \xE1gua no rosto "
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0

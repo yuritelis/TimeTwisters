@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/teste_yuri.unity
     guid: a3f7cf52fb113134587d92262df8aa46
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Alpha.unity
     guid: a7ae5ed0f18c51749be633d5e45cb187
   - enabled: 1
@@ -37,10 +37,10 @@ EditorBuildSettings:
     guid: d8f1bd11e34922343bac1a8e1b2dcab7
   - enabled: 1
     path: "Assets/Scenes/Presente/1\xB0 Andar/Fundos.unity"
-    guid: 1afb791e66ca7b64cbe0930b8313a8a3
+    guid: f2a0502375b02e24ea2b0ffedc51ff16
   - enabled: 1
     path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Cozinheiro.unity"
-    guid: a19f5a68c0d85d44e864319e417c2c36
+    guid: acaf858361ada2a4bb51cd0ba7721b54
   - enabled: 1
     path: "Assets/Scenes/Presente/1\xB0 Andar/Quarto_Maid.unity"
     guid: 15e43c76a6560d147aad4b44b6dacf02
@@ -95,6 +95,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Presente/1\xB0 Andar/Sala_de_Jantar.unity"
     guid: 3f7a82c4363d22f42adea5b1d28190a4
+  - enabled: 1
+    path: "Assets/Scenes/Futuro/1\xB0 Andar/Futuro Sagu\xE3o.unity"
+    guid: e2897a2da3b5e9842bbfcc590b03a2f4
   - enabled: 1
     path: "Assets/Scenes/Passado/1\xB0 Andar/Passado 1\xB0 Banheiro.unity"
     guid: 38c9e2f84193eef47a53d34eb6f2d2c0
@@ -194,9 +197,6 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Futuro/1\xB0 Andar/Futuro Mordomo.unity"
     guid: 51da41b4a38d41c48b10b92c4623ab0f
-  - enabled: 1
-    path: "Assets/Scenes/Futuro/1\xB0 Andar/Futuro Sagu\xE3o.unity"
-    guid: e2897a2da3b5e9842bbfcc590b03a2f4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

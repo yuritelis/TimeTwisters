@@ -9,6 +9,10 @@ public class EnemyDeathDialogTrigger : MonoBehaviour
     [Tooltip("Executa apenas uma vez.")]
     public bool apenasUmaVez = true;
 
+    [Header("Progresso ganho ao derrotar este inimigo")]
+    [Tooltip("Quantidade de progresso. Padrão = 1")]
+    public int progresso = 1; // ✅ valor padrão
+
     private string saveKey;
     private bool jaExecutou = false;
 
@@ -30,6 +34,10 @@ public class EnemyDeathDialogTrigger : MonoBehaviour
             PlayerPrefs.SetInt(saveKey, 1);
             PlayerPrefs.Save();
         }
+
+        int progressoAtual = PlayerPrefs.GetInt("ProgressoGlobal", 0);
+        PlayerPrefs.SetInt("ProgressoGlobal", progressoAtual + progresso);
+        PlayerPrefs.Save();
 
         GameObject tempObj = new GameObject("EnemyDeathDialogRunner");
         DontDestroyOnLoad(tempObj);

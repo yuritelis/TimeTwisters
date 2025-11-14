@@ -493,11 +493,19 @@ MonoBehaviour:
         portrait: {fileID: 0}
       fala: "*Abrindo a gaveta, ela acidentalmente cai no ch\xE3o, levantando muita
         poeira*"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "\u201C*Cough* *Cough* Porque algu\xE9m teria uma gaveta cheia de jornais
         velhos?\u201D\r\n"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
   imagemFinal: {fileID: 1803782506}
   imagemCanvas: {fileID: 1803782508}
   closeKey: 101
@@ -780,8 +788,18 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
-  dialogoPortaTrancada:
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
     dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!1 &672802094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2034,9 @@ MonoBehaviour:
   cenaPresenteAsset: {fileID: 102900000, guid: d8f5e34c0a277e64982c4a73d4983d5c, type: 3}
   cenaPassadoAsset: {fileID: 102900000, guid: a47f4d0610592c54eb5a292a112935d4, type: 3}
   cenaFuturoAsset: {fileID: 102900000, guid: 2f2af2f64705b9f4a8d031def1b2c98f, type: 3}
+  cenaPresente: Sala_Convidados
+  cenaPassado: Passado Convidados
+  cenaFuturo: Futuro Convidados
 --- !u!4 &1094862138
 Transform:
   m_ObjectHideFlags: 0
@@ -2139,8 +2160,18 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
-  dialogoPortaTrancada:
+  somPortaTrancada: {fileID: 0}
+  dialogoAntesDaTransicao:
     dialogoFalas: []
+  dialogoBloqueado:
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: Julie
+    retrato: {fileID: 0}
+    fala: "Est\xE1 trancada..."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: Nada acontece...
 --- !u!61 &1158546102
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2591,17 +2622,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.9985172, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1282841015 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7514264585189091977, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
-  m_PrefabInstance: {fileID: 1685790888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1320398617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,11 +2709,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2134269022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1398805231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2552066909619106327, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
-  m_PrefabInstance: {fileID: 1685790888}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1685790888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2717,27 +2732,35 @@ PrefabInstance:
     - target: {fileID: 4413882900394647242, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: dialogoTxt
       value: 
-      objectReference: {fileID: 1282841015}
+      objectReference: {fileID: 0}
     - target: {fileID: 4413882900394647242, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: dialogoPanel
       value: 
-      objectReference: {fileID: 1398805231}
+      objectReference: {fileID: 0}
     - target: {fileID: 4413882900394647242, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: personagemIcon
       value: 
-      objectReference: {fileID: 1877516455}
+      objectReference: {fileID: 0}
     - target: {fileID: 4413882900394647242, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: personagemNome
       value: 
-      objectReference: {fileID: 1826583157}
+      objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5691116717558035038, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1685790889}
+    - target: {fileID: 5691116717558035038, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1685790890}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.24
@@ -2799,6 +2822,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+--- !u!114 &1685790889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2925149191181771405, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+  m_PrefabInstance: {fileID: 1685790888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165871550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1685790890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289950219585462800, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+  m_PrefabInstance: {fileID: 1685790888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165871550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0897cc8f9164e40b607567b7e336e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1733318425
 GameObject:
   m_ObjectHideFlags: 0
@@ -4618,17 +4663,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803782506}
   m_CullTransparentMesh: 1
---- !u!114 &1826583157 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 564917533798989945, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
-  m_PrefabInstance: {fileID: 1685790888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1855060241
 GameObject:
   m_ObjectHideFlags: 0
@@ -4739,17 +4773,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2134269022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1877516455 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2795589724854880172, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
-  m_PrefabInstance: {fileID: 1685790888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1905922758
 GameObject:
   m_ObjectHideFlags: 0

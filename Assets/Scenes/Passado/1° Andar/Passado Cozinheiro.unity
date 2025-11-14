@@ -509,7 +509,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Voc\xEA n\xE3o sabe em que momento ela foi usada"
+      fala: "*Voc\xEA n\xE3o sabe em que momento ela foi usada*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1430,7 +1430,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Um abajur em cima de uma mesinha chama sua aten\xE7\xE3o pela apar\xEAncia
-        mais sombria em rela\xE7\xE3o ao resto do quarto"
+        mais sombria em rela\xE7\xE3o ao resto do quarto*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1585,7 +1585,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma cama razoavelmente confortavel'
+      fala: '*Uma cama razoavelmente confortavel*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1594,7 +1594,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Voc\xEA pensa em tirar um cochilo mas lembra que nas outras vezes n\xE3o
-        deu certo\n"
+        deu certo*\n"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1736,7 +1736,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma estante de livros'
+      fala: '*Uma estante de livros*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1745,7 +1745,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Algo parece chamar sua aten\xE7\xE3o, mas voc\xEA se distrai por um
-        momento e acaba perdendo o foco"
+        momento e acaba perdendo o foco*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -2756,7 +2756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.940631
+      value: 13.081188
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x

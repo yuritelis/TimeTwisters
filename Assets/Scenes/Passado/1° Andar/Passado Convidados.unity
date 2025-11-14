@@ -751,115 +751,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1284251398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &445574957
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 445574959}
-  - component: {fileID: 445574958}
-  - component: {fileID: 445574960}
-  m_Layer: 9
-  m_Name: Convidados > Jogos
-  m_TagString: SanityAffected
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &445574958
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445574957}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.019790173, y: -0.09232736}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.6754403, y: 1.1846547}
-  m_EdgeRadius: 0
---- !u!4 &445574959
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445574957}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8196115, y: 0.122451305, z: -0.06058325}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1284251398}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &445574960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445574957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: Sala_De_Jogos
-  sceneAsset: {fileID: 0}
-  spawnPointName: Jogos > Convidados
-  requireInput: 1
-  interactKey: 101
-  etapaNecessaria: 0
-  somPortaTrancada: {fileID: 0}
-  dialogoAntesDaTransicao:
-    dialogoFalas: []
-  dialogoBloqueado:
-    dialogoFalas: []
-  falasAleatorias:
-  - nome: Julie
-    retrato: {fileID: 0}
-    fala: "Est\xE1 trancada..."
-  - nome: 
-    retrato: {fileID: 0}
-    fala: Nada acontece...
 --- !u!1 &588827687
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +801,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma estante cheia de livros'
+      fala: '*Uma estante cheia de livros*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1019,7 +910,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma estante cheia de livros'
+      fala: '*Uma estante cheia de livros*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1282,6 +1173,9 @@ MonoBehaviour:
   cenaPresenteAsset: {fileID: 102900000, guid: d8f5e34c0a277e64982c4a73d4983d5c, type: 3}
   cenaPassadoAsset: {fileID: 102900000, guid: a47f4d0610592c54eb5a292a112935d4, type: 3}
   cenaFuturoAsset: {fileID: 102900000, guid: 2f2af2f64705b9f4a8d031def1b2c98f, type: 3}
+  cenaPresente: 
+  cenaPassado: 
+  cenaFuturo: 
 --- !u!4 &720758518
 Transform:
   m_ObjectHideFlags: 0
@@ -2811,7 +2705,6 @@ Transform:
   - {fileID: 370683631}
   - {fileID: 672802096}
   - {fileID: 186548257}
-  - {fileID: 445574959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320398617
@@ -2987,7 +2880,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*H\xE1 peda\xE7os de lenha espalhados pela lareira"
+      fala: "*H\xE1 peda\xE7os de lenha espalhadas pela lareira*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -2995,7 +2888,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Alguns mais grossos que outros, outros menores, diversos tipos'
+      fala: '*Alguns mais grossos que outros, outros menores, diversos tipos*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -4815,7 +4708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.940631
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5239,7 +5132,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Um relogio antigo, seus ponteiros marcam quatro e cinco da tarde'
+      fala: '*Um relogio antigo, seus ponteiros marcam quatro e cinco da tarde*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -5247,7 +5140,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Voc\xEA percebe que o ponteiro dos segundos est\xE1 travado no lugar"
+      fala: "*Voc\xEA percebe que o ponteiro dos segundos est\xE1 travado no lugar*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -5489,7 +5382,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Um sof\xE1 extremamente conf\xF3rtavel e elegante"
+      fala: "*Um sof\xE1 extremamente conf\xF3rtavel e elegante*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -5498,7 +5391,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Voc\xEA sente que se deitar a\xED vai dormir meses, anos. talvez at\xE9
-        a morte"
+        a morte*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -5506,7 +5399,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*.....Voc\xEA decide n\xE3o arriscar"
+      fala: "*.....Voc\xEA decide n\xE3o arriscar*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0

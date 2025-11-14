@@ -27,12 +27,14 @@ public class TimelineUI : MonoBehaviour
 
     private static bool bootstrapped = false;
 
+    // ==========================================================
+    // SINGLETON
+    // ==========================================================
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -41,6 +43,9 @@ public class TimelineUI : MonoBehaviour
         }
     }
 
+    // ==========================================================
+    // SCENE LOADED
+    // ==========================================================
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -53,14 +58,36 @@ public class TimelineUI : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        ForceCloseOnSceneLoad();   // <<<<<< ESSENCIAL
         RecarregarReferenciasUI();
         DetectarTimelineAtual();
     }
 
+    // Fecha tudo ANTES de buscar referências e atualizar UI
+    public void ForceCloseOnSceneLoad()
+    {
+        if (panel != null) panel.SetActive(false);
+        if (sanidadeBar != null) sanidadeBar.SetActive(true);
+
+        if (Presente != null) Presente.gameObject.SetActive(false);
+        if (Passado != null) Passado.gameObject.SetActive(false);
+        if (Futuro != null) Futuro.gameObject.SetActive(false);
+
+        Time.timeScale = 1f;
+        isPaused = false;
+
+        if (playerInput != null)
+            playerInput.enabled = true;
+    }
+
+    // ==========================================================
+    // REFERÊNCIAS
+    // ==========================================================
     private void RecarregarReferenciasUI()
     {
         if (panel == null)
             panel = GameObject.Find("TimelinePanel");
+
         if (sanidadeBar == null)
             sanidadeBar = GameObject.Find("SanidadeBar");
 
@@ -76,6 +103,9 @@ public class TimelineUI : MonoBehaviour
         }
     }
 
+    // ==========================================================
+    // START
+    // ==========================================================
     void Start()
     {
         if (playerInput == null)
@@ -93,23 +123,21 @@ public class TimelineUI : MonoBehaviour
 
         DetectarTimelineAtual();
 
+        // Primeira inicialização
         if (!bootstrapped)
         {
-            panel.SetActive(false);
-            Presente.gameObject.SetActive(false);
-            Passado.gameObject.SetActive(false);
-            Futuro.gameObject.SetActive(false);
-            if (sanidadeBar != null) sanidadeBar.SetActive(true);
-            Time.timeScale = 1f;
-            isPaused = false;
-            if (playerInput != null) playerInput.enabled = true;
+            ForceCloseOnSceneLoad();
             bootstrapped = true;
         }
     }
 
+    // ==========================================================
+    // TIMELINE ATUAL
+    // ==========================================================
     private void DetectarTimelineAtual()
     {
         string cena = SceneManager.GetActiveScene().name.ToLower();
+
         if (cena.Contains("passado"))
             currentTimeline = Timeline.Passado;
         else if (cena.Contains("futuro"))
@@ -118,17 +146,21 @@ public class TimelineUI : MonoBehaviour
             currentTimeline = Timeline.Presente;
     }
 
+    // ==========================================================
+    // ABRIR UI
+    // ==========================================================
     public void Open(TimeTravelTilemap timeObject)
     {
+        if (panel == null) return;
+
         panel.SetActive(true);
+        if (sanidadeBar != null) sanidadeBar.SetActive(false);
+
         Presente.gameObject.SetActive(true);
         Passado.gameObject.SetActive(true);
         Futuro.gameObject.SetActive(true);
 
-        if (sanidadeBar != null)
-            sanidadeBar.SetActive(false);
-
-        DetectarTimelineAtual(); 
+        DetectarTimelineAtual();
         AtualizarEstadoDosBotoes();
 
         Time.timeScale = 0f;
@@ -138,15 +170,17 @@ public class TimelineUI : MonoBehaviour
             playerInput.enabled = false;
     }
 
+    // ==========================================================
+    // FECHAR UI
+    // ==========================================================
     public void Close()
     {
-        panel.SetActive(false);
-        if (sanidadeBar != null)
-            sanidadeBar.SetActive(true);
+        if (panel != null) panel.SetActive(false);
+        if (sanidadeBar != null) sanidadeBar.SetActive(true);
 
-        Presente.gameObject.SetActive(false);
-        Passado.gameObject.SetActive(false);
-        Futuro.gameObject.SetActive(false);
+        if (Presente != null) Presente.gameObject.SetActive(false);
+        if (Passado != null) Passado.gameObject.SetActive(false);
+        if (Futuro != null) Futuro.gameObject.SetActive(false);
 
         Time.timeScale = 1f;
         isPaused = false;
@@ -155,6 +189,9 @@ public class TimelineUI : MonoBehaviour
             playerInput.enabled = true;
     }
 
+    // ==========================================================
+    // BOTÕES
+    // ==========================================================
     private void ChooseTimeline(Timeline timeline)
     {
         if (timeline == currentTimeline)

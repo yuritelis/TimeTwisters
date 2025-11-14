@@ -1316,7 +1316,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*voc\xEA tenta abrir as gavetas para ver se tem algo"
+      fala: "*voc\xEA tenta abrir as gavetas para ver se tem algo*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1324,7 +1324,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*emperradas'
+      fala: '*emperradas*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1387,7 +1387,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma estante de livros'
+      fala: '*Uma estante de livros*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1396,7 +1396,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Aqui voc\xEA encontra a sess\xE3o de livros de m\xFAsica, a maioria
-        deles sendo de aulas de piano ou teoria musical"
+        deles sendo de aulas de piano ou teoria musical*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -1813,7 +1813,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*trancado'
+      fala: '*trancado*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -2921,7 +2921,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Um quadro de um lindo c\xE9u azul com nuvens"
+      fala: "*Um quadro de um lindo c\xE9u azul com nuvens*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -3141,7 +3141,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma estante de livros'
+      fala: '*Uma estante de livros*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -5279,7 +5279,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Mais uma mesinha de cabeceira, e voc\xEA abre abre as gavetas para
-        ver se tem algo"
+        ver se tem algo*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -5287,7 +5287,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Voc\xEA encontrou uma grande quantidade de decep\xE7\xE3o"
+      fala: "*Voc\xEA encontrou uma grande quantidade de decep\xE7\xE3o*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -5987,7 +5987,15 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Um quadro de peixes que te d\xE1 um certo conforto ao observar"
+      fala: "*Um quadro de peixes que te d\xE1 um certo conforto ao observar*"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: Se eu fosse um peixinho e pudesse nadar...
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -10559,7 +10567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.940631
+      value: 13.081188
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10780,7 +10788,7 @@ MonoBehaviour:
         nome: 
         portrait: {fileID: 0}
       fala: "*Uma mesinha de cabeceira. Voc\xEA curiosa decide abrir as gavetas pra
-        ver o que tem"
+        ver o que tem*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -10788,7 +10796,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "e n\xE3o encontra nada"
+      fala: "*e n\xE3o encontra nada*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -11140,7 +11148,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Voc\xEA percebe muitos livros de Pol\xEDtica aqui"
+      fala: "*Voc\xEA percebe muitos livros de Pol\xEDtica aqui*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -11148,7 +11156,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Parece que \xE9 uma sess\xE3o de livros de politica, quem diria"
+      fala: "*Parece que \xE9 uma sess\xE3o de livros de politica, quem diria n\xE9*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
