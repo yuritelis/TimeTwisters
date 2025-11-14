@@ -241,7 +241,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: '*Uma estante cheia de livros '
+      fala: '*Uma estante cheia de livros*'
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Um quadro retratando um c\xE9u azul muito bonito"
+      fala: "*Um quadro retratando um c\xE9u azul muito bonito*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -879,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.940631
+      value: 13.081188
       objectReference: {fileID: 0}
     - target: {fileID: 6862939784799312751, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1015,8 +1015,8 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Um quadro surpreendentemente bonito, se n\xE3o tivesse sujo e empoeirado
-        com o tempo voc\xEA facilmente acharia que teria um aquario na parede"
+      fala: "*Um quadro surpreendentemente bonito, se voc\xEA n\xE3o tivesse olhado
+        direito voc\xEA facilmente acharia que teria um aqu\xE1rio na parede*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -2942,8 +2942,15 @@ MonoBehaviour:
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
-      fala: "O que \xE9 isso? algum tipo de sino ou escudo? seja o que for achei
-        muito foda."
+      fala: 'Que escudo foda. '
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: Queria ter a chance de usar isso algum dia
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -4410,7 +4417,7 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: "*Um quadro mostrando o p\xF5r do sol em uma praia"
+      fala: "*Um quadro mostrando o p\xF5r do sol em uma praia*"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
