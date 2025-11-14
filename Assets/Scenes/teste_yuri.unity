@@ -6336,7 +6336,6 @@ GameObject:
   m_Component:
   - component: {fileID: 875600553}
   - component: {fileID: 875600552}
-  - component: {fileID: 875600554}
   - component: {fileID: 875600555}
   - component: {fileID: 875600557}
   - component: {fileID: 875600558}
@@ -6417,27 +6416,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &875600554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875600551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7afa96eea8bec546bc1c49d5153f6f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogoPanel: {fileID: 968508038}
-  sanidadeBar: {fileID: 2033915396}
-  dialogoTxt: {fileID: 1378212560}
-  personagemNome: {fileID: 1345988447}
-  personagemIcon: {fileID: 583188519}
-  escolhaUI: {fileID: 0}
-  velFala: 1
-  dialogoAtivoPublico: 0
-  player: {fileID: 0}
 --- !u!61 &875600555
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12608,7 +12586,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 875600554}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
         m_MethodName: FimDialogo
         m_Mode: 1
@@ -12928,7 +12906,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 875600554}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogoManager, Assembly-CSharp
         m_MethodName: ProxLinha
         m_Mode: 1
