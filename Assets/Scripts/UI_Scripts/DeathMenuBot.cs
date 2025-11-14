@@ -10,6 +10,6 @@ public class DeathMenuBot : MonoBehaviour
 
     public void BotReiniciar()
     {
-        SceneManager.LoadScene("Alpha");
+        SceneManager.LoadScene("Sala_Convidados");
     }
 }

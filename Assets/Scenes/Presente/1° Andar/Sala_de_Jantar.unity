@@ -1407,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 13.029587
       objectReference: {fileID: 0}
     - target: {fileID: 6239699794732491742, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_labelHash
@@ -2830,6 +2830,14 @@ PrefabInstance:
     - target: {fileID: 3336517201787874533, guid: 7057fc8e08d7287468dc74099290257b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739515949526451832, guid: 7057fc8e08d7287468dc74099290257b, type: 3}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739515949526451832, guid: 7057fc8e08d7287468dc74099290257b, type: 3}
+      propertyPath: currentHealth
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

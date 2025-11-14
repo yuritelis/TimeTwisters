@@ -7557,7 +7557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "2\xB0Andar"
   sceneAsset: {fileID: 102900000, guid: 6f07b89f05346eb4091d5f8dc2d78db8, type: 3}
   spawnPointName: Andar > Escada
   requireInput: 1
@@ -7609,7 +7609,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.116368294, y: -0.7646723}
+  m_Offset: {x: -0.116368294, y: -1.0718522}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7619,7 +7619,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.761179, y: 0.7821512}
+  m_Size: {x: 1.761179, y: 1.3965111}
   m_EdgeRadius: 0
 --- !u!4 &1445115995
 Transform:
@@ -7654,7 +7654,7 @@ PrefabInstance:
       objectReference: {fileID: 221325082}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.079052
+      value: 10.887574
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
