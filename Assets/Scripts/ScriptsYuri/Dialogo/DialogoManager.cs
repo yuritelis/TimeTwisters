@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogoManager : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class DialogoManager : MonoBehaviour
     [Header("Referências de UI")]
     public GameObject dialogoPanel;
     public GameObject sanidadeBar;
-    //public GameObject hotbarPanel;
     public TextMeshProUGUI dialogoTxt;
     public TextMeshProUGUI personagemNome;
     public Image personagemIcon;
@@ -29,7 +29,7 @@ public class DialogoManager : MonoBehaviour
     [Header("Player")]
     public GameObject player;
 
-    // 🔥 Evento para cutscenes (câmera / spawn etc)
+    // Evento para cutscenes
     public System.Action<DialogoFalas> OnFalaIniciada;
 
     private void Awake()
@@ -37,14 +37,27 @@ public class DialogoManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
-        //else Destroy(gameObject);
     }
 
-    // ==========================================================
-    // INICIAR DIÁLOGO
-    // ==========================================================
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "TitleScreen")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void StartDialogo(Dialogo dialogo)
     {
         if (dialogo == null || dialogo.dialogoFalas.Count == 0)
@@ -62,24 +75,19 @@ public class DialogoManager : MonoBehaviour
 
         dialogoPanel.SetActive(true);
         if (sanidadeBar != null) sanidadeBar.SetActive(false);
-        //if (hotbarPanel != null) hotbarPanel.SetActive(false);
 
         ProxLinha();
     }
 
-    // ==========================================================
-    // PRÓXIMA LINHA
-    // ==========================================================
     public void ProxLinha()
     {
         if (!isDialogoAtivo || dialogoData == null) return;
 
-        // Skip da digitação se o jogador apertar E
+        // Skip da digitação
         if (isTyping)
         {
             StopAllCoroutines();
             isTyping = false;
-
             dialogoTxt.text = dialogoData.dialogoFalas[dialogoIndex].fala;
             dialogoIndex++;
             return;
@@ -94,10 +102,10 @@ public class DialogoManager : MonoBehaviour
 
         var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
 
-        // 🔥 Evento cutscene (câmera etc)
+        // Evento cutscene
         OnFalaIniciada?.Invoke(falaAtual);
 
-        // ⭐ AVANÇA PROGRESSO (somente se marcado na fala!)
+        // Marca progresso
         if (falaAtual.avancaProgressoAqui)
         {
             if (StoryProgressManager.instance != null)
@@ -107,16 +115,14 @@ public class DialogoManager : MonoBehaviour
             }
         }
 
-        // 🔊 SFX DEPOIS DA FALA (se configurado)
+        // SFX opcional
         if (falaAtual.sfxAposFala != null)
-        {
             StartCoroutine(PlaySfxDepois(falaAtual.sfxAposFala));
-        }
 
-        // Nome da personagem
+        // Nome
         personagemNome.text = falaAtual.personagem.nome ?? "";
 
-        // Retrato da personagem
+        // Retrato
         if (falaAtual.personagem.portrait != null)
         {
             personagemIcon.sprite = falaAtual.personagem.portrait;
@@ -127,9 +133,6 @@ public class DialogoManager : MonoBehaviour
         StartCoroutine(TypeLine(falaAtual.fala));
     }
 
-    // ==========================================================
-    // DIGITAÇÃO
-    // ==========================================================
     private IEnumerator TypeLine(string fala)
     {
         isTyping = true;
@@ -147,9 +150,6 @@ public class DialogoManager : MonoBehaviour
         dialogoIndex++;
     }
 
-    // ==========================================================
-    // AVANÇO PELO TECLADO
-    // ==========================================================
     private void Update()
     {
         if (isDialogoAtivo &&
@@ -159,9 +159,6 @@ public class DialogoManager : MonoBehaviour
         }
     }
 
-    // ==========================================================
-    // FINALIZAR
-    // ==========================================================
     public void FimDialogo()
     {
         StopAllCoroutines();
@@ -171,16 +168,12 @@ public class DialogoManager : MonoBehaviour
 
         dialogoPanel.SetActive(false);
         if (sanidadeBar != null) sanidadeBar.SetActive(true);
-        //if (hotbarPanel != null) hotbarPanel.SetActive(true);
 
         dialogoTxt.text = "";
 
         TravarJogador(false);
     }
 
-    // ==========================================================
-    // AUX: TRAVAR PLAYER
-    // ==========================================================
     private void TravarJogador(bool estado)
     {
         if (player == null)
@@ -194,14 +187,9 @@ public class DialogoManager : MonoBehaviour
         if (comb != null) comb.enabled = !estado;
     }
 
-    // ==========================================================
-    // AUX: TOCAR SFX DEPOIS DA FALA
-    // ==========================================================
     private IEnumerator PlaySfxDepois(AudioClip clip)
     {
-        // espera a fala terminar
         while (isTyping) yield return null;
-
         yield return new WaitForSeconds(0.05f);
 
         if (AudioManager.instance != null)
@@ -209,10 +197,6 @@ public class DialogoManager : MonoBehaviour
         else
             AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
-
-    // ==========================================================
-    // ACESSORES
-    // ==========================================================
     public int GetCurrentIndex() => dialogoIndex;
 
     public string GetCurrentSpeakerName()

@@ -36,16 +36,9 @@ public class TimeTravelSceneManager : MonoBehaviour
 
     private void InicializarNomesDasCenas()
     {
-#if UNITY_EDITOR
         cenaPresente = ObterNomeCena(cenaPresenteAsset);
         cenaPassado = ObterNomeCena(cenaPassadoAsset);
         cenaFuturo = ObterNomeCena(cenaFuturoAsset);
-#else
-        // No build, salva o nome manualmente
-        cenaPresente = cenaPresenteAsset != null ? cenaPresenteAsset.name : "";
-        cenaPassado = cenaPassadoAsset != null ? cenaPassadoAsset.name : "";
-        cenaFuturo = cenaFuturoAsset != null ? cenaFuturoAsset.name : "";
-#endif
     }
 
 #if UNITY_EDITOR

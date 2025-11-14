@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +9,7 @@ public class ElLoboAnimationTest : MonoBehaviour
 {
     private Animator anim;
 
-    private EnemyState eState;
-
+    private EdwardState eState;
     private EdwardMovement eMove;
 
     private bool isWalking;
@@ -31,15 +30,20 @@ public class ElLoboAnimationTest : MonoBehaviour
 
     private void Update()
     {
+        if (eMove == null)
+            return;
+
+        eState = eMove.CurrentState;
+
         isWalking = eMove.GetComponent<Rigidbody2D>().linearVelocity.magnitude > 0.1f;
 
-        if (eState == EnemyState.Chasing)
+        if (eState == EdwardState.Chasing)
         {
             anim.SetBool("isWalking", true);
             anim.SetBool("isIdle", false);
             anim.SetBool("isAttacking", false);
         }
-        else if (eState == EnemyState.Attacking)
+        else if (eState == EdwardState.Attacking)
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isIdle", false);
@@ -52,12 +56,10 @@ public class ElLoboAnimationTest : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
 
-        if (isWalking)
+        if ((eState == EdwardState.Attacking || isWalking) && eMove.player != null)
         {
             Vector3 direction = (eMove.player.position - transform.position).normalized;
 
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", true);
             anim.SetFloat("MoveX", direction.x);
             anim.SetFloat("MoveY", direction.y);
 

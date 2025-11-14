@@ -17,7 +17,6 @@ public class SceneFadeController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
             SetupFadeCanvas();
         }
         else

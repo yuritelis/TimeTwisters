@@ -23,13 +23,12 @@ public class EdwardMovement : MonoBehaviour
     public Transform player;
     private EdwardState enemyState;
     private bool canAttack = true;
-    private int facingDirection = -1;
 
-    [HideInInspector]
-    public bool canMove = true;
+    [HideInInspector] public bool canMove = true;
 
-    // NOVO: guarda o último estado para evitar spam no log
     private bool lastIsAttackingState = false;
+    public EdwardState CurrentState => enemyState;
+
 
     private void Start()
     {
@@ -40,6 +39,13 @@ public class EdwardMovement : MonoBehaviour
 
     private void Update()
     {
+        // 🔥 Auto-reconnect do player (necessário por DontDestroyOnLoad)
+        if (player == null)
+        {
+            GameObject found = GameObject.FindGameObjectWithTag("Player");
+            if (found != null) player = found.transform;
+        }
+
         if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;
@@ -83,18 +89,10 @@ public class EdwardMovement : MonoBehaviour
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("Testando ataque manual");
-            BossAttack(); // Deve chamar o Attack() do EnemyCombat e mostrar tudo no console
-            anim.Play("Attack_Left");
-        }
-
-        // Loga só quando o isAttacking muda, evitando spam
         bool currentIsAttacking = anim.GetBool("isAttacking");
         if (currentIsAttacking != lastIsAttackingState)
         {
-            Debug.Log("isAttacking no Animator mudou para: " + currentIsAttacking);
+            Debug.Log("isAttacking mudou para: " + currentIsAttacking);
             lastIsAttackingState = currentIsAttacking;
         }
     }
@@ -131,30 +129,28 @@ public class EdwardMovement : MonoBehaviour
     {
         if (player == null) return;
 
-        if ((player.position.x > transform.position.x && facingDirection == -1) ||
-            (player.position.x < transform.position.x && facingDirection == 1))
-        {
-            //Flip();
-        }
-
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * speed;
     }
 
-    private void Flip()
-    {
-        facingDirection *= -1;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }
+    // ============================================================================================
+    // 🔥 ALTERAÇÃO AQUI — BossAttack agora tem carregamento antes de causar dano
+    // ============================================================================================
 
     public void BossAttack()
     {
-        Debug.Log("EdwardMovement: BossAttack() foi chamado pela animação.");
+        Debug.Log("EdwardMovement: BossAttack() via animação — iniciando carregamento...");
         ChangeState(EdwardState.Attacking);
+        StartCoroutine(DelayedAttack());
+    }
+
+    private System.Collections.IEnumerator DelayedAttack()
+    {
+        yield return new WaitForSeconds(0.25f); // 👈 TEMPO DE CARREGAMENTO DO ATAQUE
         GetComponent<EnemyCombat>()?.Attack();
     }
+
+    // ============================================================================================
 
     public void EndBossAttack()
     {
@@ -180,11 +176,11 @@ public class EdwardMovement : MonoBehaviour
         attackLockTimer = attackLockTime;
     }
 
-    private void ChangeState(EdwardState newState)
+    public void ChangeState(EdwardState newState)
     {
         enemyState = newState;
 
-        if (anim != null && anim.runtimeAnimatorController != null)
+        if (anim != null)
         {
             anim.SetBool("isIdle", false);
             anim.SetBool("isChasing", false);
@@ -196,20 +192,6 @@ public class EdwardMovement : MonoBehaviour
                 case EdwardState.Chasing: anim.SetBool("isChasing", true); break;
                 case EdwardState.Attacking: anim.SetBool("isAttacking", true); break;
             }
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (detectionPoint == null) return;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
-
-        if (attackPoint != null)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
     }
 }

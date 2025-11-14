@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -28,19 +29,70 @@ public class BossEdwardController : MonoBehaviour
 
     public bool isDead = false;
 
+    // 🔥 NOVO PARA DETECTAR DANO TOMADO
+    private Enemy_Health bossHp;
+    private int lastHp;
+
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         movement = GetComponent<EdwardMovement>();
 
+        bossHp = GetComponent<Enemy_Health>();
+        if (bossHp != null)
+            lastHp = bossHp.currentHealth;
+
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
+    }
+
+    void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
+    void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (movement != null)
+            movement.player = player;
     }
 
     void Start()
     {
         StartCoroutine(AttackCycle());
         StartCoroutine(NormalAttackLoop());
+    }
+
+    void Update()
+    {
+        if (isDead) return;
+        if (bossHp == null) return;
+
+        // 🔥 Detecta quando o boss perde vida
+        if (bossHp.currentHealth < lastHp)
+        {
+            OnBossDamaged();
+            lastHp = bossHp.currentHealth;
+        }
+    }
+
+    // 🔥 60% de chance de curar o jogador quando o boss leva dano
+    private void OnBossDamaged()
+    {
+        float roll = Random.value; // entre 0 e 1
+
+        if (roll <= 0.35f)
+        {
+            PlayerHealth ph = FindFirstObjectByType<PlayerHealth>();
+            if (ph != null)
+            {
+                ph.ChangeHealth(+1);
+                Debug.Log("<color=green>[Boss]</color> Chance ativada — Jogador curou 1 de vida.");
+            }
+        }
+        else
+        {
+            Debug.Log("<color=yellow>[Boss]</color> Chance NÃO ativou.");
+        }
     }
 
     public void Die()
@@ -51,13 +103,14 @@ public class BossEdwardController : MonoBehaviour
         Debug.Log("[BossEdward] morreu, limpando ataques ativos.");
         StopAllCoroutines();
 
-        if (leapAttack != null) leapAttack.CleanupAfterDeath();
-        if (clawAttack != null) clawAttack.CleanupAfterDeath();
+        leapAttack?.CleanupAfterDeath();
+        clawAttack?.CleanupAfterDeath();
 
         GameObject cleaner = new GameObject("EdwardCleanupExecutor");
         DontDestroyOnLoad(cleaner);
         cleaner.AddComponent<BossEdwardCleanup>().StartCleanup();
     }
+
     IEnumerator NormalAttackLoop()
     {
         while (!isDead)
@@ -65,14 +118,16 @@ public class BossEdwardController : MonoBehaviour
             if (!isAttackingSpecial && player != null && canDoNormalAttack)
             {
                 float distance = Vector2.Distance(transform.position, player.position);
-                if (distance <= normalAttackRange)
+
+                if (distance <= normalAttackRange && movement != null)
                 {
-                    if (movement != null)
-                    {
-                        canDoNormalAttack = false;
-                        yield return new WaitForSeconds(normalAttackCooldown);
-                        canDoNormalAttack = true;
-                    }
+                    // 🔥 ATAQUE NORMAL
+                    movement.ChangeState(EdwardState.Attacking);
+                    movement.BossAttack(); // animação + EnemyCombat()
+
+                    canDoNormalAttack = false;
+                    yield return new WaitForSeconds(normalAttackCooldown);
+                    canDoNormalAttack = true;
                 }
             }
             yield return null;
@@ -94,9 +149,8 @@ public class BossEdwardController : MonoBehaviour
                     yield return StartCoroutine(ChooseRandomAttack());
                     yield return new WaitForSeconds(attackInterval);
                 }
-                else yield return null;
             }
-            else yield return null;
+            yield return null;
         }
     }
 

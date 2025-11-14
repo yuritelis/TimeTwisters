@@ -48,6 +48,11 @@ public class BossEdward_Claw_Attack : MonoBehaviour
                 {
                     sr.sortingLayerName = "Default";
                     sr.sortingOrder = 10;
+
+                    // 🔥 Transparência aplicada aqui
+                    Color c = sr.color;
+                    c.a = 0.35f;
+                    sr.color = c;
                 }
 
                 telegraphs[i] = tele;
