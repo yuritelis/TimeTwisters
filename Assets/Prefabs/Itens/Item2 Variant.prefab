@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9065269942952992945, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
+      propertyPath: Name
+      value: Regador
+      objectReference: {fileID: 0}
     - target: {fileID: 1009195719971490468, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
       propertyPath: m_Sprite
       value: 

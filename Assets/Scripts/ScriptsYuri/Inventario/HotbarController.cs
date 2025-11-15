@@ -9,8 +9,13 @@ public class HotbarController : MonoBehaviour
 {
     public GameObject hotbarPanel;
     public GameObject slotPrefab;
-    public Sprite itemImg;
+
     public int slotCount = 10;
+    public bool isHotbarCheia = false;
+    public bool usarItem = false;
+
+    private int slotAnterior;
+    private int slotAtual = 0;
 
     private ItemDictionary itemDictionary;
 
@@ -31,7 +36,7 @@ public class HotbarController : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     void Update()
@@ -40,7 +45,12 @@ public class HotbarController : MonoBehaviour
         {
             if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
             {
-                ShowUsingSlot(i);
+                SelecionarSlot(i);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    UseItemInSlot(slotAtual);
+                }
             }
         }
     }
@@ -61,24 +71,50 @@ public class HotbarController : MonoBehaviour
         }
 
         Debug.Log("Hotbar cheia!!!");
+        isHotbarCheia = true;
         return false;
     }
 
-    void CheckSlotSelection()
+    void SlotEmUso(int index)
     {
-        for (int i = 0; i < slotCount; i++)
+        Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
+        Image slotImg = slot.GetComponent<Image>();
+
+        Debug.Log("Usando" + index);
+
+        for (int i = index; i == slotAtual;)
         {
-            if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
-            {
-                
-            }
+            slotImg.color = Color.gray;
+            Debug.Log("i = " + i);
         }
     }
 
-    void ShowUsingSlot(int index)
+    void SlotAnterior(int index)
     {
         Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
-        
+        Image slotImg = slot.GetComponent<Image>();
+
+        for (int i = index; i != slotAtual; i++)
+        {
+            slotImg.color = Color.white;
+        }
+        slotAnterior = slotAtual;
+    }
+
+    void SelecionarSlot(int novoSlot)
+    {
+        // Verifica se é o mesmo slot
+        if (novoSlot == slotAtual) return;
+
+        // Atualiza slots
+        slotAnterior = slotAtual;
+        slotAtual = novoSlot;
+
+        // Atualiza cores
+        SlotAnterior(slotAnterior); // Desseleciona o anterior
+        SlotEmUso(slotAtual);   // Seleciona o novo
+
+        Debug.Log($"Slot alterado: {slotAnterior} -> {slotAtual}");
     }
 
     void UseItemInSlot(int index)

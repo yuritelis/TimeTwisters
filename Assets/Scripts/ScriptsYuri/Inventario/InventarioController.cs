@@ -11,6 +11,7 @@ public class InventarioController : MonoBehaviour
     public GameObject[] itemPrefabs;
 
     public int slotCount;
+    public bool isInventarioCheio = false;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class InventarioController : MonoBehaviour
         }
 
         Debug.Log("Inventário cheio!!!");
+        isInventarioCheio = true;
         return false;
     }
 
