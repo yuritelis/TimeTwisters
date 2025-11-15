@@ -29,6 +29,11 @@ public class HotbarController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        
+    }
+
     void Update()
     {
         for (int i = 0; i < slotCount; i++)

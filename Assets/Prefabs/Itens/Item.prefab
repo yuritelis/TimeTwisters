@@ -42,7 +42,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8684672482013252004
 CanvasRenderer:
@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834cfbe4effedea4cb40b9e1505c44d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 1
+  Name: 
 --- !u!61 &3732632685266159047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -268,4 +269,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca505a5bf48c164883fb4c435432f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactKey: {fileID: 6231247027465073346, guid: 27f6ec8a31cc5414093a61ff1c3fa621, type: 3}

@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerItemCollector : MonoBehaviour
@@ -31,18 +32,54 @@ public class PlayerItemCollector : MonoBehaviour
                 {
                     bool itemAdded = false;
 
-                    if (hotbarController == null) return;
+                    Debug.Log("=== INICIANDO TENTATIVA DE ADICIONAR ITEM ===");
 
-                    if(hotbarController != null)
+                    // 1. Tenta na Hotbar primeiro
+                    if (hotbarController != null)
+                    {
+                        Debug.Log("1. Tentando adicionar na HOTBAR...");
                         itemAdded = hotbarController.AddItem(gameObject);
+                        Debug.Log($"Resultado Hotbar: {itemAdded}");
 
-                    if(!itemAdded && inventarioController != null)
-                        itemAdded = inventarioController.AddItem(gameObject);
-
-                    if (itemAdded)
-                        Destroy(gameObject);
+                        if (!itemAdded)
+                        {
+                            Debug.Log("Hotbar retornou FALSE - Possivelmente cheia");
+                        }
+                    }
                     else
-                        Debug.Log("hotbar cheia e inventario cheio");
+                    {
+                        Debug.LogError("HotbarController não encontrado!");
+                    }
+
+                    // 2. Se não conseguiu na Hotbar, tenta Inventário
+                    if (!itemAdded && inventarioController != null)
+                    {
+                        Debug.Log("2. Tentando adicionar no INVENTÁRIO...");
+                        itemAdded = inventarioController.AddItem(gameObject);
+                        Debug.Log($"Resultado Inventário: {itemAdded}");
+
+                        if (!itemAdded)
+                        {
+                            Debug.Log("Inventário também retornou FALSE - Ambos cheios?");
+                        }
+                    }
+                    else if (!itemAdded)
+                    {
+                        Debug.Log("Pulou inventário porque: " + (inventarioController == null ? "InventarioController é null" : "Item já foi adicionado"));
+                    }
+
+                    // 3. Processa resultado final
+                    if (itemAdded)
+                    {
+                        Debug.Log("Item adicionado com SUCESSO - Destruindo objeto...");
+                        Destroy(gameObject);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("FALHA: Item não foi adicionado em nenhum lugar!");
+                    }
+
+                    Debug.Log("=== FIM DA TENTATIVA ===");
                 }
             }
         }
