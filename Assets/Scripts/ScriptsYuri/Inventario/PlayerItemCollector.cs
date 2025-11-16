@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class PlayerItemCollector : MonoBehaviour
 {
+    //[SerializeField] GameObject interactKey;
+
     private InventarioController inventarioController;
     private HotbarController hotbarController;
-    //[SerializeField] GameObject interactKey;
     Item item;
-    private bool playerInRange;
+
+    public bool playerInRange;
 
     void Start()
     {
@@ -39,7 +41,9 @@ public class PlayerItemCollector : MonoBehaviour
                         itemAdded = inventarioController.AddItem(gameObject);
 
                     if (itemAdded)
+                    {
                         Destroy(gameObject);
+                    }
 
                     if (hotbarController.isHotbarCheia && inventarioController.isInventarioCheio)
                         Debug.Log("Não dá pra pegar item, tudo cheio");

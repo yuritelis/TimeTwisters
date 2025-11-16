@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -14,17 +15,21 @@ public class HotbarController : MonoBehaviour
     public bool isHotbarCheia = false;
     public bool usarItem = false;
 
-    private int slotAnterior;
-    private int slotAtual = 0;
+    public string nomeItem;
 
     private ItemDictionary itemDictionary;
+    Item item;
+    PlayerItemCollector itemCollector;
 
     private Key[] hotbarKeys;
-    // private int selectedSlotIndex = -1;
+
+    private int slotAtual = 0;
+    private int slotAnterior = -1;
 
     void Awake()
     {
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
+        itemCollector = FindFirstObjectByType<PlayerItemCollector>();
 
         hotbarKeys = new Key[slotCount];
 
@@ -36,9 +41,10 @@ public class HotbarController : MonoBehaviour
 
     private void Start()
     {
-
+        SelecionarSlot(0);
     }
 
+    // Meu update
     void Update()
     {
         for (int i = 0; i < slotCount; i++)
@@ -46,13 +52,58 @@ public class HotbarController : MonoBehaviour
             if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
             {
                 SelecionarSlot(i);
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    UseItemInSlot(slotAtual);
-                }
+                break;
             }
         }
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0)
+        {
+            int novoSlot = slotAtual + (scroll > 0 ? 1 : -1);
+            if (novoSlot < 0) novoSlot = 9;
+            if (novoSlot > 9) novoSlot = 0;
+
+            SelecionarSlot(novoSlot);
+        }
+
+        if (!itemCollector.playerInRange)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                UsarItem(slotAtual);
+            }
+        }
+    }
+
+    void SelecionarSlot(int novoSlot)
+    {
+        slotAnterior = slotAtual;
+        slotAtual = novoSlot;
+        
+        if(slotAnterior >= 0)
+            SlotForaDeUso(slotAnterior);
+
+        SlotEmUso(slotAtual);
+
+        Debug.Log($"Slot alterado: {slotAnterior} -> {slotAtual}");
+    }
+
+    void SlotEmUso(int index)
+    {
+        if (index < 0 || index >= hotbarPanel.transform.childCount) return;
+
+        Image slotImg = hotbarPanel.transform.GetChild(index).GetComponent<Image>();
+        if (slotImg != null)
+            slotImg.color = Color.gray;
+    }
+
+    void SlotForaDeUso(int index)
+    {
+        if (index < 0 || index >= hotbarPanel.transform.childCount) return;
+
+        Image slotImg = hotbarPanel.transform.GetChild(index).GetComponent<Image>();
+        if (slotImg != null)
+            slotImg.color = Color.white;
     }
 
     public bool AddItem(GameObject itemPrefab)
@@ -61,7 +112,7 @@ public class HotbarController : MonoBehaviour
         {
             Slot slot = slotTransform.GetComponent<Slot>();
 
-            if (slot != null && slot.currentItem == null)
+            if (slot != null && slot.isVazio)
             {
                 GameObject newItem = Instantiate(itemPrefab, slotTransform);
                 newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
@@ -75,56 +126,22 @@ public class HotbarController : MonoBehaviour
         return false;
     }
 
-    void SlotEmUso(int index)
+    void UsarItem(int index)
     {
         Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
-        Image slotImg = slot.GetComponent<Image>();
 
-        Debug.Log("Usando" + index);
-
-        for (int i = index; i == slotAtual;)
+        if(slot == null || slot.isVazio)
         {
-            slotImg.color = Color.gray;
-            Debug.Log("i = " + i);
+            Debug.Log("Slot inválido ou slot vazio");
+            return;
         }
-    }
 
-    void SlotAnterior(int index)
-    {
-        Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
-        Image slotImg = slot.GetComponent<Image>();
-
-        for (int i = index; i != slotAtual; i++)
-        {
-            slotImg.color = Color.white;
-        }
-        slotAnterior = slotAtual;
-    }
-
-    void SelecionarSlot(int novoSlot)
-    {
-        // Verifica se é o mesmo slot
-        if (novoSlot == slotAtual) return;
-
-        // Atualiza slots
-        slotAnterior = slotAtual;
-        slotAtual = novoSlot;
-
-        // Atualiza cores
-        SlotAnterior(slotAnterior); // Desseleciona o anterior
-        SlotEmUso(slotAtual);   // Seleciona o novo
-
-        Debug.Log($"Slot alterado: {slotAnterior} -> {slotAtual}");
-    }
-
-    void UseItemInSlot(int index)
-    {
-        Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
-
-        if (slot.currentItem != null)
+        if (!slot.isVazio)
         {
             Item item = slot.currentItem.GetComponent<Item>();
-            item.UseItem();
+            nomeItem = item.Name;
+            item.UseItem(slot);
+            slot.RemoverItem();
         }
     }
 

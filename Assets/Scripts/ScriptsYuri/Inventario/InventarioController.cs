@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventarioController : MonoBehaviour
 {
     private ItemDictionary itemDictionary;
+    private HotbarController hotbarController;
 
     public GameObject inventarioPanel;
     public GameObject slotPrefab;
@@ -36,7 +37,7 @@ public class InventarioController : MonoBehaviour
         {
             Slot slot = slotTransform.GetComponent<Slot>();
 
-            if (slot != null && slot.currentItem == null)
+            if (slot != null && slot.isVazio && hotbarController.isHotbarCheia)
             {
                 GameObject newItem = Instantiate(itemPrefab, slotTransform);
                 newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
