@@ -66,13 +66,13 @@ public class HotbarController : MonoBehaviour
             SelecionarSlot(novoSlot);
         }
 
-        if (!itemCollector.playerInRange)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                UsarItem(slotAtual);
-            }
-        }
+        //if (!itemCollector.playerInRange)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        UsarItem(slotAtual);
+        //    }
+        //}
     }
 
     void SelecionarSlot(int novoSlot)
