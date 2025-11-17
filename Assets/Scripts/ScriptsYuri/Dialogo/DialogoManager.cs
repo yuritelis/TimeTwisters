@@ -29,7 +29,6 @@ public class DialogoManager : MonoBehaviour
     [Header("Player")]
     public GameObject player;
 
-    // Evento para cutscenes
     public System.Action<DialogoFalas> OnFalaIniciada;
 
     private void Awake()
@@ -38,6 +37,12 @@ public class DialogoManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        // 🔥 Correção 2 — garante que os objetos da cena atual sejam encontrados
+        RecarregarReferencias();
     }
 
     private void OnEnable()
@@ -52,9 +57,30 @@ public class DialogoManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // 🔥 Correção 2 — recarrega referências toda vez que muda de cena
+        RecarregarReferencias();
+
         if (scene.name == "TitleScreen")
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void RecarregarReferencias()
+    {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        if (dialogoPanel == null)
+        {
+            GameObject obj = GameObject.Find("DialogoPanel");
+            if (obj != null) dialogoPanel = obj.gameObject;
+        }
+
+        if (sanidadeBar == null)
+        {
+            GameObject obj = GameObject.Find("SanidadeBar");
+            if (obj != null) sanidadeBar = obj.gameObject;
         }
     }
 
@@ -83,7 +109,6 @@ public class DialogoManager : MonoBehaviour
     {
         if (!isDialogoAtivo || dialogoData == null) return;
 
-        // Skip da digitação
         if (isTyping)
         {
             StopAllCoroutines();
@@ -93,7 +118,6 @@ public class DialogoManager : MonoBehaviour
             return;
         }
 
-        // Se finalizou
         if (dialogoIndex >= dialogoData.dialogoFalas.Count)
         {
             FimDialogo();
@@ -102,10 +126,8 @@ public class DialogoManager : MonoBehaviour
 
         var falaAtual = dialogoData.dialogoFalas[dialogoIndex];
 
-        // Evento cutscene
         OnFalaIniciada?.Invoke(falaAtual);
 
-        // Marca progresso
         if (falaAtual.avancaProgressoAqui)
         {
             if (StoryProgressManager.instance != null)
@@ -115,14 +137,11 @@ public class DialogoManager : MonoBehaviour
             }
         }
 
-        // SFX opcional
         if (falaAtual.sfxAposFala != null)
             StartCoroutine(PlaySfxDepois(falaAtual.sfxAposFala));
 
-        // Nome
         personagemNome.text = falaAtual.personagem.nome ?? "";
 
-        // Retrato
         if (falaAtual.personagem.portrait != null)
         {
             personagemIcon.sprite = falaAtual.personagem.portrait;
@@ -197,6 +216,7 @@ public class DialogoManager : MonoBehaviour
         else
             AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
+
     public int GetCurrentIndex() => dialogoIndex;
 
     public string GetCurrentSpeakerName()

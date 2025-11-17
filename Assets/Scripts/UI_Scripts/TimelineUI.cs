@@ -27,14 +27,12 @@ public class TimelineUI : MonoBehaviour
 
     private static bool bootstrapped = false;
 
-    // ==========================================================
-    // SINGLETON
-    // ==========================================================
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -43,9 +41,6 @@ public class TimelineUI : MonoBehaviour
         }
     }
 
-    // ==========================================================
-    // SCENE LOADED
-    // ==========================================================
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -58,12 +53,11 @@ public class TimelineUI : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ForceCloseOnSceneLoad();   // <<<<<< ESSENCIAL
+        ForceCloseOnSceneLoad();
         RecarregarReferenciasUI();
         DetectarTimelineAtual();
     }
 
-    // Fecha tudo ANTES de buscar referências e atualizar UI
     public void ForceCloseOnSceneLoad()
     {
         if (panel != null) panel.SetActive(false);
@@ -80,9 +74,6 @@ public class TimelineUI : MonoBehaviour
             playerInput.enabled = true;
     }
 
-    // ==========================================================
-    // REFERÊNCIAS
-    // ==========================================================
     private void RecarregarReferenciasUI()
     {
         if (panel == null)
@@ -101,13 +92,7 @@ public class TimelineUI : MonoBehaviour
                 else if (b.name.Contains("Futuro")) Futuro = b;
             }
         }
-    }
 
-    // ==========================================================
-    // START
-    // ==========================================================
-    void Start()
-    {
         if (playerInput == null)
             playerInput = FindFirstObjectByType<PlayerInput>();
 
@@ -115,15 +100,28 @@ public class TimelineUI : MonoBehaviour
             playerController = FindFirstObjectByType<PlayerController>();
 
         if (Presente != null)
+        {
+            Presente.onClick.RemoveAllListeners();
             Presente.onClick.AddListener(() => ChooseTimeline(Timeline.Presente));
-        if (Passado != null)
-            Passado.onClick.AddListener(() => ChooseTimeline(Timeline.Passado));
-        if (Futuro != null)
-            Futuro.onClick.AddListener(() => ChooseTimeline(Timeline.Futuro));
+        }
 
+        if (Passado != null)
+        {
+            Passado.onClick.RemoveAllListeners();
+            Passado.onClick.AddListener(() => ChooseTimeline(Timeline.Passado));
+        }
+
+        if (Futuro != null)
+        {
+            Futuro.onClick.RemoveAllListeners();
+            Futuro.onClick.AddListener(() => ChooseTimeline(Timeline.Futuro));
+        }
+    }
+
+    void Start()
+    {
         DetectarTimelineAtual();
 
-        // Primeira inicialização
         if (!bootstrapped)
         {
             ForceCloseOnSceneLoad();
@@ -131,9 +129,6 @@ public class TimelineUI : MonoBehaviour
         }
     }
 
-    // ==========================================================
-    // TIMELINE ATUAL
-    // ==========================================================
     private void DetectarTimelineAtual()
     {
         string cena = SceneManager.GetActiveScene().name.ToLower();
@@ -145,13 +140,13 @@ public class TimelineUI : MonoBehaviour
         else
             currentTimeline = Timeline.Presente;
     }
-
-    // ==========================================================
-    // ABRIR UI
-    // ==========================================================
-    public void Open(TimeTravelTilemap timeObject)
+    public void Open(TimeTravelTilemap _)
     {
-        if (panel == null) return;
+        if (panel == null)
+        {
+            Debug.LogError("❌ TimelinePanel não encontrado!");
+            return;
+        }
 
         panel.SetActive(true);
         if (sanidadeBar != null) sanidadeBar.SetActive(false);
@@ -169,10 +164,6 @@ public class TimelineUI : MonoBehaviour
         if (playerInput != null)
             playerInput.enabled = false;
     }
-
-    // ==========================================================
-    // FECHAR UI
-    // ==========================================================
     public void Close()
     {
         if (panel != null) panel.SetActive(false);
@@ -188,10 +179,6 @@ public class TimelineUI : MonoBehaviour
         if (playerInput != null)
             playerInput.enabled = true;
     }
-
-    // ==========================================================
-    // BOTÕES
-    // ==========================================================
     private void ChooseTimeline(Timeline timeline)
     {
         if (timeline == currentTimeline)

@@ -1,39 +1,33 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BossEdwardCleanup : MonoBehaviour
 {
-    public void StartCleanup()
+    public static List<GameObject> spawned = new List<GameObject>();
+
+    public static void Register(GameObject obj)
     {
-        Debug.Log("<color=yellow>[BossEdwardCleanup]</color> StartCleanup() chamado!");
-        StartCoroutine(CleanupRoutine());
+        if (obj != null && !spawned.Contains(obj))
+            spawned.Add(obj);
     }
 
-    private IEnumerator CleanupRoutine()
+    public void StartCleanup()
     {
-        Debug.Log("<color=orange>[BossEdwardCleanup]</color> Iniciando rotina de limpeza...");
-        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(CleanupCoroutine());
+    }
 
-        var leftovers = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-        int count = 0;
+    private IEnumerator CleanupCoroutine()
+    {
+        yield return null;
 
-        foreach (GameObject obj in leftovers)
+        foreach (var obj in spawned)
         {
-            if (obj == null) continue;
-            string n = obj.name;
-
-            if (n.Contains("ClawPrefab") ||
-                n.Contains("Claw_Telegraph_Prefab") ||
-                n.Contains("Leap_TelegraphPrefab"))
-            {
+            if (obj != null)
                 Destroy(obj);
-                count++;
-                Debug.Log($"<color=green>[BossEdwardCleanup]</color> Destruído: {n}");
-            }
         }
 
-        Debug.Log($"<color=cyan>[BossEdwardCleanup]</color> Limpeza finalizada. Objetos destruídos: {count}");
-        yield return new WaitForSeconds(0.05f);
-        Destroy(gameObject);
+        spawned.Clear();
+        Destroy(gameObject, 0.1f);
     }
 }

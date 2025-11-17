@@ -4,15 +4,10 @@ using System.Collections.Generic;
 
 public class BossEdward_Claw_Attack : MonoBehaviour
 {
-    [Header("Prefabs")]
     public GameObject clawPrefab;
     public GameObject telegraphPrefab;
-
-    [Header("Pares Start -> End")]
     public Transform[] startPoints;
     public Transform[] endPoints;
-
-    [Header("Config")]
     public float telegraphDuration = 0.8f;
     public float clawSpeed = 8f;
     public bool showDebugLogs = true;
@@ -28,6 +23,7 @@ public class BossEdward_Claw_Attack : MonoBehaviour
         for (int i = 0; i < startPoints.Length; i++)
         {
             if (boss.isDead) yield break;
+
             Transform s = startPoints[i];
             Transform e = (i < endPoints.Length) ? endPoints[i] : null;
             if (s == null || e == null) continue;
@@ -36,6 +32,7 @@ public class BossEdward_Claw_Attack : MonoBehaviour
             {
                 GameObject tele = Instantiate(telegraphPrefab, s.position, Quaternion.identity);
                 spawnedObjects.Add(tele);
+                BossEdwardCleanup.Register(tele);
 
                 Vector2 dir = (e.position - s.position);
                 float dist = dir.magnitude;
@@ -48,8 +45,6 @@ public class BossEdward_Claw_Attack : MonoBehaviour
                 {
                     sr.sortingLayerName = "Default";
                     sr.sortingOrder = 10;
-
-                    // 🔥 Transparência aplicada aqui
                     Color c = sr.color;
                     c.a = 0.35f;
                     sr.color = c;
@@ -87,6 +82,7 @@ public class BossEdward_Claw_Attack : MonoBehaviour
             {
                 GameObject claw = Instantiate(clawPrefab, s.position, Quaternion.identity);
                 spawnedObjects.Add(claw);
+                BossEdwardCleanup.Register(claw);
 
                 var clawSr = claw.GetComponent<SpriteRenderer>();
                 if (clawSr != null)
@@ -125,7 +121,6 @@ public class BossEdward_Claw_Attack : MonoBehaviour
 
     public void CleanupAfterDeath()
     {
-        if (showDebugLogs) Debug.Log("[ClawAttack] Limpando prefabs após morte do boss.");
         foreach (var obj in spawnedObjects)
         {
             if (obj != null)

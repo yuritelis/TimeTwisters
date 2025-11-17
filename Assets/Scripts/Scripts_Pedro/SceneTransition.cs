@@ -17,46 +17,36 @@ public class FalaSimples
 
 public class SceneTransition : MonoBehaviour
 {
-    [Header("Configuração da Transição")]
     public string sceneToLoad;
+
 #if UNITY_EDITOR
     public SceneAsset sceneAsset;
 #endif
+
     public string spawnPointName;
     public bool requireInput = false;
     public KeyCode interactKey = KeyCode.E;
 
-    [Header("Progressão Necessária")]
-    [Tooltip("Etapa mínima da história necessária para abrir a porta (0 = sempre pode interagir).")]
     public int etapaNecessaria = 0;
 
-    [Header("Som de Porta Trancada")]
-    [Tooltip("Som reproduzido quando o jogador tenta interagir sem ter a progressão necessária.")]
     public AudioClip somPortaTrancada;
 
-    [Header("Diálogo Completo (opcional)")]
-    [Tooltip("Se preenchido, será exibido ANTES da transição de cena.")]
     public Dialogo dialogoAntesDaTransicao;
-
-    [Header("Diálogo de Porta Trancada (opcional)")]
-    [Tooltip("Se preenchido, será exibido quando o jogador tentar interagir antes da hora.")]
     public Dialogo dialogoBloqueado;
 
-    [Header("Falas Aleatórias (simples, opcionais)")]
     public List<FalaSimples> falasAleatorias = new List<FalaSimples>()
     {
         new FalaSimples { nome = "Julie", fala = "Está trancada..." },
         new FalaSimples { nome = "",      fala = "Nada acontece..." }
     };
 
+    public float transitionCooldown = 1.2f;
+    private static float lastTransitionTime = -999f;
+
     private bool playerInside = false;
     private bool transicionando = false;
     private PlayerController playerController;
     private Player_Combat playerCombat;
-
-    // ============================ //
-    // ===== Lógica Principal ===== //
-    // ============================ //
 
     private void Update()
     {
@@ -84,6 +74,11 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator TentarTransicao()
     {
+        if (Time.time < lastTransitionTime + transitionCooldown)
+            yield break;
+
+        lastTransitionTime = Time.time;
+
         if (transicionando) yield break;
         transicionando = true;
 
@@ -91,10 +86,8 @@ public class SceneTransition : MonoBehaviour
             ? StoryProgressManager.instance.historiaEtapaAtual
             : 0;
 
-        // 🔒 Porta trancada
         if (etapaAtual < etapaNecessaria)
         {
-            // 🔊 Som de porta trancada
             if (somPortaTrancada != null)
             {
                 if (AudioManager.instance != null)
@@ -107,7 +100,6 @@ public class SceneTransition : MonoBehaviour
 
             Dialogo dlg = null;
 
-            // 💬 Se há diálogo bloqueado, ele é usado
             if (dialogoBloqueado != null &&
                 dialogoBloqueado.dialogoFalas != null &&
                 dialogoBloqueado.dialogoFalas.Count > 0)
@@ -119,7 +111,6 @@ public class SceneTransition : MonoBehaviour
                 dlg = CriarDialogoDeFala(EscolherFalaAleatoria());
             }
 
-            // 🎬 Roda o diálogo, mas NÃO avança progressão automaticamente
             if (dlg != null && DialogoManager.Instance != null)
             {
                 TravarJogador(true);
@@ -135,27 +126,24 @@ public class SceneTransition : MonoBehaviour
             yield break;
         }
 
-        // 🍿 Há diálogo antes da transição (não avança progresso)
         if (dialogoAntesDaTransicao != null &&
             dialogoAntesDaTransicao.dialogoFalas != null &&
             dialogoAntesDaTransicao.dialogoFalas.Count > 0)
         {
-            TravarJogador(true);
+            if (DialogoManager.Instance != null)
+            {
+                TravarJogador(true);
 
-            DialogoManager.Instance.StartDialogo(dialogoAntesDaTransicao);
-            while (DialogoManager.Instance.dialogoAtivoPublico)
-                yield return null;
+                DialogoManager.Instance.StartDialogo(dialogoAntesDaTransicao);
+                while (DialogoManager.Instance.dialogoAtivoPublico)
+                    yield return null;
 
-            TravarJogador(false);
+                TravarJogador(false);
+            }
         }
 
-        // 🌌 Troca de cena
         PerformTransition();
     }
-
-    // ============================ //
-    // ===== Métodos Auxiliares ==== //
-    // ============================ //
 
     private FalaSimples EscolherFalaAleatoria()
     {
@@ -185,16 +173,27 @@ public class SceneTransition : MonoBehaviour
     private void PerformTransition()
     {
         string finalSceneName = GetSceneName();
+
         if (string.IsNullOrEmpty(finalSceneName))
-        {
-            Debug.LogError($"❌ Nenhuma cena configurada em {name}!");
             return;
-        }
 
         if (!string.IsNullOrEmpty(spawnPointName))
             PlayerPrefs.SetString("SpawnPoint", spawnPointName);
 
-        SceneManager.LoadScene(finalSceneName);
+        StartCoroutine(FadeAndLoad(finalSceneName));
+    }
+
+    private IEnumerator FadeAndLoad(string sceneName)
+    {
+        if (SceneFadeController.instance != null)
+            yield return SceneFadeController.instance.FadeOut();
+
+        SceneManager.LoadScene(sceneName);
+
+        yield return null;
+
+        if (SceneFadeController.instance != null)
+            yield return SceneFadeController.instance.FadeIn();
     }
 
     private string GetSceneName()
@@ -214,4 +213,21 @@ public class SceneTransition : MonoBehaviour
         if (playerCombat != null)
             playerCombat.enabled = !estado;
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (sceneAsset != null)
+        {
+            string path = AssetDatabase.GetAssetPath(sceneAsset);
+            string sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
+
+            if (sceneToLoad != sceneName)
+            {
+                sceneToLoad = sceneName;
+                EditorUtility.SetDirty(this);
+            }
+        }
+    }
+#endif
 }
