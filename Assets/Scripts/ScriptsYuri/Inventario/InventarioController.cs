@@ -5,14 +5,12 @@ using UnityEngine;
 public class InventarioController : MonoBehaviour
 {
     private ItemDictionary itemDictionary;
-    private HotbarController hotbarController;
 
     public GameObject inventarioPanel;
     public GameObject slotPrefab;
     public GameObject[] itemPrefabs;
 
     public int slotCount;
-    public bool isInventarioCheio = false;
 
     void Start()
     {
@@ -37,7 +35,7 @@ public class InventarioController : MonoBehaviour
         {
             Slot slot = slotTransform.GetComponent<Slot>();
 
-            if (slot != null && slot.isVazio)
+            if (slot != null && slot.currentItem == null)
             {
                 GameObject newItem = Instantiate(itemPrefab, slotTransform);
                 newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
@@ -47,7 +45,6 @@ public class InventarioController : MonoBehaviour
         }
 
         Debug.Log("Inventário cheio!!!");
-        isInventarioCheio = true;
         return false;
     }
 
@@ -69,6 +66,8 @@ public class InventarioController : MonoBehaviour
 
     public void SetInventarioItems(List<InventorySaveData> inventarioSaveData)
     {
+        Debug.Log("chamou SetInventarioItems");
+
         foreach (Transform child in inventarioPanel.transform)
         {
             Destroy(child.gameObject);
@@ -81,17 +80,14 @@ public class InventarioController : MonoBehaviour
 
         foreach (InventorySaveData data in inventarioSaveData)
         {
-            if (data.slotIndex < slotCount)
-            {
-                Slot slot = inventarioPanel.transform.GetChild(data.slotIndex).GetComponent<Slot>();
-                GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
+            Slot slot = inventarioPanel.transform.GetChild(data.slotIndex).GetComponent<Slot>();
+            GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
 
-                if (itemPrefab != null)
-                {
-                    GameObject item = Instantiate(itemPrefab, slot.transform);
-                    item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                    slot.currentItem = item;
-                }
+            if (itemPrefab != null)
+            {
+                GameObject item = Instantiate(itemPrefab, slot.transform);
+                item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                slot.currentItem = item;
             }
         }
     }

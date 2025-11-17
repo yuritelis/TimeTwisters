@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -12,7 +12,6 @@ public class HotbarController : MonoBehaviour
     public GameObject slotPrefab;
 
     public int slotCount = 10;
-    public bool isHotbarCheia = false;
     public bool usarItem = false;
 
     public string nomeItem;
@@ -36,12 +35,6 @@ public class HotbarController : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        SelecionarSlot(0);
-    }
-
-    // Meu update
     void Update()
     {
         for (int i = 0; i < slotCount; i++)
@@ -76,8 +69,8 @@ public class HotbarController : MonoBehaviour
     {
         slotAnterior = slotAtual;
         slotAtual = novoSlot;
-        
-        if(slotAnterior >= 0)
+
+        if (slotAnterior >= 0)
             SlotForaDeUso(slotAnterior);
 
         SlotEmUso(slotAtual);
@@ -107,7 +100,7 @@ public class HotbarController : MonoBehaviour
     {
         Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
 
-        if(slot == null || slot.isVazio)
+        if (slot == null || slot.isVazio)
         {
             Debug.Log("Slot inválido ou slot vazio");
             return;

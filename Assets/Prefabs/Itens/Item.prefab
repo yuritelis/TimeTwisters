@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 8684672482013252004}
   - component: {fileID: 6989404496986882871}
   - component: {fileID: 259131931888347488}
+  - component: {fileID: 2506220515144635949}
   - component: {fileID: 7214143716573564083}
   - component: {fileID: -9065269942952992945}
   - component: {fileID: 3732632685266159047}
   - component: {fileID: 4090287926109144037}
   - component: {fileID: 1009195719971490468}
-  - component: {fileID: 7047048216936030227}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -92,6 +92,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a32120792bdfdc8458754df8b0e8bc47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2506220515144635949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179377932692974747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca505a5bf48c164883fb4c435432f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!225 &7214143716573564083
@@ -222,7 +234,7 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -257,15 +269,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7047048216936030227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7179377932692974747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ca505a5bf48c164883fb4c435432f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
