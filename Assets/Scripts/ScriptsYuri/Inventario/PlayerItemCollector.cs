@@ -34,9 +34,6 @@ public class PlayerItemCollector : MonoBehaviour
                 {
                     bool itemAdded = false;
 
-                    if (hotbarController != null && !hotbarController.isHotbarCheia)
-                        itemAdded = hotbarController.AddItem(gameObject);
-
                     if (inventarioController != null && !inventarioController.isInventarioCheio && hotbarController.isHotbarCheia)
                         itemAdded = inventarioController.AddItem(gameObject);
 
@@ -45,8 +42,8 @@ public class PlayerItemCollector : MonoBehaviour
                         Destroy(gameObject);
                     }
 
-                    if (hotbarController.isHotbarCheia && inventarioController.isInventarioCheio)
-                        Debug.Log("Não dá pra pegar item, tudo cheio");
+                    if (inventarioController.isInventarioCheio)
+                        Debug.Log("Não dá pra pegar item, inventário cheio");
                 }
             }
         }

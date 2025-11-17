@@ -18,8 +18,6 @@ public class HotbarController : MonoBehaviour
     public string nomeItem;
 
     private ItemDictionary itemDictionary;
-    Item item;
-    PlayerItemCollector itemCollector;
 
     private Key[] hotbarKeys;
 
@@ -29,7 +27,6 @@ public class HotbarController : MonoBehaviour
     void Awake()
     {
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
-        itemCollector = FindFirstObjectByType<PlayerItemCollector>();
 
         hotbarKeys = new Key[slotCount];
 
@@ -104,26 +101,6 @@ public class HotbarController : MonoBehaviour
         Image slotImg = hotbarPanel.transform.GetChild(index).GetComponent<Image>();
         if (slotImg != null)
             slotImg.color = Color.white;
-    }
-
-    public bool AddItem(GameObject itemPrefab)
-    {
-        foreach (Transform slotTransform in hotbarPanel.transform)
-        {
-            Slot slot = slotTransform.GetComponent<Slot>();
-
-            if (slot != null && slot.isVazio)
-            {
-                GameObject newItem = Instantiate(itemPrefab, slotTransform);
-                newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                slot.currentItem = newItem;
-                return true;
-            }
-        }
-
-        Debug.Log("Hotbar cheia!!!");
-        isHotbarCheia = true;
-        return false;
     }
 
     void UsarItem(int index)
