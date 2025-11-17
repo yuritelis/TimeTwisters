@@ -23,19 +23,23 @@ public class Enemy_Knockback : MonoBehaviour
     {
         isKnocked = true;
 
-        var movementScript = GetComponent<Enemy_Movement>();
-        if (movementScript != null)
-            movementScript.enabled = false;
+        var movement = GetComponent<Enemy_Movement>();
+        if (movement != null)
+            movement.isKnocked = true;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            var movement = GetComponent<Enemy_Movement>();
             Transform source = movement != null && movement.attackPoint != null
                 ? movement.attackPoint
                 : transform;
 
             Vector2 dir = (source.position - playerTransform.position).normalized;
+
+            if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+                dir = new Vector2(Mathf.Sign(dir.x), 0f);
+            else
+                dir = new Vector2(0f, Mathf.Sign(dir.y));
 
             float elapsed = 0f;
 
@@ -47,8 +51,8 @@ public class Enemy_Knockback : MonoBehaviour
             }
         }
 
-        if (movementScript != null)
-            movementScript.enabled = true;
+        if (movement != null)
+            movement.isKnocked = false;
 
         isKnocked = false;
     }
