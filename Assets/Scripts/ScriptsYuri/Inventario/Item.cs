@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -10,12 +9,12 @@ public class Item : MonoBehaviour
     {
         Debug.Log("Usou item" + Name);
 
-        Item item = slot.currentItem.GetComponent<Item>();
+        Item item = slot.itemAtual.GetComponent<Item>();
 
-        if (!slot.isVazio)
+        if (!slot.slotVazio)
         {
             Destroy(item);
-            slot.currentItem = null;
+            slot.itemAtual = null;
         }
     }
 }
