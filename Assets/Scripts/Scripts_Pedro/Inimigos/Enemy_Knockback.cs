@@ -4,14 +4,13 @@ using System.Collections;
 public class Enemy_Knockback : MonoBehaviour
 {
     [Header("Resistência ao knockback")]
-    [Range(0f, 1f)]
-    public float knockbackResistance = 0f; // 0 = sem resistência, 1 = totalmente imune
+    [Range(0f, 1f)] public float knockbackResistance = 0f;
 
     private bool isKnocked = false;
 
     public void Knockback(Transform playerTransform, float knockbackDistance, float knockbackDuration = 0.1f)
     {
-        if (!isActiveAndEnabled) return; // 🔒 evita knockback em inimigos mortos/desativados
+        if (!isActiveAndEnabled) return;
 
         if (!isKnocked)
         {
@@ -20,14 +19,20 @@ public class Enemy_Knockback : MonoBehaviour
         }
     }
 
-
     private IEnumerator KnockbackCoroutine(Transform playerTransform, float distance, float duration)
     {
         isKnocked = true;
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            Vector2 dir = (transform.position - playerTransform.position).normalized;
+            var movement = GetComponent<Enemy_Movement>();
+            Transform source = movement != null && movement.attackPoint != null
+                ? movement.attackPoint
+                : transform;
+
+            Vector2 dir = (source.position - playerTransform.position).normalized;
+
             float elapsed = 0f;
 
             while (elapsed < duration)
@@ -37,6 +42,7 @@ public class Enemy_Knockback : MonoBehaviour
                 yield return new WaitForFixedUpdate();
             }
         }
+
         isKnocked = false;
     }
 }
