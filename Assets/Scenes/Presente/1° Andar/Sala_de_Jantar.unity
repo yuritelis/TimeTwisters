@@ -1407,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.029587
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 6239699794732491742, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_labelHash
@@ -2830,6 +2830,15 @@ PrefabInstance:
     - target: {fileID: 3336517201787874533, guid: 7057fc8e08d7287468dc74099290257b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295604836492434075, guid: 7057fc8e08d7287468dc74099290257b, type: 3}
+      propertyPath: dialogoAoMorrer.dialogoFalas.Array.data[3].fala
+      value: "Pelo visto esse cara n\xE3o veio sozinho..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295604836492434075, guid: 7057fc8e08d7287468dc74099290257b, type: 3}
+      propertyPath: dialogoAoMorrer.dialogoFalas.Array.data[4].fala
+      value: "\xC9 melhor eles se prepararem pra correr antes que eu vire todos do
+        avesso!"
       objectReference: {fileID: 0}
     - target: {fileID: 8739515949526451832, guid: 7057fc8e08d7287468dc74099290257b, type: 3}
       propertyPath: maxHealth

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerDash : MonoBehaviour
 {
-    [Header("Dash Settings")]
     public float dashSpeed = 10f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
@@ -15,9 +15,11 @@ public class PlayerDash : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 lastCardinalDirection = Vector2.right;
+
     private PlayerHealth playerHealth;
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class PlayerDash : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController = GetComponent<PlayerController>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     private void Update()
@@ -32,13 +35,10 @@ public class PlayerDash : MonoBehaviour
         if (playerController != null && !playerController.canMove)
             return;
 
-        Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 inputDir = playerInput.actions["Move"].ReadValue<Vector2>();
 
-        if (inputDir != Vector2.zero)
-        {
-            if (Mathf.Abs(inputDir.x) == 0 || Mathf.Abs(inputDir.y) == 0)
-                lastCardinalDirection = inputDir.normalized;
-        }
+        if (inputDir.sqrMagnitude > 0.1f)
+            lastCardinalDirection = inputDir.normalized;
 
         if (playerController != null)
         {
@@ -46,10 +46,9 @@ public class PlayerDash : MonoBehaviour
                 return;
         }
 
-        // Dash
         if (canDash && !isDashing && Input.GetKeyDown(dashKey))
         {
-            Vector2 dashDir = (inputDir != Vector2.zero) ? inputDir.normalized : lastCardinalDirection;
+            Vector2 dashDir = (inputDir.sqrMagnitude > 0.1f) ? inputDir.normalized : lastCardinalDirection;
             StartCoroutine(PerformDash(dashDir));
         }
     }

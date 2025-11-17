@@ -3,14 +3,11 @@ using System.Collections;
 
 public class BossEdward_Leap_Attack : MonoBehaviour
 {
-    [Header("Configuração do Salto")]
     public float leapDuration = 0.8f;
     public float leapSpeed = 8f;
     public int damage = 2;
     public LayerMask playerLayer;
     public Color leapColor = Color.red;
-
-    [Header("Telegraph Visual")]
     public GameObject telegraphPrefab;
     public float telegraphWidth = 1f;
     public float telegraphTime = 1f;
@@ -41,9 +38,10 @@ public class BossEdward_Leap_Attack : MonoBehaviour
         if (telegraphPrefab != null)
         {
             telegraph = Instantiate(telegraphPrefab, startPos, Quaternion.identity);
+            BossEdwardCleanup.Register(telegraph);
+
             telegraph.transform.localScale = new Vector3(0f, telegraphWidth, 1f);
 
-            // 🔥 Transparência aplicada aqui
             var srTele = telegraph.GetComponent<SpriteRenderer>();
             if (srTele != null)
             {

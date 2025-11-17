@@ -945,8 +945,8 @@ MonoBehaviour:
   dialogoBloqueado:
     dialogoFalas:
     - personagem:
-        nome: 
-        portrait: {fileID: 0}
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "\xC9 melhor eu terminar de olhar o primeiro andar antes..."
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "2\xB0Andar"
   sceneAsset: {fileID: 102900000, guid: 6f07b89f05346eb4091d5f8dc2d78db8, type: 3}
   spawnPointName: "Andar1 > Sagu\xE3o1"
   requireInput: 1
@@ -1843,13 +1843,7 @@ MonoBehaviour:
     dialogoFalas: []
   dialogoBloqueado:
     dialogoFalas: []
-  falasAleatorias:
-  - nome: Julie
-    retrato: {fileID: 0}
-    fala: "Est\xE1 trancada..."
-  - nome: 
-    retrato: {fileID: 0}
-    fala: Nada acontece...
+  falasAleatorias: []
 --- !u!61 &507990340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7807,7 +7801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "2\xB0Andar"
   sceneAsset: {fileID: 102900000, guid: 6f07b89f05346eb4091d5f8dc2d78db8, type: 3}
   spawnPointName: "Andar2 > Sagu\xE3o2"
   requireInput: 1
@@ -7960,8 +7954,8 @@ MonoBehaviour:
   dialogoBloqueado:
     dialogoFalas:
     - personagem:
-        nome: 
-        portrait: {fileID: 0}
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "\xC9 melhor eu terminar de olhar o primeiro andar antes..."
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0

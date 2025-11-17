@@ -25,7 +25,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         nearbyInteractable = null;
         nearbyTimeTravel = null;
-
         Debug.Log($"🌍 Cena carregada: {scene.name}. Resetando interações antigas.");
     }
 
@@ -35,7 +34,14 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (nearbyTimeTravel != null && !isWaitingForNewUI)
             {
-                StartCoroutine(OpenTimelineUISafely());
+                if (nearbyTimeTravel.CanInteract())
+                {
+                    StartCoroutine(OpenTimelineUISafely());
+                }
+                else
+                {
+                    nearbyTimeTravel.Interact();
+                }
                 return;
             }
 
@@ -67,14 +73,9 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.LogWarning("⚠️ Nenhuma TimelineUI encontrada na nova cena.");
         }
-        else if (uiAtual.gameObject == null)
+        else if (uiAtual.gameObject != null)
         {
-            Debug.LogWarning("⚠️ TimelineUI foi destruída antes de ser usada!");
-        }
-        else
-        {
-            if (uiAtual != null && uiAtual.gameObject != null)
-                uiAtual.Open(null);
+            uiAtual.Open(null);
         }
 
         isWaitingForNewUI = false;

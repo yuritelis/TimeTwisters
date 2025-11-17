@@ -53,6 +53,8 @@ public class Enemy_Movement : MonoBehaviour
     private float initialAttackDist;
     private float initialDetectDist;
 
+    [HideInInspector] public bool isKnocked = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -71,7 +73,6 @@ public class Enemy_Movement : MonoBehaviour
     {
         HandleAnimation();
 
-        // Timers
         if (attackCooldownTimer > 0)
         {
             attackCooldownTimer -= Time.deltaTime;
@@ -90,16 +91,22 @@ public class Enemy_Movement : MonoBehaviour
                 if (player != null)
                 {
                     float dist = Vector2.Distance(attackPoint.position, player.position);
-
                     if (dist > attackRange)
-                        Chase();
+                    {
+                        if (!isKnocked)
+                            Chase();
+                    }
                     else
-                        rb.linearVelocity = Vector2.zero;
+                    {
+                        if (!isKnocked)
+                            rb.linearVelocity = Vector2.zero;
+                    }
                 }
                 break;
 
             case EnemyState.Attacking:
-                rb.linearVelocity = Vector2.zero;
+                if (!isKnocked)
+                    rb.linearVelocity = Vector2.zero;
 
                 if (player != null)
                 {
@@ -110,11 +117,13 @@ public class Enemy_Movement : MonoBehaviour
                 break;
 
             case EnemyState.Idle:
-                rb.linearVelocity = Vector2.zero;
+                if (!isKnocked)
+                    rb.linearVelocity = Vector2.zero;
                 break;
 
             case EnemyState.Patrolling:
-                Patrol();
+                if (!isKnocked)
+                    Patrol();
                 break;
         }
     }
@@ -196,6 +205,9 @@ public class Enemy_Movement : MonoBehaviour
 
     private void MoveTowards(Vector2 direction)
     {
+        if (isKnocked)
+            return;
+
         if (direction.sqrMagnitude < 0.001f)
         {
             rb.linearVelocity = Vector2.zero;
@@ -207,7 +219,8 @@ public class Enemy_Movement : MonoBehaviour
 
         Vector2 finalDir = Vector2.Lerp(rb.linearVelocity.normalized, smoothDirection, 10f * Time.deltaTime);
 
-        rb.linearVelocity = finalDir * speed;
+        if (!isKnocked)
+            rb.linearVelocity = finalDir * speed;
 
         if (rb.linearVelocity.magnitude < speed * 0.4f)
             stuckTimer += Time.deltaTime;
@@ -232,7 +245,8 @@ public class Enemy_Movement : MonoBehaviour
 
     private void Chase()
     {
-        if (player == null) return;
+        if (player == null || isKnocked)
+            return;
 
         Vector2 dir = (player.position - transform.position).normalized;
         MoveTowards(dir);
@@ -240,6 +254,9 @@ public class Enemy_Movement : MonoBehaviour
 
     private void Patrol()
     {
+        if (isKnocked)
+            return;
+
         if (patrolPoints.Length == 0)
         {
             ChangeState(EnemyState.Idle);
@@ -286,6 +303,9 @@ public class Enemy_Movement : MonoBehaviour
 
     private void CheckForPlayer()
     {
+        if (isKnocked)
+            return;
+
         bool found = false;
 
         float detectRange = enemyState == EnemyState.Chasing ? chaseVisionRadius : playerDetectRange;
@@ -379,8 +399,10 @@ public class Enemy_Movement : MonoBehaviour
 
             if (distance <= attackRange)
             {
+                if (!isKnocked)
+                    rb.linearVelocity = Vector2.zero;
+
                 ChangeState(EnemyState.Idle);
-                rb.linearVelocity = Vector2.zero;
                 return;
             }
         }
@@ -465,7 +487,6 @@ public class Enemy_Movement : MonoBehaviour
     {
         if (detectionPoint != null)
         {
-            // Vision range normal
             Gizmos.color = new Color(0f, 0.5f, 1f, 0.35f);
             Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
 
@@ -517,10 +538,10 @@ public class Enemy_Movement : MonoBehaviour
                     Gizmos.DrawSphere(p.position, 0.15f);
             }
         }
+
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)facingDirection);
     }
-
 }
 
 public enum EnemyState

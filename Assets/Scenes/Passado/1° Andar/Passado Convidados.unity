@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Passado Jogos
   sceneAsset: {fileID: 102900000, guid: 74fd80b5ea9107b41b3ced5a0b3f7b4a, type: 3}
   spawnPointName: P_Jogos > P_Convidados
   requireInput: 1
@@ -1173,9 +1173,9 @@ MonoBehaviour:
   cenaPresenteAsset: {fileID: 102900000, guid: d8f5e34c0a277e64982c4a73d4983d5c, type: 3}
   cenaPassadoAsset: {fileID: 102900000, guid: a47f4d0610592c54eb5a292a112935d4, type: 3}
   cenaFuturoAsset: {fileID: 102900000, guid: 2f2af2f64705b9f4a8d031def1b2c98f, type: 3}
-  cenaPresente: 
-  cenaPassado: 
-  cenaFuturo: 
+  cenaPresente: Sala_Convidados
+  cenaPassado: Passado Convidados
+  cenaFuturo: Futuro Convidados
 --- !u!4 &720758518
 Transform:
   m_ObjectHideFlags: 0
@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "Passado Sagu\xE3o"
   sceneAsset: {fileID: 102900000, guid: 213a0b2b1b269814491c4d260a4906ed, type: 3}
   spawnPointName: "P_Sagu\xE3o > P_Convidados"
   requireInput: 1
