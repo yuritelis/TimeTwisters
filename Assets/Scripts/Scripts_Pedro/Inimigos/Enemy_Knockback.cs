@@ -23,6 +23,10 @@ public class Enemy_Knockback : MonoBehaviour
     {
         isKnocked = true;
 
+        var movementScript = GetComponent<Enemy_Movement>();
+        if (movementScript != null)
+            movementScript.enabled = false;
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
@@ -42,6 +46,9 @@ public class Enemy_Knockback : MonoBehaviour
                 yield return new WaitForFixedUpdate();
             }
         }
+
+        if (movementScript != null)
+            movementScript.enabled = true;
 
         isKnocked = false;
     }
