@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float knockbackDecay = 12f;
 
     [Header("Controle Geral")]
-    public bool canMove = true; // usado pra stealth, cutscene etc.
+    public bool canMove = true;
 
     [Header("Referências")]
     private Rigidbody2D rb;
@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 lastInput = Vector2.right;
     public Vector2 LastInput => lastInput;
 
-    // ✅ expõe o estado de ataque e hit para outros scripts (como dash)
     public bool IsAttacking => anim.GetBool("isAttacking");
     public bool IsHit
     {
@@ -54,7 +53,6 @@ public class PlayerController : MonoBehaviour
         bool isAttacking = anim.GetBool("isAttacking");
         bool isHit = IsHit;
 
-        // 🔒 trava completamente o movimento durante ataque e hit
         if (!canMove || isAttacking || isHit)
         {
             rb.linearVelocity = Vector2.zero;
@@ -62,7 +60,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // ✅ só atualiza o input se não estiver atacando
         input = playerInput.actions["Move"].ReadValue<Vector2>();
 
         if (input != Vector2.zero)
@@ -70,7 +67,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isWalking", true);
             lastInput = input.normalized;
 
-            // ⛔ não atualiza InputX/Y se ainda estiver atacando
             if (!isAttacking)
             {
                 anim.SetFloat("InputX", input.x);

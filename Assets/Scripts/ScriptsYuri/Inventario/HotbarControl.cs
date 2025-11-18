@@ -18,8 +18,7 @@ public class HotbarControl : MonoBehaviour
     private int slotAtual = 0;
     private int slotAnterior = -1;
 
-    private float ultimoUso;
-    private float cooldown = 0.5f;
+    private bool slotVazio;
 
     void Awake()
     {
@@ -38,6 +37,7 @@ public class HotbarControl : MonoBehaviour
             if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
             {
                 SelecionarSlot(i);
+                slotAtual = i;
                 break;
             }
         }
@@ -52,7 +52,7 @@ public class HotbarControl : MonoBehaviour
             SelecionarSlot(novoSlot);
         }
         
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space) && !slotVazio)
         {
             UsarItem(slotAtual);
         }
@@ -73,7 +73,7 @@ public class HotbarControl : MonoBehaviour
             Item item = slot.itemAtual.GetComponent<Item>();
             item.UseItem(slot);
             Debug.Log($"Usando item de ID {item.ID} e nome {item.Name}");
-            //slot.itemAtual = null;
+            slot.itemAtual = null;
         }
     }
 
@@ -88,6 +88,10 @@ public class HotbarControl : MonoBehaviour
             SlotForaDeUso(slotAnterior);
 
         SlotEmUso(slotAtual);
+
+        if (slot.slotVazio)
+            slotVazio = true;
+        else slotVazio = false;
 
         Debug.Log($"Slot alterado: {slotAnterior} -> {slotAtual}");
     }

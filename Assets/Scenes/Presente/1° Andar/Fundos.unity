@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Banheiro
-  sceneAsset: {fileID: 0}
+  sceneAsset: {fileID: 102900000, guid: 576dca63bc022234e8420452d0a8defc, type: 3}
   spawnPointName: Banheiro > Fundos
   requireInput: 1
   interactKey: 101
@@ -7569,8 +7569,8 @@ MonoBehaviour:
   dialogoBloqueado:
     dialogoFalas:
     - personagem:
-        nome: 
-        portrait: {fileID: 0}
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
       fala: "\xC9 melhor eu terminar de olhar o primeiro andar antes..."
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0

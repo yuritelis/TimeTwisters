@@ -656,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.029587
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2392,6 +2392,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banheiro > Fundos
       objectReference: {fileID: 0}
+    - target: {fileID: 4086748868325514173, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6049354
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086748868325514173, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1662823
+      objectReference: {fileID: 0}
     - target: {fileID: 8849735427341360246, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.86617255
@@ -2436,6 +2444,10 @@ PrefabInstance:
       propertyPath: sceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: f2a0502375b02e24ea2b0ffedc51ff16, type: 3}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Fundos
+      objectReference: {fileID: 0}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: Fundos > Banheiro
