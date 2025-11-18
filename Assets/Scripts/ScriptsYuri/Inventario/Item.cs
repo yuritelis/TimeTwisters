@@ -13,7 +13,8 @@ public class Item : MonoBehaviour
 
         if (!slot.slotVazio)
         {
-            Destroy(item);
+            Destroy(item.gameObject);
+            slot.RemoverItem();
             slot.itemAtual = null;
         }
     }
