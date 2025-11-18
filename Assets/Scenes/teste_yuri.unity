@@ -3309,6 +3309,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 82177130085106336, guid: 3adfbbfd13d72bf45b4b7e7e77da587d, type: 3}
+      propertyPath: Tag
+      value: Utilitario
+      objectReference: {fileID: 0}
+    - target: {fileID: 82177130085106336, guid: 3adfbbfd13d72bf45b4b7e7e77da587d, type: 3}
+      propertyPath: Name
+      value: Dinheiro
+      objectReference: {fileID: 0}
     - target: {fileID: 1384461845516545254, guid: 3adfbbfd13d72bf45b4b7e7e77da587d, type: 3}
       propertyPath: m_Name
       value: Item2
@@ -3375,11 +3383,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555759781281406434, guid: 3adfbbfd13d72bf45b4b7e7e77da587d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.0312192
+      value: 0.44004107
       objectReference: {fileID: 0}
     - target: {fileID: 3555759781281406434, guid: 3adfbbfd13d72bf45b4b7e7e77da587d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.7978761
+      value: 1.3500347
       objectReference: {fileID: 0}
     - target: {fileID: 3555759781281406434, guid: 3adfbbfd13d72bf45b4b7e7e77da587d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10271,11 +10279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 794234070477384043, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5.6312604
+      value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 794234070477384043, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.2021586
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 794234070477384043, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10292,6 +10300,14 @@ PrefabInstance:
     - target: {fileID: 2984672373236521071, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
       propertyPath: m_Name
       value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287080126737643049, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
+      propertyPath: Tag
+      value: Arma
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287080126737643049, guid: 64e2eb9de0d3a664c9401ec754d65cc7, type: 3}
+      propertyPath: Name
+      value: Machado
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

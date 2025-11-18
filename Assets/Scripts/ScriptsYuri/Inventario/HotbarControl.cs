@@ -17,8 +17,10 @@ public class HotbarControl : MonoBehaviour
     public int qtdSlot = 7; // teclas 1 -> 7 no teclado alfanumérico
     private int slotAtual = 0;
     private int slotAnterior = -1;
+    private int slotIndex = 0;
 
-    private bool slotVazio;
+    private bool slotVazio = true;
+    private bool usarItem = false;
 
     void Awake()
     {
@@ -37,7 +39,10 @@ public class HotbarControl : MonoBehaviour
             if (Keyboard.current[hotbarKeys[i]].wasPressedThisFrame)
             {
                 SelecionarSlot(i);
-                slotAtual = i;
+                //UsarItem(i);
+
+                slotIndex = i;
+
                 break;
             }
         }
@@ -49,12 +54,14 @@ public class HotbarControl : MonoBehaviour
             if (novoSlot < 0) novoSlot = 6;
             if (novoSlot > 6) novoSlot = 0;
 
+            slotIndex = novoSlot;
+
             SelecionarSlot(novoSlot);
         }
-        
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space) && !slotVazio)
+
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse1)) && !itemCollect.playerInRange)
         {
-            UsarItem(slotAtual);
+            UsarItem(slotIndex);
         }
     }
 
@@ -71,9 +78,11 @@ public class HotbarControl : MonoBehaviour
         if (!slot.slotVazio)
         {
             Item item = slot.itemAtual.GetComponent<Item>();
+            usarItem = true;
             item.UseItem(slot);
             Debug.Log($"Usando item de ID {item.ID} e nome {item.Name}");
             slot.itemAtual = null;
+            usarItem = false;
         }
     }
 
@@ -88,10 +97,6 @@ public class HotbarControl : MonoBehaviour
             SlotForaDeUso(slotAnterior);
 
         SlotEmUso(slotAtual);
-
-        if (slot.slotVazio)
-            slotVazio = true;
-        else slotVazio = false;
 
         Debug.Log($"Slot alterado: {slotAnterior} -> {slotAtual}");
     }
