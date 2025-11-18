@@ -1074,13 +1074,8 @@ MonoBehaviour:
     dialogoFalas: []
   dialogoBloqueado:
     dialogoFalas: []
-  falasAleatorias:
-  - nome: Julie
-    retrato: {fileID: 0}
-    fala: "Est\xE1 trancada..."
-  - nome: 
-    retrato: {fileID: 0}
-    fala: Nada acontece...
+  falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &672802098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2278,6 +2273,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &1158546102
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5165,6 +5161,14 @@ PrefabInstance:
     - target: {fileID: 3905928291140630785, guid: ad7a9413addef4e459a7fdfd654110df, type: 3}
       propertyPath: m_Name
       value: Vitrola
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267344256418708864, guid: ad7a9413addef4e459a7fdfd654110df, type: 3}
+      propertyPath: spawnPointName
+      value: Vitrola
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267344256418708864, guid: ad7a9413addef4e459a7fdfd654110df, type: 3}
+      propertyPath: etapaNecessaria
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5816924203970652822, guid: ad7a9413addef4e459a7fdfd654110df, type: 3}
       propertyPath: panel

@@ -358,6 +358,10 @@ PrefabInstance:
       value: "P_Casal > P_Ber\xE7ario"
       objectReference: {fileID: 0}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: etapaNecessaria
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: falasAleatorias.Array.size
       value: 0
       objectReference: {fileID: 0}

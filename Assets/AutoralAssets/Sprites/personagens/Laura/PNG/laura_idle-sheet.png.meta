@@ -106,12 +106,12 @@ TextureImporter:
       name: laura_idle-sheet_0
       rect:
         serializedVersion: 2
-        x: 49
+        x: 0
         y: 0
-        width: 222
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: laura_idle-sheet_1
       rect:
         serializedVersion: 2
-        x: 369
+        x: 320
         y: 0
-        width: 222
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c58ee9c1b06dec74dbdc9177d4d841bc
     internalID: 0
     vertices: []
     indices: 

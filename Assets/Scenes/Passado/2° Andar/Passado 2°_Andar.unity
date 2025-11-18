@@ -4686,12 +4686,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: 8d26ec549cd0df443a3ad5c561059408, type: 3}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Passado Gemeos
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: requireInput
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: "P_G\xEAmeos > P_Andar"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: etapaNecessaria
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4973,8 +4981,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: 6ce9233df847c904f88edc427ea2ff3b, type: 3}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Passado Biblioteca
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: P_Biblioteca > P_Andar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: etapaNecessaria
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5057,7 +5073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "Passado Sagu\xE3o"
   sceneAsset: {fileID: 102900000, guid: 213a0b2b1b269814491c4d260a4906ed, type: 3}
   spawnPointName: "P_Andar1 > P_Sagu\xE3o1"
   requireInput: 1
@@ -5075,6 +5091,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!4 &661288457
 Transform:
   m_ObjectHideFlags: 0
@@ -5343,8 +5360,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: e39638ad9908d3b4eaea0296a28470fb, type: 3}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Passado Edward
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: P_Edward > P_Andar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: etapaNecessaria
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5567,7 +5600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8037,8 +8070,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: dfe3c97b6cbc07c478588d14aca879b0, type: 3}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Passado Escritorio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: "P_Escrit\xF3rio > P_Andar"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: etapaNecessaria
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8102,9 +8143,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: 4499ba13926d0ea468beb1ff8106dca3, type: 3}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Passado Artes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: P_Artes > P_Andar
       objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: etapaNecessaria
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.data[0].retrato
+      value: 
+      objectReference: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8186,7 +8243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "Passado Sagu\xE3o"
   sceneAsset: {fileID: 102900000, guid: 213a0b2b1b269814491c4d260a4906ed, type: 3}
   spawnPointName: "P_Sagu\xE3o1 > P_Andar1"
   requireInput: 1
@@ -8204,6 +8261,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!4 &1403263650
 Transform:
   m_ObjectHideFlags: 0
@@ -8372,7 +8430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Passado Fundos
   sceneAsset: {fileID: 102900000, guid: 4925922329d6c8c4e8353319cb106340, type: 3}
   spawnPointName: P_Fundos > P_Andar
   requireInput: 1
@@ -8390,6 +8448,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &1566862537
 BoxCollider2D:
   m_ObjectHideFlags: 0
