@@ -19,9 +19,6 @@ public class HotbarControl : MonoBehaviour
     private int slotAnterior = -1;
     private int slotIndex = 0;
 
-    private bool slotVazio = true;
-    private bool usarItem = false;
-
     void Awake()
     {
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
@@ -78,11 +75,8 @@ public class HotbarControl : MonoBehaviour
         if (!slot.slotVazio)
         {
             Item item = slot.itemAtual.GetComponent<Item>();
-            usarItem = true;
             item.UseItem(slot);
             Debug.Log($"Usando item de ID {item.ID} e nome {item.Name}");
-            slot.itemAtual = null;
-            usarItem = false;
         }
     }
 
