@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -28,6 +28,7 @@ public class SceneTransition : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
 
     public int etapaNecessaria = 0;
+    public int etapaParaDialogoBloqueado = 0;
 
     public AudioClip somPortaTrancada;
 
@@ -100,13 +101,31 @@ public class SceneTransition : MonoBehaviour
 
             Dialogo dlg = null;
 
-            if (dialogoBloqueado != null &&
+            bool podeMostrarDialogoBloqueado =
+                etapaParaDialogoBloqueado == 0 || etapaAtual >= etapaParaDialogoBloqueado;
+
+            bool temFalasValidasDoBloqueado = false;
+
+            if (podeMostrarDialogoBloqueado &&
+                dialogoBloqueado != null &&
                 dialogoBloqueado.dialogoFalas != null &&
                 dialogoBloqueado.dialogoFalas.Count > 0)
             {
+                foreach (var fala in dialogoBloqueado.dialogoFalas)
+                {
+                    if (etapaAtual >= fala.etapaMinima)
+                    {
+                        temFalasValidasDoBloqueado = true;
+                        break;
+                    }
+                }
+            }
+
+            if (podeMostrarDialogoBloqueado && temFalasValidasDoBloqueado)
+            {
                 dlg = dialogoBloqueado;
             }
-            else if (falasAleatorias != null && falasAleatorias.Count > 0)
+            else
             {
                 dlg = CriarDialogoDeFala(EscolherFalaAleatoria());
             }
