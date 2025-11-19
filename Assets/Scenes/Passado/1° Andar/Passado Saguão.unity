@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "Passado 2\xB0_Andar"
   sceneAsset: {fileID: 102900000, guid: 8e93c49c105a7564e8e6c81acd48ab8d, type: 3}
   spawnPointName: "P_Andar2 > P_Sagu\xE3o2"
   requireInput: 1
@@ -633,6 +633,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &101288184
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1031,7 +1032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Passado Fundos
   sceneAsset: {fileID: 102900000, guid: 4925922329d6c8c4e8353319cb106340, type: 3}
   spawnPointName: "P_Fundos2 > P_Sagu\xE3o"
   requireInput: 1
@@ -1049,6 +1050,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &271873154
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2222,7 +2224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Passado Fundos
   sceneAsset: {fileID: 102900000, guid: 4925922329d6c8c4e8353319cb106340, type: 3}
   spawnPointName: "P_Fundos1 > P_Sagu\xE3o"
   requireInput: 1
@@ -2240,6 +2242,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &1045642281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2389,7 +2392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Passado Convidados
   sceneAsset: {fileID: 102900000, guid: a47f4d0610592c54eb5a292a112935d4, type: 3}
   spawnPointName: "P_Convidados > P_Sagu\xE3o"
   requireInput: 1
@@ -2407,6 +2410,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6850,7 +6854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.081188
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 5861376614156416798, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_Name
@@ -7223,9 +7227,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: d499b3cba77a18e45b0fa09a9936bd47, type: 3}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: "Passado Exposi\xE7\xE3o"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: "P_Exposi\xE7\xE3o > P_Sagu\xE3o"
       objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: etapaNecessaria
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[0].fala
+      value: Trancada...!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[0].sfxAposFala
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b450bc64010e5041b81f15ec44c3416, type: 3}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[0].personagem.nome
+      value: Julie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[0].personagem.portrait
+      value: 
+      objectReference: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7322,7 +7358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c62da4c3dc59a4db2c76296a24dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: "Passado 2\xB0_Andar"
   sceneAsset: {fileID: 102900000, guid: 8e93c49c105a7564e8e6c81acd48ab8d, type: 3}
   spawnPointName: "P_Andar1 > P_Sagu\xE3o1"
   requireInput: 1
@@ -7340,6 +7376,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

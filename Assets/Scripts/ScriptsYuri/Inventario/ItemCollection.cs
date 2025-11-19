@@ -3,7 +3,6 @@ using UnityEngine;
 public class ItemCollection : MonoBehaviour
 {
     private InventarioControl invControl;
-    private GameObject interactKeyUI;
 
     public bool playerInRange = false;
 
@@ -29,12 +28,6 @@ public class ItemCollection : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
-            playerInRange = true;
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
             playerInRange = true;
     }
 

@@ -953,6 +953,7 @@ MonoBehaviour:
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
   falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &86953956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1063,6 +1064,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &108903668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1138,7 +1140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.666667
+      value: 10.410526
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1724,6 +1726,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &360615203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1844,6 +1847,7 @@ MonoBehaviour:
   dialogoBloqueado:
     dialogoFalas: []
   falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &507990340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2958,6 +2962,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3256,7 +3261,18 @@ MonoBehaviour:
     - personagem:
         nome: 
         portrait: {fileID: 0}
-      fala: 
+      fala: "*Apesar de empoeirada e envelhecida, a madeira deste arm\xE1rio parecia
+        estar em condi\xE7\xF5es descentes, sua estrutura fabricada e esculpida precisamente
+        \xE0 m\xE3o encanta qualquer um* "
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "D\xE1 at\xE9 uma d\xF3 de vender isso aqui, mas deve render uma grana
+        preta!"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
@@ -4290,6 +4306,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &1630705110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7819,6 +7836,7 @@ MonoBehaviour:
   - nome: 
     retrato: {fileID: 0}
     fala: Nada acontece...
+  transitionCooldown: 1.2
 --- !u!61 &1893915172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7962,6 +7980,7 @@ MonoBehaviour:
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
   falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &1949556263
 BoxCollider2D:
   m_ObjectHideFlags: 0
