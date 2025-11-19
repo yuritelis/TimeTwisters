@@ -70,7 +70,10 @@ public class DialogoFalas
     public bool avancaProgressoAqui = false;
 
     public AudioClip sfxAposFala;
+
+    public int etapaMinima = 0;
 }
+
 
 
 

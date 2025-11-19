@@ -2229,12 +2229,20 @@ MonoBehaviour:
   spawnPointName: "P_Fundos1 > P_Sagu\xE3o"
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 0
+  etapaNecessaria: 4
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
   dialogoBloqueado:
-    dialogoFalas: []
+    dialogoFalas:
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: 454c49108d0d6a543b8dc6e01e6b16fd, type: 3}
+      fala: Trancada...!
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
   falasAleatorias:
   - nome: Julie
     retrato: {fileID: 0}
@@ -6854,7 +6862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.666667
+      value: 12.128405
       objectReference: {fileID: 0}
     - target: {fileID: 5861376614156416798, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_Name

@@ -2,6 +2,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
@@ -142,5 +146,19 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(stunTime);
         rb.linearVelocity = Vector2.zero;
         isKnockedBack = false;
+    }
+
+    // -------------------------------------------------------------------------
+    //  NOVA FUNCIONALIDADE — F10 multiplica moveSpeed por 3 (SÓ NA UNITY)
+    // -------------------------------------------------------------------------
+    private void LateUpdate()
+    {
+#if UNITY_EDITOR
+        if (Keyboard.current != null && Keyboard.current.f10Key.wasPressedThisFrame)
+        {
+            moveSpeed *= 3f;
+            Debug.Log($"[DEBUG SPEED] F10 — moveSpeed agora = {moveSpeed}");
+        }
+#endif
     }
 }
