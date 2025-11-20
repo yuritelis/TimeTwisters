@@ -4701,6 +4701,10 @@ PrefabInstance:
       propertyPath: etapaNecessaria
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5079,6 +5083,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -5162,6 +5167,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -5170,6 +5176,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &772557076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5373,11 +5380,122 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: falasAleatorias.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.data[0].fala
+      value: "Est\xE1 trancada..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.data[0].nome
+      value: Julie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: falasAleatorias.Array.data[0].retrato
+      value: 
+      objectReference: {fileID: -5510169355279480808, guid: 454c49108d0d6a543b8dc6e01e6b16fd, type: 3}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[0].fala
+      value: O que foi aquilo, Edward?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[1].fala
+      value: "Voc\xEA n\xE3o \xE9 mais uma crian\xE7a para arranjar balb\xFArdias
+        desnecessariamente! Estou decepcionado com voc\xEA."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[2].fala
+      value: "M-Mas p-pai eu\u2013"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[3].fala
+      value: "Sem mais! Como primog\xEAnito e meu futuro sucessor, \xE9 seu dever
+        ser um exemplo para seus irm\xE3os, e voc\xEA n\xE3o est\xE1 atuando como
+        tal."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[4].fala
+      value: ... Sim, pai.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[5].fala
+      value: ... Sim, pai.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[6].fala
+      value: ... Sim, pai.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[7].fala
+      value: ... Sim, pai.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[0].etapaMinima
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[1].etapaMinima
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[2].etapaMinima
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[3].etapaMinima
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[4].etapaMinima
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[5].etapaMinima
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[6].etapaMinima
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[7].etapaMinima
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
-      propertyPath: dialogoBloqueado.dialogoFalas.Array.size
-      value: 1
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[0].personagem.nome
+      value: ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[1].personagem.nome
+      value: ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[2].personagem.nome
+      value: Edward
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[3].personagem.nome
+      value: Patriarca
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[4].personagem.nome
+      value: Edward
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[5].personagem.nome
+      value: Edward
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[6].personagem.nome
+      value: Edward
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: dialogoBloqueado.dialogoFalas.Array.data[7].personagem.nome
+      value: Edward
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5532,6 +5650,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -5540,6 +5659,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &926820259
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5600,15 +5720,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.666667
+      value: 12.128405
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0000019073486
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307244547871220886, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.64
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5649,6 +5777,14 @@ PrefabInstance:
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.170002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776181775470910609, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.739998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8249,6 +8385,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -8436,6 +8573,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -8565,6 +8703,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &1568907433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9712,6 +9851,10 @@ PrefabInstance:
       propertyPath: sceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: 3057dd9bf3f607d47b13cb11c35f4681, type: 3}
+    - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
+      propertyPath: sceneToLoad
+      value: Passado Casal
+      objectReference: {fileID: 0}
     - target: {fileID: 8895113955681337072, guid: 24d56c37d40b85545b347a08a2dea197, type: 3}
       propertyPath: spawnPointName
       value: P_Casal > P_Andar

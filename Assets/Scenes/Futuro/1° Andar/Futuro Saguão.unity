@@ -1003,7 +1003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.666667
+      value: 12.128405
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.y
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   dialogoAoMorrer:
     dialogoFalas:
     - personagem:
-        nome: Edward
+        nome: "Aberra\xE7\xE3o"
         portrait: {fileID: 1208040086343421634, guid: 9549c4e8b67e602429cc7c34f2f7fa58, type: 3}
       fala: AUUUUUUUUUUUUUUUUUU
       focoCamera: {fileID: 0}
@@ -1818,6 +1818,7 @@ MonoBehaviour:
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
   falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &360615203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4506,6 +4507,7 @@ MonoBehaviour:
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
   falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &1112541292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6099,6 +6101,7 @@ MonoBehaviour:
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
   falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &1438278681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10160,6 +10163,7 @@ MonoBehaviour:
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
   falasAleatorias: []
+  transitionCooldown: 1.2
 --- !u!61 &1805937113
 BoxCollider2D:
   m_ObjectHideFlags: 0

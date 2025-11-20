@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class DialogoManager : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class DialogoManager : MonoBehaviour
 
     private Dialogo dialogoData;
 
-    [Header("Referências de UI")]
     public GameObject dialogoPanel;
     public GameObject sanidadeBar;
     public TextMeshProUGUI dialogoTxt;
@@ -18,15 +18,13 @@ public class DialogoManager : MonoBehaviour
     public Image personagemIcon;
     public DialogoEscolhaUI escolhaUI;
 
-    [Header("Configuração")]
-    [Range(1f, 50f)] public float velFala = 30f;
+    public float velFala = 30f;
 
     private int dialogoIndex;
     private bool isTyping;
     private bool isDialogoAtivo;
     public bool dialogoAtivoPublico;
 
-    [Header("Player")]
     public GameObject player;
 
     public System.Action<DialogoFalas> OnFalaIniciada;
@@ -34,14 +32,11 @@ public class DialogoManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
     }
 
     private void Start()
     {
-        // 🔥 Correção 2 — garante que os objetos da cena atual sejam encontrados
         RecarregarReferencias();
     }
 
@@ -57,13 +52,10 @@ public class DialogoManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 🔥 Correção 2 — recarrega referências toda vez que muda de cena
         RecarregarReferencias();
 
         if (scene.name == "TitleScreen")
-        {
             Destroy(gameObject);
-        }
     }
 
     private void RecarregarReferencias()
@@ -87,12 +79,22 @@ public class DialogoManager : MonoBehaviour
     public void StartDialogo(Dialogo dialogo)
     {
         if (dialogo == null || dialogo.dialogoFalas.Count == 0)
-        {
-            Debug.LogError("⚠️ Dados do diálogo estão vazios!");
             return;
-        }
 
-        dialogoData = dialogo;
+        int etapaAtual = StoryProgressManager.instance != null
+            ? StoryProgressManager.instance.historiaEtapaAtual
+            : 0;
+
+        List<DialogoFalas> filtradas = new List<DialogoFalas>();
+
+        foreach (var f in dialogo.dialogoFalas)
+            if (etapaAtual >= f.etapaMinima)
+                filtradas.Add(f);
+
+        if (filtradas.Count == 0)
+            return;
+
+        dialogoData = new Dialogo { dialogoFalas = filtradas };
         dialogoIndex = 0;
         isDialogoAtivo = true;
         dialogoAtivoPublico = true;
@@ -131,10 +133,7 @@ public class DialogoManager : MonoBehaviour
         if (falaAtual.avancaProgressoAqui)
         {
             if (StoryProgressManager.instance != null)
-            {
                 StoryProgressManager.instance.AvancarEtapa();
-                Debug.Log("⭐ Progresso avançado pela fala marcada!");
-            }
         }
 
         if (falaAtual.sfxAposFala != null)

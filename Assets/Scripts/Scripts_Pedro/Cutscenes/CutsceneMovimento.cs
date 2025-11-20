@@ -48,15 +48,12 @@ public class CutsceneFugaController : MonoBehaviour
     private PlayerDash playerDash;
     private PlayerInput playerInput;
 
-    private void Start()
+    private void GarantirReferenciasDoPlayer()
     {
-        cutsceneJaExecutada = PlayerPrefs.GetInt($"{name}_Executada", 0) == 1;
-
-        focusProxy = new GameObject($"{name}_CameraProxy").transform;
-        focusProxy.hideFlags = HideFlags.HideInHierarchy;
-
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        if (player == null) return;
 
         playerRb = player.GetComponent<Rigidbody2D>();
         playerAnim = player.GetComponent<Animator>();
@@ -64,6 +61,16 @@ public class CutsceneFugaController : MonoBehaviour
         playerCombat = player.GetComponent<Player_Combat>();
         playerDash = player.GetComponent<PlayerDash>();
         playerInput = player.GetComponent<PlayerInput>();
+    }
+
+    private void Start()
+    {
+        cutsceneJaExecutada = PlayerPrefs.GetInt($"{name}_Executada", 0) == 1;
+
+        focusProxy = new GameObject($"{name}_CameraProxy").transform;
+        focusProxy.hideFlags = HideFlags.HideInHierarchy;
+
+        GarantirReferenciasDoPlayer();
 
         if (cameraSegue == null)
             cameraSegue = FindFirstObjectByType<CameraSegue>();
@@ -74,6 +81,8 @@ public class CutsceneFugaController : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         if (cutsceneAtiva) return;
         if (cutsceneJaExecutada) return;
+
+        GarantirReferenciasDoPlayer();
 
         StartCoroutine(SequenciaCutscene());
     }
@@ -153,24 +162,32 @@ public class CutsceneFugaController : MonoBehaviour
         {
             Vector2 dir = (destino - player.position).normalized;
 
-            playerRb.linearVelocity = dir * playerCutsceneSpeed;
+            if (playerRb != null)
+                playerRb.linearVelocity = dir * playerCutsceneSpeed;
 
-            playerAnim.SetBool("isWalking", true);
-            playerAnim.SetFloat("InputX", dir.x);
-            playerAnim.SetFloat("InputY", dir.y);
-            playerAnim.SetFloat("LastInputX", dir.x);
-            playerAnim.SetFloat("LastInputY", dir.y);
+            if (playerAnim != null)
+            {
+                playerAnim.SetBool("isWalking", true);
+                playerAnim.SetFloat("InputX", dir.x);
+                playerAnim.SetFloat("InputY", dir.y);
+                playerAnim.SetFloat("LastInputX", dir.x);
+                playerAnim.SetFloat("LastInputY", dir.y);
+            }
 
             yield return null;
         }
 
-        playerRb.linearVelocity = Vector2.zero;
+        if (playerRb != null)
+            playerRb.linearVelocity = Vector2.zero;
 
-        playerAnim.SetBool("isWalking", false);
-        playerAnim.SetFloat("InputX", 0);
-        playerAnim.SetFloat("InputY", 0);
-        playerAnim.SetFloat("LastInputX", 0);
-        playerAnim.SetFloat("LastInputY", -1);
+        if (playerAnim != null)
+        {
+            playerAnim.SetBool("isWalking", false);
+            playerAnim.SetFloat("InputX", 0);
+            playerAnim.SetFloat("InputY", 0);
+            playerAnim.SetFloat("LastInputX", 0);
+            playerAnim.SetFloat("LastInputY", -1);
+        }
 
         yield return null;
     }
@@ -241,8 +258,11 @@ public class CutsceneFugaController : MonoBehaviour
 
         if (estado)
         {
-            playerRb.linearVelocity = Vector2.zero;
-            playerAnim.SetBool("isWalking", false);
+            if (playerRb != null)
+                playerRb.linearVelocity = Vector2.zero;
+
+            if (playerAnim != null)
+                playerAnim.SetBool("isWalking", false);
         }
     }
 }
