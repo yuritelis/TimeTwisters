@@ -94,6 +94,7 @@ public class PauseGame : MonoBehaviour
             aManager.PlaySFX(aManager.botClick);
 
         PauseController.SetPause(false);
+        pauseScreen.SetActive(false);
         Time.timeScale = 1f;
 
         SceneManager.LoadScene("TitleScreen");

@@ -1,7 +1,7 @@
 # Milestone 06
 ## Informações Gerais
-Entrega: 22/10/2025 <br>
-Status: Em processo de conclusão <br>
+Entrega: 12/11/2025 <br>
+Status: Concluído <br>
 Integrantes:
 - Daniel Barroquelo
 - Gabriel Mezet
