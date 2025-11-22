@@ -1344,14 +1344,14 @@ RectTransform:
   m_GameObject: {fileID: 472617242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.131622, y: 5.2314806, z: 4.691}
+  m_LocalScale: {x: 27.681618, y: 14.29345, z: 12.81675}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 253917947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.030799866, y: 4.7705}
+  m_AnchoredPosition: {x: 0.030719757, y: 4.7705}
   m_SizeDelta: {x: 28.1743, y: 22.5407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472617244
@@ -3735,8 +3735,8 @@ MonoBehaviour:
     Velozo - arte, game design e narrativa;\nPedro Terezzino - game design e programa\xE7\xE3o;\nYuri
     Telis - game design e programa\xE7\xE3o."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d3f42dd0f3cc424ba31459d1cc20b73, type: 2}
-  m_sharedMaterial: {fileID: 3832308611986304219, guid: 7d3f42dd0f3cc424ba31459d1cc20b73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2566f75afe32a83429208931be180e00, type: 2}
+  m_sharedMaterial: {fileID: 5320442455098820272, guid: 2566f75afe32a83429208931be180e00, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4280,14 +4280,14 @@ RectTransform:
   m_GameObject: {fileID: 1848161505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.131621, y: 5.231481, z: 4.6910014}
+  m_LocalScale: {x: 27.681616, y: 14.293452, z: 12.816753}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2090381118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.030784607, y: 4.7704926}
+  m_AnchoredPosition: {x: 0.030704498, y: 4.7705}
   m_SizeDelta: {x: 28.174316, y: 22.540771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1848161507
