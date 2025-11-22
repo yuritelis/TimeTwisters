@@ -131,8 +131,6 @@ public class HotbarControl : MonoBehaviour
 
     public void SetHotbarItems(List<InventorySaveData> inventarioSaveData)
     {
-        Debug.Log("chamou SetInventarioItems");
-
         foreach (Transform child in hotbarPanel.transform)
         {
             Destroy(child.gameObject);

@@ -4,10 +4,11 @@ using UnityEngine;
 public class PuzzleCadeado : MonoBehaviour
 {
     [SerializeField] GameObject cadeadoPanel;
-    [SerializeField] GameObject carta;
-    [SerializeField] TextMeshProUGUI senhaCadeado;
+    [SerializeField] GameObject premio;
+    [SerializeField] GameObject hotbarPanel, sanidadeBar;
+    [SerializeField] TextMeshProUGUI cadeadoNum1, cadeadoNum2, cadeadoNum3, cadeadoNum4;
 
-    string resposta = "1234";
+    string resposta = "1879";
     string tentativaJogador;
 
     int num1, num2, num3, num4;
@@ -17,7 +18,7 @@ public class PuzzleCadeado : MonoBehaviour
     private void Start()
     {
         cadeadoPanel.SetActive(false);
-        carta.SetActive(false);
+        premio.SetActive(false);
 
         num1 = 0;
         num2 = 0;
@@ -25,13 +26,15 @@ public class PuzzleCadeado : MonoBehaviour
         num4 = 0;
 
         tentativaJogador = num1.ToString() + num2.ToString() + num3.ToString() + num4.ToString();
-        senhaCadeado.SetText(tentativaJogador);
     }
 
     private void Update()
     {
         tentativaJogador = num1.ToString() + num2.ToString() + num3.ToString() + num4.ToString();
-        senhaCadeado.SetText(tentativaJogador);
+        cadeadoNum1.SetText(num1.ToString());
+        cadeadoNum2.SetText(num2.ToString());
+        cadeadoNum3.SetText(num3.ToString());
+        cadeadoNum4.SetText(num4.ToString());
 
         if (playerPerto)
         {
@@ -50,8 +53,7 @@ public class PuzzleCadeado : MonoBehaviour
 
         if(tentativaJogador == resposta)
         {
-            carta.SetActive(true);
-            Destroy(gameObject);
+            premio.SetActive(true);
             Destroy(cadeadoPanel);
         }
     }
@@ -124,12 +126,14 @@ public class PuzzleCadeado : MonoBehaviour
     void Open()
     {
         cadeadoPanel.SetActive(true);
+        hotbarPanel.SetActive(false);
         cadeadoActive = true;
     }
 
     public void Close()
     {
         cadeadoPanel.SetActive(false);
+        hotbarPanel.SetActive(true);
         cadeadoActive = false;
     }
 

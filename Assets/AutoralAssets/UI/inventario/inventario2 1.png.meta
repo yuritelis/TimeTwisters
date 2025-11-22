@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e7f6de13cece58a4f89f5334e13bbe4c
+guid: 5094715570680d846ae8024652602d56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3462056318028752603
-    second: botao_cadeado2_0
+      213: -7270515271286398273
+    second: inventario2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: botao_cadeado2_0
+      name: inventario2_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 4
-        width: 26
-        height: 58
+        x: 79
+        y: 149
+        width: 492
+        height: 392
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd62084e0e1bb0030800000000000000
-      internalID: 3462056318028752603
+      spriteID: fb2ebe0b1e0f91b90800000000000000
+      internalID: -7270515271286398273
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      botao_cadeado2_0: 3462056318028752603
+      inventario2_0: -7270515271286398273
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
