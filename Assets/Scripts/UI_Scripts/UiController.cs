@@ -7,7 +7,7 @@ public class PauseGame : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject inventarioScreen;
     [SerializeField] GameObject sanidadeBar;
-    [SerializeField] GameObject vitrolaScreen;
+    [SerializeField] GameObject hotbarPanel;
 
     private AudioManager aManager;
     private TimelineUI timelineUI;
@@ -50,32 +50,20 @@ public class PauseGame : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
             {
                 inventarioScreen.SetActive(false);
+                sanidadeBar.SetActive(true);
                 inventarioAberto = false;
                 PauseController.SetPause(false);
             }
             return;
         }
-
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventarioScreen.SetActive(true);
+            sanidadeBar.SetActive(false);
             inventarioAberto = true;
             PauseController.SetPause(true);
             return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            if (!vitrolaScreen.activeSelf)
-            {
-                PauseController.SetPause(true);
-                vitrolaScreen.SetActive(true);
-            }
-            else
-            {
-                PauseController.SetPause(false);
-                vitrolaScreen.SetActive(false);
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -92,6 +80,7 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 0f;
         pauseScreen.SetActive(true);
         sanidadeBar.SetActive(false);
+        hotbarPanel.SetActive(false);
         PauseController.SetPause(true);
     }
 
@@ -99,6 +88,7 @@ public class PauseGame : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseScreen.SetActive(false);
+        sanidadeBar.SetActive(true);
         sanidadeBar.SetActive(true);
         PauseController.SetPause(false);
     }

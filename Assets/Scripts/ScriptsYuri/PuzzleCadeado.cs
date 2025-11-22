@@ -13,7 +13,7 @@ public class PuzzleCadeado : MonoBehaviour
 
     int num1, num2, num3, num4;
 
-    bool cadeadoActive, playerPerto = false;
+    bool cadeadoActive, respostaCorreta, playerPerto = false;
 
     private void Start()
     {
@@ -51,11 +51,49 @@ public class PuzzleCadeado : MonoBehaviour
             }
         }
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerPerto = true;
+        }
+    }
+
+    public void TestarResposta()
+    {
         if(tentativaJogador == resposta)
         {
             premio.SetActive(true);
+            hotbarPanel.SetActive(true);
+            respostaCorreta = true;
             Destroy(cadeadoPanel);
         }
+    }
+
+    void Open()
+    {
+        PauseController.SetPause(true);
+
+        cadeadoPanel.SetActive(true);
+        hotbarPanel.SetActive(false);
+
+        cadeadoActive = true;
+    }
+
+    public void Close()
+    {
+        PauseController.SetPause(false);
+
+        cadeadoPanel.SetActive(false);
+        hotbarPanel.SetActive(true);
+
+        cadeadoActive = false;
     }
 
     public void AumentaNum1()
@@ -120,28 +158,6 @@ public class PuzzleCadeado : MonoBehaviour
         if (num4 == -1)
         {
             num4 = 9;
-        }
-    }
-
-    void Open()
-    {
-        cadeadoPanel.SetActive(true);
-        hotbarPanel.SetActive(false);
-        cadeadoActive = true;
-    }
-
-    public void Close()
-    {
-        cadeadoPanel.SetActive(false);
-        hotbarPanel.SetActive(true);
-        cadeadoActive = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerPerto = true;
         }
     }
 }
