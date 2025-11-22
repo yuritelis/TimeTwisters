@@ -29,7 +29,6 @@ public class BossEdwardController : MonoBehaviour
 
     public bool isDead = false;
 
-    // 🔥 NOVO PARA DETECTAR DANO TOMADO
     private Enemy_Health bossHp;
     private int lastHp;
 
@@ -67,7 +66,6 @@ public class BossEdwardController : MonoBehaviour
         if (isDead) return;
         if (bossHp == null) return;
 
-        // 🔥 Detecta quando o boss perde vida
         if (bossHp.currentHealth < lastHp)
         {
             OnBossDamaged();
@@ -75,10 +73,9 @@ public class BossEdwardController : MonoBehaviour
         }
     }
 
-    // 🔥 60% de chance de curar o jogador quando o boss leva dano
     private void OnBossDamaged()
     {
-        float roll = Random.value; // entre 0 e 1
+        float roll = Random.value;
 
         if (roll <= 0.35f)
         {
@@ -88,10 +85,6 @@ public class BossEdwardController : MonoBehaviour
                 ph.ChangeHealth(+1);
                 Debug.Log("<color=green>[Boss]</color> Chance ativada — Jogador curou 1 de vida.");
             }
-        }
-        else
-        {
-            Debug.Log("<color=yellow>[Boss]</color> Chance NÃO ativou.");
         }
     }
 
@@ -121,9 +114,8 @@ public class BossEdwardController : MonoBehaviour
 
                 if (distance <= normalAttackRange && movement != null)
                 {
-                    // 🔥 ATAQUE NORMAL
                     movement.ChangeState(EdwardState.Attacking);
-                    movement.BossAttack(); // animação + EnemyCombat()
+                    movement.BossAttack();
 
                     canDoNormalAttack = false;
                     yield return new WaitForSeconds(normalAttackCooldown);
@@ -160,7 +152,6 @@ public class BossEdwardController : MonoBehaviour
         if (movement != null) movement.canMove = false;
 
         int attackIndex = Random.Range(0, 2);
-        Debug.Log($"[Boss] Ataque especial sorteado: {attackIndex}");
 
         switch (attackIndex)
         {

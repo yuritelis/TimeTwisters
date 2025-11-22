@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 586ad8d455d895d4db556a5289bee85d
+guid: 3ed7a99194ab3644bb7f4cbb282d4d22
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1572708278182225280
-    second: edward_correndo_direita-sheet_0
+      213: 1111724549345653280
+    second: edward_correndo_atras-sheet_0
   - first:
-      213: 2930563366786135776
-    second: edward_correndo_direita-sheet_1
+      213: 2785348702576087126
+    second: edward_correndo_atras-sheet_1
   - first:
-      213: -3714241566974919622
-    second: edward_correndo_direita-sheet_2
+      213: -7932891859773085632
+    second: edward_correndo_atras-sheet_2
   - first:
-      213: -5362214763957097612
-    second: edward_correndo_direita-sheet_3
+      213: -7101531817413904873
+    second: edward_correndo_atras-sheet_3
   - first:
-      213: -2650460390123048828
-    second: edward_correndo_direita-sheet_4
+      213: -1287250435545749551
+    second: edward_correndo_atras-sheet_4
   - first:
-      213: 8681963595795633918
-    second: edward_correndo_direita-sheet_5
+      213: -4940645722195162030
+    second: edward_correndo_atras-sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edward_correndo_direita-sheet_0
+      name: edward_correndo_atras-sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0852e50b8d163d510800000000000000
-      internalID: 1572708278182225280
+      spriteID: 02234d36693ad6f00800000000000000
+      internalID: 1111724549345653280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edward_correndo_direita-sheet_1
+      name: edward_correndo_atras-sheet_1
       rect:
         serializedVersion: 2
         x: 320
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e67f05fad37ba820800000000000000
-      internalID: 2930563366786135776
+      spriteID: 65094a833eb87a620800000000000000
+      internalID: 2785348702576087126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edward_correndo_direita-sheet_2
+      name: edward_correndo_atras-sheet_2
       rect:
         serializedVersion: 2
         x: 640
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3c387649fc547cc0800000000000000
-      internalID: -3714241566974919622
+      spriteID: 04823a042e4b8e190800000000000000
+      internalID: -7932891859773085632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edward_correndo_direita-sheet_3
+      name: edward_correndo_atras-sheet_3
       rect:
         serializedVersion: 2
         x: 960
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47b6bf815169595b0800000000000000
-      internalID: -5362214763957097612
+      spriteID: 716f8e5007a427d90800000000000000
+      internalID: -7101531817413904873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edward_correndo_direita-sheet_4
+      name: edward_correndo_atras-sheet_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 480f873615ca73bd0800000000000000
-      internalID: -2650460390123048828
+      spriteID: 1d7245c8c84c22ee0800000000000000
+      internalID: -1287250435545749551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edward_correndo_direita-sheet_5
+      name: edward_correndo_atras-sheet_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef6954034e78c7870800000000000000
-      internalID: 8681963595795633918
+      spriteID: 25c018f64ec4f6bb0800000000000000
+      internalID: -4940645722195162030
       vertices: []
       indices: 
       edges: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 484c1bec8c49ed8499d474c0d9299757
+    spriteID: fdb95d9905fc17044abd2c8bb090af8e
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      edward_correndo_direita-sheet_0: 1572708278182225280
-      edward_correndo_direita-sheet_1: 2930563366786135776
-      edward_correndo_direita-sheet_2: -3714241566974919622
-      edward_correndo_direita-sheet_3: -5362214763957097612
-      edward_correndo_direita-sheet_4: -2650460390123048828
-      edward_correndo_direita-sheet_5: 8681963595795633918
+      edward_correndo_atras-sheet_0: 1111724549345653280
+      edward_correndo_atras-sheet_1: 2785348702576087126
+      edward_correndo_atras-sheet_2: -7932891859773085632
+      edward_correndo_atras-sheet_3: -7101531817413904873
+      edward_correndo_atras-sheet_4: -1287250435545749551
+      edward_correndo_atras-sheet_5: -4940645722195162030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

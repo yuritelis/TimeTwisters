@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: c25181cdf922bc64794cee6fcdd9c9cb
+guid: 405f8dab9510abf459804ae23c1008b4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7668814671265297524
-    second: funcionaria_mulher_idle_frente-sheet_0
-  - first:
-      213: -2828391941002460083
-    second: funcionaria_mulher_idle_frente-sheet_1
-  - first:
-      213: 7454135390754096385
-    second: funcionaria_mulher_idle_frente-sheet_2
-  - first:
-      213: 4664931890974012854
-    second: funcionaria_mulher_idle_frente-sheet_3
+      213: -4809018610663897033
+    second: lawrence_retrato_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: funcionaria_mulher_idle_frente-sheet_0
+      name: lawrence_retrato_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 79
         y: 0
-        width: 320
-        height: 320
+        width: 452
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8b8de600b5e29590800000000000000
-      internalID: -7668814671265297524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: funcionaria_mulher_idle_frente-sheet_1
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d4488fed3888fb8d0800000000000000
-      internalID: -2828391941002460083
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: funcionaria_mulher_idle_frente-sheet_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 105c099e4a8627760800000000000000
-      internalID: 7454135390754096385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: funcionaria_mulher_idle_frente-sheet_3
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6b5b5e6c6da2db040800000000000000
-      internalID: 4664931890974012854
+      spriteID: 738c2298d0fe24db0800000000000000
+      internalID: -4809018610663897033
       vertices: []
       indices: 
       edges: []
@@ -200,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1f257df50dc483b44ae72993e013656d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -209,11 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      funcionaria_mulher_idle_frente-sheet_0: -7668814671265297524
-      funcionaria_mulher_idle_frente-sheet_1: -2828391941002460083
-      funcionaria_mulher_idle_frente-sheet_2: 7454135390754096385
-      funcionaria_mulher_idle_frente-sheet_3: 4664931890974012854
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

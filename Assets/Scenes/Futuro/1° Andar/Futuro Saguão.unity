@@ -1003,7 +1003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 12.128405
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.y
@@ -1601,6 +1601,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 174199461}
+    - target: {fileID: 6522521923875842897, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
+      propertyPath: attackCooldown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8044634306082866186, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
       propertyPath: m_Name
       value: Edward
@@ -1617,6 +1621,14 @@ PrefabInstance:
       propertyPath: normalAttack
       value: 
       objectReference: {fileID: 358501694}
+    - target: {fileID: 8322993602447176179, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
+      propertyPath: attackInterval
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322993602447176179, guid: 5c46f4d2fccf67c4585c273b0e240e17, type: 3}
+      propertyPath: normalAttackCooldown
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1669,6 +1681,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 1
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   apenasUmaVez: 1
   progresso: 50
 --- !u!114 &358501697
@@ -1804,6 +1817,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 50
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -1817,6 +1831,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   falasAleatorias: []
   transitionCooldown: 1.2
 --- !u!61 &360615203
@@ -4493,6 +4508,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 50
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -4506,6 +4522,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   falasAleatorias: []
   transitionCooldown: 1.2
 --- !u!61 &1112541292
@@ -6087,6 +6104,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 50
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -6100,6 +6118,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   falasAleatorias: []
   transitionCooldown: 1.2
 --- !u!61 &1438278681
@@ -10149,6 +10168,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 50
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -10162,6 +10182,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   falasAleatorias: []
   transitionCooldown: 1.2
 --- !u!61 &1805937113

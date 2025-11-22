@@ -29,7 +29,6 @@ public class EdwardMovement : MonoBehaviour
     private bool lastIsAttackingState = false;
     public EdwardState CurrentState => enemyState;
 
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,7 +38,6 @@ public class EdwardMovement : MonoBehaviour
 
     private void Update()
     {
-        // 🔥 Auto-reconnect do player (necessário por DontDestroyOnLoad)
         if (player == null)
         {
             GameObject found = GameObject.FindGameObjectWithTag("Player");
@@ -133,24 +131,17 @@ public class EdwardMovement : MonoBehaviour
         rb.linearVelocity = direction * speed;
     }
 
-    // ============================================================================================
-    // 🔥 ALTERAÇÃO AQUI — BossAttack agora tem carregamento antes de causar dano
-    // ============================================================================================
-
     public void BossAttack()
     {
-        Debug.Log("EdwardMovement: BossAttack() via animação — iniciando carregamento...");
         ChangeState(EdwardState.Attacking);
         StartCoroutine(DelayedAttack());
     }
 
     private System.Collections.IEnumerator DelayedAttack()
     {
-        yield return new WaitForSeconds(0.25f); // 👈 TEMPO DE CARREGAMENTO DO ATAQUE
+        yield return new WaitForSeconds(0.25f);
         GetComponent<EnemyCombat>()?.Attack();
     }
-
-    // ============================================================================================
 
     public void EndBossAttack()
     {

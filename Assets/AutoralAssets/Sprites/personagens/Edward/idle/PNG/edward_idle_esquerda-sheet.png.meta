@@ -112,12 +112,12 @@ TextureImporter:
       name: edward_idle_esquerda-sheet_0
       rect:
         serializedVersion: 2
-        x: 99
+        x: 0
         y: 0
-        width: 152
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: edward_idle_esquerda-sheet_1
       rect:
         serializedVersion: 2
-        x: 419
+        x: 320
         y: 0
-        width: 152
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: edward_idle_esquerda-sheet_2
       rect:
         serializedVersion: 2
-        x: 739
+        x: 640
         y: 0
-        width: 152
-        height: 261
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: edward_idle_esquerda-sheet_3
       rect:
         serializedVersion: 2
-        x: 1059
+        x: 960
         y: 0
-        width: 152
-        height: 261
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8d76333db8569b74686ba469e7059542
     internalID: 0
     vertices: []
     indices: 
