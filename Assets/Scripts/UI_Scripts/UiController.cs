@@ -7,6 +7,7 @@ public class PauseGame : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject inventarioScreen;
     [SerializeField] GameObject sanidadeBar;
+    [SerializeField] GameObject vitrolaScreen;
 
     private AudioManager aManager;
     private TimelineUI timelineUI;
@@ -61,6 +62,20 @@ public class PauseGame : MonoBehaviour
             inventarioAberto = true;
             PauseController.SetPause(true);
             return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            if (!vitrolaScreen.activeSelf)
+            {
+                PauseController.SetPause(true);
+                vitrolaScreen.SetActive(true);
+            }
+            else
+            {
+                PauseController.SetPause(false);
+                vitrolaScreen.SetActive(false);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
