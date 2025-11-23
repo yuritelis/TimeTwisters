@@ -30,18 +30,35 @@ public class BossEdward_Leap_Attack : MonoBehaviour
 
     IEnumerator CameraShake(float duration, float magnitude)
     {
-        Vector3 originalPos = playerCamera.transform.localPosition;
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+
+        if (playerCamera == null)
+            yield break;
+
+        Transform camTransform = playerCamera.transform;
+        Vector3 originalPos = camTransform.localPosition;
+
         float elapsed = 0f;
+
         while (elapsed < duration)
         {
+            if (camTransform == null)
+                yield break;
+
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
-            playerCamera.transform.localPosition = originalPos + new Vector3(x, y, 0f);
+
+            camTransform.localPosition = originalPos + new Vector3(x, y, 0f);
+
             elapsed += Time.deltaTime;
             yield return null;
         }
-        playerCamera.transform.localPosition = originalPos;
+
+        if (camTransform != null)
+            camTransform.localPosition = originalPos;
     }
+
 
     public IEnumerator DoLeap(Transform player, BossEdwardController boss)
     {
@@ -152,6 +169,12 @@ public class BossEdward_Leap_Attack : MonoBehaviour
 
     void SpawnHealingItemInsideCameraOnGround()
     {
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+
+        if (playerCamera == null)
+            return;
+
         if (healingItemPrefab == null) return;
 
         for (int i = 0; i < 40; i++)

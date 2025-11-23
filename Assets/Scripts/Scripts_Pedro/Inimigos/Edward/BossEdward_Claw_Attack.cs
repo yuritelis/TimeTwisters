@@ -22,7 +22,7 @@ public class BossEdward_Claw_Attack : MonoBehaviour
 
         for (int i = 0; i < startPoints.Length; i++)
         {
-            if (boss.isDead) yield break;
+            if (boss == null || boss.isDead) yield break;
 
             Transform s = startPoints[i];
             Transform e = (i < endPoints.Length) ? endPoints[i] : null;
@@ -34,9 +34,10 @@ public class BossEdward_Claw_Attack : MonoBehaviour
                 spawnedObjects.Add(tele);
                 BossEdwardCleanup.Register(tele);
 
-                Vector2 dir = (e.position - s.position);
+                Vector2 dir = e.position - s.position;
                 float dist = dir.magnitude;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
                 tele.transform.rotation = Quaternion.Euler(0f, 0f, angle);
                 tele.transform.localScale = new Vector3(dist, tele.transform.localScale.y, tele.transform.localScale.z);
 
@@ -55,9 +56,10 @@ public class BossEdward_Claw_Attack : MonoBehaviour
         }
 
         float elapsed = 0f;
+
         while (elapsed < telegraphDuration)
         {
-            if (boss.isDead)
+            if (boss == null || boss.isDead)
             {
                 CleanupAfterDeath();
                 yield break;
@@ -68,7 +70,7 @@ public class BossEdward_Claw_Attack : MonoBehaviour
 
         for (int i = 0; i < startPoints.Length; i++)
         {
-            if (boss.isDead)
+            if (boss == null || boss.isDead)
             {
                 CleanupAfterDeath();
                 yield break;
@@ -84,11 +86,11 @@ public class BossEdward_Claw_Attack : MonoBehaviour
                 spawnedObjects.Add(claw);
                 BossEdwardCleanup.Register(claw);
 
-                var clawSr = claw.GetComponent<SpriteRenderer>();
-                if (clawSr != null)
+                var srClaw = claw.GetComponent<SpriteRenderer>();
+                if (srClaw != null)
                 {
-                    clawSr.sortingLayerName = "Default";
-                    clawSr.sortingOrder = 11;
+                    srClaw.sortingLayerName = "Default";
+                    srClaw.sortingOrder = 11;
                 }
 
                 StartCoroutine(MoveClawToPoint(claw.transform, e.position, clawSpeed, boss));
@@ -111,6 +113,7 @@ public class BossEdward_Claw_Attack : MonoBehaviour
                 if (t != null) Destroy(t.gameObject);
                 yield break;
             }
+
             t.position = Vector2.MoveTowards(t.position, target, speed * Time.deltaTime);
             yield return null;
         }

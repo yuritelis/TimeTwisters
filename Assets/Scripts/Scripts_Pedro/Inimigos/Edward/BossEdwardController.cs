@@ -1,29 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class BossEdwardController : MonoBehaviour
 {
-    [Header("Referências")]
     public Transform player;
 
-    [Header("Configurações Gerais")]
     public float attackInterval = 5f;
     public float attackRange = 6f;
 
-    [Header("Ataques")]
     public BossEdward_Leap_Attack leapAttack;
     public BossEdward_Claw_Attack clawAttack;
 
-    [Header("Ataque Normal")]
     public EnemyCombat normalAttack;
     public float normalAttackRange = 2f;
-    public float normalAttackCooldown = 1f;
+    public float normalAttackCooldown = 1.2f;
 
     private bool isAttackingSpecial = false;
-    private SpriteRenderer sr;
     private EdwardMovement movement;
     private bool canDoNormalAttack = true;
 
@@ -34,25 +28,17 @@ public class BossEdwardController : MonoBehaviour
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
         movement = GetComponent<EdwardMovement>();
-
         bossHp = GetComponent<Enemy_Health>();
+
         if (bossHp != null)
             lastHp = bossHp.currentHealth;
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
-    }
 
-    void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
-    void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (movement != null)
-            movement.player = player;
+            movement.allowAutoAttack = false;
     }
 
     void Start()
@@ -78,30 +64,35 @@ public class BossEdwardController : MonoBehaviour
 
         leapAttack?.CleanupAfterDeath();
         clawAttack?.CleanupAfterDeath();
-
-        GameObject cleaner = new GameObject("EdwardCleanupExecutor");
-        DontDestroyOnLoad(cleaner);
-        cleaner.AddComponent<BossEdwardCleanup>().StartCleanup();
     }
 
     IEnumerator NormalAttackLoop()
     {
         while (!isDead)
         {
-            if (!isAttackingSpecial && player != null && canDoNormalAttack)
+            if (player == null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player")?.transform;
+                movement.player = player;
+                yield return null;
+                continue;
+            }
+
+            if (!isAttackingSpecial && canDoNormalAttack)
             {
                 float distance = Vector2.Distance(transform.position, player.position);
 
-                if (distance <= normalAttackRange && movement != null)
+                if (distance <= normalAttackRange)
                 {
-                    movement.ChangeState(EdwardState.Attacking);
-                    movement.BossAttack();
+                    movement.canMove = false;
+                    movement.TriggerAttackAnimation();
 
                     canDoNormalAttack = false;
                     yield return new WaitForSeconds(normalAttackCooldown);
                     canDoNormalAttack = true;
                 }
             }
+
             yield return null;
         }
     }
@@ -112,16 +103,22 @@ public class BossEdwardController : MonoBehaviour
 
         while (!isDead)
         {
-            if (!isAttackingSpecial && player != null)
+            if (player == null)
             {
-                float distance = Vector2.Distance(transform.position, player.position);
-
-                if (distance <= attackRange)
-                {
-                    yield return StartCoroutine(ChooseRandomAttack());
-                    yield return new WaitForSeconds(attackInterval);
-                }
+                player = GameObject.FindGameObjectWithTag("Player")?.transform;
+                movement.player = player;
+                yield return null;
+                continue;
             }
+
+            float distance = Vector2.Distance(transform.position, player.position);
+
+            if (!isAttackingSpecial && distance <= attackRange)
+            {
+                yield return StartCoroutine(ChooseRandomAttack());
+                yield return new WaitForSeconds(attackInterval);
+            }
+
             yield return null;
         }
     }
@@ -129,7 +126,7 @@ public class BossEdwardController : MonoBehaviour
     IEnumerator ChooseRandomAttack()
     {
         isAttackingSpecial = true;
-        if (movement != null) movement.canMove = false;
+        movement.canMove = false;
 
         int attackIndex = Random.Range(0, 2);
 
@@ -139,13 +136,14 @@ public class BossEdwardController : MonoBehaviour
                 if (leapAttack != null)
                     yield return StartCoroutine(leapAttack.DoLeap(player, this));
                 break;
+
             case 1:
                 if (clawAttack != null)
                     yield return StartCoroutine(clawAttack.SpawnClawsCoroutine(this));
                 break;
         }
 
-        if (movement != null) movement.canMove = true;
+        movement.canMove = true;
         isAttackingSpecial = false;
     }
 }

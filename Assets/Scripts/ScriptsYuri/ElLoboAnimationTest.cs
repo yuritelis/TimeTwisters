@@ -1,18 +1,10 @@
-﻿using NUnit.Framework;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Windows;
+﻿using UnityEngine;
 
 public class ElLoboAnimationTest : MonoBehaviour
 {
     private Animator anim;
-
-    private EdwardState eState;
     private EdwardMovement eMove;
 
-    private bool isWalking;
     private float moveX = 0;
     private float moveY = -1;
 
@@ -20,8 +12,6 @@ public class ElLoboAnimationTest : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         eMove = GetComponent<EdwardMovement>();
-
-        isWalking = false;
 
         anim.SetBool("isWalking", false);
         anim.SetBool("isIdle", true);
@@ -33,9 +23,8 @@ public class ElLoboAnimationTest : MonoBehaviour
         if (eMove == null)
             return;
 
-        eState = eMove.CurrentState;
-
-        isWalking = eMove.GetComponent<Rigidbody2D>().linearVelocity.magnitude > 0.1f;
+        EdwardState eState = eMove.CurrentState;
+        bool isWalking = eMove.GetComponent<Rigidbody2D>().linearVelocity.magnitude > 0.1f;
 
         if (eState == EdwardState.Chasing)
         {
