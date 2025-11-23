@@ -806,6 +806,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -814,6 +815,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &588827690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -915,6 +917,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &599492638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1069,6 +1072,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -2261,6 +2265,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -2320,6 +2325,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 0.9375}
   m_EdgeRadius: 0
+--- !u!1 &1160599170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160599171}
+  m_Layer: 0
+  m_Name: Spawn_Vitrola
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1160599171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160599170}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.839, y: 4.5, z: -0.040497772}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1257363115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,6 +2917,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: 
         portrait: {fileID: 0}
@@ -2889,6 +2926,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -2898,6 +2936,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -2906,6 +2945,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &1608021138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5133,6 +5173,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: 
         portrait: {fileID: 0}
@@ -5141,6 +5182,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -5150,6 +5192,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!1001 &1962412287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5164,7 +5207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267344256418708864, guid: ad7a9413addef4e459a7fdfd654110df, type: 3}
       propertyPath: spawnPointName
-      value: Vitrola
+      value: Spawn_Vitrola
       objectReference: {fileID: 0}
     - target: {fileID: 4267344256418708864, guid: ad7a9413addef4e459a7fdfd654110df, type: 3}
       propertyPath: etapaNecessaria
@@ -5391,6 +5434,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: 
         portrait: {fileID: 0}
@@ -5400,6 +5444,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: 
         portrait: {fileID: 0}
@@ -5408,6 +5453,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5420,3 +5466,4 @@ SceneRoots:
   - {fileID: 720758518}
   - {fileID: 25318344}
   - {fileID: 1541144842}
+  - {fileID: 1160599171}
