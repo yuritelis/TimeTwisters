@@ -29,7 +29,7 @@ public class BossEdwardController : MonoBehaviour
 
     public bool isDead = false;
 
-    private Enemy_Health bossHp;
+    public Enemy_Health bossHp;
     private int lastHp;
 
     void Awake()
@@ -66,26 +66,7 @@ public class BossEdwardController : MonoBehaviour
         if (isDead) return;
         if (bossHp == null) return;
 
-        if (bossHp.currentHealth < lastHp)
-        {
-            OnBossDamaged();
-            lastHp = bossHp.currentHealth;
-        }
-    }
-
-    private void OnBossDamaged()
-    {
-        float roll = Random.value;
-
-        if (roll <= 0.35f)
-        {
-            PlayerHealth ph = FindFirstObjectByType<PlayerHealth>();
-            if (ph != null)
-            {
-                ph.ChangeHealth(+1);
-                Debug.Log("<color=green>[Boss]</color> Chance ativada — Jogador curou 1 de vida.");
-            }
-        }
+        lastHp = bossHp.currentHealth;
     }
 
     public void Die()
@@ -93,7 +74,6 @@ public class BossEdwardController : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
-        Debug.Log("[BossEdward] morreu, limpando ataques ativos.");
         StopAllCoroutines();
 
         leapAttack?.CleanupAfterDeath();

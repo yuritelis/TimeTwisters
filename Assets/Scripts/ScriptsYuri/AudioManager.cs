@@ -1,6 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
-using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -27,7 +26,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     private bool inBossZone = false;
-
     private bool musicaForcada = false;
     private AudioClip musicaOriginal = null;
 
@@ -72,27 +70,18 @@ public class AudioManager : MonoBehaviour
         string cena = SceneManager.GetActiveScene().name.ToLower();
         AudioClip clipToPlay = null;
 
-        if (cena.Contains("titlescreen"))
-        {
+        if (cena.Contains("passado"))
+            clipToPlay = pasBgm;
+        else if (cena.Contains("futuro"))
+            clipToPlay = futBgm;
+        else if (cena.Contains("titlescreen"))
             clipToPlay = menuBgm;
-        }
         else if (cena.Contains("sagu"))
-        {
             clipToPlay = presBgm;
-        }
         else if (inBossZone && bossBgm != null)
-        {
             clipToPlay = bossBgm;
-        }
         else
-        {
-            if (cena.Contains("passado"))
-                clipToPlay = pasBgm;
-            else if (cena.Contains("futuro"))
-                clipToPlay = futBgm;
-            else
-                clipToPlay = presBgm;
-        }
+            clipToPlay = presBgm;
 
         PlayMusInternal(clipToPlay);
     }
@@ -159,7 +148,6 @@ public class AudioManager : MonoBehaviour
         if (fonteSfx != null && clip != null)
             fonteSfx.PlayOneShot(clip, Mathf.Clamp01(volume));
     }
-
 
     public void SetBossZone(bool inZone)
     {

@@ -621,6 +621,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -1037,7 +1038,8 @@ MonoBehaviour:
   spawnPointName: "P_Fundos2 > P_Sagu\xE3o"
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 0
+  etapaNecessaria: 4
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -2230,6 +2232,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 4
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -2243,6 +2246,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   falasAleatorias:
   - nome: Julie
     retrato: {fileID: 0}
@@ -2406,6 +2410,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -2582,6 +2587,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -2590,6 +2596,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!1 &1231883785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,7 +6869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 12.128405
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 5861376614156416798, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_Name
@@ -7018,6 +7025,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: 
         portrait: {fileID: 0}
@@ -7026,6 +7034,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!1 &1962819733
 GameObject:
   m_ObjectHideFlags: 0
@@ -7372,6 +7381,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 0
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []

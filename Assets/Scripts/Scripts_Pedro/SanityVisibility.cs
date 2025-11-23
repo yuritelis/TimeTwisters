@@ -45,8 +45,6 @@ public class SanityVisibilitySystem : MonoBehaviour
         {
             RegisterObject(renderer);
         }
-
-        Debug.Log($"[SanityVisibility] {affectedRenderers.Count} objetos afetados pela sanidade (busca automática)");
     }
 
     void Update()
@@ -82,17 +80,6 @@ public class SanityVisibilitySystem : MonoBehaviour
 
         float distanceFromCenter = Vector2.Distance(fogUV, center);
         bool isVisible = distanceFromCenter <= visibleRadius;
-
-        if (renderer.gameObject.name.Contains("Saguão") ||
-            renderer.gameObject.name.Contains("Tapete") ||
-            renderer.gameObject.name.Contains("relogio") ||
-            renderer.gameObject.name.Contains("Armário") ||
-            renderer.gameObject.name.Contains("porta"))
-        {
-            Debug.Log($"[DEBUG] {renderer.gameObject.name} - Sanidade: {sanityPercent:F2}, " +
-                      $"Raio: {visibleRadius:F2}, Dist: {distanceFromCenter:F2}, Visível: {isVisible}, " +
-                      $"ScreenPos: {screenPos}, Alpha: {renderer.material.color.a:F2}");
-        }
 
         SetRendererVisibility(renderer, isVisible);
     }
@@ -192,8 +179,6 @@ public class SanityVisibilitySystem : MonoBehaviour
             return;
 
         affectedRenderers.Add(objectRenderer);
-
-        Debug.Log($"[SanityVisibility] Registrou: {objectRenderer.gameObject.name}");
     }
 
     public void UnregisterObject(Renderer objectRenderer)
@@ -208,8 +193,6 @@ public class SanityVisibilitySystem : MonoBehaviour
 
             affectedRenderers.Remove(objectRenderer);
             SetRendererVisibilityImmediate(objectRenderer, true);
-
-            Debug.Log($"[SanityVisibility] Removeu: {objectRenderer.gameObject.name}");
         }
     }
 

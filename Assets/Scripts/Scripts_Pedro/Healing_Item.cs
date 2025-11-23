@@ -8,14 +8,13 @@ public class HealingItem : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private void Awake()
+    {
+        itemID = "heal_" + System.Guid.NewGuid().ToString();
+    }
+
     private void Start()
     {
-        if (PlayerPrefs.GetInt("HEALING_ITEM_" + itemID, 0) == 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         audioSource = GetComponent<AudioSource>();
     }
 
