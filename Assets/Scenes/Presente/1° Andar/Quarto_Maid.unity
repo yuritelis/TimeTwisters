@@ -308,6 +308,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: 
         portrait: {fileID: 0}
@@ -317,6 +318,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: 
         portrait: {fileID: 0}
@@ -325,6 +327,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -334,6 +337,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!1 &122691913
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +751,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!114 &475495849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +775,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &475495850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -917,7 +923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631443903652494293, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.410526
+      value: 10.666667
       objectReference: {fileID: 0}
     - target: {fileID: 7146033827132427403, guid: 12e9395242a5b614f956a3823c93f43b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1241,6 +1247,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &768622531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2722,6 +2729,7 @@ MonoBehaviour:
   requireInput: 1
   interactKey: 101
   etapaNecessaria: 3
+  etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
     dialogoFalas: []
@@ -2735,6 +2743,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   falasAleatorias: []
   transitionCooldown: 1.2
 --- !u!1 &1104393798 stripped
@@ -2791,6 +2800,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -2799,14 +2809,25 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
-      fala: "M\xFAsica? Vindo de cima?"
+      fala: "M\xFAsica... vindo do andar de cima?"
       focoCamera: {fileID: 0}
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
+    - personagem:
+        nome: Julie
+        portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
+      fala: "T\xE3o fazendo um BAILE na MINHA MANS\xC3O E N\xC3O ME CHAMARAM?"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 0
+      sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   apenasUmaVez: 1
   progresso: 1
 --- !u!1 &1139952198
@@ -3211,6 +3232,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -3219,6 +3241,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
     - personagem:
         nome: Julie
         portrait: {fileID: -5510169355279480808, guid: a55a403277ebdca42998fd9f05d088e2, type: 3}
@@ -3227,6 +3250,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &1228937900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4221,6 +4245,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &1686957444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5664,6 +5689,7 @@ MonoBehaviour:
       spawnInimigoAqui: 0
       avancaProgressoAqui: 0
       sfxAposFala: {fileID: 0}
+      etapaMinima: 0
 --- !u!61 &1815617741
 BoxCollider2D:
   m_ObjectHideFlags: 0

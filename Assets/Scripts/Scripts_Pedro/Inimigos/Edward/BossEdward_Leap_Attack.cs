@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Tilemaps;
 
 public class BossEdward_Leap_Attack : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class BossEdward_Leap_Attack : MonoBehaviour
     public GameObject telegraphPrefab;
     public float telegraphWidth = 1f;
     public float telegraphTime = 1f;
+    public GameObject healingItemPrefab;
+    public float itemFallGravity = 3f;
+    public Camera playerCamera;
+    public Tilemap groundTilemap;
 
     private SpriteRenderer sr;
     private Rigidbody2D rb;
@@ -22,6 +27,38 @@ public class BossEdward_Leap_Attack : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
+
+    IEnumerator CameraShake(float duration, float magnitude)
+    {
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+
+        if (playerCamera == null)
+            yield break;
+
+        Transform camTransform = playerCamera.transform;
+        Vector3 originalPos = camTransform.localPosition;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            if (camTransform == null)
+                yield break;
+
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            camTransform.localPosition = originalPos + new Vector3(x, y, 0f);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        if (camTransform != null)
+            camTransform.localPosition = originalPos;
+    }
+
 
     public IEnumerator DoLeap(Transform player, BossEdwardController boss)
     {
@@ -39,9 +76,7 @@ public class BossEdward_Leap_Attack : MonoBehaviour
         {
             telegraph = Instantiate(telegraphPrefab, startPos, Quaternion.identity);
             BossEdwardCleanup.Register(telegraph);
-
             telegraph.transform.localScale = new Vector3(0f, telegraphWidth, 1f);
-
             var srTele = telegraph.GetComponent<SpriteRenderer>();
             if (srTele != null)
             {
@@ -49,7 +84,6 @@ public class BossEdward_Leap_Attack : MonoBehaviour
                 c.a = 0.35f;
                 srTele.color = c;
             }
-
             activeTelegraph = telegraph;
         }
 
@@ -96,6 +130,7 @@ public class BossEdward_Leap_Attack : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
 
         elapsed = 0f;
+
         while (elapsed < leapDuration)
         {
             if (boss == null || boss.isDead)
@@ -109,14 +144,19 @@ public class BossEdward_Leap_Attack : MonoBehaviour
             elapsed += Time.deltaTime;
             transform.position += (Vector3)(leapDir * leapSpeed * Time.deltaTime);
 
-            Vector2 boxSize = new Vector2(telegraphWidth, telegraphWidth);
-            Vector2 boxCenter = transform.position;
-            float angle = Mathf.Atan2(leapDir.y, leapDir.x) * Mathf.Rad2Deg;
-
-            Collider2D[] hits = Physics2D.OverlapBoxAll(boxCenter, boxSize, angle, playerLayer);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(telegraphWidth, telegraphWidth), 0f, playerLayer);
             foreach (var hit in hits)
             {
                 hit.GetComponent<PlayerHealth>()?.ChangeHealth(-damage);
+            }
+
+            Collider2D wallHit = Physics2D.OverlapCircle(transform.position, 0.25f, LayerMask.GetMask("Collision"));
+            if (wallHit != null)
+            {
+                boss.bossHp.ChangeHealth(-1);
+                StartCoroutine(CameraShake(0.15f, 0.2f));
+                SpawnHealingItemInsideCameraOnGround();
+                break;
             }
 
             yield return null;
@@ -127,12 +167,109 @@ public class BossEdward_Leap_Attack : MonoBehaviour
         isLeaping = false;
     }
 
+    void SpawnHealingItemInsideCameraOnGround()
+    {
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+
+        if (playerCamera == null)
+            return;
+
+        if (healingItemPrefab == null) return;
+
+        for (int i = 0; i < 40; i++)
+        {
+            Vector3 viewport = new Vector3(Random.value, Random.value, 0f);
+            Vector3 worldPos = playerCamera.ViewportToWorldPoint(viewport);
+            worldPos.z = 0;
+
+            Vector3Int cell = groundTilemap.WorldToCell(worldPos);
+            if (groundTilemap.HasTile(cell))
+            {
+                Vector3 dropPos = groundTilemap.GetCellCenterWorld(cell);
+                InstantiateHealingItem(dropPos);
+                return;
+            }
+        }
+
+        InstantiateHealingItem(transform.position);
+    }
+
+    void InstantiateHealingItem(Vector3 pos)
+    {
+        GameObject item = Instantiate(healingItemPrefab, pos, Quaternion.identity);
+        Rigidbody2D rb = item.AddComponent<Rigidbody2D>();
+        rb.gravityScale = itemFallGravity;
+        var col = item.GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+        item.AddComponent<HealingItemFall>();
+    }
+
     public void CleanupAfterDeath()
     {
         if (activeTelegraph != null)
         {
             Destroy(activeTelegraph);
             activeTelegraph = null;
+        }
+    }
+}
+
+public class HealingItemFall : MonoBehaviour
+{
+    public float fallTime = 0.45f;
+    public float startHeightOffset = 3f;
+
+    float elapsed = 0f;
+    Vector3 startPos;
+    Vector3 finalPos;
+
+    SpriteRenderer sr;
+    Collider2D col;
+    Rigidbody2D rb;
+
+    void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        col = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
+
+        if (col != null) col.enabled = false;
+
+        finalPos = transform.position;
+        startPos = finalPos + new Vector3(0f, startHeightOffset, 0f);
+
+        transform.position = startPos;
+
+        if (sr != null)
+            sr.sortingOrder = 500;
+    }
+
+    void Update()
+    {
+        elapsed += Time.deltaTime;
+        float t = Mathf.Clamp01(elapsed / fallTime);
+
+        transform.position = Vector3.Lerp(startPos, finalPos, t);
+
+        if (sr != null)
+            sr.sortingOrder = Mathf.RoundToInt(Mathf.Lerp(500, 10, t));
+
+        if (t >= 1f)
+        {
+            if (rb != null)
+            {
+                rb.gravityScale = 0f;
+                rb.linearVelocity = Vector2.zero;
+            }
+
+            if (col != null)
+            {
+                col.enabled = true;
+                col.isTrigger = true;
+            }
+
+            Destroy(this);
         }
     }
 }

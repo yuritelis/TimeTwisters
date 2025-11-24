@@ -2,38 +2,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CutsceneFugaController : MonoBehaviour
 {
-    [Header("Referências Principais")]
     public CameraSegue cameraSegue;
     public Transform player;
 
-    [Header("Sistema de Execução Única")]
     public int etapaProgressoAoConcluir = 1;
     private bool cutsceneJaExecutada = false;
 
-    [Header("Movimentação do Player por Pontos")]
     public Transform[] playerMovePoints;
     public float playerCutsceneSpeed = 3f;
 
-    [Header("Ponto onde estão os NPCs que terão diálogo")]
     public Transform cameraNPCFocusPoint;
 
-    [Header("NPC Que Vai Fugir")]
     public Transform npcFugitivo;
     public Transform[] npcFugitivoPoints;
     public float npcFugitivoSpeed = 3f;
 
-    [Header("NPCs Removidos ao Final")]
     public List<Transform> npcsParaRemover;
 
-    [Header("Diálogos")]
     public Dialogo dialogoInicialPlayer;
     public Dialogo dialogoNpcScene;
     public Dialogo dialogoFinalPlayer;
 
-    [Header("Camera Config")]
     public float cameraMoveDuration = 1f;
     public AnimationCurve cameraEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
@@ -47,6 +40,49 @@ public class CutsceneFugaController : MonoBehaviour
     private Player_Combat playerCombat;
     private PlayerDash playerDash;
     private PlayerInput playerInput;
+
+    public AudioClip cutsceneMusic;
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StartCoroutine(RecuperarReferencias());
+    }
+
+    private void Start()
+    {
+        cutsceneJaExecutada = PlayerPrefs.GetInt($"{name}_Executada", 0) == 1;
+
+        focusProxy = new GameObject($"{name}_CameraProxy").transform;
+        focusProxy.hideFlags = HideFlags.HideInHierarchy;
+
+        StartCoroutine(RecuperarReferencias());
+    }
+
+    private IEnumerator RecuperarReferencias()
+    {
+        yield return null;
+
+        GarantirReferenciasDoPlayer();
+
+        if (player == null)
+        {
+            yield return new WaitForSeconds(0.05f);
+            GarantirReferenciasDoPlayer();
+        }
+
+        if (cameraSegue == null)
+            cameraSegue = FindFirstObjectByType<CameraSegue>();
+    }
 
     private void GarantirReferenciasDoPlayer()
     {
@@ -63,34 +99,27 @@ public class CutsceneFugaController : MonoBehaviour
         playerInput = player.GetComponent<PlayerInput>();
     }
 
-    private void Start()
-    {
-        cutsceneJaExecutada = PlayerPrefs.GetInt($"{name}_Executada", 0) == 1;
-
-        focusProxy = new GameObject($"{name}_CameraProxy").transform;
-        focusProxy.hideFlags = HideFlags.HideInHierarchy;
-
-        GarantirReferenciasDoPlayer();
-
-        if (cameraSegue == null)
-            cameraSegue = FindFirstObjectByType<CameraSegue>();
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
-        if (cutsceneAtiva) return;
-        if (cutsceneJaExecutada) return;
+        if (!other.CompareTag("Player"))
+            return;
+
+        if (cutsceneAtiva)
+            return;
+
+        if (cutsceneJaExecutada)
+            return;
 
         GarantirReferenciasDoPlayer();
-
         StartCoroutine(SequenciaCutscene());
     }
 
     private IEnumerator SequenciaCutscene()
     {
-        cutsceneAtiva = true;
+        if (AudioManager.instance != null)
+            AudioManager.instance.TocarMusicaCutscene(cutsceneMusic);
 
+        cutsceneAtiva = true;
         TravarJogador(true);
 
         DialogoManager.Instance.OnFalaIniciada += HandleFalaIniciada;
@@ -135,12 +164,6 @@ public class CutsceneFugaController : MonoBehaviour
 
         DialogoManager.Instance.OnFalaIniciada -= HandleFalaIniciada;
 
-        if (cameraRoutine != null)
-        {
-            StopCoroutine(cameraRoutine);
-            cameraRoutine = null;
-        }
-
         cameraSegue.BeginTemporaryFocus(null);
 
         TravarJogador(false);
@@ -154,16 +177,48 @@ public class CutsceneFugaController : MonoBehaviour
             if (StoryProgressManager.instance != null)
                 StoryProgressManager.instance.AvancarEtapa();
         }
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.RestaurarMusicaNormal();
     }
 
     private IEnumerator MoverPlayer(Vector3 destino)
     {
-        while (Vector2.Distance(player.position, destino) > 0.1f)
+        float stuckTimer = 0f;
+        float stuckTime = 0.45f;
+        float stuckVelocityThreshold = 0.08f;
+
+        int safety = 0;
+
+        while (true)
         {
+            float dist = Vector2.Distance(player.position, destino);
+
+            if (dist <= 0.15f)
+                break;
+
+            safety++;
+            if (safety > 900)
+                break;
+
             Vector2 dir = (destino - player.position).normalized;
 
             if (playerRb != null)
                 playerRb.linearVelocity = dir * playerCutsceneSpeed;
+
+            float vel = playerRb.linearVelocity.magnitude;
+
+            if (vel < stuckVelocityThreshold)
+            {
+                stuckTimer += Time.deltaTime;
+
+                if (stuckTimer >= stuckTime)
+                    break;
+            }
+            else
+            {
+                stuckTimer = 0f;
+            }
 
             if (playerAnim != null)
             {
@@ -200,6 +255,7 @@ public class CutsceneFugaController : MonoBehaviour
             t.position += (Vector3)(dir * speed * Time.deltaTime);
             yield return null;
         }
+
         t.position = destino;
     }
 
@@ -217,6 +273,7 @@ public class CutsceneFugaController : MonoBehaviour
         {
             t += Time.deltaTime / cameraMoveDuration;
             focusProxy.position = Vector3.Lerp(start, end, cameraEase.Evaluate(t));
+
             yield return null;
         }
 
@@ -229,7 +286,9 @@ public class CutsceneFugaController : MonoBehaviour
         {
             Vector3 pos = new Vector3(alvo.position.x, alvo.position.y, focusProxy.position.z);
             focusProxy.position = pos;
+
             cameraSegue.BeginTemporaryFocus(focusProxy);
+
             yield return null;
         }
     }
@@ -237,8 +296,10 @@ public class CutsceneFugaController : MonoBehaviour
     private void HandleFalaIniciada(DialogoFalas fala)
     {
         if (fala.focoCamera == null) return;
+
         if (cameraRoutine != null)
             StopCoroutine(cameraRoutine);
+
         cameraRoutine = StartCoroutine(FocarCamera(fala.focoCamera.position));
     }
 

@@ -112,9 +112,9 @@ TextureImporter:
       name: funcionaria_mulher_idle_frente-sheet_0
       rect:
         serializedVersion: 2
-        x: 49
+        x: 0
         y: 0
-        width: 192
+        width: 320
         height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: funcionaria_mulher_idle_frente-sheet_1
       rect:
         serializedVersion: 2
-        x: 369
+        x: 320
         y: 0
-        width: 192
-        height: 311
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: funcionaria_mulher_idle_frente-sheet_2
       rect:
         serializedVersion: 2
-        x: 689
+        x: 640
         y: 0
-        width: 192
-        height: 301
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: funcionaria_mulher_idle_frente-sheet_3
       rect:
         serializedVersion: 2
-        x: 1009
+        x: 960
         y: 0
-        width: 192
-        height: 301
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1f257df50dc483b44ae72993e013656d
     internalID: 0
     vertices: []
     indices: 

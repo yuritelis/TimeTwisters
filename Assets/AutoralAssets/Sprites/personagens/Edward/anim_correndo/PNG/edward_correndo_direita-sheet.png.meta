@@ -118,12 +118,12 @@ TextureImporter:
       name: edward_correndo_direita-sheet_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 0
         y: 0
-        width: 152
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: edward_correndo_direita-sheet_1
       rect:
         serializedVersion: 2
-        x: 389
-        y: 9
-        width: 172
-        height: 282
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: edward_correndo_direita-sheet_2
       rect:
         serializedVersion: 2
-        x: 709
+        x: 640
         y: 0
-        width: 152
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: edward_correndo_direita-sheet_3
       rect:
         serializedVersion: 2
-        x: 1029
+        x: 960
         y: 0
-        width: 152
-        height: 281
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: edward_correndo_direita-sheet_4
       rect:
         serializedVersion: 2
-        x: 1349
-        y: 9
-        width: 172
-        height: 282
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: edward_correndo_direita-sheet_5
       rect:
         serializedVersion: 2
-        x: 1669
+        x: 1600
         y: 0
-        width: 152
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 320
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 484c1bec8c49ed8499d474c0d9299757
     internalID: 0
     vertices: []
     indices: 
