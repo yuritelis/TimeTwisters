@@ -55,6 +55,22 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            currentHealth = maxHealth;
+
+            if (ui != null)
+                ui.UpdateVidas(currentHealth);
+
+            if (fog != null)
+            {
+                float sanityPercent = (float)currentHealth / maxHealth;
+                fog.UpdateFog(sanityPercent);
+            }
+
+            StartCoroutine(HealFlash());
+        }
+
         if (currentHealth != lastHealth)
         {
             lastHealth = currentHealth;
