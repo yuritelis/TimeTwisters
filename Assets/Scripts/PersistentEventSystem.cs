@@ -37,13 +37,17 @@ public class PersistentEventSystem : MonoBehaviour
     private void DisableOtherEventSystems()
     {
         EventSystem[] systems = Object.FindObjectsByType<EventSystem>(FindObjectsSortMode.None);
+        string cenaAtual = SceneManager.GetActiveScene().name.ToLower();
 
         foreach (var es in systems)
         {
-            if (es.gameObject != this.gameObject)
-            {
-                es.gameObject.SetActive(false);
-            }
+            if (es.gameObject == this.gameObject)
+                continue;
+
+            if (cenaAtual.Contains("death"))
+                continue;
+
+            es.gameObject.SetActive(false);
         }
     }
 }

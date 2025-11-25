@@ -4,11 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Vida")]
     public int currentHealth;
     public int maxHealth;
 
-    [Header("Invencibilidade")]
     public bool isInvincible = false;
     public float invincibilityDuration = 1f;
     public float flashInterval = 0.1f;
@@ -29,28 +27,47 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        ui = FindFirstObjectByType<VidaUI>();
-        fog = FindFirstObjectByType<FogController>();
-
-        if (spriteRenderer != null)
-            originalColor = spriteRenderer.color;
-
-        if (ui != null)
+        if (DeathMenuBot.pendingReset)
         {
-            ui.SetVidaMax(maxHealth);
-            ui.UpdateVidas(currentHealth);
-        }
+            currentHealth = maxHealth;
+            isInvincible = false;
 
-        if (fog != null)
+            if (ui != null)
+            {
+                ui.SetVidaMax(maxHealth);
+                ui.UpdateVidas(currentHealth);
+            }
+
+            if (fog != null)
+                fog.UpdateFog(1f);
+
+            DeathMenuBot.pendingReset = false;
+        }
+        else
         {
-            float sanityPercent = (float)currentHealth / maxHealth;
-            fog.UpdateFog(sanityPercent);
-        }
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        lastHealth = currentHealth;
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            ui = FindFirstObjectByType<VidaUI>();
+            fog = FindFirstObjectByType<FogController>();
+
+            if (spriteRenderer != null)
+                originalColor = spriteRenderer.color;
+
+            if (ui != null)
+            {
+                ui.SetVidaMax(maxHealth);
+                ui.UpdateVidas(currentHealth);
+            }
+
+            if (fog != null)
+            {
+                float sanityPercent = (float)currentHealth / maxHealth;
+                fog.UpdateFog(sanityPercent);
+            }
+
+            lastHealth = currentHealth;
+        }
     }
 
     private void Update()
@@ -58,7 +75,6 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth != lastHealth)
         {
             lastHealth = currentHealth;
-
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
             if (ui != null)
@@ -71,7 +87,10 @@ public class PlayerHealth : MonoBehaviour
             }
 
             if (currentHealth <= 0 && gameObject.CompareTag("Player"))
+            {
+                SalvarEpoca();
                 SceneManager.LoadScene("DeathScreen");
+            }
         }
     }
 
@@ -97,7 +116,10 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(InvincibilityFrames());
 
         if (currentHealth <= 0 && gameObject.CompareTag("Player"))
+        {
+            SalvarEpoca();
             SceneManager.LoadScene("DeathScreen");
+        }
     }
 
     private IEnumerator HealFlash()
@@ -172,6 +194,20 @@ public class PlayerHealth : MonoBehaviour
         isInvincible = false;
     }
 
+    private void SalvarEpoca()
+    {
+        string cena = SceneManager.GetActiveScene().name.ToLower();
+
+        if (cena.Contains("passado"))
+            PlayerPrefs.SetString("ultimaCena", "passado");
+        else if (cena.Contains("futuro"))
+            PlayerPrefs.SetString("ultimaCena", "futuro");
+        else
+            PlayerPrefs.SetString("ultimaCena", "presente");
+
+        PlayerPrefs.Save();
+    }
+
     public void ResetPlayer()
     {
         currentHealth = maxHealth;
@@ -183,5 +219,4 @@ public class PlayerHealth : MonoBehaviour
         if (fog != null)
             fog.UpdateFog(1f);
     }
-
 }

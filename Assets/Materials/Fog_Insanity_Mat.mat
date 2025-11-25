@@ -51,30 +51,30 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _Aspect: 1.7777778
-    - _CrackIntensity: 0
-    - _Density: 0.0072140372
+    - _CrackIntensity: 13.8233
+    - _Density: 1.3944248
     - _Distortion: 1
     - _DistortionStrength: 0
     - _EnableExternalAlpha: 0
-    - _HeartbeatIntensity: 0.0030058478
-    - _HeartbeatSpeed: 0.0144280745
-    - _InnerDarkness: 1
+    - _HeartbeatIntensity: 0.7958189
+    - _HeartbeatSpeed: 2.4909408
+    - _InnerDarkness: 1.2
     - _Radius: 0.296549
-    - _RimDarkness: 0.0096187135
+    - _RimDarkness: 3.9790943
     - _SanityFocus: 0.4
     - _Scale: 5
     - _Softness: 0.27241182
-    - _Speed: 0.0012023392
+    - _Speed: 0.39790946
     - _VignetteStrength: 0
     - _VisionMultiplier: 0
     - _VisionRadius: 0.29000002
     - _VisionScale: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0.094262846, g: 0, b: 0.14196812, a: 0.98852575}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _PulseColor: {r: 0, g: 0, b: 0, a: 0}
+    - _PulseColor: {r: 0.75410277, g: 0, b: 0.18852569, a: 0.9999977}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _VisionCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
