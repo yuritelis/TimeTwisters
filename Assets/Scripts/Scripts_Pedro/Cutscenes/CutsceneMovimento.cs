@@ -116,6 +116,14 @@ public class CutsceneFugaController : MonoBehaviour
 
     private IEnumerator SequenciaCutscene()
     {
+        if (CheckpointManager.instance != null)
+        {
+            CheckpointManager.instance.SaveCheckpoint(
+                player.position,
+                SceneManager.GetActiveScene().name,
+                StoryProgressManager.instance != null ? StoryProgressManager.instance.historiaEtapaAtual : 0
+            );
+        }
         if (AudioManager.instance != null)
             AudioManager.instance.TocarMusicaCutscene(cutsceneMusic);
 
@@ -326,4 +334,6 @@ public class CutsceneFugaController : MonoBehaviour
                 playerAnim.SetBool("isWalking", false);
         }
     }
+
+
 }

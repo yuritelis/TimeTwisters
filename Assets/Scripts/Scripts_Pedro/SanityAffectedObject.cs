@@ -8,9 +8,6 @@ public class SanityAffectedObject : MonoBehaviour
     public bool includeInactiveChildren = true;
     public string childTagFilter = "SanityAffected";
 
-    [Header("Debug")]
-    public bool showDebugInfo = false;
-
     private SanityVisibilitySystem visibilitySystem;
     private Renderer[] targetRenderers;
 
@@ -19,24 +16,11 @@ public class SanityAffectedObject : MonoBehaviour
         FindVisibilitySystem();
         FindTargetRenderers();
         RegisterAllRenderers();
-
-        if (showDebugInfo)
-        {
-            Debug.Log($"[SanityAffectedObject] '{gameObject.name}' registrou {targetRenderers.Length} renderers");
-            foreach (Renderer renderer in targetRenderers)
-            {
-                Debug.Log($"   - {renderer.gameObject.name} (Tag: {renderer.gameObject.tag})");
-            }
-        }
     }
 
     void FindVisibilitySystem()
     {
         visibilitySystem = Object.FindFirstObjectByType<SanityVisibilitySystem>();
-        if (visibilitySystem == null)
-        {
-            Debug.LogWarning("[SanityAffectedObject] Sistema de visibilidade não encontrado!");
-        }
     }
 
     void FindTargetRenderers()
@@ -66,11 +50,6 @@ public class SanityAffectedObject : MonoBehaviour
             Renderer selfRenderer = GetComponent<Renderer>();
             targetRenderers = selfRenderer != null ? new Renderer[] { selfRenderer } : new Renderer[0];
         }
-
-        if (targetRenderers.Length == 0)
-        {
-            Debug.LogWarning($"[SanityAffectedObject] Nenhum renderer encontrado em '{gameObject.name}' com as configurações atuais");
-        }
     }
 
     void RegisterAllRenderers()
@@ -82,11 +61,6 @@ public class SanityAffectedObject : MonoBehaviour
             if (renderer != null && IsValidRenderer(renderer))
             {
                 visibilitySystem.RegisterObject(renderer);
-
-                if (showDebugInfo)
-                {
-                    Debug.Log($"[SanityAffectedObject] Registrou: {renderer.gameObject.name}");
-                }
             }
         }
     }
@@ -108,18 +82,15 @@ public class SanityAffectedObject : MonoBehaviour
     {
         if (renderer is TilemapRenderer)
         {
-            if (showDebugInfo) Debug.Log($"Ignorado (Tilemap): {renderer.gameObject.name}");
             return false;
         }
         if (renderer is ParticleSystemRenderer)
         {
-            if (showDebugInfo) Debug.Log($"Ignorado (Partícula): {renderer.gameObject.name}");
             return false;
         }
 
         if (renderer.transform == visibilitySystem?.player)
         {
-            if (showDebugInfo) Debug.Log($"Ignorado (Jogador): {renderer.gameObject.name}");
             return false;
         }
 

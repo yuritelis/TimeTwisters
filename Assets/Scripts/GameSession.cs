@@ -3,36 +3,31 @@ using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
-    private static GameSession instance;
+    public GameObject[] objetosNaoParaTitleScreen;
 
-    void Awake()
+    private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            // 🔥 OUVINDO TODAS AS MUDANÇAS DE CENA
-            SceneManager.activeSceneChanged += OnSceneChanged;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        DontDestroyOnLoad(gameObject);
+        SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
-    // Chamado SEMPRE que uma cena muda
     private void OnSceneChanged(Scene oldScene, Scene newScene)
     {
-        string cena = newScene.name;
+        bool isInactive = newScene.name == "TitleScreen" || newScene.name == "DeathScreen";
 
-        if (cena == "TitleScreen" || cena == "DeathScreen")
+        foreach (var obj in objetosNaoParaTitleScreen)
         {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
+            if (obj != null)
+            {
+                foreach (var child in obj.GetComponentsInChildren<Transform>(true))
+                {
+                    string name = child.gameObject.name;
+                    if (name == "Progress" || name == "pauseScreen" || name == "DialogoPanel")
+                        continue;
+
+                    child.gameObject.SetActive(!isInactive);
+                }
+            }
         }
     }
 }

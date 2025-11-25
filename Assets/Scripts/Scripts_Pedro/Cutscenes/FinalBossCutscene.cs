@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(Collider2D))]
 public class FinalBossCutscene : MonoBehaviour
@@ -80,6 +82,14 @@ public class FinalBossCutscene : MonoBehaviour
 
     private IEnumerator RunCutscene(GameObject player)
     {
+        if (CheckpointManager.instance != null)
+        {
+            CheckpointManager.instance.SaveCheckpoint(
+                player.transform.position,
+                SceneManager.GetActiveScene().name,
+                StoryProgressManager.instance != null ? StoryProgressManager.instance.historiaEtapaAtual : 0
+            );
+        }
         if (playerController == null)
             playerController = player.GetComponent<PlayerController>();
 

@@ -16,7 +16,6 @@ public class VolumeSettings : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
             InitializeVolumeSettings();
         }

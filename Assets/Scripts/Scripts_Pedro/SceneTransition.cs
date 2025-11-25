@@ -196,6 +196,9 @@ public class SceneTransition : MonoBehaviour
         if (string.IsNullOrEmpty(finalSceneName))
             return;
 
+        PlayerPrefs.SetString("LastPlayedScene", SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
+
         if (!string.IsNullOrEmpty(spawnPointName))
             PlayerPrefs.SetString("SpawnPoint", spawnPointName);
 

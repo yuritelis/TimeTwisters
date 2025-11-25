@@ -1,5 +1,5 @@
-﻿using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -31,16 +31,14 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
         if (fonteMus != null)
             fonteMus.loop = true;

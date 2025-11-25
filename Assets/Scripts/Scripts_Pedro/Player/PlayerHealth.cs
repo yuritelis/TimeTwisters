@@ -171,4 +171,17 @@ public class PlayerHealth : MonoBehaviour
         isDamageFlashing = false;
         isInvincible = false;
     }
+
+    public void ResetPlayer()
+    {
+        currentHealth = maxHealth;
+        isInvincible = false;
+
+        if (ui != null)
+            ui.UpdateVidas(currentHealth);
+
+        if (fog != null)
+            fog.UpdateFog(1f);
+    }
+
 }

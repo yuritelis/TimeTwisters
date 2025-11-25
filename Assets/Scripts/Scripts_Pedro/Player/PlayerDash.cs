@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerDash : MonoBehaviour
@@ -28,6 +29,20 @@ public class PlayerDash : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController = GetComponent<PlayerController>();
         playerInput = GetComponent<PlayerInput>();
+        SceneManager.activeSceneChanged += OnSceneChanged;
+    }
+
+    private void OnSceneChanged(Scene oldScene, Scene newScene)
+    {
+        if (newScene.name != "TitleScreen")
+        {
+            isDashing = false;
+            canDash = true;
+            if (playerHealth != null)
+                playerHealth.isInvincible = false;
+            if (spriteRenderer != null)
+                spriteRenderer.color = Color.white;
+        }
     }
 
     private void Update()

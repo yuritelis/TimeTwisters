@@ -32,29 +32,40 @@ public class CameraSegue : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    private void OnEnable()
+    {
+        AtualizarReferenciaPlayer();
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        GameObject found = GameObject.FindGameObjectWithTag("Player");
-        if (found != null)
-        {
-            player = found.transform;
+        if (scene.name == "TitleScreen") return;
+        AtualizarReferenciaPlayer();
+    }
 
-            Vector3 pos = player.position;
-            pos.z = cameraZ;
-            transform.position = pos;
+    private void AtualizarReferenciaPlayer()
+    {
+        if (player == null)
+        {
+            GameObject found = GameObject.FindGameObjectWithTag("Player");
+            if (found != null)
+            {
+                player = found.transform;
+                Vector3 pos = player.position;
+                pos.z = cameraZ;
+                transform.position = pos;
+            }
         }
     }
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "TitleScreen") return;
+
         cam = GetComponent<Camera>();
 
         if (player == null)
-        {
-            GameObject found = GameObject.FindGameObjectWithTag("Player");
-            if (found != null)
-                player = found.transform;
-        }
+            AtualizarReferenciaPlayer();
 
         if (player != null)
         {
@@ -79,7 +90,12 @@ public class CameraSegue : MonoBehaviour
 
     void LateUpdate()
     {
-        if (player == null) return;
+        if (SceneManager.GetActiveScene().name == "TitleScreen") return;
+        if (player == null)
+        {
+            AtualizarReferenciaPlayer();
+            if (player == null) return;
+        }
 
         Transform target = overridingTarget && overrideTarget != null ? overrideTarget : player;
 

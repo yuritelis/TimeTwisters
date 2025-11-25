@@ -91,7 +91,6 @@ public class CutsceneBerçario : MonoBehaviour
         if (AudioManager.instance != null && musicaCutscene != null)
             AudioManager.instance.TocarMusicaCutscene(musicaCutscene);
 
-        // ❗❗ DESCONGELA O PLAYER ANTES DE MUDAR DE CENA
         if (playerController != null)
             playerController.enabled = true;
 
