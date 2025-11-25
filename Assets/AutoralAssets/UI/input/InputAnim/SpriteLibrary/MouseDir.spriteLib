@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Apertando
+    m_Hash: 231325659
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: mouse_click-Sheet_0
+      m_Hash: 559339200
+      m_Sprite: {fileID: -1337613917321582399, guid: b3a91b8dbc5c16d43adab071008ede42, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1337613917321582399, guid: b3a91b8dbc5c16d43adab071008ede42, type: 3}
+    - m_Name: mouse_click-Sheet_2
+      m_Hash: 257472492
+      m_Sprite: {fileID: -175064027789322728, guid: b3a91b8dbc5c16d43adab071008ede42, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -175064027789322728, guid: b3a91b8dbc5c16d43adab071008ede42, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638996841935975738
+  m_Version: 1
