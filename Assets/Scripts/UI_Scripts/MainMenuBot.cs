@@ -11,9 +11,9 @@
         [SerializeField] GameObject creditsScreen;
 
         [Header("Transição")]
-        [SerializeField] CanvasGroup fadeCanvas;  // imagem preta cobrindo a tela
-        [SerializeField] float fadeSpeed = 1.2f;  // velocidade do fade
-        [SerializeField] float holdBeforeLoad = 0.3f; // leve pausa antes de carregar
+        [SerializeField] CanvasGroup fadeCanvas;
+        [SerializeField] float fadeSpeed = 1.2f;
+        [SerializeField] float holdBeforeLoad = 0.3f;
 
         public AudioManager aManager;
         private string nomeCena = "Saguão";
@@ -30,7 +30,6 @@
             optionsScreen.SetActive(false);
             creditsScreen.SetActive(false);
 
-            // 🔹 Garante que o fade começa invisível
             if (fadeCanvas != null)
             {
                 fadeCanvas.alpha = 0f;
@@ -55,18 +54,14 @@
                 yield return null;
             }
 
-            // 🔹 Espera um pouquinho antes de carregar
             yield return new WaitForSecondsRealtime(holdBeforeLoad);
 
-            // 🔹 Carrega de forma assíncrona
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nomeCena);
             asyncLoad.allowSceneActivation = false;
 
-            // 🔹 Espera a nova cena terminar de carregar
             while (asyncLoad.progress < 0.9f)
                 yield return null;
 
-            // 🔹 Agora sim, libera a transição
             asyncLoad.allowSceneActivation = true;
         }
 
