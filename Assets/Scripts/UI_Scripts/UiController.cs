@@ -85,6 +85,17 @@ public class PauseGame : MonoBehaviour
             else
                 Resume();
         }
+
+        if (PuzzleCadeado.cadeadoActive)
+        {
+            PauseController.SetPause(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            PauseController.SetPause(false);
+            Time.timeScale = 1f;
+        }
     }
 
     private void Pause()
