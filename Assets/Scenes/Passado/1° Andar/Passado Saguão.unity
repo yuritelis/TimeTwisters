@@ -706,7 +706,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &233664776
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +842,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &271873151
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +894,7 @@ MonoBehaviour:
   spawnPointName: "P_Fundos2 > P_Sagu\xE3o"
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 4
+  etapaNecessaria: 5
   etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
@@ -972,7 +970,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!212 &271873156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1222,7 +1219,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!4 &470436290
 Transform:
   m_ObjectHideFlags: 0
@@ -1368,7 +1364,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!114 &595629118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2280,7 +2275,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!114 &1045642280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2298,7 +2292,7 @@ MonoBehaviour:
   spawnPointName: "P_Fundos1 > P_Sagu\xE3o"
   requireInput: 1
   interactKey: 101
-  etapaNecessaria: 4
+  etapaNecessaria: 5
   etapaParaDialogoBloqueado: 0
   somPortaTrancada: {fileID: 0}
   dialogoAntesDaTransicao:
@@ -2552,7 +2546,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &1188898229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,7 +2580,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!114 &1188898231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2889,7 +2881,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &1274172256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,7 +3912,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &1541738603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4001,7 +3991,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!212 &1632106423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7353,7 +7342,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1001 &2018451150
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1028,7 +1028,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &108903666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,7 +1455,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &313752623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1801,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &507990337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,7 +1922,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &537095338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,7 +2852,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &1112541288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,7 +3036,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &1201330635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,7 +3319,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4529525923303130993, guid: 4df58173d72d2b04b90d9195a04bad47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4067,7 +4061,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &1498994246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4357,7 +4350,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!1 &1722417424
 GameObject:
   m_ObjectHideFlags: 0
@@ -7460,7 +7452,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 1
 --- !u!4 &1792688721
 Transform:
   m_ObjectHideFlags: 0
@@ -7943,7 +7934,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!114 &1949556262
 MonoBehaviour:
   m_ObjectHideFlags: 0

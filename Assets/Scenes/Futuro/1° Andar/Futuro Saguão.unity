@@ -1724,6 +1724,45 @@ MonoBehaviour:
       avancaProgressoAqui: 1
       sfxAposFala: {fileID: 0}
       etapaMinima: 0
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "*Parab\xE9ns por zerar a Demo de Inheritance!*"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 1
+      sfxAposFala: {fileID: 0}
+      etapaMinima: 0
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "*Esperamos que voc\xEA tenha se divertido tanto quanto n\xF3s nos divertimos
+        criando essa pequena Demo!*"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 1
+      sfxAposFala: {fileID: 0}
+      etapaMinima: 0
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: "*Fique \xE0 vontade para explorar a Mans\xE3o no Passado e Presente
+        para investigar e descobrir mais do universo de Inheritance!*"
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 1
+      sfxAposFala: {fileID: 0}
+      etapaMinima: 0
+    - personagem:
+        nome: 
+        portrait: {fileID: 0}
+      fala: '*Obrigado por ter disponibilizado do seu tempo para jogar nosso jogo.
+        Nos vemos novamente em breve.*'
+      focoCamera: {fileID: 0}
+      spawnInimigoAqui: 0
+      avancaProgressoAqui: 1
+      sfxAposFala: {fileID: 0}
+      etapaMinima: 0
   apenasUmaVez: 1
   progresso: 50
 --- !u!114 &358501697
@@ -6128,7 +6167,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!4 &1407148485
 Transform:
   m_ObjectHideFlags: 0
@@ -7232,7 +7270,6 @@ MonoBehaviour:
   applyToChildren: 1
   includeInactiveChildren: 1
   childTagFilter: SanityAffected
-  showDebugInfo: 0
 --- !u!4 &1718424822
 Transform:
   m_ObjectHideFlags: 0

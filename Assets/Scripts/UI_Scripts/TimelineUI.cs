@@ -2,6 +2,7 @@
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class TimelineUI : MonoBehaviour
 {
@@ -24,17 +25,22 @@ public class TimelineUI : MonoBehaviour
 
     private static bool bootstrapped = false;
 
+    public int etapaNecessariaFuturo = 5;
+    public GameObject dicaFuturo;
+    public float dicaFadeDuration = 0.5f;
+    public float dicaVisibleTime = 2f;
+
+    public float futuroShakeMagnitude = 10f;
+    public float futuroShakeDuration = 0.5f;
+    public float futuroBlinkInterval = 0.2f;
+
+    private Coroutine dicaCoroutine;
+    private Coroutine futuroCoroutine;
+
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (instance == null) instance = this;
+        else { Destroy(gameObject); return; }
     }
 
     void OnEnable()
@@ -76,8 +82,9 @@ public class TimelineUI : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        if (playerInput != null)
-            playerInput.enabled = true;
+        if (playerInput != null) playerInput.enabled = true;
+
+        if (dicaFuturo != null) dicaFuturo.SetActive(false);
     }
 
     private void RecarregarReferenciasUI()
@@ -139,18 +146,14 @@ public class TimelineUI : MonoBehaviour
     {
         string cena = SceneManager.GetActiveScene().name.ToLower();
 
-        if (cena.Contains("passado"))
-            currentTimeline = Timeline.Passado;
-        else if (cena.Contains("futuro"))
-            currentTimeline = Timeline.Futuro;
-        else
-            currentTimeline = Timeline.Presente;
+        if (cena.Contains("passado")) currentTimeline = Timeline.Passado;
+        else if (cena.Contains("futuro")) currentTimeline = Timeline.Futuro;
+        else currentTimeline = Timeline.Presente;
     }
 
     public void Open(TimeTravelTilemap _)
     {
-        if (panel == null)
-            return;
+        if (panel == null) return;
 
         var cg = panel.GetComponent<CanvasGroup>();
         if (cg != null)
@@ -169,11 +172,12 @@ public class TimelineUI : MonoBehaviour
         DetectarTimelineAtual();
         AtualizarEstadoDosBotoes();
 
+        if (dicaFuturo != null) dicaFuturo.SetActive(false);
+
         Time.timeScale = 0f;
         isPaused = true;
 
-        if (playerInput != null)
-            playerInput.enabled = false;
+        if (playerInput != null) playerInput.enabled = false;
     }
 
     public void Close()
@@ -195,17 +199,36 @@ public class TimelineUI : MonoBehaviour
         if (Passado != null) Passado.gameObject.SetActive(false);
         if (Futuro != null) Futuro.gameObject.SetActive(false);
 
+        if (dicaFuturo != null) dicaFuturo.SetActive(false);
+
         Time.timeScale = 1f;
         isPaused = false;
 
-        if (playerInput != null)
-            playerInput.enabled = true;
+        if (playerInput != null) playerInput.enabled = true;
     }
 
     private void ChooseTimeline(Timeline timeline)
     {
-        if (timeline == currentTimeline)
-            return;
+        if (timeline == Timeline.Futuro)
+        {
+            bool podeViajar =
+                StoryProgressManager.instance != null &&
+                StoryProgressManager.instance.historiaEtapaAtual >= etapaNecessariaFuturo;
+
+            if (!podeViajar)
+            {
+                if (dicaFuturo != null)
+                    ShowDicaFuturo();
+                if (Futuro != null)
+                {
+                    if (futuroCoroutine != null) StopCoroutine(futuroCoroutine);
+                    futuroCoroutine = StartCoroutine(AnimarBotaoFuturo());
+                }
+                return;
+            }
+        }
+
+        if (timeline == currentTimeline) return;
 
         Close();
 
@@ -221,15 +244,9 @@ public class TimelineUI : MonoBehaviour
 
         switch (currentTimeline)
         {
-            case Timeline.Presente:
-                DesativarBotao(Presente);
-                break;
-            case Timeline.Passado:
-                DesativarBotao(Passado);
-                break;
-            case Timeline.Futuro:
-                DesativarBotao(Futuro);
-                break;
+            case Timeline.Presente: DesativarBotao(Presente); break;
+            case Timeline.Passado: DesativarBotao(Passado); break;
+            case Timeline.Futuro: DesativarBotao(Futuro); break;
         }
     }
 
@@ -245,5 +262,69 @@ public class TimelineUI : MonoBehaviour
         if (btn == null) return;
         btn.interactable = false;
         btn.GetComponent<Image>().color = disabledColor;
+    }
+
+    private void ShowDicaFuturo()
+    {
+        if (dicaCoroutine != null) StopCoroutine(dicaCoroutine);
+        dicaCoroutine = StartCoroutine(FadeDicaCoroutine());
+    }
+
+    private IEnumerator FadeDicaCoroutine()
+    {
+        dicaFuturo.SetActive(true);
+        CanvasGroup cg = dicaFuturo.GetComponent<CanvasGroup>();
+        if (cg == null)
+        {
+            cg = dicaFuturo.AddComponent<CanvasGroup>();
+            cg.alpha = 0f;
+        }
+
+        float timer = 0f;
+        while (timer < dicaFadeDuration)
+        {
+            timer += Time.unscaledDeltaTime;
+            cg.alpha = Mathf.Lerp(0f, 1f, timer / dicaFadeDuration);
+            yield return null;
+        }
+        cg.alpha = 1f;
+
+        yield return new WaitForSecondsRealtime(dicaVisibleTime);
+
+        timer = 0f;
+        while (timer < dicaFadeDuration)
+        {
+            timer += Time.unscaledDeltaTime;
+            cg.alpha = Mathf.Lerp(1f, 0f, timer / dicaFadeDuration);
+            yield return null;
+        }
+        cg.alpha = 0f;
+        dicaFuturo.SetActive(false);
+    }
+
+    private IEnumerator AnimarBotaoFuturo()
+    {
+        RectTransform rt = Futuro.GetComponent<RectTransform>();
+        Image img = Futuro.GetComponent<Image>();
+        Vector3 originalPos = rt.anchoredPosition;
+        Color originalColor = img.color;
+        float timer = 0f;
+
+        while (timer < futuroShakeDuration)
+        {
+            timer += Time.unscaledDeltaTime;
+
+            // Tremer
+            rt.anchoredPosition = originalPos + (Vector3)(Random.insideUnitCircle * futuroShakeMagnitude);
+
+            // Piscar
+            float t = Mathf.PingPong(timer, futuroBlinkInterval) / futuroBlinkInterval;
+            img.color = Color.Lerp(originalColor, Color.clear, t);
+
+            yield return null;
+        }
+
+        rt.anchoredPosition = originalPos;
+        img.color = originalColor;
     }
 }
