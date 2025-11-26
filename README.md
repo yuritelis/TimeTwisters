@@ -24,7 +24,7 @@ A equipe responsável pela idealização e produção do jogo foi:
 - Milestone 04: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone04_menueboss.md"> Navegação e Boss</a>;
 - Milestone 05: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone05_testes.md"> Teste de Gameplay</a>;
 - Milestone 06: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone06_final.md"> Entrega Final e Publicação no Itch.io</a>;
-- Milestone 07: <a href=""> Em breve</a>.
+- Milestone 07: <a href="https://github.com/yuritelis/TimeTwisters/blob/main/doc/milestone07_final.md"> Em breve</a>.
 
 ## Links Externos / Referências / Assets
 - Referência de música: <a href="https://pixabay.com/sound-effects/search/music-box/"> Tela de Game Over</a>;
