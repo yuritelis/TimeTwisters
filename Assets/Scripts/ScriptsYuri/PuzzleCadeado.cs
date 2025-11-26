@@ -80,14 +80,17 @@ public class PuzzleCadeado : MonoBehaviour
 
     void Open()
     {
-        PauseController.SetPause(true);
+        if (cadeadoPanel != null)
+        {
+            PauseController.SetPause(true);
 
-        cadeadoPanel.SetActive(true);
-        sanidadeBar.SetActive(false);
-        dialogoPanel.SetActive(false);
-        //hotbarPanel.SetActive(false);
+            cadeadoPanel.SetActive(true);
+            sanidadeBar.SetActive(false);
+            dialogoPanel.SetActive(false);
+            //hotbarPanel.SetActive(false);
 
-        cadeadoActive = true;
+            cadeadoActive = true;
+        }
     }
 
     public void Close()
