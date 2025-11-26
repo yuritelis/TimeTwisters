@@ -72,6 +72,7 @@ public class PuzzleCadeado : MonoBehaviour
             //hotbarPanel.SetActive(true);
             respostaCorreta = true;
             cadeadoActive = false;
+            PauseController.SetPause(false);
             Destroy(cadeadoPanel);
         }
     }

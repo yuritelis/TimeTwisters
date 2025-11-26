@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1345625101421513326}
   - component: {fileID: -5811605093943966715}
   m_Layer: 5
-  m_Name: Item
+  m_Name: Vinil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 60fa43dd7f16012468807a16d6e93498, type: 3}
+  m_Sprite: {fileID: -7370006504717239072, guid: 1d2dd6d12592c5b43ac3be398fc3e485, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   Name: 
+  Tag: 
 --- !u!212 &1480212481911656872
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 60fa43dd7f16012468807a16d6e93498, type: 3}
+  m_Sprite: {fileID: -7370006504717239072, guid: 1d2dd6d12592c5b43ac3be398fc3e485, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -249,7 +250,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.40625, y: 0.40625}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
