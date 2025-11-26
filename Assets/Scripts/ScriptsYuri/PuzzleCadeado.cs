@@ -1,10 +1,10 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class PuzzleCadeado : MonoBehaviour
 {
     [SerializeField] GameObject cadeadoPanel;
-    [SerializeField] GameObject premio;
     [SerializeField] GameObject hotbarPanel, sanidadeBar, dialogoPanel;
     [SerializeField] TextMeshProUGUI cadeadoNum1, cadeadoNum2, cadeadoNum3, cadeadoNum4;
 
@@ -14,13 +14,12 @@ public class PuzzleCadeado : MonoBehaviour
     int num1, num2, num3, num4;
 
     public static bool cadeadoActive;
-    bool respostaCorreta, playerPerto = false;
+    public bool respostaCorreta, playerPerto = false;
 
     private void Start()
     {
         cadeadoPanel.SetActive(false);
         dialogoPanel.SetActive(false);
-        premio.SetActive(false);
 
         num1 = 0;
         num2 = 0;
@@ -32,7 +31,17 @@ public class PuzzleCadeado : MonoBehaviour
 
     private void Update()
     {
+        // Revalidar referências que podem ter perdido na troca de cena
+        if (sanidadeBar == null)
+            sanidadeBar = GameObject.Find("SanidadeBar");
+
+        if (dialogoPanel == null)
+            dialogoPanel = GameObject.Find("DialogoPanel");
+
+        if (cadeadoPanel == null) return; // evita erro fatal
+
         tentativaJogador = num1.ToString() + num2.ToString() + num3.ToString() + num4.ToString();
+
         cadeadoNum1.SetText(num1.ToString());
         cadeadoNum2.SetText(num2.ToString());
         cadeadoNum3.SetText(num3.ToString());
@@ -68,13 +77,18 @@ public class PuzzleCadeado : MonoBehaviour
     {
         if (tentativaJogador == resposta)
         {
-            premio.SetActive(true);
-            sanidadeBar.SetActive(true);
+            if (sanidadeBar != null)
+                sanidadeBar.SetActive(true);
             //hotbarPanel.SetActive(true);
-            respostaCorreta = true;
-            cadeadoActive = false;
-            PauseController.SetPause(false);
-            Destroy(cadeadoPanel);
+            if (!respostaCorreta)
+            {
+                respostaCorreta = true;
+                cadeadoActive = false;
+                PauseController.SetPause(false);
+                StartCoroutine(FadeOutCadeado());
+
+                this.enabled = false;
+            }
         }
     }
 
@@ -85,8 +99,10 @@ public class PuzzleCadeado : MonoBehaviour
             PauseController.SetPause(true);
 
             cadeadoPanel.SetActive(true);
-            sanidadeBar.SetActive(false);
-            dialogoPanel.SetActive(false);
+            if (sanidadeBar != null)
+                sanidadeBar.SetActive(false);
+            if (dialogoPanel != null)
+                dialogoPanel.SetActive(false);
             //hotbarPanel.SetActive(false);
 
             cadeadoActive = true;
@@ -97,8 +113,10 @@ public class PuzzleCadeado : MonoBehaviour
     {
         PauseController.SetPause(false);
 
-        cadeadoPanel.SetActive(false);
-        sanidadeBar.SetActive(true);
+        if (cadeadoPanel != null)
+            cadeadoPanel.SetActive(false);
+        if (sanidadeBar != null)
+            sanidadeBar.SetActive(true);
         //hotbarPanel.SetActive(true);
 
         cadeadoActive = false;
@@ -167,5 +185,24 @@ public class PuzzleCadeado : MonoBehaviour
         {
             num4 = 9;
         }
+    }
+
+    private IEnumerator FadeOutCadeado()
+    {
+        CanvasGroup cg = cadeadoPanel.GetComponent<CanvasGroup>();
+        if (cg == null)
+            cg = cadeadoPanel.AddComponent<CanvasGroup>();
+
+        float t = 1f;
+
+        while (t > 0f)
+        {
+            t -= Time.unscaledDeltaTime * 2f;
+            cg.alpha = Mathf.Clamp01(t);
+            yield return null;
+        }
+
+        if (cadeadoPanel != null)
+            cadeadoPanel.SetActive(false);
     }
 }

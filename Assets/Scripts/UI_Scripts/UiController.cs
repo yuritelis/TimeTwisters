@@ -119,12 +119,18 @@ public class PauseGame : MonoBehaviour
         if (aManager != null)
             aManager.PlaySFX(aManager.botClick);
 
+        PlayerPrefs.SetInt("ReviveFromDeath", 1);
+        PlayerPrefs.SetString("SpawnPoint", "DefaultSpawnSalaConvidados");
+
         PauseController.SetPause(false);
         pauseScreen.SetActive(false);
         Time.timeScale = 1f;
 
-        SceneManager.LoadScene("TitleScreen");
+        SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
     }
+
+
+
 
     public void BotResume()
     {

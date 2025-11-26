@@ -56,8 +56,20 @@ public class BotController : MonoBehaviour
     public void BotPlay()
     {
         if (aManager != null) aManager.PlaySFX(aManager.botClick);
+
+        if (PlayerPrefs.HasKey("HasSave") && PlayerPrefs.GetInt("HasSave") == 1)
+        {
+            nomeCena = "Sala_Convidados";
+            PlayerPrefs.SetString("SpawnPoint", "SpawnInicial");
+        }
+        else
+        {
+            nomeCena = "Saguão";
+        }
+
         StartCoroutine(FadeAndLoad());
     }
+
 
     private IEnumerator FadeAndLoad()
     {
