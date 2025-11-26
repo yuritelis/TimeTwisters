@@ -12,3 +12,5 @@ Integrantes:
 
 ## Proposta
 - Divulgação e meta de 100 downloads. <br>
+
+Como nos foi requerido nesta última entrega, aqui irão conter informações sobre o nosso método de marketing, os resultados da publcação na plataforma itch.io e os feedbacks que foram feitos. 
