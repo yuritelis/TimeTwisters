@@ -1,7 +1,7 @@
 # Milestone 07
 ## Informações Gerais
 Entrega: 26/11/2025 <br>
-Status: Em andamento <br>
+Status: Concluído <br>
 Integrantes:
 - Daniel Barroquelo
 - Gabriel Mezet
@@ -35,6 +35,9 @@ Link do perfil: <a href="https://www.youtube.com/@inheritanceoficial"> Inheritan
 
 <img width="1293" height="418" alt="image" src="https://github.com/user-attachments/assets/5c5f6e01-bfc1-498f-99fc-911b66355f00" /> <br>
 
+#### Outros
+Além de postar em redes oficiais, os integrantes do grupo fizeram publicações nas redes sociais privadas, como WhatsApp, Discord, Instagram, entre outros.
+
 ### Pôsteres
 Para compor a nossa divulgação, nós fizemos pôsteres para serem atrativos e instigarem as pessoas a se tornarem jogadores.
 A seguir estão os pôsteres:
@@ -55,6 +58,7 @@ A seguir estão os pôsteres:
 <img width="480" height="1508" alt="Poster 5" src="https://github.com/user-attachments/assets/6bcadcd0-c9b5-4668-83d2-331e9b7fc31a" /> <br>
 
 ## Resultados da Publicação
-
+Nós publicamos nosso jogo no dia 12 de novembro e demos início no processo de divulgação nesse mesmo dia. Atualmente, nosso jogo possui 111 downloads, 232 views e 644 7d impressions. Vemos esse resultado como excelente, visto que visamos a meta de 100 downloads e estavamos preocupados de atingir a meta.
 
 ## Feedback externo
+Os feedbacks feitos ao nosso jogo foram feitos principalmente por mensagens privadas, mas em um geral, nosso jogo foi muito elogiado pela arte, a qual foi feita em pixel art, imersão, interatividade e storytelling, especialmente sobre a história ser intrigante e atrativa para os jogadores, os induzindo para que explorassem mais o mapa e descobrissem mais do jogo (que era o nosso intuito com o jogo.
