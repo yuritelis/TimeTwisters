@@ -22,7 +22,7 @@ Como nos foi requerido nesta última entrega, os itens deste documento consistir
 A divulgação do projeto consistiu principalmente em conversas, pedindo para amigos e familiares jogarem nosso jogo. Também fizemos postagens nas redes sociais para chamar atenção do público para baixarem.
 ### Redes sociais
 #### Instagram
-Link do perfil: <a href"https://www.instagram.com/inheritanceoficial/"> Inheritance Oficial no Instagram </a>
+Link do perfil: <a href="https://www.instagram.com/inheritanceoficial/"> Inheritance Oficial no Instagram </a>
 
 #### YouTube
 
