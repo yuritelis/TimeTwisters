@@ -4,20 +4,23 @@ using UnityEngine;
 public class PuzzleCadeado : MonoBehaviour
 {
     [SerializeField] GameObject cadeadoPanel;
-    [SerializeField] GameObject carta;
-    [SerializeField] TextMeshProUGUI senhaCadeado;
+    [SerializeField] GameObject premio;
+    [SerializeField] GameObject hotbarPanel, sanidadeBar, dialogoPanel;
+    [SerializeField] TextMeshProUGUI cadeadoNum1, cadeadoNum2, cadeadoNum3, cadeadoNum4;
 
-    string resposta = "1234";
+    string resposta = "1879";
     string tentativaJogador;
 
     int num1, num2, num3, num4;
 
-    bool cadeadoActive, playerPerto = false;
+    public static bool cadeadoActive;
+    bool respostaCorreta, playerPerto = false;
 
     private void Start()
     {
         cadeadoPanel.SetActive(false);
-        carta.SetActive(false);
+        dialogoPanel.SetActive(false);
+        premio.SetActive(false);
 
         num1 = 0;
         num2 = 0;
@@ -25,13 +28,17 @@ public class PuzzleCadeado : MonoBehaviour
         num4 = 0;
 
         tentativaJogador = num1.ToString() + num2.ToString() + num3.ToString() + num4.ToString();
-        senhaCadeado.SetText(tentativaJogador);
     }
 
     private void Update()
     {
         tentativaJogador = num1.ToString() + num2.ToString() + num3.ToString() + num4.ToString();
-        senhaCadeado.SetText(tentativaJogador);
+        cadeadoNum1.SetText(num1.ToString());
+        cadeadoNum2.SetText(num2.ToString());
+        cadeadoNum3.SetText(num3.ToString());
+        cadeadoNum4.SetText(num4.ToString());
+
+        TestarResposta();
 
         if (playerPerto)
         {
@@ -47,13 +54,49 @@ public class PuzzleCadeado : MonoBehaviour
                 Close();
             }
         }
+    }
 
-        if(tentativaJogador == resposta)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            carta.SetActive(true);
-            Destroy(gameObject);
+            playerPerto = true;
+        }
+    }
+
+    public void TestarResposta()
+    {
+        if (tentativaJogador == resposta)
+        {
+            premio.SetActive(true);
+            //hotbarPanel.SetActive(true);
+            respostaCorreta = true;
+            cadeadoActive = false;
             Destroy(cadeadoPanel);
         }
+    }
+
+    void Open()
+    {
+        PauseController.SetPause(true);
+
+        cadeadoPanel.SetActive(true);
+        sanidadeBar.SetActive(false);
+        dialogoPanel.SetActive(false);
+        //hotbarPanel.SetActive(false);
+
+        cadeadoActive = true;
+    }
+
+    public void Close()
+    {
+        PauseController.SetPause(false);
+
+        cadeadoPanel.SetActive(false);
+        sanidadeBar.SetActive(true);
+        //hotbarPanel.SetActive(true);
+
+        cadeadoActive = false;
     }
 
     public void AumentaNum1()
@@ -118,26 +161,6 @@ public class PuzzleCadeado : MonoBehaviour
         if (num4 == -1)
         {
             num4 = 9;
-        }
-    }
-
-    void Open()
-    {
-        cadeadoPanel.SetActive(true);
-        cadeadoActive = true;
-    }
-
-    public void Close()
-    {
-        cadeadoPanel.SetActive(false);
-        cadeadoActive = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerPerto = true;
         }
     }
 }
