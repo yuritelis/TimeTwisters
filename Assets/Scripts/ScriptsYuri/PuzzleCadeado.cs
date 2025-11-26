@@ -69,6 +69,7 @@ public class PuzzleCadeado : MonoBehaviour
         if (tentativaJogador == resposta)
         {
             premio.SetActive(true);
+            sanidadeBar.SetActive(true);
             //hotbarPanel.SetActive(true);
             respostaCorreta = true;
             cadeadoActive = false;
