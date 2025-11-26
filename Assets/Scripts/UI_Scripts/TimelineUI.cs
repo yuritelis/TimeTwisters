@@ -7,18 +7,15 @@ public class TimelineUI : MonoBehaviour
 {
     public static TimelineUI instance;
 
-    [Header("Referências de UI")]
     public GameObject panel;
     public GameObject sanidadeBar;
     public Button Presente;
     public Button Passado;
     public Button Futuro;
 
-    [Header("Controle do Jogador")]
     public PlayerController playerController;
     public PlayerInput playerInput;
 
-    [Header("Configuração de Cor")]
     public Color normalColor = Color.white;
     public Color disabledColor = Color.gray;
 
@@ -59,7 +56,17 @@ public class TimelineUI : MonoBehaviour
 
     public void ForceCloseOnSceneLoad()
     {
-        if (panel != null) panel.SetActive(false);
+        if (panel != null)
+        {
+            var cg = panel.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                cg.alpha = 0f;
+                cg.interactable = false;
+                cg.blocksRaycasts = false;
+            }
+        }
+
         if (sanidadeBar != null) sanidadeBar.SetActive(true);
 
         if (Presente != null) Presente.gameObject.SetActive(false);
@@ -139,15 +146,20 @@ public class TimelineUI : MonoBehaviour
         else
             currentTimeline = Timeline.Presente;
     }
+
     public void Open(TimeTravelTilemap _)
     {
         if (panel == null)
-        {
-            Debug.LogError("❌ TimelinePanel não encontrado!");
             return;
+
+        var cg = panel.GetComponent<CanvasGroup>();
+        if (cg != null)
+        {
+            cg.alpha = 1f;
+            cg.interactable = true;
+            cg.blocksRaycasts = true;
         }
 
-        panel.SetActive(true);
         if (sanidadeBar != null) sanidadeBar.SetActive(false);
 
         Presente.gameObject.SetActive(true);
@@ -163,9 +175,20 @@ public class TimelineUI : MonoBehaviour
         if (playerInput != null)
             playerInput.enabled = false;
     }
+
     public void Close()
     {
-        if (panel != null) panel.SetActive(false);
+        if (panel != null)
+        {
+            var cg = panel.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                cg.alpha = 0f;
+                cg.interactable = false;
+                cg.blocksRaycasts = false;
+            }
+        }
+
         if (sanidadeBar != null) sanidadeBar.SetActive(true);
 
         if (Presente != null) Presente.gameObject.SetActive(false);
@@ -178,6 +201,7 @@ public class TimelineUI : MonoBehaviour
         if (playerInput != null)
             playerInput.enabled = true;
     }
+
     private void ChooseTimeline(Timeline timeline)
     {
         if (timeline == currentTimeline)
@@ -187,8 +211,6 @@ public class TimelineUI : MonoBehaviour
 
         if (TimeTravelSceneManager.instance != null)
             TimeTravelSceneManager.instance.CarregarCena(timeline);
-        else
-            Debug.LogWarning("Nenhum TimeTravelSceneManager encontrado!");
     }
 
     private void AtualizarEstadoDosBotoes()

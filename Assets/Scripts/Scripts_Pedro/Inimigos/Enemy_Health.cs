@@ -11,16 +11,26 @@ public class Enemy_Health : MonoBehaviour
     private Color originalColor;
     private Coroutine flashRoutine;
 
+    private bool levouDanoReal = false;
+    public bool LevouDanoReal => levouDanoReal;
+
+    private AvancaEtapaAoMorrer avancaEtapa;
+
     void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
+
+        avancaEtapa = GetComponent<AvancaEtapaAoMorrer>();
     }
 
     public void ChangeHealth(int amount)
     {
+        if (amount < 0)
+            levouDanoReal = true;
+
         currentHealth += amount;
 
         if (amount < 0)
@@ -32,8 +42,14 @@ public class Enemy_Health : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
-            GetComponent<EnemyPersistence>()?.MarkAsDead();
-            GetComponent<EnemyDeathDialogTrigger>()?.OnEnemyDefeated();
+            if (levouDanoReal)
+            {
+                GetComponent<EnemyPersistence>()?.MarkAsDead();
+                GetComponent<EnemyDeathDialogTrigger>()?.OnEnemyDefeated();
+                if (avancaEtapa != null)
+                    avancaEtapa.ForcarAvanco();
+            }
+
             Destroy(gameObject);
         }
     }

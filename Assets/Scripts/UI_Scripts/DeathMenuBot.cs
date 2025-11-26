@@ -1,14 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class DeathMenuBot : MonoBehaviour
 {
-    public static bool pendingReset = false;
-
-    public string salaPassado;
-    public string salaPresente;
-    public string salaFuturo;
+    public PlayerHealth playerHealth;
+    public Transform spawnPoint;
+    public string spawnPointName;
 
     public void BotMenu()
     {
@@ -17,15 +14,11 @@ public class DeathMenuBot : MonoBehaviour
 
     public void BotReiniciar()
     {
-        pendingReset = true;
+        PlayerPrefs.SetInt("ReviveFromDeath", 1);
 
-        string epoca = PlayerPrefs.GetString("ultimaCena", "presente");
+        if (!string.IsNullOrEmpty(spawnPointName))
+            PlayerPrefs.SetString("SpawnPoint", spawnPointName);
 
-        if (epoca == "passado")
-            SceneManager.LoadScene(salaPassado);
-        else if (epoca == "futuro")
-            SceneManager.LoadScene(salaFuturo);
-        else
-            SceneManager.LoadScene(salaPresente);
+        SceneManager.LoadScene("Sala_Convidados");
     }
 }

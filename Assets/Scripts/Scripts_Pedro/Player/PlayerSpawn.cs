@@ -25,18 +25,35 @@ public class PlayerSpawn : MonoBehaviour
 
     private void TrySpawnPlayer()
     {
-        if (CheckpointManager.instance != null && CheckpointManager.instance.HasCheckpoint())
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "DeathScreen") return;
+
+        string spawnName = PlayerPrefs.GetString("SpawnPoint", "");
+
+        if (Application.isEditor && SceneManager.GetActiveScene().buildIndex == 0 && !PlayerPrefs.HasKey("GameStarted"))
         {
-            transform.position = CheckpointManager.instance.GetCheckpointPosition();
+            PlayerPrefs.DeleteKey("SpawnPoint");
+            PlayerPrefs.SetInt("GameStarted", 1);
             return;
         }
 
-        string spawnName = PlayerPrefs.GetString("SpawnPoint", "");
         if (!string.IsNullOrEmpty(spawnName))
         {
             GameObject spawn = GameObject.Find(spawnName);
+
             if (spawn != null)
+            {
                 transform.position = spawn.transform.position;
+            }
+        }
+
+        PlayerHealth hp = GetComponent<PlayerHealth>();
+
+        if (hp != null && PlayerPrefs.GetInt("ReviveFromDeath", 0) == 1)
+        {
+            hp.ResetPlayer();
+            PlayerPrefs.SetInt("ReviveFromDeath", 0);
         }
     }
 }

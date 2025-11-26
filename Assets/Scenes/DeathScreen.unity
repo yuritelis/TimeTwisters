@@ -641,9 +641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31916e4812e8e414dbd4655478444197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  salaPassado: Passado Convidados
-  salaPresente: Sala_Convidados
-  salaFuturo: Futuro Convidados
+  playerHealth: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  spawnPointName: Spawn_Vitrola
 --- !u!4 &991238827
 Transform:
   m_ObjectHideFlags: 0

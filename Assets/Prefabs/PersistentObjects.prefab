@@ -2226,6 +2226,7 @@ GameObject:
   - component: {fileID: 2553254365589419782}
   - component: {fileID: 1322843940421512417}
   - component: {fileID: 5691116717558035038}
+  - component: {fileID: 3834123756120694981}
   m_Layer: 5
   m_Name: TimelinePanel
   m_TagString: Untagged
@@ -2314,6 +2315,18 @@ MonoBehaviour:
   playerInput: {fileID: 2925149191181771405}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+--- !u!225 &3834123756120694981
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253845897552968649}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4543488380956184422
 GameObject:
   m_ObjectHideFlags: 0
