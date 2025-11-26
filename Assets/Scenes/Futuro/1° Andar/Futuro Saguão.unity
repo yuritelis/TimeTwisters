@@ -1941,17 +1941,14 @@ MonoBehaviour:
   dialogoAntesDaTransicao:
     dialogoFalas: []
   dialogoBloqueado:
-    dialogoFalas:
-    - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
-      focoCamera: {fileID: 0}
-      spawnInimigoAqui: 0
-      avancaProgressoAqui: 0
-      sfxAposFala: {fileID: 0}
-      etapaMinima: 0
-  falasAleatorias: []
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "N\xE3o h\xE1 escapat\xF3ria vis\xEDvel."
   transitionCooldown: 1.2
 --- !u!61 &360615203
 BoxCollider2D:
@@ -4758,17 +4755,14 @@ MonoBehaviour:
   dialogoAntesDaTransicao:
     dialogoFalas: []
   dialogoBloqueado:
-    dialogoFalas:
-    - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
-      focoCamera: {fileID: 0}
-      spawnInimigoAqui: 0
-      avancaProgressoAqui: 0
-      sfxAposFala: {fileID: 0}
-      etapaMinima: 0
-  falasAleatorias: []
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "N\xE3o h\xE1 escapat\xF3ria vis\xEDvel."
   transitionCooldown: 1.2
 --- !u!61 &1112541292
 BoxCollider2D:
@@ -6431,17 +6425,14 @@ MonoBehaviour:
   dialogoAntesDaTransicao:
     dialogoFalas: []
   dialogoBloqueado:
-    dialogoFalas:
-    - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
-      focoCamera: {fileID: 0}
-      spawnInimigoAqui: 0
-      avancaProgressoAqui: 0
-      sfxAposFala: {fileID: 0}
-      etapaMinima: 0
-  falasAleatorias: []
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "N\xE3o h\xE1 escapat\xF3ria vis\xEDvel."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
   transitionCooldown: 1.2
 --- !u!61 &1438278681
 BoxCollider2D:
@@ -10494,17 +10485,14 @@ MonoBehaviour:
   dialogoAntesDaTransicao:
     dialogoFalas: []
   dialogoBloqueado:
-    dialogoFalas:
-    - personagem:
-        nome: 
-        portrait: {fileID: 0}
-      fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
-      focoCamera: {fileID: 0}
-      spawnInimigoAqui: 0
-      avancaProgressoAqui: 0
-      sfxAposFala: {fileID: 0}
-      etapaMinima: 0
-  falasAleatorias: []
+    dialogoFalas: []
+  falasAleatorias:
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "Fugir n\xE3o \xE9 uma op\xE7\xE3o."
+  - nome: 
+    retrato: {fileID: 0}
+    fala: "N\xE3o h\xE1 escapat\xF3ria vis\xEDvel."
   transitionCooldown: 1.2
 --- !u!61 &1805937113
 BoxCollider2D:
