@@ -36,8 +36,25 @@ Link do perfil: <a href="https://www.youtube.com/@inheritanceoficial"> Inheritan
 <img width="1293" height="418" alt="image" src="https://github.com/user-attachments/assets/5c5f6e01-bfc1-498f-99fc-911b66355f00" /> <br>
 
 ### Pôsteres
+Para compor a nossa divulgação, nós fizemos pôsteres para serem atrativos e instigarem as pessoas a se tornarem jogadores.
+A seguir estão os pôsteres:
+
+#### Pôster 1
 <img width="480" height="1508" alt="Poster 1" src="https://github.com/user-attachments/assets/3a1806c2-8781-4275-ad8e-94a359f2654e" /> <br>
+
+#### Pôster 2
 <img width="480" height="1508" alt="Poster 2" src="https://github.com/user-attachments/assets/bb64051c-0732-475e-95e6-097d1c8d66dc" /> <br>
+
+#### Pôster 3
 <img width="480" height="1508" alt="Poster 3" src="https://github.com/user-attachments/assets/010429e2-c560-4b9d-9a1a-4ea6cd470a77" /> <br>
+
+#### Pôster 4
 <img width="480" height="1508" alt="Poster 4" src="https://github.com/user-attachments/assets/8adde470-148b-45cb-a2b2-c3404cdaed76" /> <br>
+
+#### Pôster 5
 <img width="480" height="1508" alt="Poster 5" src="https://github.com/user-attachments/assets/6bcadcd0-c9b5-4668-83d2-331e9b7fc31a" /> <br>
+
+## Resultados da Publicação
+
+
+## Feedback externo
