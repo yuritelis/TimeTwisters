@@ -4,6 +4,11 @@ Este projeto é parte essencial da conclusão do módulo de Projeto 2D (segundo 
 ## Ideia geral
 Time Twisters é um jogo 2D TopDown de puzzle e investigação com viagem no tempo no qual a protagonista, Julie Caulfield, herda uma casa de um parente distante e conforme explora a mansão, ela descobre segredos sobre seus antepassados.
 
+## Redes Sociais e Publicaçao
+- <a href="https://instagram.com/inheritanceoficial"> Instagram</a>;
+- <a href="https://youtube.com/@inheritanceoficial"> YouTube</a>;
+- <a href="https://yuriyurui.itch.io/inheritance"> Itch.io</a>;
+
 ## Integrantes
 A equipe responsável pela idealização e produção do jogo foi:
 
